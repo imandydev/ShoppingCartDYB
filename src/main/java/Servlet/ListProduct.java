@@ -18,6 +18,7 @@ public class ListProduct extends HttpServlet {
     private List<Menu> valuesMenu = new MenuEmpty().getAllMenu();
     private Infor infor = new InforEmpty().getInfor();
     private  ImagesB imagesB = new ImagesEmpty().getImagesSingle("Các mục khác");
+    public static final int sizeProIn1Page = 12;
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         doGet(request, response);
     }
@@ -36,7 +37,24 @@ public class ListProduct extends HttpServlet {
     // tìm sản phẩm theo id menu
     protected void doGetById(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         int idMenu = Integer.parseInt(request.getParameter("id"));
-        List<Product> listPro = new ProductEmpty().getAllProdcutByIdMenu(idMenu);
+        int pageNumber = Integer.parseInt(request.getParameter("page"));
+        List<Product> list = new ProductEmpty().getAllProdcutByIdMenu(idMenu);
+        // phân trang
+        int pageStart = 0;
+        int pageEnd =  pageNumber * sizeProIn1Page;;
+        if (list.size() < pageEnd) {
+            pageStart = (pageNumber - 1) * sizeProIn1Page;
+            pageEnd = list.size();
+        }
+        // lấy sản phẩm theo phân trang
+        List<Product> listPro = new ProductEmpty().getAllProductByPage(list, pageStart, pageEnd);
+        if (list.size()%sizeProIn1Page == 0)
+            // số lượng phân trang
+            request.setAttribute("pageNumber",list.size()/sizeProIn1Page);
+        else
+        request.setAttribute("pageNumber",(list.size()/sizeProIn1Page) + 1);
+        // trả về phân trang hiện tại
+        request.setAttribute("pageStart", pageNumber);
         request.setAttribute("listPro", listPro);
         request.setAttribute("searchRep", "");
         doGetSupport(request,response);

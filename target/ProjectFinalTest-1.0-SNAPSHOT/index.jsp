@@ -52,7 +52,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 
 						<li class="nav-item">
 
-								<a class="nav-link" href="${pageContext.request.contextPath}${m.link}?action=returns&id=${m.id}">${m.name}</a>
+								<a class="nav-link" href="${pageContext.request.contextPath}${m.link}?action=returns&id=${m.id}&page=1">${m.name}</a>
 
 						</li>
 						</c:forEach>

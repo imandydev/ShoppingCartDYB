@@ -14,7 +14,7 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 	<title>DYB Áo</title>
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-	<meta name="keywords" content="Downy Shoes Responsive web template, Bootstrap Web Templates, Flat Web Templates, Android Compatible web template, 
+	<meta name="keywords" content="Downy Shoes Responsive web template, Bootstrap Web Templates, Flat Web Templates, Android Compatible web template,
 Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, SonyEricsson, Motorola web design" />
 	<script type="application/x-javascript">
 		addEventListener("load", function () {
@@ -57,7 +57,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 
 							<li class="nav-item">
 
-									<a class="nav-link" href="${pageContext.request.contextPath}${m.link}?action=returns&id=${m.id}">${m.name}</a>
+									<a class="nav-link" href="${pageContext.request.contextPath}${m.link}?action=returns&id=${m.id}&page=1">${m.name}</a>
 
 							</li>
 						</c:forEach>
@@ -137,7 +137,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 			<div class="side-bar col-md-3">
 				<div class="search-hotel">
 					<h3 class="agileits-sear-head">Tìm Kiếm </h3>
-					<form action="${pageContext.request.contextPath}/search?action=search&id=${menuSingle.id}" method="post">
+					<form action="${pageContext.request.contextPath}/search?action=search&id=${menuSingle.id}&page=1" method="post">
 						<input type="search" placeholder="Tên Sản Phẩm..." name="search" required="" value="${searchRep}">
 						<input type="submit" value=" ">
 					</form>
@@ -145,7 +145,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 				<!-- price range -->
 				<div class="range">
 					<h3 class="agileits-sear-head">Lọc Giá</h3>
-					<form action="${pageContext.request.contextPath}/search?action=fill-price&id=${menuSingle.id}&search-rep=${searchRep}" method="post">
+					<form action="${pageContext.request.contextPath}/search?action=fill-price&id=${menuSingle.id}&search-rep=${searchRep}&page=1" method="post">
 				<div class="content">
 					<div class="input">
 						<input type="number" class="tu" placeholder="₫ TỪ" name="priceStart" value="${priceS}">
@@ -170,7 +170,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 					</c:if>
 					<ul>
 						<c:forEach items="${listCate}" var="m">
-							<a href="${pageContext.request.contextPath}/search?action=fillter-cate&id=${menuSingle.id}&search-rep=${searchRep}&priceStart=${priceS}&priceEnd=${priceE}&idCateSelected=${m.id}">
+							<a href="${pageContext.request.contextPath}/search?action=fillter-cate&id=${menuSingle.id}&search-rep=${searchRep}&priceStart=${priceS}&priceEnd=${priceE}&idCateSelected=${m.id}&page=1">
 								<li>
 									<c:if test="${idCate == m.id}">
 										<span class="span active">${m.name}</span>
@@ -181,7 +181,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 								</li>
 							</a>
 						</c:forEach>
-						
+
 					</ul>
 				</div>
 				<div class="customer-rev left-side">
@@ -330,27 +330,154 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 
 
 						</c:forEach>
+						<c:if test="${listPro.size() != 0}">
+							<nav aria-label="Page navigation example">
 
-						<nav aria-label="Page navigation example">
-							<ul class="pagination">
-							  <li class="page-item">
-									<a class="page-link" href="#" aria-label="Previous">
-										  <span aria-hidden="true">&laquo;</span>
-									  <span class="sr-only">Previous</span>
+								<ul class="pagination">
+								  <li class="page-item">
+									  		<c:choose>
+												<c:when test="${checklink == true}">
+													<c:choose>
+																<c:when test="${pageStart == 1}">
+																	<a class="page-link" href="${pageContext.request.contextPath}/search?action=search-page&id=${menuSingle.id}&page=${pageStart}&search-rep=${searchRep}&priceStart=${priceS}&priceEnd=${priceE}&idCateSelected=${idCate}" aria-label="Previous">
+																</c:when>
+
+																<c:when test="${pageStart != 1}">
+																	<a class="page-link" href="${pageContext.request.contextPath}/search?action=search-page&id=${menuSingle.id}&page=${pageStart - 1}&search-rep=${searchRep}&priceStart=${priceS}&priceEnd=${priceE}&idCateSelected=${idCate}" aria-label="Previous">
+																</c:when>
+
+														</c:choose>
+												</c:when>
+
+													<c:when test="${checklink == false}">
+																		<c:choose>
+																		<c:when test="${pageStart == 1}">
+																			<a class="page-link" href="${pageContext.request.contextPath}/listproducts?action=returns&id=${menuSingle.id}&page=${pageStart}" aria-label="Previous">
+                                                                                </c:when>
+                                                                                <c:when test="${pageStart != 1}">
+																					<a class="page-link" href="${pageContext.request.contextPath}/listproducts?action=returns&id=${menuSingle.id}&page=${pageStart - 1}" aria-label="Previous">
+                                                                                        </c:when>
+																	</c:choose>
+													</c:when>
+											</c:choose>
+											  <span aria-hidden="true">&laquo;</span>
+										  <span class="sr-only">Previous</span>
+										</a>
+									  </li>
+
+									<c:set var="i" value="${pageNumber}"></c:set>
+
+<%--										 nếu trang đang chọn == số lượng trang--%>
+										<c:if test="${pageStart == i}">
+													<c:choose>
+
+<%--														 nếu là trang tìm kiếm--%>
+														<c:when test="${checklink == true}">
+														<li class="page-item active"><a class="page-link" href="${pageContext.request.contextPath}/search?action=search-page&id=${menuSingle.id}&page=${pageStart}&search-rep=${searchRep}&priceStart=${priceS}&priceEnd=${priceE}&idCateSelected=${idCate}">${pageStart}</a></li>
+														</c:when>
+
+<%--														 nếu không là trang tìm kiếm--%>
+														<c:when test="${checklink == false}">
+															<li class="page-item active"><a class="page-link" href="${pageContext.request.contextPath}/listproducts?action=returns&id=${menuSingle.id}&page=${pageStart}">${pageStart}</a></li>
+														</c:when>
+
+													</c:choose>
+
+										</c:if>
+
+										<c:if test="${pageStart != i}">
+											<c:choose>
+
+<%--												 nếu không là trang tìm kiếm--%>
+												<c:when test="${checklink == false}">
+
+<%--													 nếu chỉ mục 3 trang tiếp theo < tổng số trang--%>
+													<c:if test="${(pageStart + 3) < i }">
+														<c:forEach var="m" begin="${pageStart}" end="${pageStart + 3}">
+                                                            <c:if test="${pageStart == m}">
+															<li class="page-item active"><a class="page-link" href="${pageContext.request.contextPath}/listproducts?action=returns&id=${menuSingle.id}&page=${m}">${m}</a></li>
+                                                            </c:if>
+                                                            <c:if test="${pageStart != m}">
+                                                                <li class="page-item"><a class="page-link" href="${pageContext.request.contextPath}/listproducts?action=returns&id=${menuSingle.id}&page=${m}">${m}</a></li>
+                                                            </c:if>
+                                                        </c:forEach>
+													</c:if>
+
+<%--													nếu chỉ mục 3 trang tiếp theo >= tổng số trang--%>
+													<c:if test="${(pageStart + 3) >= i}">
+														<c:forEach var="m" begin="${pageStart}" end="${i}">
+<%--                                                            vị trí đang chọn thì set màu khác--%>
+                                                            <c:if test="${pageStart == m}">
+															<li class="page-item active"><a class="page-link" href="${pageContext.request.contextPath}/listproducts?action=returns&id=${menuSingle.id}&page=${m}">${m}</a></li>
+                                                            </c:if>
+                                                            <c:if test="${pageStart != m}">
+                                                                <li class="page-item"><a class="page-link" href="${pageContext.request.contextPath}/listproducts?action=returns&id=${menuSingle.id}&page=${m}">${m}</a></li>
+                                                            </c:if>
+                                                        </c:forEach>
+													</c:if>
+												</c:when>
+
+<%--												là trang tìm kiếm--%>
+												<c:when test="${checklink == true}">
+
+<%--													nếu chỉ mục 3 trang tiếp theo < tổng số trang--%>
+													<c:if test="${(pageStart + 3) < i }">
+														<c:forEach var="m" begin="${pageStart}" end="${pageStart + 3}">
+															<li class="page-item"><a class="page-link" href="${pageContext.request.contextPath}/search?action=search-page&id=${menuSingle.id}&page=${m}&search-rep=${searchRep}&priceStart=${priceS}&priceEnd=${priceE}&idCateSelected=${idCate}">${m}</a></li>
+														</c:forEach>
+													</c:if>
+
+<%--													nếu chỉ mục 3 trang tiếp theo >= tổng số trang--%>
+													<c:if test="${(pageStart + 3) >= i}">
+														<c:forEach var="m" begin="${pageStart}" end="${i}">
+															<li class="page-item"><a class="page-link" href="${pageContext.request.contextPath}/search?action=search-page&id=${menuSingle.id}&page=${m}&search-rep=${searchRep}&priceStart=${priceS}&priceEnd=${priceE}&idCateSelected=${idCate}">${m}</a></li>
+														</c:forEach>
+													</c:if>
+												</c:when>
+
+											</c:choose>
+
+										</c:if>
+								  <li class="page-item">
+
+
+                                      <c:choose>
+                                        <c:when test="${checklink == true}">
+                                         <c:choose>
+                                             <c:when test="${pageStart == i}">
+                                                 <a class="page-link" href="${pageContext.request.contextPath}/search?action=search-page&id=${menuSingle.id}&page=${i}&search-rep=${searchRep}&priceStart=${priceS}&priceEnd=${priceE}&idCateSelected=${idCate}" aria-label="Next">
+                                          </c:when>
+
+                                            <c:when test="${pageStart != i}">
+                                                <a class="page-link" href="${pageContext.request.contextPath}/search?action=search-page&id=${menuSingle.id}&page=${pageStart + 1}&search-rep=${searchRep}&priceStart=${priceS}&priceEnd=${priceE}&idCateSelected=${idCate}" aria-label="Next">
+                                              </c:when>
+
+                                                    </c:choose>
+                                              </c:when>
+
+                                              <c:when test="${checklink == false}">
+                                              <c:choose>
+                                              <c:when test="${pageStart == i}">
+                                              <a class="page-link"
+                                                 href="${pageContext.request.contextPath}/listproducts?action=returns&id=${menuSingle.id}&page=${i}"
+                                                 aria-label="Next">
+                                                  </c:when>
+                                                  <c:when test="${pageStart != i}">
+                                                  <a class="page-link"
+                                                     href="${pageContext.request.contextPath}/listproducts?action=returns&id=${menuSingle.id}&page=${pageStart + 1}"
+                                                     aria-label="Next">
+                                                      </c:when>
+                                                      </c:choose>
+                                                      </c:when>
+                                                      </c:choose>
+									  <span aria-hidden="true">&raquo;</span>
+									  <span class="sr-only">Next</span>
 									</a>
 								  </li>
-							  <li class="page-item"><a class="page-link" href="#">1</a></li>
-								 <li class="page-item"><a class="page-link" href="#">2</a></li>
-							  <li class="page-item"><a class="page-link" href="#">3</a></li>
-							  <li class="page-item"><a class="page-link" href="#">...</a></li>
-							  <li class="page-item">
-									<a class="page-link" href="#" aria-label="Next">
-								  <span aria-hidden="true">&raquo;</span>
-								  <span class="sr-only">Next</span>
-								</a>
-							  </li>
-						   </ul>
-					  </nav>
+							   </ul>
+
+							 </nav>
+						</c:if>
 						<!-- //mens -->
 						<div class="clearfix"></div>
 
@@ -498,7 +625,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 	</div>
 	<!-- /newsletter-->
 	<div class="newsletter_w3layouts_agile">
-		
+
 	</div>
 	<!-- //newsletter-->
 	<!-- footer -->
@@ -627,7 +754,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 	<!-- price range (top products) -->
 	<script src="js/jquery-ui.js"></script>
 	<!-- <script>
-		//<![CDATA[ 
+		//<![CDATA[
 		$(window).load(function () {
 			$("#slider-range").slider({
 				range: true,

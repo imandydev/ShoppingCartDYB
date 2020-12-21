@@ -29,19 +29,21 @@ public class Search extends HttpServlet {
             doGetFillPrice(request,response);
         else if(action.equalsIgnoreCase("fillter-cate"))
             doGetFillCate(request,response);
+        else if (action.equalsIgnoreCase("search-page"))
+            doGetPage(request,response);
     }
-    protected void doGetSearchByName(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-        int idMenu = Integer.parseInt(request.getParameter("id"));
-        String search = request.getParameter("search").trim();
-        Menu menu = new MenuEmpty().getSingleMenuById(idMenu);
-        List<Product> listPro = new ProductEmpty().getAllProdcutByName(search);
-        request.setAttribute("listPro", listPro);
-        request.setAttribute("searchRep", search);
 
-        doGetSupport(request,response);
+
+    protected void doGetSearchByName(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+        String search = request.getParameter("search").trim();
+        List<Product> list = new ProductEmpty().getAllProdcutByName(search);
+        request.setAttribute("searchRep", search);
+        doGetPageSup(request,response,list);
     }
+
+
+
     protected void doGetFillPrice(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-        int idMenu = Integer.parseInt(request.getParameter("id"));
         String searchRep = request.getParameter("search-rep").trim();
         double priceStart = 0;
         double priceEnd = 0;
@@ -49,16 +51,14 @@ public class Search extends HttpServlet {
             priceStart = Double.parseDouble(request.getParameter("priceStart").trim());;
         if (!request.getParameter("priceEnd").equalsIgnoreCase(""))
             priceEnd = Double.parseDouble(request.getParameter("priceEnd").trim());
-        List<Product> listPro = new ProductEmpty().getAllProdcutFillPrice(searchRep,priceStart,priceEnd);
-        request.setAttribute("listPro", listPro);
+        List<Product> list = new ProductEmpty().getAllProdcutFillPrice(searchRep,priceStart,priceEnd);
         request.setAttribute("searchRep", searchRep);
         request.setAttribute("priceS",formatedGia(priceStart));
         request.setAttribute("priceE",formatedGia(priceEnd));
+        doGetPageSup(request,response,list);
 
-        doGetSupport(request,response);
     }
     protected void doGetFillCate(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-        int idMenu = Integer.parseInt(request.getParameter("id"));
         String searchRep = request.getParameter("search-rep").trim();
         double priceStart = 0;
         double priceEnd = 0;
@@ -67,14 +67,38 @@ public class Search extends HttpServlet {
         if (!request.getParameter("priceEnd").equalsIgnoreCase(""))
             priceEnd = Double.parseDouble(request.getParameter("priceEnd").trim());
         int idCateSelec = Integer.parseInt(request.getParameter("idCateSelected"));
-        List<Product> listPro = new ProductEmpty().getAllProdcutFillCate(searchRep,priceStart,priceEnd,idCateSelec);
-        request.setAttribute("listPro", listPro);
+        List<Product> list = new ProductEmpty().getAllProdcutFillCate(searchRep,priceStart,priceEnd,idCateSelec);
         request.setAttribute("searchRep", searchRep);
         request.setAttribute("priceS",formatedGia(priceStart));
         request.setAttribute("priceE",formatedGia(priceEnd));
         request.setAttribute("idCate", idCateSelec);
-        doGetSupport(request,response);
+        doGetPageSup(request,response,list);
+
     }
+    protected void doGetPage(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+        String searchRep = request.getParameter("search-rep").trim();
+        double priceStart = 0;
+        double priceEnd = 0;
+        if ( !request.getParameter("priceStart").equalsIgnoreCase(""))
+            priceStart = Double.parseDouble(request.getParameter("priceStart").trim());;
+        if (!request.getParameter("priceEnd").equalsIgnoreCase(""))
+            priceEnd = Double.parseDouble(request.getParameter("priceEnd").trim());
+
+        List<Product> list= null;
+        String idCateSelec = "";
+        if (!request.getParameter("idCateSelected").equalsIgnoreCase("")) {
+            idCateSelec = request.getParameter("idCateSelected");
+            list = new ProductEmpty().getAllProdcutFillCate(searchRep, priceStart, priceEnd, Integer.parseInt(request.getParameter("idCateSelected")));
+        } else
+            list = new ProductEmpty().getAllProdcutFillPrice(searchRep,priceStart,priceEnd);
+
+        request.setAttribute("searchRep", searchRep);
+        request.setAttribute("priceS",formatedGia(priceStart));
+        request.setAttribute("priceE",formatedGia(priceEnd));
+        request.setAttribute("idCate", idCateSelec);
+        doGetPageSup(request,response,list);
+    }
+    //    Hỗ trợ
     protected void doGetSupport(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         int idMenu = Integer.parseInt(request.getParameter("id"));
         Menu menu = new MenuEmpty().getSingleMenuById(idMenu);
@@ -90,6 +114,27 @@ public class Search extends HttpServlet {
         request.setAttribute("checklink", true);
         request.getRequestDispatcher("shop.jsp").forward(request,response);
     }
+    // Hỗ trợ phân trang
+    protected void doGetPageSup(HttpServletRequest request, HttpServletResponse response, List<Product> list) throws ServletException, IOException {
+        int pageNumber = Integer.parseInt(request.getParameter("page"));
+        int pageStart = 0;
+        int pageEnd =  pageNumber * ListProduct.sizeProIn1Page;
+        if (list.size() < pageEnd) {
+            pageStart = (pageNumber - 1) * ListProduct.sizeProIn1Page;
+            pageEnd = list.size();
+        }
+        // lấy sản phẩm theo phân trang
+        List<Product> listPro = new ProductEmpty().getAllProductByPage(list, pageStart, pageEnd);
+        if (list.size()%ListProduct.sizeProIn1Page == 0)
+            // số lượng phân trang
+            request.setAttribute("pageNumber",list.size()/ListProduct.sizeProIn1Page);
+        else
+            request.setAttribute("pageNumber",(list.size()/ListProduct.sizeProIn1Page) + 1);
+        request.setAttribute("listPro", listPro);
+        request.setAttribute("pageStart", pageNumber);
+        doGetSupport(request,response);
+    }
+    // in giá kiểu string đã format
     public String formatedGia(double gia) {
         DecimalFormat formatter = new DecimalFormat("###");
         return formatter.format(gia);

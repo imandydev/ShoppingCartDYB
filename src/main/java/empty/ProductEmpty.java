@@ -80,5 +80,11 @@ public class ProductEmpty {
         }
         return listPro;
     }
+    public List<Product> getAllProductByPage(List<Product> listPro, int start, int end) {
+        List<Product> listProByPage = new LinkedList<>();
+        for (int i = start; i < end; i++)
+            listProByPage.add(listPro.get(i));
+        return listProByPage;
+    }
 
 }
