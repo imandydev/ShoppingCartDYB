@@ -1,0 +1,65 @@
+.forget {
+    padding-bottom: 20px;
+}
+.in {
+    width: 50%;
+    margin: 0px auto 20px auto;
+}
+.in input{
+    height: 36px;
+    width: 100%;
+    outline: 0;
+    border: #ccc solid 1px;
+    padding: 0px 12px;
+}
+.btn-pass {
+    width: 144px;
+    height: 36px;  
+    font-size: 1em;
+    font-weight: bold;
+}
+.btn-pass{
+    outline: none;
+}
+.btn-huy{
+    background: rgb(255, 255, 255);
+    border: rgb(34, 34, 34) solid 1px;
+    -webkit-transition: 0.5s all;
+    -moz-transition: 0.5s all;
+    -o-transition: 0.5s all;
+    -ms-transition: 0.5s all;
+}
+.btn-tieptuc{
+    background: #fb383b;
+    color: rgb(255, 255, 255);
+    border: none;
+    text-decoration: none;
+    -webkit-transition: 0.5s all;
+    -moz-transition: 0.5s all;
+    -o-transition: 0.5s all;
+    -ms-transition: 0.5s all;
+}
+.btn-huy:hover{
+    -webkit-transition: 0.5s all;
+    -moz-transition: 0.5s all;
+    -o-transition: 0.5s all;
+    -ms-transition: 0.5s all;
+    background: rgb(34, 34, 34);
+    border-color: rgb(34, 34, 34);
+    color: rgb(255, 255, 255);
+}
+.btn-tieptuc:hover {
+    -webkit-transition: 0.5s all;
+    -moz-transition: 0.5s all;
+    -o-transition: 0.5s all;
+    -ms-transition: 0.5s all;
+    background: rgb(34, 34, 34);
+}
+.btn-forgetpass {
+    width: 292px;
+    margin: auto;
+}
+#horizontalTab {
+    width: 70% !important;
+    margin: auto !important;
+}

@@ -1,0 +1,215 @@
+
+/* menu */
+.header_menu{
+    position: absolute;
+    z-index: 99;
+    left:28%;
+    margin-top: 55px;
+}
+.header_menu ul{
+    list-style: none;
+    display: flex;
+}
+
+.header_menu ul li a{
+    color: white;
+    font-size: 20px;
+    padding-left:25px ;
+    padding-right: 25px;
+
+}
+.header_menu ul li a:hover{
+    color: #fb383b;
+}
+
+
+.login{
+    width: 17%;
+    margin-top: 55px;
+    position: absolute;
+    z-index: 99;
+    right: 1.401%;
+}
+
+/* menu-end */
+
+
+.center {
+    width: 100%;
+    height: 700px;
+}
+.center_main {
+    display: flex;
+    height: 620px;
+    width: 93%;
+    margin: auto;
+    margin-top: 50px;
+}
+
+/* left */
+
+.main_left {
+    width: 24%;
+    margin-right: 5%;
+    box-shadow: 0px 0px 18px 0px rgba(179,179,179,1);
+    min-width: 220px; 
+}
+.main_left .content {
+    width: 90%;
+    margin: 6% 0px 0px 5%;
+
+}
+.center_main .content h3 {
+    margin-bottom: 25px;
+    font-weight: bold;
+}
+
+.content .account a h4 {
+    margin-bottom: 15px;
+    color: #222;
+    font-weight: bold;
+}
+.content .account ul li {
+    list-style: none;
+    margin-bottom: 10px;
+   
+}
+
+.content .account ul li:hover a span{
+    color: rgb(251, 56, 59);
+}
+.content .account ul {
+    margin-left: 30px;
+}
+.content .account ul li a span{
+    color: #666;
+}
+.content .c1 a:hover h4 {
+    color: rgb(251, 56, 59);
+}
+.donmua a h4 {
+    margin-bottom: 20px;
+    margin-top: 20px;
+    font-weight: bold;
+    color: black;
+}
+.dangxuat a h4 {
+    color: #222;
+    font-weight: bold;
+}
+.content .account ul li a .active{
+    color: red;
+
+}
+
+/* right */
+.main_right {
+    width: 75%;
+    height: 100%;
+}
+.main_right .content_main {
+    width: 100%;
+    height: 100%;
+}
+ .list_product {
+    display: block;
+    width: 100%;
+    height: 620px;
+    background-color: white;
+    box-shadow: 0px 0px 18px 0px rgba(179, 179, 179, 1);
+    overflow: hidden; /*moi them*/
+}
+.main_right .list_product .content_pro_a {
+    min-width: 700px;
+    display: block;
+    width: 90%;
+    height: 80px;
+    margin-left: auto;
+    margin-right: auto;
+    border-bottom: 1px solid rgba(175, 175, 175, 0.5);
+}
+
+ .main_right .list_product .content_pro_a h2 {
+    padding-top: 15px;
+    margin-top: 0;
+}
+
+.main_right .list_product .content_pro_a h4 {
+    font-weight: normal;
+    margin-top: 15px;
+    font-size: 15px;
+}
+.main_right .list_product .content_pro_b{
+    display: block;
+    width: 90%;
+    height: 539px;
+    margin-left: auto;
+    margin-right: auto;  
+}
+.content_pro_b .content_pro_b_box{
+    width: 90%;
+    margin-left: auto;
+    margin-right: auto; 
+}
+.content_pro_b .content_pro_b_box table{
+    width: 100%;/* vua them 14/11 */
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 7%; /* vua them 14/11 */
+}
+.content_pro_b .content_pro_b_box .ele1{
+    font-size: 15px; /* vua them 14/11 */
+    margin-top: 10px;
+    padding-top: 10px;
+    width: 100%;/* vua them 14/11 */
+    min-width: 143px;
+    display: block;
+}
+
+.content_pro_b .content_pro_b_box .text{ /* vua them 14/11 */
+   width: 55%;
+}
+.content_pro_b .content_pro_b_box { /* vua them 14/11 */
+    width: 100%;
+
+}
+.content_pro_b .content_pro_b_box input{
+    width: 400px;
+    height: 35px;
+    margin-top: 10px;
+    outline: none;
+}
+.content_pro_b .content_pro_b_box button{
+    margin-top: 10px;
+    width: 100px;
+    height: 38px;
+    outline: none;
+    color: white;
+    background-color: rgb(14, 14, 14);
+    border: none; /* vua them 14/11 */
+    /* vua them 14/11 */
+    -webkit-transition: 0.5s all;
+    -moz-transition: 0.5s all;
+    -o-transition: 0.5s all;
+    -ms-transition: 0.5s all;
+}
+.content_pro_b .content_pro_b_box button:hover{  /* vua them 14/11 */
+    color: white;
+    background-color: #fb383b;
+    -webkit-transition: 0.5s all;
+    -moz-transition: 0.5s all;
+    -o-transition: 0.5s all;
+    -ms-transition: 0.5s all;
+}
+
+.content_pro_b .content_pro_b_box a{ /* vua them 14/11 */
+    display: block;
+    margin-top: 10px;
+    text-decoration: none;
+    font-size: 15px;
+     overflow: hidden;
+     min-width: 143px;
+     display: block;
+}
+
+

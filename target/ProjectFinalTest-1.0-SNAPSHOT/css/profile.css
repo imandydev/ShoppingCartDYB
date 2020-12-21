@@ -1,0 +1,282 @@
+
+/* menu */
+.header_menu{
+    position: absolute;
+    z-index: 99;
+    left:32%;
+    margin-top: 55px;
+}
+.header_menu ul{
+    list-style: none;
+    display: flex;
+}
+
+.header_menu ul li a{
+    color: white;
+    font-size: 20px;
+    padding-left:25px ;
+    padding-right: 25px;
+
+}
+.header_menu ul li a:hover{
+    color: #fb383b;
+}
+
+
+.login{
+    width: 17%;
+    margin-top: 55px;
+    position: absolute;
+    z-index: 99;
+    right: 1.401%;
+}
+
+/* menu-end */
+
+
+.center {
+    width: 100%;
+    height: 700px;
+}
+.center_main {
+    display: flex;
+    height: 620px;
+    width: 93%;
+    margin: auto;
+    margin-top: 50px;
+}
+
+/* left */
+
+.main_left {
+    width: 24%;
+    margin-right: 5%;
+    box-shadow: 0px 0px 18px 0px rgba(179,179,179,1);
+    min-width: 220px; /* vua them 14/11*/
+}
+.main_left .content {
+    width: 90%;
+    margin: 6% 0px 0px 5%;
+}
+.center_main .content h3 {
+    margin-bottom: 25px;
+    font-weight: bold;
+}
+
+.content .account a h4 {
+    margin-bottom: 15px;
+    color: #222;
+    font-weight: bold;
+}
+.content .account ul li {
+    list-style: none;
+    margin-bottom: 10px;
+   
+}
+
+.content .account ul li:hover a span{
+    color: rgb(251, 56, 59);
+}
+.content .account ul {
+    margin-left: 30px;
+}
+.content .account ul li a span{
+    color: #666;
+}
+.content .c1 a:hover h4 {
+    color: rgb(251, 56, 59);
+}
+.donmua a h4 {
+    margin-bottom: 20px;
+    margin-top: 20px;
+    font-weight: bold;
+    color: black;
+}
+.dangxuat a h4 {
+    color: #222;
+    font-weight: bold;
+}
+.content .account ul li a .active{
+    color: red;
+
+}
+
+/* right */
+.main_right {
+    width: 75%;
+    height: 100%;
+    /* vua them 14/11*/
+   
+}
+.main_right .content_main {
+    width: 100%;
+    height: 100%;
+}
+.main_right .list_product {
+    display: block;
+    width: 100%;
+    height: 620px;
+    background-color: white;
+    box-shadow: 0px 0px 18px 0px rgba(179, 179, 179, 1);
+    min-width: 650px;
+    overflow: hidden;
+   
+}
+
+.main_right .list_product .content_pro_a {
+    display: block;
+    width: 90%;
+    height: 80px;
+    margin-left: auto;
+    margin-right: auto;
+    border-bottom: 1px solid rgba(175, 175, 175, 0.5);
+    min-width: 700px; /* vua them 14/11*/
+
+}
+
+.main_right .list_product .content_pro_a h2 {
+    padding-top: 15px;
+    margin-top: 0;
+}
+
+.main_right .list_product .content_pro_a h4 {
+    font-weight: normal;
+    margin-top: 15px;
+    font-size: 15px;
+}
+.content_pro_b {
+    width: 90%;
+    height: 539px;  
+    margin-left: auto;
+    margin-right: auto;
+}
+.element_left{
+    float: left;
+    width: 70%;
+    margin-top: 50px;
+}
+.element_left .element{
+    width: 95%;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.element_left .element{
+    display: block;
+    height: 40px;
+    margin-top: 10px;
+}
+
+
+.element .cl1{
+    float: left;
+    width: 30%;
+    min-width: 140px;/* vua them 14/11*/
+}
+.element .cl1 h3{
+    font-size: 15px;
+    font-weight: normal;
+    padding-right: 20px;
+}
+.element .cl2{
+    float: right;
+    width: 70%;
+    min-width: 300px;/* vua them 14/11*/
+}
+.cl2 h3{
+    font-size: 15px;
+}
+
+
+
+.cl2 input[type="text" i], input[type="number" i], input[type="email" i]{
+    width: 70%;
+    border-radius: 3px;
+    height: 35px;
+    border: 1px solid gray;
+}
+.cl2 label{
+    padding-right: 20px;
+    font-weight: normal;
+
+}
+
+.cl2 select{
+    width: 19.5%;
+    margin-right: 5%;
+    height: 35px;
+}
+.cl3{
+    margin-left: 30%; /* vua them 14/11*/
+    margin-top: 5%; /* vua them 14/11*/
+}
+.cl3 button{
+    height: 35px;
+    outline: none;
+    width: 100px;
+    background-color: black;
+    color: white;
+    /* vua them 14/11 */
+    -webkit-transition: 0.5s all;
+    -moz-transition: 0.5s all;
+    -o-transition: 0.5s all;
+    -ms-transition: 0.5s all;
+    border: none;
+    
+}
+.cl3 button:hover{
+    color: white;
+    background-color: #fb383b;
+    -webkit-transition: 0.5s all;
+    -moz-transition: 0.5s all;
+    -o-transition: 0.5s all;
+    -ms-transition: 0.5s all;
+}
+
+
+.element_right{
+    float: right;
+    width: 30%;
+    margin-top: 50px;
+    border-left: 1px solid gray;
+    text-align: center;
+    /* vua them 14/11*/
+    min-width: 150px;
+}
+.element_right i{
+    display: block;
+    font-size: 70px;
+    text-align: center;
+    margin-bottom: 15px;
+    color: gray;
+}
+.element_right button{
+    display: block;
+    width: 100px;
+    height: 35px;
+    margin: auto;
+    outline: none;
+    border-radius: 3px;
+    margin-bottom: 10px;
+}
+/* vua them 14/11 */
+.element_right  .chon{
+    width: 200px;
+    margin: auto;
+
+}
+/* vua them 14/11 */
+.element_right p{
+    margin-top: 2%;
+}
+.element_right a img{
+    width: 100px;
+    margin-bottom: 10px;
+}
+
+
+
+
+
+
+

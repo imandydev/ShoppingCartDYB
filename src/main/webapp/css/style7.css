@@ -1,0 +1,54 @@
+/* Overlay style */
+
+
+
+/* Overlay closing cross */
+
+
+
+button#trigger-overlay {
+    border: none;
+    background: none;
+    text-align: center;
+    color: #fbfdfb;
+    font-size: 1.65em;
+	padding: 0 8px;
+	background: rgba(27, 25, 25, 0.27);
+	border: 1px solid rgba(27, 25, 25, 0.27);
+	width: 36px;
+    height: 36px;
+}
+.dropdown_user{
+    display: none;
+    position: absolute;
+	background: rgba(27, 25, 25, 0.27);
+	min-width: 160px;
+    padding: 5px 16px;
+    z-index: 1;
+}
+.top_nav_right:hover .dropdown_user{
+    display: block;
+}
+.dropdown_user ul{
+	list-style-type: none;
+}
+.dropdown_user ul li{
+    margin-top: 10px;
+    margin-bottom: 12px;
+}
+.dropdown_user ul li a{
+    text-decoration: none;
+    color: white;
+}
+.dropdown_user ul li a:hover{
+    color: #fb383b;
+}
+
+
+
+/* Menu style */
+
+
+
+/* Effects */
+

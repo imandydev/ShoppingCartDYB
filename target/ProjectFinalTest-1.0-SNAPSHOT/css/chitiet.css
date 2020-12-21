@@ -1,0 +1,174 @@
+.header_menu{
+    position: absolute;
+    z-index: 99;
+    left:28%;
+    margin-top: 55px;
+}
+.header_menu ul{
+    list-style: none;
+    display: flex;
+}
+
+.header_menu ul li a{
+    color: white;
+    font-size: 20px;
+    padding-left:25px ;
+    padding-right: 25px;
+
+}
+.header_menu ul li a:hover{
+    color: #fb383b;
+}
+
+
+.login{
+    width: 17%;
+    margin-top: 55px;
+    position: absolute;
+    z-index: 99;
+    right: 1.401%;
+}
+
+/* menu-end */
+/* mã sản phẩm */
+.single-right-left .msp{
+    font-size: 13px;
+}
+.single-right-left .msp span{
+    font-weight: bold;
+}
+
+/* choses-color */
+.color-box{
+    margin-top: 25px;
+}
+
+.color-box h5{
+    margin-bottom: 20px;
+}
+
+.choses-color{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 45%;
+}
+.choses-color button{
+    height: 40px;
+    width: 100px;
+    outline: none;
+    background-color: transparent;
+    border: 1px solid gray;
+    border-radius: 3px;
+}
+.choses-color button:hover{
+    border: 1px solid red;
+    border-radius: 3px;
+}
+/* chọn size */
+.size-box{
+    margin-top: 25px;
+}
+.choses-size{
+    display: flex;
+    width: 70%;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 25px;
+    margin-top: 25px;
+}
+.choses-size button{
+    height: 40px;
+    width: 100px;
+    outline: none;
+    background-color: transparent;
+    border: 1px solid gray;
+    border-radius: 3px;
+   
+}
+.choses-size button:hover{
+    border: 1px solid red;
+    border-radius: 3px;
+
+}
+
+.size-box h5{
+    margin-bottom: 25px;
+}
+
+
+/* nút thêm vào giỏ hàng */
+input.button.add:hover{
+	background-color:#fb383b;
+	color: white;
+}
+
+/* Số Lượng */
+.buttons_added {
+    opacity:1;
+    display:inline-block;
+    display:-ms-inline-flexbox;
+    display:inline-flex;
+    white-space:nowrap;
+    vertical-align:top;
+}
+.is-form {
+    overflow:hidden;
+    position:relative;
+    background-color:#f9f9f9;
+    height:40px;
+    width:40px;
+    padding:0;
+    text-shadow:1px 1px 1px #fff;
+    border:1px solid #ddd;
+}
+.is-form:focus,.input-text:focus {
+    outline:none;
+}
+.is-form.minus {
+    border-radius:4px 0 0 4px;
+}
+.is-form.plus {
+    border-radius:0 4px 4px 0;
+}
+.input-qty {
+    background-color:#fff;
+    height:40px;
+    width: 60px;
+    outline: none;
+    text-align:center;
+    font-size:1.4rem;
+    display:inline-block;
+    vertical-align:top;
+    margin:0;
+    border-top:1px solid #ddd;
+    border-bottom:1px solid #ddd;
+    border-left:0;
+    border-right:0;
+    padding:0;
+}
+.input-qty::-webkit-outer-spin-button,.input-qty::-webkit-inner-spin-button {
+    -webkit-appearance:none;
+    margin:0;
+}
+
+
+/* sản phẩm nổi bật */
+
+.money{
+    text-decoration: line-through;
+}
+.moneySave{
+    color: #fb383b;
+    font-weight: bold;
+}
+.rating1 {
+    margin-bottom: 10px;
+}
+ul.stars i {
+    font-size: 15px !important;
+}
+ul.stars li a {
+    color: #ffce3d !important;
+
+} 

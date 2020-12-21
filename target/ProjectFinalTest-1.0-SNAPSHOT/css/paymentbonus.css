@@ -1,0 +1,70 @@
+.submitcod , .submit-paypal{
+    display: block;
+    position: relative;
+    padding: 12px 43px 12px;
+    letter-spacing: 3px;
+    background: #212121;
+    font-size: 1em;
+    color: #fff;
+    font-weight: 500;
+    border: none;
+    outline: none;
+    transition: 0.5s all;
+    -webkit-transition: 0.5s all;
+    -moz-transition: 0.5s all;
+    -o-transition: 0.5s all;
+    -ms-transition: 0.5s all;
+    text-transform: uppercase;
+}
+.submitcod:hover, .submit-paypal:hover {
+    background: #fb383b;
+    color: #fff;
+    transition: 0.5s all;
+    -webkit-transition: 0.5s all;
+    -moz-transition: 0.5s all;
+    -o-transition: 0.5s all;
+    -ms-transition: 0.5s all;
+}
+
+
+
+/* menu */
+.header_menu{
+    position: absolute;
+    z-index: 99;
+    left:32%;
+    margin-top: 55px;
+}
+.header_menu ul{
+    list-style: none;
+    display: flex;
+}
+
+.header_menu ul li a{
+    color: white;
+    font-size: 20px;
+    padding-left:25px ;
+    padding-right: 25px;
+
+}
+.header_menu ul li a:hover{
+    color: #fb383b;
+}
+
+
+.login{
+    width: 17%;
+    margin-top: 55px;
+    position: absolute;
+    z-index: 99;
+    right: 1.401%;
+}
+
+.ghichu {
+    padding-left: 0px !important;
+     padding-bottom: 20px;
+     font-weight: bold !important;
+}
+.checkbox .check_box_one .form-control {
+    margin-bottom: 20px;
+}

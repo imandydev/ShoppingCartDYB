@@ -1,0 +1,194 @@
+.shop_left  {
+    width: 31.5% !important;
+    padding: 0px;
+    padding-right: 0px !important;
+  }
+
+.shop_left ul{
+  width: 100%;
+  text-align: center;
+  background-color:#fff;
+  list-style-type: none;
+
+}
+.shop_left ul .ao{
+  color: #fff;
+  display: inline-block;
+  height: 60px;
+  line-height: 60px;
+  font-size: 20px;
+  width:100%;
+  background-color:black;
+}
+
+.shop_left1  {
+    /* width: 407px !important; */
+    width: 33.5% !important;
+    padding: 0px;
+    padding-right: 0px !important;
+  }
+.shop_left1 ul{
+  width: 100%;
+  text-align: center;
+  background-color: black;
+  list-style-type: none;
+  
+}
+.shop_left1 ul .quan{
+  color: white;
+  display: inline-block;
+  height: 60px;
+  line-height: 60px;
+  font-size: 20px;
+  width:100%;
+}
+.shop_left ul .ao:hover{
+  background-color: #fb383b;
+  color: white;
+}
+
+
+.shop_left2  {
+    width: 34.9% !important;
+    padding: 0px;
+    padding-left: 0px;
+}
+.shop_left2 ul {
+  width: 100%;
+  text-align: center;
+  background-color: #fb383b;
+  list-style-type: none;
+}
+.shop_left2 ul .phu_kien{
+  color: white;
+  display: inline-block;
+  height: 60px;
+  line-height: 60px;
+  font-size: 20px;
+  width:100%;
+}
+.shop_left1 ul .quan:hover{
+  background-color: #fb383b;
+  color: white;
+}
+
+/* sua phan style banner shop */
+.banner_top.innerpage {
+    background: url(../images/banner3.jpg) no-repeat 0px -1px 123px !important;
+   
+    
+}
+.link-product-add-cart:hover {
+    background: #fff !important;
+	color:black !important;
+}
+/* sua money */
+.money{
+  text-decoration-line: line-through;
+  font-weight: none ;
+}
+.grid-price .moneySave{
+  color: red !important;
+  font-weight:700;
+  font-size: 16px;
+}
+
+.link-product-add-cart:hover{
+  background-color: #fb383b !important;
+  color: white !important;
+}
+
+.header_menu{
+  position: absolute;
+  z-index: 99;
+  left:28%;
+  margin-top: 55px;
+}
+.header_menu ul{
+  list-style: none;
+  display: flex;
+}
+
+.header_menu ul li a{
+  color: white;
+  font-size: 20px;
+  padding-left:25px ;
+  padding-right: 25px;
+
+}
+.header_menu ul li a:hover{
+  color: #fb383b;
+}
+.header_menu .active{
+  color: #fb383b;
+  background-color: white;
+}
+
+
+.login{
+  width: 17%;
+  margin-top: 55px;
+  position: absolute;
+  z-index: 99;
+  right: 1.401%;
+}
+
+
+
+/* menu-end */
+.range{
+  width:100%;
+}
+.range .content{
+  width:99%;
+  height: 45px;
+}
+.input{
+  width:45%;
+  height: 30px;
+  float: left;
+}
+.input .tu{
+  width:100%;
+  height: 30px;
+  outline: none;
+  border: 1px solid #ccc;
+}
+.input1{
+  width:45%;
+  height: 30px;
+  float: left;
+  margin-left: 10%;
+}
+.input1 .den{
+  width:100%;
+  height: 30px;
+  outline: none;
+  border: #ccc 1px solid;
+}
+.apdung{
+  width:100%;
+
+}
+
+.apdung .button{
+  width:100%;
+  border: 1px solid #ccc;
+  height: 35px;
+  color: white;
+  background-color: black;
+  outline: none;
+  -webkit-transition: 0.5s all;
+    -moz-transition: 0.5s all;
+    -o-transition: 0.5s all;
+    -ms-transition: 0.5s all;
+}
+.apdung .button:hover{
+  color: white;
+  background-color: #fb383b;
+  -webkit-transition: 0.5s all;
+    -moz-transition: 0.5s all;
+    -o-transition: 0.5s all;
+    -ms-transition: 0.5s all;
+}
+
