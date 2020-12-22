@@ -1,5 +1,6 @@
 package empty;
 
+import DAO.EvaluateDAO;
 import beans.Menu;
 import beans.Product;
 import db.ConnectionDB;
@@ -13,8 +14,7 @@ import java.util.LinkedList;
 import java.util.List;
 
 public class ProductEmpty {
-
-
+    private Product eva = new Product();
     public List<Product> getAllProdcutByIdMenu(int id) {
         Statement s = null;
         try {
@@ -27,9 +27,11 @@ public class ProductEmpty {
                rs = s.executeQuery("SELECT * FROM san_pham INNER JOIN (danh_muc INNER JOIN menu on danh_muc.idmenu = menu.idmenu) on san_pham.id_danh_muc = danh_muc.id_danh_muc WHERE menu.idmenu = " + id +" and san_pham.status = 'public' and san_pham.giamgia = 0");
             while (rs.next()) {
                 listPro.add(new Product(rs.getInt(1), rs.getString(2), rs.getInt(3), rs.getDouble(4), rs.getDouble(5),rs.getString(6),rs.getString(7),rs.getString(8),rs.getString(9),rs.getString(10),rs.getInt(11),rs.getString(12)));
+
             }
             rs.close();
             s.close();
+
             return listPro;
         } catch (ClassNotFoundException | SQLException e) {
             e.printStackTrace();
@@ -69,6 +71,7 @@ public class ProductEmpty {
            if (item.getGia().doubleValue() >= priceStart && item.getGia().doubleValue() <= priceEnd)
                 listPro.add(item);
         }
+
         return listPro;
     }
     public List<Product> getAllProdcutFillCate(String searchRep, double priceStart, double priceEnd, int idCate) {
@@ -78,13 +81,25 @@ public class ProductEmpty {
             if (item.getIdDanhMuc() == idCate)
                 listPro.add(item);
         }
+
         return listPro;
     }
     public List<Product> getAllProductByPage(List<Product> listPro, int start, int end) {
         List<Product> listProByPage = new LinkedList<>();
-        for (int i = start; i < end; i++)
+        for (int i = start; i < end; i++) {
             listProByPage.add(listPro.get(i));
+        }
+        eva.setEvaListPro(listProByPage);
         return listProByPage;
+    }
+    public List<Product> getAllProductsByEvaluate(List<Product> list, int evaluate ) {
+        List<Product> listProByPage = new LinkedList<>();
+        for (Product item:
+             list) {
+            if (item.getDanhGia() >= evaluate)
+                listProByPage.add(item);
+        }
+        return  listProByPage;
     }
 
 }

@@ -2,9 +2,13 @@ package beans;
 
 
 
+import DAO.EvaluateDAO;
+import empty.EvaluateEmpty;
+
 import java.math.BigDecimal;
 import java.text.DecimalFormat;
 import java.text.NumberFormat;
+import java.util.List;
 import java.util.Locale;
 
 public class Product {
@@ -20,7 +24,7 @@ public class Product {
     private String date;
     private int giamgia;
     private String status;
-
+    private double danhGia;
     public Product(int id, String name, int idDanhMuc, double gia, double giaKM, String moTa, String thongTin, String link, String img, String date, int giamgia, String status) {
         this.id = id;
         this.name = name;
@@ -34,11 +38,37 @@ public class Product {
         this.date = date;
         this.giamgia = giamgia;
         this.status = status;
+        this.danhGia = 0;
     }
 
     public Product() {
     }
 
+    public double getDanhGia() {
+        return danhGia;
+    }
+
+    public void setEvaListPro(List<Product> listPro) {
+        for (Product item:
+                listPro) {
+            item.setDanhGia();
+        }
+    }
+    public void setDanhGia() {
+        List<Evaluate> listEva = new EvaluateEmpty().getAllEvaluateProductByIdProduct(this.id);
+        this.danhGia = new EvaluateDAO().everageEva(listEva);
+    }
+    // xet' số sao lẻ < 0.5 set 0.5 : set 1
+    public int getOldEva() {
+        double temp = this.danhGia%(int)this.danhGia;
+        if ( temp != 0) {
+            if (temp > 0.5)
+                return 2;
+            else
+                return 1;
+        }
+        return 0;
+    }
     public int getId() {
         return id;
     }

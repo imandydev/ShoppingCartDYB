@@ -1,5 +1,6 @@
 package Servlet;
 
+import DAO.EvaluateDAO;
 import beans.*;
 import empty.*;
 
@@ -29,8 +30,9 @@ public class Search extends HttpServlet {
             doGetFillPrice(request,response);
         else if(action.equalsIgnoreCase("fillter-cate"))
             doGetFillCate(request,response);
-        else if (action.equalsIgnoreCase("search-page"))
+        else if (action.equalsIgnoreCase("search-page") || action.equalsIgnoreCase("evaluate"))
             doGetPage(request,response);
+
     }
 
 
@@ -75,6 +77,7 @@ public class Search extends HttpServlet {
         doGetPageSup(request,response,list);
 
     }
+
     protected void doGetPage(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         String searchRep = request.getParameter("search-rep").trim();
         double priceStart = 0;
@@ -83,19 +86,23 @@ public class Search extends HttpServlet {
             priceStart = Double.parseDouble(request.getParameter("priceStart").trim());;
         if (!request.getParameter("priceEnd").equalsIgnoreCase(""))
             priceEnd = Double.parseDouble(request.getParameter("priceEnd").trim());
-
         List<Product> list= null;
         String idCateSelec = "";
+        int ivaluate = 5;
+        if (!request.getParameter("eva").equalsIgnoreCase(""))
+            ivaluate = Integer.parseInt(request.getParameter("eva"));
         if (!request.getParameter("idCateSelected").equalsIgnoreCase("")) {
             idCateSelec = request.getParameter("idCateSelected");
             list = new ProductEmpty().getAllProdcutFillCate(searchRep, priceStart, priceEnd, Integer.parseInt(request.getParameter("idCateSelected")));
         } else
             list = new ProductEmpty().getAllProdcutFillPrice(searchRep,priceStart,priceEnd);
-
+        new Product().setEvaListPro(list);
+        list = new ProductEmpty().getAllProductsByEvaluate(list,ivaluate);
         request.setAttribute("searchRep", searchRep);
         request.setAttribute("priceS",formatedGia(priceStart));
         request.setAttribute("priceE",formatedGia(priceEnd));
         request.setAttribute("idCate", idCateSelec);
+        request.setAttribute("eva", ivaluate);
         doGetPageSup(request,response,list);
     }
     //    Hỗ trợ

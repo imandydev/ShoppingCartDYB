@@ -1,3 +1,5 @@
+<%@ page import="java.util.List" %>
+<%@ page import="beans.Product" %>
 <%@ page contentType="text/html; charset=UTF-8" language="java" %>
 <%@ taglib prefix = "c" uri = "http://java.sun.com/jsp/jstl/core" %>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/functions" prefix="fn" %>
@@ -187,56 +189,22 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 				<div class="customer-rev left-side">
 					<h3 class="agileits-sear-head">Đánh Giá</h3>
 					<ul>
+						<c:forEach var="m" begin="1" end="5">
 						<li>
-							<a href="#">
+							<a href="${pageContext.request.contextPath}/search?action=evaluate&id=${menuSingle.id}&search-rep=${searchRep}&priceStart=${priceS}&priceEnd=${priceE}&idCateSelected=${idCate}&eva=${6-m}&page=1">
+								<c:forEach begin="1" end="${6 - m}">
 								<i class="fa fa-star" aria-hidden="true"></i>
-								<i class="fa fa-star" aria-hidden="true"></i>
-								<i class="fa fa-star" aria-hidden="true"></i>
-								<i class="fa fa-star" aria-hidden="true"></i>
-								<i class="fa fa-star" aria-hidden="true"></i>
-								<span>5.0</span>
+								</c:forEach>
+								<c:if test="${m>0}">
+									<c:forEach begin="1" end="${m - 1}">
+										<i class="fa fa-star-o" aria-hidden="true"></i>
+									</c:forEach>
+								</c:if>
+								<span>${6-m}.0</span>
 							</a>
 						</li>
-						<li>
-							<a href="#">
-								<i class="fa fa-star" aria-hidden="true"></i>
-								<i class="fa fa-star" aria-hidden="true"></i>
-								<i class="fa fa-star" aria-hidden="true"></i>
-								<i class="fa fa-star" aria-hidden="true"></i>
-								<i class="fa fa-star-o" aria-hidden="true"></i>
-								<span>4.0</span>
-							</a>
-						</li>
-						<li>
-							<a href="#">
-								<i class="fa fa-star" aria-hidden="true"></i>
-								<i class="fa fa-star" aria-hidden="true"></i>
-								<i class="fa fa-star" aria-hidden="true"></i>
-								<i class="fa fa-star-half-o" aria-hidden="true"></i>
-								<i class="fa fa-star-o" aria-hidden="true"></i>
-								<span>3.5</span>
-							</a>
-						</li>
-						<li>
-							<a href="#">
-								<i class="fa fa-star" aria-hidden="true"></i>
-								<i class="fa fa-star" aria-hidden="true"></i>
-								<i class="fa fa-star" aria-hidden="true"></i>
-								<i class="fa fa-star-o" aria-hidden="true"></i>
-								<i class="fa fa-star-o" aria-hidden="true"></i>
-								<span>3.0</span>
-							</a>
-						</li>
-						<li>
-							<a href="#">
-								<i class="fa fa-star" aria-hidden="true"></i>
-								<i class="fa fa-star" aria-hidden="true"></i>
-								<i class="fa fa-star-half-o" aria-hidden="true"></i>
-								<i class="fa fa-star-o" aria-hidden="true"></i>
-								<i class="fa fa-star-o" aria-hidden="true"></i>
-								<span>2.5</span>
-							</a>
-						</li>
+						</c:forEach>
+
 					</ul>
 				</div>
 				</div>
@@ -294,12 +262,21 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 																	<span class="moneySave ">${m.currentFormatGiaKM()}₫</span>
 																</c:if>
 															</div>
+
 															<ul class="stars">
-																<li><a href="#"><i class="fa fa-star" aria-hidden="true"></i></a></li>
-																<li><a href="#"><i class="fa fa-star" aria-hidden="true"></i></a></li>
-																<li><a href="#"><i class="fa fa-star" aria-hidden="true"></i></a></li>
-																<li><a href="#"><i class="fa fa-star" aria-hidden="true"></i></a></li>
-																<li><a href="#"><i class="fa fa-star" aria-hidden="true"></i></a></li>
+
+																<c:forEach begin="1" end="${m.danhGia}">
+																<li><i class="fa fa-star" aria-hidden="true"></i></li>
+																</c:forEach>
+
+																<c:choose>
+																	<c:when test="${m.getOldEva() == 2}">
+																		<li><i class="fa fa-star" aria-hidden="true"></i></li>
+																	</c:when>
+																	<c:when test="${m.getOldEva() == 1}">
+																		<li><i class="fa fa-star-half-o" aria-hidden="true"></i></li>
+																	</c:when>
+																</c:choose>
 															</ul>
 
 														</div>
@@ -332,18 +309,18 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 						</c:forEach>
 						<c:if test="${listPro.size() != 0}">
 							<nav aria-label="Page navigation example">
-								<div class="pagination-outside" style="width: 100%;">
+
 								<ul class="pagination">
 								  <li class="page-item">
 									  		<c:choose>
 												<c:when test="${checklink == true}">
 													<c:choose>
 																<c:when test="${pageStart == 1}">
-																	<a class="page-link" href="${pageContext.request.contextPath}/search?action=search-page&id=${menuSingle.id}&page=${pageStart}&search-rep=${searchRep}&priceStart=${priceS}&priceEnd=${priceE}&idCateSelected=${idCate}" aria-label="Previous">
+																	<a class="page-link" href="${pageContext.request.contextPath}/search?action=search-page&id=${menuSingle.id}&page=${pageStart}&search-rep=${searchRep}&priceStart=${priceS}&priceEnd=${priceE}&idCateSelected=${idCate}&eva=${eva}" aria-label="Previous">
 																</c:when>
 
 																<c:when test="${pageStart != 1}">
-																	<a class="page-link" href="${pageContext.request.contextPath}/search?action=search-page&id=${menuSingle.id}&page=${pageStart - 1}&search-rep=${searchRep}&priceStart=${priceS}&priceEnd=${priceE}&idCateSelected=${idCate}" aria-label="Previous">
+																	<a class="page-link" href="${pageContext.request.contextPath}/search?action=search-page&id=${menuSingle.id}&page=${pageStart - 1}&search-rep=${searchRep}&priceStart=${priceS}&priceEnd=${priceE}&idCateSelected=${idCate}&eva=${eva}" aria-label="Previous">
 																</c:when>
 
 														</c:choose>
@@ -373,7 +350,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 
 <%--														 nếu là trang tìm kiếm--%>
 														<c:when test="${checklink == true}">
-														<li class="page-item active"><a class="page-link" href="${pageContext.request.contextPath}/search?action=search-page&id=${menuSingle.id}&page=${pageStart}&search-rep=${searchRep}&priceStart=${priceS}&priceEnd=${priceE}&idCateSelected=${idCate}">${pageStart}</a></li>
+														<li class="page-item active"><a class="page-link" href="${pageContext.request.contextPath}/search?action=search-page&id=${menuSingle.id}&page=${pageStart}&search-rep=${searchRep}&priceStart=${priceS}&priceEnd=${priceE}&idCateSelected=${idCate}&eva=${eva}">${pageStart}</a></li>
 														</c:when>
 
 <%--														 nếu không là trang tìm kiếm--%>
@@ -423,14 +400,24 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 <%--													nếu chỉ mục 3 trang tiếp theo < tổng số trang--%>
 													<c:if test="${(pageStart + 3) < i }">
 														<c:forEach var="m" begin="${pageStart}" end="${pageStart + 3}">
-															<li class="page-item"><a class="page-link" href="${pageContext.request.contextPath}/search?action=search-page&id=${menuSingle.id}&page=${m}&search-rep=${searchRep}&priceStart=${priceS}&priceEnd=${priceE}&idCateSelected=${idCate}">${m}</a></li>
+															<c:if test="${pageStart == m}">
+															<li class="page-item active"><a class="page-link" href="${pageContext.request.contextPath}/search?action=search-page&id=${menuSingle.id}&page=${m}&search-rep=${searchRep}&priceStart=${priceS}&priceEnd=${priceE}&idCateSelected=${idCate}&eva=${eva}">${m}</a></li>
+															</c:if>
+															<c:if test="${pageStart != m}">
+																<li class="page-item"><a class="page-link" href="${pageContext.request.contextPath}/search?action=search-page&id=${menuSingle.id}&page=${m}&search-rep=${searchRep}&priceStart=${priceS}&priceEnd=${priceE}&idCateSelected=${idCate}&eva=${eva}">${m}</a></li>
+															</c:if>
 														</c:forEach>
 													</c:if>
 
 <%--													nếu chỉ mục 3 trang tiếp theo >= tổng số trang--%>
 													<c:if test="${(pageStart + 3) >= i}">
 														<c:forEach var="m" begin="${pageStart}" end="${i}">
-															<li class="page-item"><a class="page-link" href="${pageContext.request.contextPath}/search?action=search-page&id=${menuSingle.id}&page=${m}&search-rep=${searchRep}&priceStart=${priceS}&priceEnd=${priceE}&idCateSelected=${idCate}">${m}</a></li>
+															<c:if test="${pageStart == m}">
+															<li class="page-item active"><a class="page-link" href="${pageContext.request.contextPath}/search?action=search-page&id=${menuSingle.id}&page=${m}&search-rep=${searchRep}&priceStart=${priceS}&priceEnd=${priceE}&idCateSelected=${idCate}&eva=${eva}">${m}</a></li>
+															</c:if>
+															<c:if test="${pageStart != m}">
+																<li class="page-item"><a class="page-link" href="${pageContext.request.contextPath}/search?action=search-page&id=${menuSingle.id}&page=${m}&search-rep=${searchRep}&priceStart=${priceS}&priceEnd=${priceE}&idCateSelected=${idCate}&eva=${eva}">${m}</a></li>
+															</c:if>
 														</c:forEach>
 													</c:if>
 												</c:when>
@@ -445,11 +432,11 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                                         <c:when test="${checklink == true}">
                                          <c:choose>
                                              <c:when test="${pageStart == i}">
-                                                 <a class="page-link" href="${pageContext.request.contextPath}/search?action=search-page&id=${menuSingle.id}&page=${i}&search-rep=${searchRep}&priceStart=${priceS}&priceEnd=${priceE}&idCateSelected=${idCate}" aria-label="Next">
+                                                 <a class="page-link" href="${pageContext.request.contextPath}/search?action=search-page&id=${menuSingle.id}&page=${i}&search-rep=${searchRep}&priceStart=${priceS}&priceEnd=${priceE}&idCateSelected=${idCate}&eva=${eva}" aria-label="Next">
                                           </c:when>
 
                                             <c:when test="${pageStart != i}">
-                                                <a class="page-link" href="${pageContext.request.contextPath}/search?action=search-page&id=${menuSingle.id}&page=${pageStart + 1}&search-rep=${searchRep}&priceStart=${priceS}&priceEnd=${priceE}&idCateSelected=${idCate}" aria-label="Next">
+                                                <a class="page-link" href="${pageContext.request.contextPath}/search?action=search-page&id=${menuSingle.id}&page=${pageStart + 1}&search-rep=${searchRep}&priceStart=${priceS}&priceEnd=${priceE}&idCateSelected=${idCate}&eva=${eva}" aria-label="Next">
                                               </c:when>
 
                                                     </c:choose>
@@ -475,7 +462,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 									</a>
 								  </li>
 							   </ul>
-								</div>
+
 							 </nav>
 						</c:if>
 						<!-- //mens -->
