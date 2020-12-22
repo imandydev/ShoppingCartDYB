@@ -1,6 +1,7 @@
 package Servlet;
 
 import DAO.EvaluateDAO;
+import DAO.FormatedPriceDAO;
 import beans.*;
 import empty.*;
 
@@ -18,6 +19,7 @@ public class Search extends HttpServlet {
     private List<Menu> valuesMenu = new MenuEmpty().getAllMenu();
     private Infor infor = new InforEmpty().getInfor();
     private  ImagesB imagesB = new ImagesEmpty().getImagesSingle("Các mục khác");
+    private FormatedPriceDAO formatedPrice = new FormatedPriceDAO();
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         doGet(request, response);
     }
@@ -55,8 +57,8 @@ public class Search extends HttpServlet {
             priceEnd = Double.parseDouble(request.getParameter("priceEnd").trim());
         List<Product> list = new ProductEmpty().getAllProdcutFillPrice(searchRep,priceStart,priceEnd);
         request.setAttribute("searchRep", searchRep);
-        request.setAttribute("priceS",formatedGia(priceStart));
-        request.setAttribute("priceE",formatedGia(priceEnd));
+        request.setAttribute("priceS",formatedPrice.formatedGia(priceStart));
+        request.setAttribute("priceE",formatedPrice.formatedGia(priceEnd));
         doGetPageSup(request,response,list);
 
     }
@@ -71,8 +73,8 @@ public class Search extends HttpServlet {
         int idCateSelec = Integer.parseInt(request.getParameter("idCateSelected"));
         List<Product> list = new ProductEmpty().getAllProdcutFillCate(searchRep,priceStart,priceEnd,idCateSelec);
         request.setAttribute("searchRep", searchRep);
-        request.setAttribute("priceS",formatedGia(priceStart));
-        request.setAttribute("priceE",formatedGia(priceEnd));
+        request.setAttribute("priceS",formatedPrice.formatedGia(priceStart));
+        request.setAttribute("priceE",formatedPrice.formatedGia(priceEnd));
         request.setAttribute("idCate", idCateSelec);
         doGetPageSup(request,response,list);
 
@@ -99,8 +101,8 @@ public class Search extends HttpServlet {
         new Product().setEvaListPro(list);
         list = new ProductEmpty().getAllProductsByEvaluate(list,ivaluate);
         request.setAttribute("searchRep", searchRep);
-        request.setAttribute("priceS",formatedGia(priceStart));
-        request.setAttribute("priceE",formatedGia(priceEnd));
+        request.setAttribute("priceS",formatedPrice.formatedGia(priceStart));
+        request.setAttribute("priceE",formatedPrice.formatedGia(priceEnd));
         request.setAttribute("idCate", idCateSelec);
         request.setAttribute("eva", ivaluate);
         doGetPageSup(request,response,list);
@@ -142,9 +144,6 @@ public class Search extends HttpServlet {
         doGetSupport(request,response);
     }
     // in giá kiểu string đã format
-    public String formatedGia(double gia) {
-        DecimalFormat formatter = new DecimalFormat("###");
-        return formatter.format(gia);
-    }
+
 }
 

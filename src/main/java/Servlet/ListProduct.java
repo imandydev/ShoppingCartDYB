@@ -84,9 +84,6 @@ public class ListProduct extends HttpServlet {
         request.setAttribute("checklink", false);
         request.getRequestDispatcher("shop.jsp").forward(request,response);
     }
-    public String formatedGia(double gia) {
-        DecimalFormat formatter = new DecimalFormat("###");
-        return formatter.format(gia);
-    }
+
 }
 

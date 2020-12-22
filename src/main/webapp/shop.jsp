@@ -232,7 +232,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 													<img src="${m.img}" alt="">
 													<div class="men-cart-pro">
 														<div class="inner-men-cart-pro">
-															<a href="single.html" class="link-product-add-cart">Xem Chi Tiết</a>
+															<a href="${pageContext.request.contextPath}/single?action=detail&id=${m.id}" class="link-product-add-cart">Xem Chi Tiết</a>
 														</div>
 													</div>
 													<!-- <span class="product-new-top">New</span> -->

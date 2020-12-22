@@ -6,7 +6,7 @@ function selectColor(id){
     var btn2=document.getElementById("btn2");
     var btn3=document.getElementById("btn3");
     if(id==b1){
-        btn1.style.background="#fb383b";
+        btn1.style.background="#fc636b";
         btn1.style.color="White";	
         btn2.style.background="White";
         btn2.style.color="Black";
@@ -16,7 +16,7 @@ function selectColor(id){
     if(id==b2){
         btn1.style.background="White";
         btn1.style.color="Black";
-        btn2.style.background="#fb383b";
+        btn2.style.background="#fc636b";
         btn2.style.color="white";
         btn3.style.background="White";
         btn3.style.color="Black";
@@ -26,7 +26,7 @@ function selectColor(id){
         btn1.style.color="Black";
         btn2.style.background="White";
         btn2.style.color="Black";
-        btn3.style.background="#fb383b";
+        btn3.style.background="#fc636b";
         btn3.style.color="white";
     }
 
@@ -40,7 +40,7 @@ function selectSize(id){
     var xl =document.getElementById("sxl");
     var xxl =document.getElementById("sxxl");
     if(id =="ss"){
-        s.style.background="#fb383b";
+        s.style.background="#fc636b";
         s.style.color="white";
         m.style.background="white";
         m.style.color="black";
@@ -54,7 +54,7 @@ function selectSize(id){
     if(id =="sm"){
         s.style.background="white";
         s.style.color="black";
-        m.style.background="#fb383b";
+        m.style.background="#fc636b";
         m.style.color="white";
         l.style.background="white";
         l.style.color="black";
@@ -68,7 +68,7 @@ function selectSize(id){
         s.style.color="black";
         m.style.background="white";
         m.style.color="black";
-        l.style.background="#fb383b";
+        l.style.background="#fc636b";
         l.style.color="white";
         xl.style.background="white";
         xl.style.color="black";
@@ -82,7 +82,7 @@ function selectSize(id){
         m.style.color="black";
         l.style.background="white";
         l.style.color="black";
-        xl.style.background="#fb383b";
+        xl.style.background="#fc636b";
         xl.style.color="white";
         xxl.style.background="white";
         xxl.style.color="black";
@@ -96,7 +96,7 @@ function selectSize(id){
         l.style.color="black";
         xl.style.background="white";
         xl.style.color="black";
-        xxl.style.background="#fb383b";
+        xxl.style.background="#fc636b";
         xxl.style.color="white";
     }
 
