@@ -5,6 +5,7 @@ import beans.Menu;
 import beans.Product;
 import db.ConnectionDB;
 
+import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
@@ -16,15 +17,17 @@ import java.util.List;
 public class ProductEmpty {
     private Product eva = new Product();
     public List<Product> getAllProdcutByIdMenu(int id) {
-        Statement s = null;
+        PreparedStatement s = null;
         try {
-            s = ConnectionDB.connection();
-            List<Product> listPro = new LinkedList<>();
-            ResultSet rs = null;
+            String sql = "";
             if (id == 5)
-                 rs = s.executeQuery("SELECT * FROM san_pham INNER JOIN (danh_muc INNER JOIN menu on danh_muc.idmenu = menu.idmenu) on san_pham.id_danh_muc = danh_muc.id_danh_muc WHERE menu.idmenu = " + id +" and san_pham.status = 'public' and san_pham.giamgia = 1");
+                sql = "SELECT * FROM san_pham INNER JOIN (danh_muc INNER JOIN menu on danh_muc.idmenu = menu.idmenu) on san_pham.id_danh_muc = danh_muc.id_danh_muc WHERE menu.idmenu = ? and san_pham.status = 'public' and san_pham.giamgia = 1";
             else
-               rs = s.executeQuery("SELECT * FROM san_pham INNER JOIN (danh_muc INNER JOIN menu on danh_muc.idmenu = menu.idmenu) on san_pham.id_danh_muc = danh_muc.id_danh_muc WHERE menu.idmenu = " + id +" and san_pham.status = 'public' and san_pham.giamgia = 0");
+                sql = "SELECT * FROM san_pham INNER JOIN (danh_muc INNER JOIN menu on danh_muc.idmenu = menu.idmenu) on san_pham.id_danh_muc = danh_muc.id_danh_muc WHERE menu.idmenu = ? and san_pham.status = 'public' and san_pham.giamgia = 0";
+            s = ConnectionDB.connection(sql);
+            s.setInt(1,id);
+            List<Product> listPro = new LinkedList<>();
+            ResultSet rs = s.executeQuery();
             while (rs.next()) {
                 listPro.add(new Product(rs.getInt(1), rs.getString(2), rs.getInt(3), rs.getDouble(4), rs.getDouble(5),rs.getString(6),rs.getString(7),rs.getString(8),rs.getString(9),rs.getString(10),rs.getInt(11),rs.getString(12)));
 
@@ -39,13 +42,13 @@ public class ProductEmpty {
         }
     }
     public List<Product> getAllProdcutByName(String name) {
-        Statement s = null;
+        PreparedStatement s = null;
         try {
-            s = ConnectionDB.connection();
+            String sql = "SELECT * FROM san_pham INNER JOIN (danh_muc INNER JOIN menu on danh_muc.idmenu = menu.idmenu) on san_pham.id_danh_muc = danh_muc.id_danh_muc WHERE san_pham.ten_san_pham like \"%"  + name  +"%\" and san_pham.status = 'public'";
+            s = ConnectionDB.connection(sql);
             List<Product> listPro = new LinkedList<>();
             List<Integer> check = new LinkedList<>();
-            ResultSet rs = null;
-                rs = s.executeQuery("SELECT * FROM san_pham INNER JOIN (danh_muc INNER JOIN menu on danh_muc.idmenu = menu.idmenu) on san_pham.id_danh_muc = danh_muc.id_danh_muc WHERE san_pham.ten_san_pham like " +" \"%" + name + "%\" " +" and san_pham.status = 'public'");
+            ResultSet rs = s.executeQuery();
             while (rs.next()) {
                 if (!check.contains(rs.getInt(1))) {
                     check.add(rs.getInt(1));

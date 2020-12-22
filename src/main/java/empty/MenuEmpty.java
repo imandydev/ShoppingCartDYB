@@ -4,6 +4,7 @@ import beans.Menu;
 import beans.News;
 import db.ConnectionDB;
 
+import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
@@ -11,12 +12,12 @@ import java.util.*;
 
 public class MenuEmpty {
     public List<Menu> getAllMenu() {
-        Statement s = null;
+        PreparedStatement s = null;
         try {
-            s = ConnectionDB.connection();
+            String sql = "select * from menu";
+            s = ConnectionDB.connection(sql);
             List<Menu> listMenu = new LinkedList<>();
-            ResultSet rs = s.executeQuery("select * from menu");
-
+            ResultSet rs = s.executeQuery();
             while (rs.next()) {
                 listMenu.add(new Menu(rs.getInt(1),rs.getString(2),rs.getString(3),rs.getString(4),rs.getInt(5)));
             }
@@ -36,11 +37,12 @@ public class MenuEmpty {
     }
 
     public Menu getSingleMenuById(int id) {
-        Statement s = null;
+        PreparedStatement s = null;
         try {
-            s = ConnectionDB.connection();
-
-            ResultSet rs = s.executeQuery("select * from menu where idmenu ="+id);
+            String sql = "select * from menu where idmenu = ?";
+            s = ConnectionDB.connection(sql);
+            s.setInt(1, id);
+            ResultSet rs = s.executeQuery();
             rs.next();
             Menu menu  = new Menu(rs.getInt(1),rs.getString(2),rs.getString(3),rs.getString(4),rs.getInt(5));
             rs.close();

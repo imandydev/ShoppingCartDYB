@@ -4,6 +4,7 @@ import beans.Category;
 import beans.Menu;
 import db.ConnectionDB;
 
+import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
@@ -14,11 +15,13 @@ import java.util.List;
 
 public class CategoryEmpty {
     public List<Category> getAllCategoryByIdMenu(int idMenu) {
-        Statement s = null;
+        PreparedStatement s = null;
         try {
-            s = ConnectionDB.connection();
+            String sql ="select * from danh_muc where idmenu = ?";
+            s = ConnectionDB.connection(sql);
+            s.setInt(1,idMenu);
             List<Category> listMenu = new LinkedList<>();
-            ResultSet rs = s.executeQuery("select * from danh_muc where idmenu = " + idMenu);
+            ResultSet rs = s.executeQuery();
 
             while (rs.next()) {
                 listMenu.add(new Category(rs.getInt(1),rs.getInt(2),rs.getString(3),rs.getString(4),rs.getInt(5)));
