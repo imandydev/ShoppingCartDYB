@@ -51,7 +51,7 @@
     display: flex;
     justify-content: space-between;
     align-items: center;
-    width: 45%;
+    width: 70%;
 }
 .choses-color button{
     height: 40px;
@@ -168,7 +168,14 @@ input.button.add:hover{
 ul.stars i {
     font-size: 15px !important;
 }
-ul.stars li a {
+ul.stars li i {
     color: #ffce3d !important;
 
-} 
+}
+.color-selec, .size-selec {
+    width: 100px;
+    height: 40px;
+    outline: none;
+    font-size: 18px;
+    border-radius: 5px;
+}

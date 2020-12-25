@@ -14,6 +14,7 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 	<title>Sản Phẩm</title>
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+
 	<meta name="keywords" content="Downy Shoes Responsive web template, Bootstrap Web Templates, Flat Web Templates, Android Compatible web template, 
 Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, SonyEricsson, Motorola web design" />
 	<script type="application/x-javascript">
@@ -43,7 +44,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 		href="//fonts.googleapis.com/css?family=Montserrat:100i,200,200i,300,300i,400,400i,500,500i,600,600i,700,700i,800"
 		rel="stylesheet">
 	<link href="//fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i,800" rel="stylesheet">
-	
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 </head>
 
 <body>
@@ -132,36 +133,46 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 					<div class="flexslider">
 
 						<ul class="slides">
-							<li data-thumb="images/d2.jpg">
-								<div class="thumb-image"> <img src="images/d2.jpg" data-imagezoom="true"
+							<c:forEach var="i" begin="1" end="${pro.splitStrImg().size() - 1}">
+							<li data-thumb="${pro.splitStrImg()[i]}">
+								<div class="thumb-image" > <img src="${pro.splitStrImg()[i]}" data-imagezoom="true"
 										class="img-responsive"> </div>
 							</li>
-							<li data-thumb="images/d1.jpg">
-								<div class="thumb-image"> <img src="images/d1.jpg" data-imagezoom="true"
-										class="img-responsive"> </div>
-							</li>
-							<li data-thumb="images/d3.jpg">
-								<div class="thumb-image"> <img src="images/d3.jpg" data-imagezoom="true"
-										class="img-responsive"> </div>
-							</li>
+							</c:forEach>
+
 						</ul>
 						<div class="clearfix"></div>
 					</div>
 				</div>
 			</div>
 			<div class="col-md-8 single-right-left simpleCart_shelfItem">
-				<h3>Áo Thun Nam DYB</h3>
-				<p class="msp">Mã Sản Phẩm: <span>31155</span></p>
-				<p><span class="item_price">250,000đ</span>
-					<del>350,000đ</del>
+				<h3>${pro.name}</h3>
+				<p class="msp">Mã Sản Phẩm: <span id="id-pro">${pro.id}</span></p>
+<%--				nếu chi tiết sản phẩm không có giảm giá thì hiển thị giá gốc--%>
+				<c:if test="${detail.currentFormatGiaKM() == '0'}">
+					<p id="price"><span class="item_price" >${detail.currentFormatGia()}đ</span>
+				</c:if>
+				<c:if test="${detail.currentFormatGiaKM() != '0'}">
+					<p id="price"><span class="item_price" >${detail.currentFormatGiaKM()}đ</span>
+					<del id="price-sale">${detail.currentFormatGia()}đ</del>
+				</c:if>
 				</p>
 				<div class="rating1">
 					<ul class="stars">
-						<li><a href="#"><i class="fa fa-star" aria-hidden="true"></i></a></li>
-						<li><a href="#"><i class="fa fa-star" aria-hidden="true"></i></a></li>
-						<li><a href="#"><i class="fa fa-star" aria-hidden="true"></i></a></li>
-						<li><a href="#"><i class="fa fa-star" aria-hidden="true"></i></a></li>
-						<li><a href="#"><i class="fa fa-star-o" aria-hidden="true"></i></a></li>
+
+						<c:forEach begin="1" end="${pro.danhGia}">
+							<li><i class="fa fa-star" aria-hidden="true"></i></li>
+						</c:forEach>
+
+						<c:choose>
+							<c:when test="${pro.getOldEva() == 2}">
+								<li><i class="fa fa-star" aria-hidden="true"></i></li>
+							</c:when>
+							<c:when test="${pro.getOldEva() == 1}">
+								<li><i class="fa fa-star-half-o" aria-hidden="true"></i></li>
+							</c:when>
+						</c:choose>
+
 					</ul>
 				</div>
 				<div class="color-quality">
@@ -180,33 +191,41 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 				<div class="color-box">
 					<h5>Màu Sắc :</h5>
 					<div class="choses-color">
-						<button id="btn1" onclick="selectColor(id)">Trắng</button>
-						<button id="btn2" onclick="selectColor(id)">Đen</button>
-						<button id="btn3" onclick="selectColor(id)">Xám</button>
+						<select name="color-selec" class="color-selec" id="color-selec">
+						<c:forEach items="${listPro}" varStatus="loop" var="m">
+							<option value="${m.mau}">${m.mau}</option>
+						</c:forEach>
+						</select>
 					</div>
 				</div>
-
 
 				<div class="size-box">
 					<h5>Size :</h5>
 					<div class="choses-size">
-						<button id="ss" value="S" onclick="selectSize(id)">S</button>
-						<button id="sm" value="M" onclick="selectSize(id)">M</button>
-						<button id="sl" value="L" onclick="selectSize(id)">L</button>
-						<button id="sxl" value="XL" onclick="selectSize(id)">XL</button>
-						<button id="sxxl" value="XXL" onclick="selectSize(id)">XXL</button>
+						<select name="size-selec" class="size-selec" id="size-selec">
+							<c:forEach items="${listSize}" varStatus="loop" var="m">
+								<option value="${m.size}">${m.size}</option>
+							</c:forEach>
+						</select>
+
 					</div>
 
 				</div>
 
 
+
 				<div class="occasion-cart">
 					<div class="shoe single-item single_page_b">
-						<form action="#" method="post">
+						<form action="#" method="post" id="buy-product">
 							<input type="hidden" name="cmd" value="_cart">
 							<input type="hidden" name="add" value="1">
-							<input type="hidden" name="shoe_item" value="Áo Thun Nam DYB">
-							<input type="hidden" name="amount" value="350000">
+							<input type="hidden" name="shoe_item" value="${pro.name}">
+							<c:if test="${detail.giaGiam != 0}">
+							<input id="buy-price" type="hidden" name="amount" value="${detail.giaGiam}">
+							</c:if>
+							<c:if test="${detail.giaGiam == 0}">
+								<input id="buy-price" type="hidden" name="amount" value="${detail.giaGiam}">
+							</c:if>
 							<input type="submit" name="submit" value="Thêm Vào Giỏ Hàng" class="button add">
 
 							<a href="#" data-toggle="modal" data-target="#myModal1"></a>
@@ -232,25 +251,17 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 						<div class="tab1">
 
 							<div class="single_page">
-								<h6>ÁO THUN THƯƠNG HIỆU DYB</h6>
-								<p>Hàng có sẵn, Ship hàng nhanh chóng</p>
-								<p class="para">🎯 HƯỚNG DẪN CHỌN SIZE</p>
-								<p>Size M: 1m60 - 1m70, 50-60kg</p>
-								<p>Size L: 1m70 - 1m80, từ 61-70kg</p>
-								<p>Size XL: 1m80 - 1m85, từ 72-82kg</p> 
-								<p>Size XXL : Trên 82Kg</p>
-								<p>	Lưu ý: Size trên là kích thước vừa người, nếu muốn thoải mái thì tăng lên 1 size nhé! </p>
+							<p>
+								${pro.moTa}
+							</p>
+
 							</div>
 						</div>
 
 						<div class="tab2">
 
 							<div class="single_page">
-								<h6>Áo Thun Nam DYB</h6>
-								<p>Thương hiệu: DYB</p>
-								<p>Mã Sản Phẩm: 31155</p>
-								<p>Chất Liệu: vải cotton</p>
-								<p>Xuất Xứ: Việt Nam</p>
+								<p>${pro.thongTin}</p>
 							</div>
 						</div>
 						<div class="tab3">
@@ -271,33 +282,56 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 			<div class="new_arrivals">
 				<h3>SẢN PHẨM NỔI BẬT</h3>
 				<!-- /womens -->
+				<c:forEach items="${hot}" var="m">
 				<div class="col-md-3 product-men women_two">
 					<div class="product-shoe-info shoe">
 						<div class="men-pro-item">
 							<div class="men-thumb-item">
-								<img src="images/s4.jpg" alt="">
+								<img src="${m.splitStrImg()[0]}" alt="">
 								<div class="men-cart-pro">
 									<div class="inner-men-cart-pro">
-										<a href="single.html" class="link-product-add-cart">Xem Chi Tiết</a>
+										<a href="${pageContext.request.contextPath}/single?action=detail&id=${m.id}" class="link-product-add-cart">Xem Chi Tiết</a>
 									</div>
 								</div>
 
 							</div>
 							<div class="item-info-product">
 								<h4>
-									<a href="single.html">MYSTIC </a>
+									<a href="${pageContext.request.contextPath}/single?action=detail&id=${m.id}">MYSTIC </a>
 								</h4>
 								<div class="info-product-price">
 									<div class="grid_meta">
 										<div class="product_price">
 											<div class="grid-price ">
-												<span class="money ">575.000₫</span>
+												<c:if test="${m.currentFormatGiaKM() != '0' }">
+													<span class="money ">${m.currentFormatGia()}₫</span>
+												</c:if>
+												<c:if test="${m.currentFormatGiaKM() == '0'  }">
+													<span class="money "></span><br>
+												</c:if>
 											</div>
 										</div>
+										<div class="grid-price ">
+											<c:if test="${m.currentFormatGiaKM() != '0'}">
+												<span class="moneySave ">${m.currentFormatGiaKM()}₫</span>
+											</c:if>
+											<c:if test="${m.currentFormatGiaKM() == '0'}">
+												<span class="moneySave ">${m.currentFormatGia()}₫</span>
+											</c:if>
+										</div>
 										<ul class="stars">
-											<div class="grid-price ">
-												<span class="moneySave ">475.000₫</span>
-											</div>
+											<c:forEach begin="1" end="${m.danhGia}">
+												<li><i class="fa fa-star" aria-hidden="true"></i></li>
+											</c:forEach>
+
+											<c:choose>
+												<c:when test="${m.getOldEva() == 2}">
+													<li><i class="fa fa-star" aria-hidden="true"></i></li>
+												</c:when>
+												<c:when test="${m.getOldEva() == 1}">
+													<li><i class="fa fa-star-half-o" aria-hidden="true"></i></li>
+												</c:when>
+											</c:choose>
 										</ul>
 										
 									</div>
@@ -305,8 +339,13 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 										<form action="#" method="post">
 											<input type="hidden" name="cmd" value="_cart">
 											<input type="hidden" name="add" value="1">
-											<input type="hidden" name="shoe_item" value="MYSTIC">
-											<input type="hidden" name="amount" value="475000">
+											<input type="hidden" name="shoe_item" value="${m.name}">
+											<c:if test="${m.giamgia != 1}">
+												<input type="hidden" name="amount" value="${m.gia}">
+											</c:if>
+											<c:if test="${m.giamgia == 1}">
+												<input type="hidden" name="amount" value="${m.giaKM}">
+											</c:if>
 											<button type="submit" class="shoe-cart pshoe-cart"><i
 													class="fa fa-cart-plus" aria-hidden="true"></i></button>
 
@@ -320,151 +359,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 						</div>
 					</div>
 				</div>
-				<div class="col-md-3 product-men women_two">
-					<div class="product-shoe-info shoe">
-						<div class="men-pro-item">
-							<div class="men-thumb-item">
-								<img src="images/s5.jpg" alt="">
-								<div class="men-cart-pro">
-									<div class="inner-men-cart-pro">
-										<a href="single.html" class="link-product-add-cart">Xem Chi Tiết</a>
-									</div>
-								</div>
-
-							</div>
-							<div class="item-info-product">
-								<h4>
-									<a href="single.html">DYB HOODIE</a>
-								</h4>
-								<div class="info-product-price">
-									<div class="grid_meta">
-										<div class="product_price">
-											<div class="grid-price ">
-												<span class="money ">325.000₫</span>
-											</div>
-										</div>
-										<ul class="stars">
-											<div class="grid-price ">
-												<span class="moneySave ">280.000₫</span>
-											</div>
-										</ul>
-									</div>
-									<div class="shoe single-item hvr-outline-out">
-										<form action="#" method="post">
-											<input type="hidden" name="cmd" value="_cart">
-											<input type="hidden" name="add" value="1">
-											<input type="hidden" name="shoe_item" value="DYB HOODIE">
-											<input type="hidden" name="amount" value="280000">
-											<button type="submit" class="shoe-cart pshoe-cart"><i
-													class="fa fa-cart-plus" aria-hidden="true"></i></button>
-
-											<a href="#" data-toggle="modal" data-target="#myModal1"></a>
-										</form>
-
-									</div>
-								</div>
-								<div class="clearfix"></div>
-							</div>
-						</div>
-					</div>
-				</div>
-				<div class="col-md-3 product-men women_two">
-					<div class="product-shoe-info shoe">
-						<div class="men-pro-item">
-							<div class="men-thumb-item">
-								<img src="images/s7.jpg" alt="">
-								<div class="men-cart-pro">
-									<div class="inner-men-cart-pro">
-										<a href="single.html" class="link-product-add-cart">Xem Chi Tiết</a>
-									</div>
-								</div>
-
-							</div>
-							<div class="item-info-product">
-								<h4>
-									<a href="single.html">DYB ELEGANT</a>
-								</h4>
-								<div class="info-product-price">
-									<div class="grid_meta">
-										<div class="product_price">
-											<div class="grid-price ">
-												<span class="money ">875.000₫</span>
-											</div>
-										</div>
-										<ul class="stars">
-											<div class="grid-price ">
-												<span class="moneySave ">790.000₫</span>
-											</div>
-										</ul>
-										
-									</div>
-									<div class="shoe single-item hvr-outline-out">
-										<form action="#" method="post">
-											<input type="hidden" name="cmd" value="_cart">
-											<input type="hidden" name="add" value="1">
-											<input type="hidden" name="shoe_item" value="DYB ELEGANT">
-											<input type="hidden" name="amount" value="790000">
-											<button type="submit" class="shoe-cart pshoe-cart"><i
-													class="fa fa-cart-plus" aria-hidden="true"></i></button>
-
-											<a href="#" data-toggle="modal" data-target="#myModal1"></a>
-										</form>
-
-									</div>
-								</div>
-								<div class="clearfix"></div>
-							</div>
-						</div>
-					</div>
-				</div>
-				<div class="col-md-3 product-men women_two">
-					<div class="product-shoe-info shoe">
-						<div class="men-pro-item">
-							<div class="men-thumb-item">
-								<img src="images/s8.jpg" alt="">
-								<div class="men-cart-pro">
-									<div class="inner-men-cart-pro">
-										<a href="single.html" class="link-product-add-cart">Xem Chi Tiết</a>
-									</div>
-								</div>
-
-							</div>
-							<div class="item-info-product">
-								<h4>
-									<a href="single.html">DYB SUKUN</a>
-								</h4>
-								<div class="info-product-price">
-									<div class="grid_meta">
-										<div class="product_price">
-											<div class="grid-price ">
-												<span class="money ">505.000₫</span>
-											</div>
-										</div>
-										<ul class="stars">
-											<div class="grid-price ">
-												<span class="moneySave ">450.000₫</span>
-											</div>
-										</ul>
-									</div>
-									<div class="shoe single-item hvr-outline-out">
-										<form action="#" method="post">
-											<input type="hidden" name="cmd" value="_cart">
-											<input type="hidden" name="add" value="1">
-											<input type="hidden" name="shoe_item" value="DYB SUKUN">
-											<input type="hidden" name="amount" value="450000">
-											<button type="submit" class="shoe-cart pshoe-cart"><i
-													class="fa fa-cart-plus" aria-hidden="true"></i></button>
-
-											<a href="#" data-toggle="modal" data-target="#myModal1"></a>
-										</form>
-
-									</div>
-								</div>
-								<div class="clearfix"></div>
-							</div>
-						</div>
-					</div>
-				</div>
+				</c:forEach>
 
 				<!-- //womens -->
 				<div class="clearfix"></div>
@@ -492,64 +387,64 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 					<div class="item">
 						<div class="row">
 							<div class="col-md-3 col-sm-3 col-xs-3 slidering">
-								<div class="thumbnail"><a href="single.html"><img src="images/g1.jpg" alt="Image" style="max-width:100%;"></div></a>
+								<div class="thumbnail"><a href="single.html"><img src="images/g1.jpg" alt="Image" style="max-width:100%;"></a></div>
 							</div>
 							<div class="col-md-3 col-sm-3 col-xs-3 slidering">
-								<div class="thumbnail"><a href="single.html"><img src="images/g2.jpg" alt="Image" style="max-width:100%;"></div></a>
+								<div class="thumbnail"><a href="single.html"><img src="images/g2.jpg" alt="Image" style="max-width:100%;"></a></div>
 							</div>
 							<div class="col-md-3 col-sm-3 col-xs-3 slidering">
-								<div class="thumbnail"><a href="single.html"><img src="images/g3.jpg" alt="Image" style="max-width:100%;"></div></a>
+								<div class="thumbnail"><a href="single.html"><img src="images/g3.jpg" alt="Image" style="max-width:100%;"></a></div>
 							</div>
 							<div class="col-md-3 col-sm-3 col-xs-3 slidering">
-								<div class="thumbnail"><a href="single.html"><img src="images/g4.jpg" alt="Image" style="max-width:100%;"></div></a>
+								<div class="thumbnail"><a href="single.html"><img src="images/g4.jpg" alt="Image" style="max-width:100%;"></a></div>
 							</div>
 						</div>
 					</div>
 					<div class="item active">
 						<div class="row">
 							<div class="col-md-3 col-sm-3 col-xs-3 slidering">
-								<div class="thumbnail"><a href="single.html"><img src="images/g5.jpg" alt="Image" style="max-width:100%;"></div></a>
+								<div class="thumbnail"><a href="single.html"><img src="images/g5.jpg" alt="Image" style="max-width:100%;"></a></div>
 							</div>
 							<div class="col-md-3 col-sm-3 col-xs-3 slidering">
-								<div class="thumbnail"><a href="single.html"><img src="images/g6.jpg" alt="Image" style="max-width:100%;"></div></a>
+								<div class="thumbnail"><a href="single.html"><img src="images/g6.jpg" alt="Image" style="max-width:100%;"></a></div>
 							</div>
 							<div class="col-md-3 col-sm-3 col-xs-3 slidering">
-								<div class="thumbnail"><a href="single.html"><img src="images/g2.jpg" alt="Image" style="max-width:100%;"></div></a>
+								<div class="thumbnail"><a href="single.html"><img src="images/g2.jpg" alt="Image" style="max-width:100%;"></a></div>
 							</div>
 							<div class="col-md-3 col-sm-3 col-xs-3 slidering">
-								<div class="thumbnail"><a href="single.html"><img src="images/g1.jpg" alt="Image" style="max-width:100%;"></div></a>
-							</div>
-						</div>
-					</div>
-					<div class="item">
-						<div class="row">
-							<div class="col-md-3 col-sm-3 col-xs-3 slidering">
-								<div class="thumbnail"><a href="single.html"><img src="images/g1.jpg" alt="Image" style="max-width:100%;"></div></a>
-							</div>
-							<div class="col-md-3 col-sm-3 col-xs-3 slidering">
-								<div class="thumbnail"><a href="single.html"><img src="images/g2.jpg" alt="Image" style="max-width:100%;"></div></a>
-							</div>
-							<div class="col-md-3 col-sm-3 col-xs-3 slidering">
-								<div class="thumbnail"><a href="single.html"><img src="images/g3.jpg" alt="Image" style="max-width:100%;"></div></a>
-							</div>
-							<div class="col-md-3 col-sm-3 col-xs-3 slidering">
-								<div class="thumbnail"><a href="single.html"><img src="images/g4.jpg" alt="Image" style="max-width:100%;"></div></a>
+								<div class="thumbnail"><a href="single.html"><img src="images/g1.jpg" alt="Image" style="max-width:100%;"></a></div>
 							</div>
 						</div>
 					</div>
 					<div class="item">
 						<div class="row">
 							<div class="col-md-3 col-sm-3 col-xs-3 slidering">
-								<div class="thumbnail"><a href="single.html"><img src="images/g5.jpg" alt="Image" style="max-width:100%;"></div></a>
+								<div class="thumbnail"><a href="single.html"><img src="images/g1.jpg" alt="Image" style="max-width:100%;"></a></div>
 							</div>
 							<div class="col-md-3 col-sm-3 col-xs-3 slidering">
-								<div class="thumbnail"><a href="single.html"><img src="images/g6.jpg" alt="Image" style="max-width:100%;"></div></a>
+								<div class="thumbnail"><a href="single.html"><img src="images/g2.jpg" alt="Image" style="max-width:100%;"></a></div>
 							</div>
 							<div class="col-md-3 col-sm-3 col-xs-3 slidering">
-								<div class="thumbnail"><a href="single.html"><img src="images/g2.jpg" alt="Image" style="max-width:100%;"></div></a>
+								<div class="thumbnail"><a href="single.html"><img src="images/g3.jpg" alt="Image" style="max-width:100%;"></a></div>
 							</div>
 							<div class="col-md-3 col-sm-3 col-xs-3 slidering">
-								<div class="thumbnail"><a href="single.html"><img src="images/g1.jpg" alt="Image" style="max-width:100%;"></div></a>
+								<div class="thumbnail"><a href="single.html"><img src="images/g4.jpg" alt="Image" style="max-width:100%;"></a></div>
+							</div>
+						</div>
+					</div>
+					<div class="item">
+						<div class="row">
+							<div class="col-md-3 col-sm-3 col-xs-3 slidering">
+								<div class="thumbnail"><a href="single.html"><img src="images/g5.jpg" alt="Image" style="max-width:100%;"></a></div>
+							</div>
+							<div class="col-md-3 col-sm-3 col-xs-3 slidering">
+								<div class="thumbnail"><a href="single.html"><img src="images/g6.jpg" alt="Image" style="max-width:100%;"></a></div>
+							</div>
+							<div class="col-md-3 col-sm-3 col-xs-3 slidering">
+								<div class="thumbnail"><a href="single.html"><img src="images/g2.jpg" alt="Image" style="max-width:100%;"></a></div>
+							</div>
+							<div class="col-md-3 col-sm-3 col-xs-3 slidering">
+								<div class="thumbnail"><a href="single.html"><img src="images/g1.jpg" alt="Image" style="max-width:100%;"></a></div>
 							</div>
 						</div>
 					</div>
@@ -674,6 +569,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 	<!-- //js -->
 	<!-- cart-js -->
 	<script src="js/minicart.js"></script>
+	<script src="js/ChangePrice.js"></script>
 	<script>
 		shoe.render();
 

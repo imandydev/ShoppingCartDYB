@@ -229,7 +229,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 										<div class="product-shoe-info shoe">
 											<div class="men-pro-item">
 												<div class="men-thumb-item">
-													<img src="${m.img}" alt="">
+													<img src="${m.splitStrImg()[0]}" alt="">
 													<div class="men-cart-pro">
 														<div class="inner-men-cart-pro">
 															<a href="${pageContext.request.contextPath}/single?action=detail&id=${m.id}" class="link-product-add-cart">Xem Chi Tiết</a>
@@ -239,7 +239,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 												</div>
 												<div class="item-info-product">
 													<h4>
-														<a href="single.html">${m.name}</a>
+														<a href="${pageContext.request.contextPath}/single?action=detail&id=${m.id}">${m.name}</a>
 													</h4>
 													<div class="info-product-price">
 														<div class="grid_meta">

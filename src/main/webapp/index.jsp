@@ -48,7 +48,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 				<!-- menu moi -->
 				<div class="header_menu">
 					<ul class="nav justify-content-center">
-						<c:forEach items="${listMenu}" var="m" varStatus="loop">
+						<c:forEach items="${listMenu}" var="m" >
 
 						<li class="nav-item">
 

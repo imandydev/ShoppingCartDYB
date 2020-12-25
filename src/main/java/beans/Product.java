@@ -8,6 +8,7 @@ import empty.EvaluateEmpty;
 import java.math.BigDecimal;
 import java.text.DecimalFormat;
 import java.text.NumberFormat;
+import java.util.LinkedList;
 import java.util.List;
 import java.util.Locale;
 
@@ -43,7 +44,15 @@ public class Product {
 
     public Product() {
     }
+    public List<String> splitStrImg() {
+        List<String> listImage = new LinkedList<>();
+        String[] splitImg = img.split(";");
+        for (String item:splitImg
+        )
+            listImage.add(item);
 
+        return listImage;
+    }
     public double getDanhGia() {
         return danhGia;
     }
