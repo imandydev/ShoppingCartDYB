@@ -41,7 +41,7 @@ public class ChangeInforSingle extends HttpServlet {
                 DetailProduct dPro = new DetailProductEmpty().getProductBy(id,color,list.get(0).getSize());
                 dPro = new FormatedPriceDAO().checkPrice(product,dPro);
                 List<PriceFormat> listTemp = new LinkedList<>();
-                PriceFormat priceFormat = new PriceFormat(dPro.currentFormatGia(),dPro.currentFormatGiaKM());
+                PriceFormat priceFormat = new PriceFormat(dPro.currentFormatGia(),dPro.currentFormatGiaKM(), dPro.getGia(), dPro.getGiaGiam());
                 listTemp.add(priceFormat);
                 Gson json = new Gson();
                 String listSize = json.toJson(listTemp);
@@ -52,7 +52,7 @@ public class ChangeInforSingle extends HttpServlet {
                 DetailProduct dPro = new DetailProductEmpty().getProductBy(id,color,size);
                 dPro = new FormatedPriceDAO().checkPrice(product,dPro);
                 List<PriceFormat> listTemp = new LinkedList<>();
-                PriceFormat priceFormat = new PriceFormat(dPro.currentFormatGia(),dPro.currentFormatGiaKM());
+                PriceFormat priceFormat = new PriceFormat(dPro.currentFormatGia(),dPro.currentFormatGiaKM(),dPro.getGia(), dPro.getGiaGiam());
                 listTemp.add(priceFormat);
                 Gson json = new Gson();
                 String listSize = json.toJson(listTemp);

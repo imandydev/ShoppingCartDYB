@@ -180,10 +180,10 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 						<h5>Số Lượng :</h5>
 
 						<div class="buttons_added">
-							<input class="minus is-form" type="button" value="-">
-							<input aria-label="quantity" class="input-qty" max="100" min="1" name="" type="number"
+							<input class="minus is-form" id="minus" type="button" value="-">
+							<input id="amount-product" aria-label="quantity" class="input-qty" max="100" min="1" name="" type="number"
 								value="1">
-							<input class="plus is-form" type="button" value="+">
+							<input class="plus is-form" id="plus" type="button" value="+">
 						</div>
 					</div>
 				</div>
@@ -218,7 +218,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 					<div class="shoe single-item single_page_b">
 						<form action="#" method="post" id="buy-product">
 							<input type="hidden" name="cmd" value="_cart">
-							<input type="hidden" name="add" value="1">
+							<input id="amount-submit" type="hidden" name="add" value="1">
 							<input type="hidden" name="shoe_item" value="${pro.name}">
 							<c:if test="${detail.giaGiam != 0}">
 							<input id="buy-price" type="hidden" name="amount" value="${detail.giaGiam}">
@@ -569,7 +569,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 	<!-- //js -->
 	<!-- cart-js -->
 	<script src="js/minicart.js"></script>
-	<script src="js/ChangePrice.js"></script>
+	<script src="js/single.js"></script>
 	<script>
 		shoe.render();
 
@@ -672,7 +672,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 	</script>
 	<!-- //end-smoth-scrolling -->
 	<script type="text/javascript" src="js/bootstrap-3.1.1.min.js"></script>
-	<script src="js/chitietsp.js"></script>
+
 
 
 </body>

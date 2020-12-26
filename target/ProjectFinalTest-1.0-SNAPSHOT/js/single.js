@@ -1,5 +1,5 @@
 
-    $(document).ready(function () {
+$(document).ready(function () {
     $("#color-selec").change(function () {
         $("#size-selec").find('option').remove();
         $('#price').find('span').remove();
@@ -41,15 +41,16 @@
             data: data_result,
             success: function (data_result, textStatus, jqXHR) {
                 let obj_2 = $.parseJSON(data_result);
+                console.log(obj_2);
                 $.each(obj_2, function (key, value) {
                     if(value.priceSale == 0) {
                         $('#price').append('<span class="item_price" id="price-main">' + value.price +'đ</span>');
-                        $('#buy-product').append('<input id="buy-price" type="hidden" name="amount" value='+value.price +'>');
+                        $('#buy-product').append('<input id="buy-price" type="hidden" name="amount" value='+value.priceR +'>');
                     // nếu có giảm giá
                     } else {
                         $('#price').append('<span class="item_price" id="price-main">' + value.priceSale +'đ</span>');
                         $('#price').append('<del id="price-sale"> '+  value.price + 'đ</del>');
-                        $('#buy-product').append('<input id="buy-price" type="hidden" name="amount" value='+value.priceSale +'>');
+                        $('#buy-product').append('<input id="buy-price" type="hidden" name="amount" value='+ value.priceS +'>');
 
                         // nếu không có giá có chi tiết sản phẩm thì lấy giá của sản phẩm
                     }
@@ -66,6 +67,7 @@
     $("#size-selec").change(function () {
     $('#price').find('span').remove();
     $('#price').find('del').remove();
+    $('#buy-product').find('#buy-price').remove();
     let colorVal = $("#color-selec").val();
     let idProduct = $("#id-pro").text();
     let sizeVal = $("#size-selec").val();
@@ -84,15 +86,14 @@
     $.each(obj, function (key, value) {
     
     // nếu không có giảm giá thì chỉ hiển thị giá gốc
-
     if(value.priceSale == 0) {
     $('#price').append('<span class="item_price" id="price-main">' + value.price +'đ</span>');
-    $('#buy-product').append('<input id="buy-price" type="hidden" name="amount" value='+value.price +'>');
+    $('#buy-product').append('<input id="buy-price" type="hidden" name="amount" value='+ value.priceR +'>');
     // nếu có giảm giá
     } else {
     $('#price').append('<span class="item_price" id="price-main">' + value.priceSale +'đ</span>');
     $('#price').append('<del id="price-sale"> '+  value.price + 'đ</del>');
-    $('#buy-product').append('<input id="buy-price" type="hidden" name="amount" value='+value.priceSale +'>');
+    $('#buy-product').append('<input id="buy-price" type="hidden" name="amount" value='+ value.priceS +'>');
     // nếu không có giá có chi tiết sản phẩm thì lấy giá của sản phẩm
 }
 });
@@ -101,13 +102,31 @@
 },
     cache: false
 });
-    // set gia theo size được chọn, màu được chọn, id sản phẩm
-    let data_result = {
-    action: "price",
-    color: colorVal,
-    id: idProduct,
-}
-});
 
+});
+    // change amount
+    $("#plus").click(function () {
+        let amount = $("#amount-product").val();
+        let result = parseInt(amount,10) + 1;
+        $("#amount-product").val(result);
+        $("#amount-submit").val(result);
+
+    });
+    $("#minus").click(function () {
+        let amount = $("#amount-product").val();
+        let result = parseInt(amount,10) - 1;
+        if (result < 1) {
+            $("#amount-product").val(1);
+            $("#amount-submit").val(1);
+        } else {
+            $("#amount-product").val(result);
+           $("#amount-submit").val(result);
+        }
+    });
+    $("#amount-product").blur(function () {
+        let amount = $("#amount-product").val();
+        if (amount < 1)
+            $("#amount-product").val(1);
+    });
 });
 

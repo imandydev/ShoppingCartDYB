@@ -1693,7 +1693,6 @@ Cart.prototype.add = function add(data) {
         idx = false,
         isExisting = false,
         product, key, len, i;
-
     // Prune cart settings data from the product
     for (key in data) {
         if (constants.SETTINGS.test(key)) {
@@ -1706,7 +1705,8 @@ Cart.prototype.add = function add(data) {
     for (i = 0, len = items.length; i < len; i++) {
         if (items[i].isEqual(data)) {
             product = items[i];
-            product.set('quantity', product.get('quantity') + (parseInt(data.quantity, 10) || 1));
+           // product.set('quantity', product.get('quantity') + (parseInt(data.quantity, 10) || 1));
+            product.set('quantity',product.get('quantity') + (parseInt($("#amount-product").val(), 10)));
             idx = i;
             isExisting = true;
             break;
@@ -1730,6 +1730,8 @@ Cart.prototype.add = function add(data) {
     }
 
     if (product) {
+        if (product.get('quantity') == 1)
+        product.set('quantity', parseInt($("#amount-product").val(), 10));
         this.fire('add', idx, product, isExisting);
     }
 
