@@ -1905,7 +1905,7 @@ var defaults = module.exports = {
 
     parent: (typeof document !== 'undefined') ? document.body : null,
 
-    action: './checkout.html',
+    action: '/ProjectFinalTest_war_exploded/checkout?action=cart',
 
     target: '',
 

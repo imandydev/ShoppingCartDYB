@@ -128,5 +128,18 @@ $(document).ready(function () {
         if (amount < 1)
             $("#amount-product").val(1);
     });
+    $('#buy-product').on('submit', function (e) {
+        e.preventDefault();
+        var valPro = $(this).find('#submit-cart').data('dataid');
+        var amount = $(this).find('#amount-submit').val();
+        alert("id san pham " + valPro +"==== amount" + amount);
+        $.ajax({
+            url: "cart/add",
+            method: "POST",
+            data: {'id' : valPro , 'amount': amount},
+            success: function (response) {
+            }
+        });
+    })
 });
 

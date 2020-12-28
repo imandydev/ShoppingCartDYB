@@ -51,26 +51,51 @@ table.timetable_sub {
 .timetable_sub td {
 	border: 1px solid #CDCDCD;
 }
-
+td.invert-image {
+	width: 25%;
+}
 td.invert-image a img {
-	width: 30%;
+	width: 45%;
 	margin: 0 auto;
 }
 
 .rem {
 	position: relative;
 }
+.invert .selec-color, .selec-size{
+	width: 70px;
+	height: 40px;
+	border: 1px solid #b2b2b2;
+	outline: none;
+}
+.selec-size {
+	width: 50px;
+}
+.selec-discount {
+	height: 33px;
+	border: 1px solid #b2b2b2;
+	outline: none;
+}
+.invert .selec-color option{
+	font-size: 14px;
+	color: #212121;
+}
+.invert .selec-size option{
+	 font-size: 14px;
+	 color: #212121;
+ }
 
 .close1,
 .close2,
 .close3 {
-	background: url('../images/close_1.jpg') no-repeat 0px 0px;
+	background: url('../images/close_1.JPG') no-repeat 0px 0px;
 	cursor: pointer;
     width: 41px;
     height: 39px;
     position: absolute;
    
-    top: -26px;
+    top: -20px;
+	left: 10px;
 	-webkit-transition: color 0.2s ease-in-out;
 	-moz-transition: color 0.2s ease-in-out;
 	-o-transition: color 0.2s ease-in-out;
@@ -128,15 +153,17 @@ td.invert-image a img {
 	width: 40px;
 	height: 40px;
 	padding: 8px 0px;
-	color: #A9A9A9;
+	color: #212121;
 	line-height: 24px;
-	border: 1px solid #E5E5E5;
-	background-color: #E5E5E5;
+	border: 1px solid #212121;
+	outline: none;
 	text-align: center;
 	display: inline-block;
 	margin-right: 3px;
 }
-
+.rem1 .price {
+	font-size: 18px;
+}
 .quantity-select .entry.value-minus:hover,
 .quantity-select .entry.value-plus:hover {
 	background: #E5E5E5;
@@ -174,9 +201,11 @@ td.invert-image a img {
 
 .checkout-left-basket ul li {
 	list-style-type: none;
-	margin-bottom: 1em;
-	font-size: 14px;
-	color: #999;
+	margin-bottom: 2em;
+	color: #212121;
+}
+.checkout-left-basket ul > li {
+	font-weight: 600;
 }
 .btn-thanhtoan {
 	width: 100%;
@@ -224,13 +253,13 @@ td.invert-image a img {
 	font-size: 1em;
 	color: #212121;
 	font-weight: 600;
-	padding: 1em 0;
-	border-top: 1px solid #DDD;
+	padding-bottom: 0.5em;
+
 	
 	margin: 2em 0 0;
 }
 .checkout-left-basket ul .last_2 {
-	margin-top: 1em;
+	margin-top: 2em;
 	font-weight: bold;
 	color: #212121;
 }

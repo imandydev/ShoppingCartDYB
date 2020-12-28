@@ -15,8 +15,8 @@ import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 import java.util.List;
 
-@WebServlet(urlPatterns = "/contact")
-public class Contact extends HttpServlet {
+@WebServlet(urlPatterns = "/checkout")
+public class Checkout extends HttpServlet {
     private List<Menu> valuesMenu = new MenuEmpty().getAllMenu();
     private Infor infor = new InforEmpty().getInfor();
     private ImagesB imagesB = new ImagesEmpty().getImagesSingle("Các mục khác");
@@ -26,27 +26,14 @@ public class Contact extends HttpServlet {
 
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         String action = request.getParameter("action");
-        int idMenu = Integer.parseInt(request.getParameter("id"));
-        Menu menu = new MenuEmpty().getSingleMenuById(idMenu);
-        if (action.equals("returns") && menu.getLink().equals("/contact"))
-            doGetByIdMenu(request,response);
-        else
-            doGet404(request,response);
+        if (action.equals("cart"))
+            doGetInfor(request,response);
     }
-    protected void doGetByIdMenu(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-        int idMenu = Integer.parseInt(request.getParameter("id"));
-        Menu menu = new MenuEmpty().getSingleMenuById(idMenu);
+    protected void doGetInfor(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         request.setAttribute("images",imagesB);
-        request.setAttribute("listMenu", valuesMenu);
-        request.setAttribute("menuSingle", menu);
         request.setAttribute("infor", infor);
-        request.getRequestDispatcher("contact.jsp").forward(request,response);
-    }
-    protected void doGet404(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-        request.setAttribute("images",imagesB);
         request.setAttribute("listMenu", valuesMenu);
-        request.setAttribute("infor", infor);
-        request.getRequestDispatcher("404.jsp").forward(request,response);
+        request.getRequestDispatcher("checkout.jsp").forward(request,response);
     }
 }
 

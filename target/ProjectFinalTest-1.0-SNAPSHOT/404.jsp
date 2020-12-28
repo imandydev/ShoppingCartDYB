@@ -169,7 +169,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 						<h4>Thông tin của chúng tôi</h4>
 						<ul>
 							<c:forEach items="${listMenu}" var="m">
-								<li><a href="${pageContext.request.contextPath}${m.link}?action=returns&id=${m.id}">${m.name}</a></li>
+								<li><a href="${pageContext.request.contextPath}${m.link}?action=returns&id=${m.id}&page=1">${m.name}</a></li>
 							</c:forEach>
 						</ul>
 					</div>

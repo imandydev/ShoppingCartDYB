@@ -224,7 +224,6 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 							</div>
 						</c:if>
 						<c:forEach items="${listPro}" var="m" varStatus="loop">
-
 									<div class="col-md-4 product-men women_two">
 										<div class="product-shoe-info shoe">
 											<div class="men-pro-item">
@@ -281,7 +280,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 
 														</div>
 														<div class="shoe single-item hvr-outline-out">
-															<form action="#" method="post">
+															<form action="#" method="post" class="submit-pro">
 																<input type="hidden" name="cmd" value="_cart">
 																<input type="hidden" name="add" value="1">
 																<input type="hidden" name="shoe_item" value="${m.name}">
@@ -292,7 +291,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 																<c:if test="${m.giamgia != 1}">
 																<input type="hidden" name="amount" value="${m.gia}">
 																</c:if>
-																<button type="submit" class="shoe-cart pshoe-cart"><i class="fa fa-cart-plus" aria-hidden="true"></i></button>
+																<button type="submit" class="shoe-cart pshoe-cart submit-cart" data-dataid="${m.id}" ><i class="fa fa-cart-plus" aria-hidden="true"></i></button>
 
 																<a href="#" data-toggle="modal" data-target="#myModal1"></a>
 															</form>
@@ -654,7 +653,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                             <h4>Thông tin của chúng tôi</h4>
 							<ul>
 								<c:forEach items="${listMenu}" var="m">
-									<li><a href="${pageContext.request.contextPath}${m.link}?action=returns&id=${m.id}">${m.name}</a></li>
+									<li><a href="${pageContext.request.contextPath}${m.link}?action=returns&id=${m.id}&page=1">${m.name}</a></li>
 								</c:forEach>
 							</ul>
                         </div>
@@ -733,7 +732,8 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 	<!-- /nav -->
 	<script src="js/modernizr-2.6.2.min.js"></script>
 	<script src="js/classie.js"></script>
-
+	<%--Send value product to cart--%>
+	<script src="js/SendIdToCart.js"></script>
 	<!-- //nav -->
 	<!--search-bar-->
 	<script src="js/search.js"></script>

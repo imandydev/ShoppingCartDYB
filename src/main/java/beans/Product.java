@@ -26,12 +26,13 @@ public class Product {
     private int giamgia;
     private String status;
     private double danhGia;
-    public Product(int id, String name, int idDanhMuc, double gia, double giaKM, String moTa, String thongTin, String link, String img, String date, int giamgia, String status) {
+    private int quantity;
+    public Product(int id, String name, int idDanhMuc, long gia, long giaKM, String moTa, String thongTin, String link, String img, String date, int giamgia, String status) {
         this.id = id;
         this.name = name;
         this.idDanhMuc = idDanhMuc;
-        this.gia = new BigDecimal(Double.toString(gia));
-        this.giaKM = new BigDecimal(Double.toString(giaKM));;
+        this.gia = new BigDecimal(Long.toString(gia));
+        this.giaKM = new BigDecimal(Long.toString(giaKM));;
         this.moTa = moTa;
         this.thongTin = thongTin;
         this.link = link;
@@ -40,6 +41,7 @@ public class Product {
         this.giamgia = giamgia;
         this.status = status;
         this.danhGia = 0;
+        this.quantity = 0;
     }
 
     public Product() {
@@ -78,6 +80,18 @@ public class Product {
         }
         return 0;
     }
+    public void add(){
+        setQuantity(this.quantity + 1);
+    }
+
+    public int getQuantity() {
+        return quantity;
+    }
+
+    public void setQuantity(int quantity) {
+        this.quantity = quantity;
+    }
+
     public int getId() {
         return id;
     }

@@ -105,7 +105,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 			</div>
 			<div id="cd-search" class="cd-search">
 				<form action="#" method="post">
-					<input name="Search" type="search" placeholder="Tìm kiếm...">
+					<input name="search" type="search" placeholder="Tìm kiếm...">
 				</form>
 			</div>
 		</div>
@@ -216,7 +216,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 
 				<div class="occasion-cart">
 					<div class="shoe single-item single_page_b">
-						<form action="#" method="post" id="buy-product">
+						<form action="#" method="post" id="buy-product" class="submit-pro">
 							<input type="hidden" name="cmd" value="_cart">
 							<input id="amount-submit" type="hidden" name="add" value="1">
 							<input type="hidden" name="shoe_item" value="${pro.name}">
@@ -226,7 +226,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 							<c:if test="${detail.giaGiam == 0}">
 								<input id="buy-price" type="hidden" name="amount" value="${detail.giaGiam}">
 							</c:if>
-							<input type="submit" name="submit" value="Thêm Vào Giỏ Hàng" class="button add">
+							<input type="submit" name="submit" data-dataid="${pro.id}" value="Thêm Vào Giỏ Hàng" class="button add" id="submit-cart">
 
 							<a href="#" data-toggle="modal" data-target="#myModal1"></a>
 						</form>
@@ -508,7 +508,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 							<h4>Thông tin của chúng tôi</h4>
 							<ul>
 								<c:forEach items="${listMenu}" var="m">
-									<li><a href="${pageContext.request.contextPath}${m.link}?action=returns&id=${m.id}">${m.name}</a></li>
+									<li><a href="${pageContext.request.contextPath}${m.link}?action=returns&id=${m.id}&page=1">${m.name}</a></li>
 								</c:forEach>
 							</ul>
 						</div>

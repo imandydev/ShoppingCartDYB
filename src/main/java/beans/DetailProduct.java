@@ -15,14 +15,14 @@ public class DetailProduct {
     private BigDecimal giaGiam;
 
 
-    public DetailProduct(int id, int idPro, String mau, String size, int soLuong, double gia, double giaGiam) {
+    public DetailProduct(int id, int idPro, String mau, String size, int soLuong, long gia, long giaGiam) {
         this.id = id;
         this.idPro = idPro;
         this.mau = mau;
         this.size = size;
         this.soLuong = soLuong;
-        this.gia = new BigDecimal(Double.toString(gia));
-        this.giaGiam = new BigDecimal(Double.toString(giaGiam));
+        this.gia = new BigDecimal(Long.toString(gia));
+        this.giaGiam = new BigDecimal(Long.toString(giaGiam));
 
     }
 

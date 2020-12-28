@@ -24,7 +24,7 @@ public class ProductEmpty {
             List<Product> listPro = new LinkedList<>();
             ResultSet rs = s.executeQuery();
             while (rs.next()) {
-                    listPro.add(new Product(rs.getInt(1), rs.getString(2), rs.getInt(3), rs.getDouble(4), rs.getDouble(5), rs.getString(6), rs.getString(7), rs.getString(8), rs.getString(9), rs.getString(10),rs.getInt(11),rs.getString(12)));
+                    listPro.add(new Product(rs.getInt(1), rs.getString(2), rs.getInt(3), rs.getLong(4), rs.getLong(5), rs.getString(6), rs.getString(7), rs.getString(8), rs.getString(9), rs.getString(10),rs.getInt(11),rs.getString(12)));
 
             }
             rs.close();
@@ -50,7 +50,7 @@ public class ProductEmpty {
             List<Product> listPro = new LinkedList<>();
             ResultSet rs = s.executeQuery();
             while (rs.next()) {
-                listPro.add(new Product(rs.getInt(1), rs.getString(2), rs.getInt(3), rs.getDouble(4), rs.getDouble(5),rs.getString(6),rs.getString(7),rs.getString(8),rs.getString(9),rs.getString(10),rs.getInt(11),rs.getString(12)));
+                listPro.add(new Product(rs.getInt(1), rs.getString(2), rs.getInt(3), rs.getLong(4), rs.getLong(5),rs.getString(6),rs.getString(7),rs.getString(8),rs.getString(9),rs.getString(10),rs.getInt(11),rs.getString(12)));
 
             }
             rs.close();
@@ -71,9 +71,7 @@ public class ProductEmpty {
             Product pro = null;
             ResultSet rs = s.executeQuery();
             if (rs.next())
-                pro = new Product(rs.getInt(1), rs.getString(2), rs.getInt(3), rs.getDouble(4), rs.getDouble(5),rs.getString(6),rs.getString(7),rs.getString(8),rs.getString(9),rs.getString(10),rs.getInt(11),rs.getString(12));
-
-
+                pro = new Product(rs.getInt(1), rs.getString(2), rs.getInt(3), rs.getLong(4), rs.getLong(5),rs.getString(6),rs.getString(7),rs.getString(8),rs.getString(9),rs.getString(10),rs.getInt(11),rs.getString(12));
             rs.close();
             s.close();
 
@@ -94,7 +92,7 @@ public class ProductEmpty {
             while (rs.next()) {
                 if (!check.contains(rs.getInt(1))) {
                     check.add(rs.getInt(1));
-                    listPro.add(new Product(rs.getInt(1), rs.getString(2), rs.getInt(3), rs.getDouble(4), rs.getDouble(5), rs.getString(6), rs.getString(7), rs.getString(8), rs.getString(9), rs.getString(10),rs.getInt(11),rs.getString(12)));
+                    listPro.add(new Product(rs.getInt(1), rs.getString(2), rs.getInt(3), rs.getLong(4), rs.getLong(5), rs.getString(6), rs.getString(7), rs.getString(8), rs.getString(9), rs.getString(10),rs.getInt(11),rs.getString(12)));
                 }
             }
             rs.close();
