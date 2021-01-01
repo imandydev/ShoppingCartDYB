@@ -23,7 +23,7 @@ public class DetailProductEmpty {
             List<DetailProduct> listPro = new LinkedList<>();
             ResultSet rs = s.executeQuery();
             while (rs.next()) {
-                listPro.add( new DetailProduct(rs.getInt(1), rs.getInt(2), rs.getString(3), rs.getString(4), rs.getInt(5),rs.getLong(6),rs.getLong(7))) ;
+                listPro.add( new DetailProduct(rs.getInt(1), rs.getInt(2), rs.getString(3), rs.getString(4), rs.getInt(5),rs.getLong(6),rs.getLong(7),rs.getInt(8))) ;
             }
             rs.close();
             s.close();
@@ -55,7 +55,7 @@ public class DetailProductEmpty {
             List<DetailProduct> listPro = new LinkedList<>();
             ResultSet rs = s.executeQuery();
             while (rs.next()) {
-                listPro.add( new DetailProduct(rs.getInt(1), rs.getInt(2), rs.getString(3), rs.getString(4), rs.getInt(5),rs.getLong(6),rs.getLong(7))) ;
+                listPro.add( new DetailProduct(rs.getInt(1), rs.getInt(2), rs.getString(3), rs.getString(4), rs.getInt(5),rs.getLong(6),rs.getLong(7),rs.getInt(8))) ;
             }
             rs.close();
             s.close();
@@ -77,7 +77,7 @@ public class DetailProductEmpty {
             DetailProduct pro = null;
             ResultSet rs = s.executeQuery();
             if (rs.next()) {
-                pro = new DetailProduct(rs.getInt(1), rs.getInt(2), rs.getString(3), rs.getString(4), rs.getInt(5),rs.getLong(6),rs.getLong(7)) ;
+                pro = new DetailProduct(rs.getInt(1), rs.getInt(2), rs.getString(3), rs.getString(4), rs.getInt(5),rs.getLong(6),rs.getLong(7),rs.getInt(8)) ;
             }
             rs.close();
             s.close();
@@ -100,7 +100,7 @@ public class DetailProductEmpty {
             DetailProduct pro = null;
             ResultSet rs = s.executeQuery();
             if (rs.next()) {
-                pro = new DetailProduct(rs.getInt(1), rs.getInt(2), rs.getString(3), rs.getString(4), rs.getInt(5),rs.getLong(6),rs.getLong(7)) ;
+                pro = new DetailProduct(rs.getInt(1), rs.getInt(2), rs.getString(3), rs.getString(4), rs.getInt(5),rs.getLong(6),rs.getLong(7),rs.getInt(8)) ;
             }
             rs.close();
             s.close();

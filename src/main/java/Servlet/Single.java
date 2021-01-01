@@ -44,7 +44,6 @@ public class Single extends HttpServlet {
 //        list size
         List<DetailProduct> listSize = new DetailProductEmpty().getAllProdcutByIdAndColor(id,listPro.get(0).getMau());
         product.setDanhGia();
-        detail = new FormatedPriceDAO().checkPrice(product,detail);
         request.setAttribute("hot", Hot4Pro);
         request.setAttribute("listSize",listSize);
         request.setAttribute("detail",detail);

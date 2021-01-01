@@ -1,6 +1,7 @@
 <%@ page import="beans.Cart" %>
 <%@ page import="java.util.Collection" %>
 <%@ page import="beans.Product" %>
+<%@ page import="beans.DetailProduct" %>
 <!--
 author: W3layouts
 author URL: http://w3layouts.com
@@ -122,8 +123,9 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 	</div>
     <%
         Cart c = Cart.getCart(session);
-        Collection<Product> data = c.getData();
+        Collection<DetailProduct> data = c.getData();
         request.setAttribute("data",data);
+        request.setAttribute("cart",c);
     %>
 	<!-- //banner -->
 	<!-- top Products -->
@@ -133,9 +135,9 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 				<h3>Giỏ Hàng</h3>
 
 				<div class="checkout-right">
-					<h4>Giỏ hàng của bạn bao gồm: <span>3 Sản phẩm</span></h4>
-					<table class="timetable_sub">
-						<thead>
+					<h4>Giỏ hàng của bạn bao gồm: <span>${data.size()} Sản phẩm</span></h4>
+					<table class="timetable_sub table1" id="table">
+						<thead >
 							<tr>
 								<th>STT</th>
 								<th>Tên Sản Phẩm</th>
@@ -147,14 +149,14 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 								<th>Xóa</th>
 							</tr>
 						</thead>
-						<tbody>
+						<tbody >
                             <c:forEach items="${data}" var="m" varStatus="loop">
 							<tr class="rem1">
-								<td class="invert">1</td>
+								<td class="invert">${loop.index+1}</td>
 								<td class="invert">${m.name}</td>
-								<td class="invert-image"><a href=""><img src="${m.splitStrImg()[0]}" alt="" class="img-responsive"></a></td>
+								<td class="invert-image"><a href=""><img src="${m.getImgFromProduct()[0]}" alt="" class="img-responsive"></a></td>
 								<td class="invert">
-									<div class="quantity">
+									<div class="quantity" >
 										<div class="quantity-select">
 											<div class="entry value-minus">&nbsp;</div>
 											<input class="entry value" value="${m.quantity}">
@@ -163,23 +165,34 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 									</div>
 								</td>
 								<td class="invert">
-									<select class="selec-color">
-										<option>Đen</option>
-										<option>Xám</option>
-										<option>Đỏ</option>
+									<select class="selec-color" data-dataid = "${m.idPro}">
+                                        <c:forEach items="${m.getListProductByIdThis()}" var="i" >
+												<c:if test="${m.checkMau(i.mau)}">
+												<option selected>${m.mau}</option>
+
+												</c:if>
+												<c:if test="${!m.checkMau(i.mau)}">
+													<option >${i.mau}</option>
+												</c:if>
+                                        </c:forEach>
+
 									</select>
+
+
 								</td>
 								<td class="invert">
 									<select class="selec-size">
-										<option>S</option>
-										<option>L</option>
-										<option>XL</option>
+										<c:forEach items="${m.getListProductByIdColorThis()}" var="i">
+											<c:if test="${m.checkSize(i.size)}">
+												<option selected>${m.size}</option>
+											</c:if>
+											<c:if test="${!m.checkSize(i.size)}">
+												<option >${i.size}</option>
+											</c:if>
+										</c:forEach>
 									</select>
 								</td>
-
-									<td class="invert price">${m.getGia().longValue()*m.getQuantity()}đ</td>
-
-
+								<td class="invert price" data-dataid = "${m.getPriceAmount()}" data-dataquan="${m.getQuantity()}"><span>${m.formatedPriceAmount(m.getPriceAmount())}đ</span></td>
 								<td class="invert">
 									<div class="rem">
 										<div class="close1"> </div>
@@ -187,6 +200,8 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 
 								</td>
 							</tr>
+
+
                             </c:forEach>
 
 						</tbody>
@@ -206,7 +221,8 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 							<li>Giảm giá<span>0đ</span></li>
 							<li  class="last">Ghi chú</li>
 							<textarea class="form-control" id="exampleFormControlTextarea1" rows="5"></textarea>
-							<li class="last_2">Tổng tiền<span>700.000đ</span></li>
+
+							<li class="last_2" value="${cart.total()}">Tổng tiền<span>${cart.formatPrice(cart.total())}đ</span></li>
 						</ul>
 					<button class="btn-thanhtoan" type="submit">THANH TOÁN</button>
 					</div>
@@ -437,7 +453,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 	<!-- /nav -->
 	<script src="js/modernizr-2.6.2.min.js"></script>
 	<script src="js/classie.js"></script>
-	
+	<script src="js/checkout.js"></script>
 	<!-- //nav -->
 	<!--search-bar-->
 	<script src="js/search.js"></script>

@@ -1,7 +1,9 @@
 package Servlet;
 
 import beans.Cart;
+import beans.DetailProduct;
 import beans.Product;
+import empty.DetailProductEmpty;
 import empty.ProductEmpty;
 
 import javax.servlet.ServletException;
@@ -20,9 +22,11 @@ public class AddCart extends HttpServlet {
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         int id  = Integer.parseInt(request.getParameter("id"));
         int amount = Integer.parseInt(request.getParameter("amount"));
+        String color = request.getParameter("color");
+        String size = request.getParameter("size");
         if(id == 0)
             response.sendRedirect("/listproducts?action=returns&id=2&page=1");
-        Product p = new ProductEmpty().getAllProdcutByIdProdcut(id);
+        DetailProduct p = new DetailProductEmpty().getProductBy(id,color,size);
         if (p == null) {
             response.sendRedirect("/listproducts?action=returns&id=2&page=1");
             return;

@@ -3,7 +3,10 @@ package beans;
 
 
 import DAO.EvaluateDAO;
+import DAO.FormatedPriceDAO;
+import empty.DetailProductEmpty;
 import empty.EvaluateEmpty;
+import empty.ProductEmpty;
 
 import java.math.BigDecimal;
 import java.text.DecimalFormat;
@@ -16,8 +19,8 @@ public class Product {
     private int id;
     private String name;
     private int idDanhMuc;
-    private BigDecimal gia;
-    private BigDecimal giaKM;
+    private long gia;
+    private long giaKM;
     private String moTa;
     private String thongTin;
     private String link;
@@ -27,12 +30,13 @@ public class Product {
     private String status;
     private double danhGia;
     private int quantity;
+
     public Product(int id, String name, int idDanhMuc, long gia, long giaKM, String moTa, String thongTin, String link, String img, String date, int giamgia, String status) {
         this.id = id;
         this.name = name;
         this.idDanhMuc = idDanhMuc;
-        this.gia = new BigDecimal(Long.toString(gia));
-        this.giaKM = new BigDecimal(Long.toString(giaKM));;
+        this.gia = gia;
+        this.giaKM = giaKM;
         this.moTa = moTa;
         this.thongTin = thongTin;
         this.link = link;
@@ -80,9 +84,8 @@ public class Product {
         }
         return 0;
     }
-    public void add(){
-        setQuantity(this.quantity + 1);
-    }
+
+
 
     public int getQuantity() {
         return quantity;
@@ -121,26 +124,24 @@ public class Product {
     }
 
     public String currentFormatGia() {
-        DecimalFormat formatter = new DecimalFormat("###,###,###");
-        return formatter.format(getGia());
+        return FormatedPriceDAO.formatedGia(getGia());
     }
     public String currentFormatGiaKM() {
-        DecimalFormat formatter = new DecimalFormat("###,###,###");
-        return formatter.format(getGiaKM());
+        return FormatedPriceDAO.formatedGia(getGiaKM());
     }
-    public BigDecimal getGia() {
+    public long getGia() {
         return gia;
     }
 
-    public void setGia(BigDecimal gia) {
+    public void setGia(long gia) {
         this.gia = gia;
     }
 
-    public BigDecimal getGiaKM() {
+    public long getGiaKM() {
         return giaKM;
     }
 
-    public void setGiaKM(BigDecimal giaKM) {
+    public void setGiaKM(long giaKM) {
         this.giaKM = giaKM;
     }
 

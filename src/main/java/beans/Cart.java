@@ -1,5 +1,7 @@
 package beans;
 
+import DAO.FormatedPriceDAO;
+
 import javax.servlet.http.HttpSession;
 import java.io.Serializable;
 import java.util.Collection;
@@ -8,14 +10,14 @@ import java.util.HashMap;
 import java.util.Map;
 
 public class Cart implements Serializable {
-    Map<Integer, Product> data = new HashMap<>();
+    Map<Integer, DetailProduct> data = new HashMap<>();
 
     public Cart() {
     }
-    public void put(Product p, int amount) {
+    public void put(DetailProduct p, int amount) {
         if (p == null) return;
         if (data.containsKey(p.getId())){
-            data.get(p.getId()).add();
+            data.get(p.getId()).add(amount);
             return;
         }
         p.setQuantity(amount);
@@ -28,16 +30,20 @@ public class Cart implements Serializable {
     public void remove(String id) {
         data.remove(id);
     }
+
     public long total() {
         long sum = 0;
-        for (Product p: data.values()
+        for (DetailProduct p: data.values()
              ) {
-            if (p.getGiaKM().longValue() != 0 && p.getGiamgia() == 1)
-                sum += p.getGiaKM().longValue() * p.getQuantity();
+            if (p.getGiamGia() == 1)
+                sum += p.getGiaGiam() * p.getQuantity();
             else
-                sum += p.getGia().longValue() * p.getQuantity();
+                sum += p.getGia() * p.getQuantity();
         }
         return sum;
+    }
+    public String formatPrice(long priceTotal) {
+        return FormatedPriceDAO.formatedGia(priceTotal);
     }
     public static Cart getCart(HttpSession session) {
         return session.getAttribute("cart") == null ? new Cart() : (Cart)session.getAttribute("cart");
@@ -45,7 +51,7 @@ public class Cart implements Serializable {
     public void commit(HttpSession session) {
         session.setAttribute("cart", this);
     }
-    public Collection<Product> getData() {
+    public Collection<DetailProduct> getData() {
         return data.values();
     }
 }

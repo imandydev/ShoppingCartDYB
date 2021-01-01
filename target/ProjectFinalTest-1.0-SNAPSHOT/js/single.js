@@ -18,7 +18,6 @@ $(document).ready(function () {
             method: "GET",
             data: data,
             success: function (data, textStatus, jqXHR) {
-
                 let obj = $.parseJSON(data);
                 $.each(obj, function (key, value) {
                     $('#size-selec').append('<option value="' + value.size + '">' + value.size + '</option>')
@@ -43,15 +42,15 @@ $(document).ready(function () {
                 let obj_2 = $.parseJSON(data_result);
                 console.log(obj_2);
                 $.each(obj_2, function (key, value) {
-                    if(value.priceSale == 0) {
+                    if(value.statusDiscount == 0) {
                         $('#price').append('<span class="item_price" id="price-main">' + value.price +'đ</span>');
                         $('#buy-product').append('<input id="buy-price" type="hidden" name="amount" value='+value.priceR +'>');
                     // nếu có giảm giá
-                    } else {
+                     }
+                    else {
                         $('#price').append('<span class="item_price" id="price-main">' + value.priceSale +'đ</span>');
                         $('#price').append('<del id="price-sale"> '+  value.price + 'đ</del>');
                         $('#buy-product').append('<input id="buy-price" type="hidden" name="amount" value='+ value.priceS +'>');
-
                         // nếu không có giá có chi tiết sản phẩm thì lấy giá của sản phẩm
                     }
                 });
@@ -86,9 +85,10 @@ $(document).ready(function () {
     $.each(obj, function (key, value) {
     
     // nếu không có giảm giá thì chỉ hiển thị giá gốc
-    if(value.priceSale == 0) {
+    if(value.statusDiscount == 0) {
     $('#price').append('<span class="item_price" id="price-main">' + value.price +'đ</span>');
     $('#buy-product').append('<input id="buy-price" type="hidden" name="amount" value='+ value.priceR +'>');
+
     // nếu có giảm giá
     } else {
     $('#price').append('<span class="item_price" id="price-main">' + value.priceSale +'đ</span>');
@@ -132,13 +132,16 @@ $(document).ready(function () {
         e.preventDefault();
         var valPro = $(this).find('#submit-cart').data('dataid');
         var amount = $(this).find('#amount-submit').val();
-        alert("id san pham " + valPro +"==== amount" + amount);
+        var color = $("#color-selec").children("option:selected").val();
+        var size = $("#size-selec").children("option:selected").val();
         $.ajax({
             url: "cart/add",
             method: "POST",
-            data: {'id' : valPro , 'amount': amount},
+            data: {'id' : valPro , 'amount': amount, 'color':color, 'size':size},
             success: function (response) {
+
             }
+
         });
     })
 });

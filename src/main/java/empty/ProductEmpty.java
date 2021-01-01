@@ -111,7 +111,7 @@ public class ProductEmpty {
         if (priceStart == 0 && priceEnd ==0)
             return listProSearchByName;
         for (Product item: listProSearchByName) {
-           if (item.getGia().doubleValue() >= priceStart && item.getGia().doubleValue() <= priceEnd)
+           if (item.getGia() >= priceStart && item.getGia() <= priceEnd)
                 listPro.add(item);
         }
 

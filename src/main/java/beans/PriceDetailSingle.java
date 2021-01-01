@@ -1,20 +1,28 @@
 package beans;
 
+import DAO.FormatedPriceDAO;
+
 import java.math.BigDecimal;
 
-public class PriceFormat {
+public class PriceDetailSingle {
     private String price;
     private String priceSale;
-    private BigDecimal priceR;
-    private BigDecimal priceS;
-    public PriceFormat(String price, String priceSale, BigDecimal priceR, BigDecimal priceS) {
+    private long priceR;
+    private long priceS;
+    private int statusDiscount;
+    public PriceDetailSingle(String price, String priceSale, long priceR, long priceS, int statusDiscount) {
         this.price = price;
         this.priceSale = priceSale;
         this.priceR = priceR;
         this.priceS = priceS;
+        this.statusDiscount = statusDiscount;
     }
-
-    public PriceFormat() {
+    public PriceDetailSingle(String price, long priceR, int giamGia) {
+        this.price = price;
+        this.priceR = priceR;
+        this.statusDiscount = giamGia;
+    }
+    public PriceDetailSingle() {
     }
 
     public String getPrice() {
@@ -33,19 +41,19 @@ public class PriceFormat {
         this.priceSale = priceSale;
     }
 
-    public BigDecimal getPriceR() {
+    public long getPriceR() {
         return priceR;
     }
 
-    public void setPriceR(BigDecimal priceR) {
+    public void setPriceR(long priceR) {
         this.priceR = priceR;
     }
 
-    public BigDecimal getPriceS() {
+    public long getPriceS() {
         return priceS;
     }
 
-    public void setPriceS(BigDecimal priceS) {
+    public void setPriceS(long priceS) {
         this.priceS = priceS;
     }
 }

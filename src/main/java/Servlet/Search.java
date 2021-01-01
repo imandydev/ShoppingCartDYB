@@ -49,12 +49,12 @@ public class Search extends HttpServlet {
 
     protected void doGetFillPrice(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         String searchRep = request.getParameter("search-rep").trim();
-        double priceStart = 0;
-        double priceEnd = 0;
+        long priceStart = 0;
+        long priceEnd = 0;
         if ( !request.getParameter("priceStart").equalsIgnoreCase(""))
-            priceStart = Double.parseDouble(request.getParameter("priceStart").trim());;
+            priceStart = Long.parseLong(request.getParameter("priceStart").trim());;
         if (!request.getParameter("priceEnd").equalsIgnoreCase(""))
-            priceEnd = Double.parseDouble(request.getParameter("priceEnd").trim());
+            priceEnd =  Long.parseLong(request.getParameter("priceEnd").trim());
         List<Product> list = new ProductEmpty().getAllProdcutFillPrice(searchRep,priceStart,priceEnd);
         request.setAttribute("searchRep", searchRep);
         request.setAttribute("priceS",formatedPrice.formatedGia(priceStart));
@@ -64,12 +64,12 @@ public class Search extends HttpServlet {
     }
     protected void doGetFillCate(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         String searchRep = request.getParameter("search-rep").trim();
-        double priceStart = 0;
-        double priceEnd = 0;
+        long priceStart = 0;
+        long priceEnd = 0;
         if ( !request.getParameter("priceStart").equalsIgnoreCase(""))
-            priceStart = Double.parseDouble(request.getParameter("priceStart").trim());;
+            priceStart = Long.parseLong(request.getParameter("priceStart").trim());;
         if (!request.getParameter("priceEnd").equalsIgnoreCase(""))
-            priceEnd = Double.parseDouble(request.getParameter("priceEnd").trim());
+            priceEnd =  Long.parseLong(request.getParameter("priceEnd").trim());
         int idCateSelec = Integer.parseInt(request.getParameter("idCateSelected"));
         List<Product> list = new ProductEmpty().getAllProdcutFillCate(searchRep,priceStart,priceEnd,idCateSelec);
         request.setAttribute("searchRep", searchRep);
@@ -82,12 +82,12 @@ public class Search extends HttpServlet {
 
     protected void doGetPage(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         String searchRep = request.getParameter("search-rep").trim();
-        double priceStart = 0;
-        double priceEnd = 0;
+        long priceStart = 0;
+        long priceEnd = 0;
         if ( !request.getParameter("priceStart").equalsIgnoreCase(""))
-            priceStart = Double.parseDouble(request.getParameter("priceStart").trim());;
+            priceStart = Long.parseLong(request.getParameter("priceStart").trim());;
         if (!request.getParameter("priceEnd").equalsIgnoreCase(""))
-            priceEnd = Double.parseDouble(request.getParameter("priceEnd").trim());
+            priceEnd =  Long.parseLong(request.getParameter("priceEnd").trim());
         List<Product> list= null;
         String idCateSelec = "";
         int ivaluate = 5;

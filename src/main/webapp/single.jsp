@@ -149,10 +149,10 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 				<h3>${pro.name}</h3>
 				<p class="msp">Mã Sản Phẩm: <span id="id-pro">${pro.id}</span></p>
 <%--				nếu chi tiết sản phẩm không có giảm giá thì hiển thị giá gốc--%>
-				<c:if test="${detail.currentFormatGiaKM() == '0'}">
+				<c:if test="${pro.giamgia == 0}">
 					<p id="price"><span class="item_price" >${detail.currentFormatGia()}đ</span>
 				</c:if>
-				<c:if test="${detail.currentFormatGiaKM() != '0'}">
+				<c:if test="${pro.giamgia != 0}">
 					<p id="price"><span class="item_price" >${detail.currentFormatGiaKM()}đ</span>
 					<del id="price-sale">${detail.currentFormatGia()}đ</del>
 				</c:if>
@@ -220,11 +220,11 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 							<input type="hidden" name="cmd" value="_cart">
 							<input id="amount-submit" type="hidden" name="add" value="1">
 							<input type="hidden" name="shoe_item" value="${pro.name}">
-							<c:if test="${detail.giaGiam != 0}">
+							<c:if test="${detail.giamGia == 1}">
 							<input id="buy-price" type="hidden" name="amount" value="${detail.giaGiam}">
 							</c:if>
-							<c:if test="${detail.giaGiam == 0}">
-								<input id="buy-price" type="hidden" name="amount" value="${detail.giaGiam}">
+							<c:if test="${detail.giamGia == 0}">
+								<input id="buy-price" type="hidden" name="amount" value="${detail.gia}">
 							</c:if>
 							<input type="submit" name="submit" data-dataid="${pro.id}" value="Thêm Vào Giỏ Hàng" class="button add" id="submit-cart">
 
