@@ -1,8 +1,11 @@
 package Servlet;
 
-import beans.*;
+import DAO.FormatedPriceDAO;
+import beans.Cart;
+import beans.DetailProduct;
+import beans.PriceDetailSingle;
 import com.google.gson.Gson;
-import empty.*;
+import empty.DetailProductEmpty;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -14,11 +17,9 @@ import java.io.IOException;
 import java.io.PrintWriter;
 import java.util.LinkedList;
 import java.util.List;
-
-
-@WebServlet(urlPatterns = "/single-infor")
-public class ChangeInforSingle extends HttpServlet {
-
+// cập nhật lại giỏ hàng khi thay đổi thông tin sản phẩm: màu, size,...
+@WebServlet(urlPatterns = "/change/infor")
+public class UpdateCart extends HttpServlet {
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         doGet(request, response);
     }
@@ -30,38 +31,49 @@ public class ChangeInforSingle extends HttpServlet {
             String action = request.getParameter("action");
             String color = request.getParameter("color");
             int idPro = Integer.parseInt(request.getParameter("id"));
-            int quantity = 0;
+            int idDetail = 0;
+            int quantity = Integer.parseInt(request.getParameter("quantity"));
+            // list size theo color
             List<DetailProduct> list = new DetailProductEmpty().getAllProdcutByIdAndColor(idPro, color);
             PriceDetailSingle priceFormat = null;
+            // thay đổi size khi màu thay đổi
             if (action.equals("color-change")) {
                 Gson json = new Gson();
                 String listSize = json.toJson(list);
                 response.setContentType("text/html");
                 response.getWriter().write(listSize);
-            } else if (action.equals("price-change")) {
-                quantity = Integer.parseInt(request.getParameter("quantity"));
+            }
+            // thay đổi màu thì giá thay đổi
+            else if (action.equals("price-change")) {
                 DetailProduct dPro = new DetailProductEmpty().getProductBy(idPro,color,list.get(0).getSize());
+                idDetail = Integer.parseInt(request.getParameter("iddetail"));
                 List<PriceDetailSingle> listTemp = new LinkedList<>();
+                c.update(idDetail, dPro, quantity);
+                c.commit(session);
                 if (dPro.getGiamGia() == 1)
-                    priceFormat = new PriceDetailSingle(dPro.currentFormatGiaThat(quantity),dPro.currentFormatGiaKMThat(quantity), dPro.getGia()*quantity, dPro.getGiaGiam()*quantity, dPro.getGiamGia());
+                    priceFormat = new PriceDetailSingle(dPro.currentFormatGiaThat(quantity),dPro.currentFormatGiaKMThat(quantity), dPro.getGia()*quantity, dPro.getGiaGiam()*quantity, dPro.getGiamGia(), FormatedPriceDAO.formatedGia(c.total()), dPro.getId());
                 else
-                    priceFormat = new PriceDetailSingle(dPro.currentFormatGiaThat(quantity),dPro.getGia()*quantity, dPro.getGiamGia());
+                    priceFormat = new PriceDetailSingle(dPro.currentFormatGiaThat(quantity),dPro.getGia()*quantity, dPro.getGiamGia(),  FormatedPriceDAO.formatedGia(c.total()), dPro.getId());
                 listTemp.add(priceFormat);
                 Gson json = new Gson();
                 String listSize = json.toJson(listTemp);
                 response.setContentType("text/html");
                 response.getWriter().write(listSize);
-            } else if (action.equals("size-change")) {
-                quantity = Integer.parseInt(request.getParameter("quantity"));
+            }
+            // thay đổi size thì giá thay đổi
+            else if (action.equals("size-change")) {
                 String size = request.getParameter("size");
+                idDetail = Integer.parseInt(request.getParameter("iddetail"));
                 // tìm sản phẩm theo đúng giá, id sản phẩm và size
                 DetailProduct dPro = new DetailProductEmpty().getProductBy(idPro,color,size);
                 List<PriceDetailSingle> listTemp = new LinkedList<>();
+                c.update(idDetail, dPro, quantity);
+                c.commit(session);
                 // kiểm tra chi tiết sản phẩm có trạng thái giảm giá hay không nếu có thì set giá giảm, giá gốc : set giá gốc
                 if (dPro.getGiamGia() == 1)
-                    priceFormat = new PriceDetailSingle(dPro.currentFormatGiaThat(quantity),dPro.currentFormatGiaKMThat(quantity), dPro.getGia()*quantity, dPro.getGiaGiam()*quantity, dPro.getGiamGia());
+                    priceFormat = new PriceDetailSingle(dPro.currentFormatGiaThat(quantity),dPro.currentFormatGiaKMThat(quantity), dPro.getGia()*quantity, dPro.getGiaGiam()*quantity, dPro.getGiamGia(),  FormatedPriceDAO.formatedGia(c.total()), dPro.getId());
                 else
-                    priceFormat = new PriceDetailSingle(dPro.currentFormatGiaThat(quantity),dPro.getGia()*quantity, dPro.getGiamGia());
+                    priceFormat = new PriceDetailSingle(dPro.currentFormatGiaThat(quantity),dPro.getGia()*quantity, dPro.getGiamGia(),  FormatedPriceDAO.formatedGia(c.total()), dPro.getId());
                 listTemp.add(priceFormat);
                 Gson json = new Gson();
                 String listSize = json.toJson(listTemp);
@@ -69,8 +81,6 @@ public class ChangeInforSingle extends HttpServlet {
                 response.getWriter().write(listSize);
             }
         }
-
     }
-
 }
 

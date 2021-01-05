@@ -302,6 +302,7 @@ p.sbmincart-empty-text {
     position: relative;
 }
 
+
 /*-- Model-Slider --*/
 /*-- effect on products --*/
 .img-deals img {
@@ -781,9 +782,7 @@ input.checked {
     font-weight: 700;
 }
 
-.info-product-price {
-	margin: 12px 0;
-}
+
 
 span.item_price {
 	font-size: 18px;
@@ -833,12 +832,10 @@ span.item_price {
 }
 .grid_meta {
     float: left;
-    width: 80%;
-	text-align: left;
+    width: 100%;
+	text-align: center;
 }
 .info-product-price {
-	margin: 12px 0;
-	padding: 1em;
 	border-top: 1px solid #ddd;
 }
 button.shoe-cart {

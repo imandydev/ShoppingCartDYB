@@ -135,7 +135,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 				<h3>Giỏ Hàng</h3>
 
 				<div class="checkout-right">
-					<h4>Giỏ hàng của bạn bao gồm: <span>${data.size()} Sản phẩm</span></h4>
+					<h4 class="sl-product">Giỏ hàng của bạn bao gồm: <span >${data.size()} Sản phẩm</span></h4>
 					<table class="timetable_sub table1" id="table">
 						<thead >
 							<tr>
@@ -159,7 +159,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 									<div class="quantity" >
 										<div class="quantity-select">
 											<div class="entry value-minus">&nbsp;</div>
-											<input class="entry value" value="${m.quantity}">
+											<input class="entry value value-quantity" value="${m.quantity}">
 											<div class="entry value-plus active">&nbsp;</div>
 										</div>
 									</div>
@@ -192,7 +192,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 										</c:forEach>
 									</select>
 								</td>
-								<td class="invert price" data-dataid = "${m.getPriceAmount()}" data-dataquan="${m.getQuantity()}"><span>${m.formatedPriceAmount(m.getPriceAmount())}đ</span></td>
+								<td class="invert price" data-dataid = "${m.getPriceAmount()}" data-dataquan="${m.getQuantity()}" data-iddetail="${m.id}"><span >${m.formatedPriceAmount(m.getPriceAmount())}đ</span></td>
 								<td class="invert">
 									<div class="rem">
 										<div class="close1"> </div>
@@ -453,7 +453,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 	<!-- /nav -->
 	<script src="js/modernizr-2.6.2.min.js"></script>
 	<script src="js/classie.js"></script>
-	<script src="js/checkout.js"></script>
+
 	<!-- //nav -->
 	<!--search-bar-->
 	<script src="js/search.js"></script>
@@ -477,6 +477,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 				$(".value").val(1);
 		});
 	</script>
+
 	<!--quantity-->
 	<!-- <script>
 		$(document).ready(function (c) {
@@ -521,7 +522,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 	</script>
 	<!-- //end-smoth-scrolling -->
 	<script type="text/javascript" src="js/bootstrap-3.1.1.min.js"></script>
-
+	<script src="js/checkout.js"></script>
 
 </body>
 

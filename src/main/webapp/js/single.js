@@ -7,6 +7,8 @@ $(document).ready(function () {
         $('#buy-product').find('#buy-price').remove();
         let colorVal = $("#color-selec").val();
         let idProduct = $("#id-pro").text();
+        let amount = $("#amount-product").val();
+
         let data = {
             action: "color-change",
             color: colorVal,
@@ -33,6 +35,7 @@ $(document).ready(function () {
             action: "price-change",
             color: colorVal,
             id: idProduct,
+            quantity: amount,
         }
         $.ajax({
             url: "single-infor",
@@ -70,11 +73,13 @@ $(document).ready(function () {
     let colorVal = $("#color-selec").val();
     let idProduct = $("#id-pro").text();
     let sizeVal = $("#size-selec").val();
+    let amount = $("#amount-product").val();
     let data = {
     action: "size-change",
     color: colorVal,
     id: idProduct,
     size: sizeVal,
+        quantity: amount,
 };
     $.ajax({
     url: "single-infor",
@@ -108,7 +113,7 @@ $(document).ready(function () {
     $("#plus").click(function () {
         let amount = $("#amount-product").val();
         let result = parseInt(amount,10) + 1;
-        $("#amount-product").val(result);
+        $("#amount-product").va(result);
         $("#amount-submit").val(result);
 
     });

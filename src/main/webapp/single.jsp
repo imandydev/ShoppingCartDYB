@@ -226,7 +226,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 							<c:if test="${detail.giamGia == 0}">
 								<input id="buy-price" type="hidden" name="amount" value="${detail.gia}">
 							</c:if>
-							<input type="submit" name="submit" data-dataid="${pro.id}" value="Thêm Vào Giỏ Hàng" class="button add" id="submit-cart">
+							<input type="submit" name="submit" data-dataid="${pro.id}" data-dataid-pro="${detail.id}" value="Thêm Vào Giỏ Hàng" class="button add" id="submit-cart">
 
 							<a href="#" data-toggle="modal" data-target="#myModal1"></a>
 						</form>

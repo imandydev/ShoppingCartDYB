@@ -1,13 +1,26 @@
 $(document).ready(function () {
     $('.submit-pro').on('submit', function (e) {
         e.preventDefault();
-        var valPro = $(this).find('.submit-cart').data('dataid');
-        alert(valPro);
+        var idPro = $(this).find('.submit-cart').data('dataid');
+        let data = {
+            action: "detail",
+            id: idPro,
+        };
         $.ajax({
-            url: "cart/add",
+            url: "get-color-size",
             method: "POST",
-            data: {'id' : valPro, 'amount': 1},
-            success: function (response){
+            data: data,
+            success: function (data, textStatus, jqXHR){
+                let obj = $.parseJSON(data);
+                $.each(obj, function (index, value) {
+                    if (index == 0) {
+                        $('.row1-choose-color').append('<label>' + value.size + '</label>');
+                    $('.row1-choose-color').append('<input type="checkbox" value="' + value.size + '" checked>');
+                    } else {
+                        $('.row1-choose-color').append('<label>' + value.size + '</label>');
+                        $('.row1-choose-color').append('<input type="checkbox" value="' + value.size + '">');
+                    }
+                });
             }
         });
     })

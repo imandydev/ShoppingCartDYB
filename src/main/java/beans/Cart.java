@@ -23,11 +23,31 @@ public class Cart implements Serializable {
         p.setQuantity(amount);
         data.put(p.getId(),p);
     }
-    public void update(String id, int quantity) {
+    public void updateQuantity(int id, int quantity) {
         if(quantity < 0) return;
         if (data.containsKey(id)) data.get(id).setQuantity(quantity);
     }
-    public void remove(String id) {
+    public void update(int id, DetailProduct detailProduct, int amount) {
+        if (detailProduct == null)
+            return;
+        if (data.containsKey(detailProduct.getId())) {
+            data.remove(id);
+            data.get(detailProduct.getId()).add(amount);
+            return;
+        }
+        // giảm số lượng sản phẩm
+        int quantityTemp = data.get(id).getQuantity();
+        if (quantityTemp - 1 == 0)
+            data.remove(id);
+        else
+            data.get(id).setQuantity(quantityTemp - 1);
+        detailProduct.setQuantity(amount);
+        data.put(detailProduct.getId(),detailProduct);
+
+
+    }
+
+    public void remove(int id) {
         data.remove(id);
     }
 

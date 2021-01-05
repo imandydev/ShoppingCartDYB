@@ -10,6 +10,8 @@ public class PriceDetailSingle {
     private long priceR;
     private long priceS;
     private int statusDiscount;
+    private String total;
+    private int idDetail;
     public PriceDetailSingle(String price, String priceSale, long priceR, long priceS, int statusDiscount) {
         this.price = price;
         this.priceSale = priceSale;
@@ -17,12 +19,52 @@ public class PriceDetailSingle {
         this.priceS = priceS;
         this.statusDiscount = statusDiscount;
     }
-    public PriceDetailSingle(String price, long priceR, int giamGia) {
+    public PriceDetailSingle(String price, long priceR, int statusDiscount) {
         this.price = price;
         this.priceR = priceR;
-        this.statusDiscount = giamGia;
+        this.statusDiscount = statusDiscount;
+    }
+    public PriceDetailSingle(String price, String priceSale, long priceR, long priceS, int statusDiscount, String total, int idDetail) {
+        this.price = price;
+        this.priceSale = priceSale;
+        this.priceR = priceR;
+        this.priceS = priceS;
+        this.statusDiscount = statusDiscount;
+        this.total = total;
+        this.idDetail = idDetail;
+    }
+    public PriceDetailSingle(String price, long priceR, int statusDiscount, String total, int idDetail) {
+        this.price = price;
+        this.priceR = priceR;
+        this.statusDiscount = statusDiscount;
+        this.total = total;
+        this.idDetail = idDetail;
     }
     public PriceDetailSingle() {
+    }
+
+    public int getStatusDiscount() {
+        return statusDiscount;
+    }
+
+    public void setStatusDiscount(int statusDiscount) {
+        this.statusDiscount = statusDiscount;
+    }
+
+    public String getTotal() {
+        return total;
+    }
+
+    public void setTotal(String total) {
+        this.total = total;
+    }
+
+    public int getIdDetail() {
+        return idDetail;
+    }
+
+    public void setIdDetail(int idDetail) {
+        this.idDetail = idDetail;
     }
 
     public String getPrice() {

@@ -229,11 +229,13 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 											<div class="men-pro-item">
 												<div class="men-thumb-item">
 													<img src="${m.splitStrImg()[0]}" alt="">
+
 													<div class="men-cart-pro">
 														<div class="inner-men-cart-pro">
 															<a href="${pageContext.request.contextPath}/single?action=detail&id=${m.id}" class="link-product-add-cart">Xem Chi Tiết</a>
 														</div>
 													</div>
+
 													<!-- <span class="product-new-top">New</span> -->
 												</div>
 												<div class="item-info-product">
@@ -279,27 +281,25 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 															</ul>
 
 														</div>
-														<div class="shoe single-item hvr-outline-out">
-															<form action="#" method="post" class="submit-pro">
-																<input type="hidden" name="cmd" value="_cart">
-																<input type="hidden" name="add" value="1">
-																<input type="hidden" name="shoe_item" value="${m.name}">
-																<c:if test="${m.giamgia == 1}">
-																	<input type="hidden" name="amount" value="${m.giaKM}">
-																</c:if>
+<%--														<div class="shoe single-item hvr-outline-out">--%>
+<%--															<form action="#" method="post" class="submit-pro">--%>
+<%--																<input type="hidden" name="cmd" value="_cart">--%>
+<%--																<input type="hidden" name="add" value="1">--%>
+<%--																<input type="hidden" name="shoe_item" value="${m.name}">--%>
+<%--																<c:if test="${m.giamgia == 1}">--%>
+<%--																	<input type="hidden" name="amount" value="${m.giaKM}">--%>
+<%--																</c:if>--%>
 
-																<c:if test="${m.giamgia != 1}">
-																<input type="hidden" name="amount" value="${m.gia}">
-																</c:if>
-																<button type="submit" class="shoe-cart pshoe-cart submit-cart" data-dataid="${m.id}" ><i class="fa fa-cart-plus" aria-hidden="true"></i></button>
-
-																<a href="#" data-toggle="modal" data-target="#myModal1"></a>
-															</form>
-
-														</div>
+<%--																<c:if test="${m.giamgia != 1}">--%>
+<%--																<input type="hidden" name="amount" value="${m.gia}">--%>
+<%--																</c:if>--%>
+<%--																<button type="submit" class="shoe-cart pshoe-cart submit-cart" data-dataid="${m.id}" ><i class="fa fa-cart-plus" aria-hidden="true"></i></button>--%>
+<%--															</form>--%>
+<%--														</div>--%>
 													</div>
 													<div class="clearfix"></div>
 												</div>
+
 											</div>
 										</div>
 									</div>
@@ -708,8 +708,9 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 		</div>
 	</div>
 	</div>
+
 	<!-- //footer -->
-<a href="#home" id="toTop" class="scroll" style="display: block;"> <span id="toTopHover" style="opacity: 1;"> </span></a>
+	<a href="#home" id="toTop" class="scroll" style="display: block;"> <span id="toTopHover" style="opacity: 1;"> </span></a>
 	<!-- js -->
 	<script type="text/javascript" src="js/jquery-2.1.4.min.js"></script>
 	<!-- //js -->
@@ -733,30 +734,12 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 	<script src="js/modernizr-2.6.2.min.js"></script>
 	<script src="js/classie.js"></script>
 	<%--Send value product to cart--%>
-	<script src="js/SendIdToCart.js"></script>
 	<!-- //nav -->
 	<!--search-bar-->
 	<script src="js/search.js"></script>
 	<!--//search-bar-->
 	<!-- price range (top products) -->
 	<script src="js/jquery-ui.js"></script>
-	<!-- <script>
-		//<![CDATA[
-		$(window).load(function () {
-			$("#slider-range").slider({
-				range: true,
-				min: 0,
-				max: 20000000,
-				values: [0, 10000000],
-				slide: function (event, ui) {
-					$("#amount").val(ui.values[0]+"₫" + " - " + ui.values[1]+"₫");
-				}
-			});
-			$("#amount").val( $("#slider-range").slider("values", 0)+"₫" + " - " + $("#slider-range").slider("values", 1)+"₫	");
-
-		}); //]]>
-	</script> -->
-	<!-- //price range (top products) -->
 
 	<!-- start-smoth-scrolling -->
 	<script type="text/javascript" src="js/move-top.js"></script>
