@@ -12,17 +12,20 @@ public class PriceDetailSingle {
     private int statusDiscount;
     private String total;
     private int idDetail;
-    public PriceDetailSingle(String price, String priceSale, long priceR, long priceS, int statusDiscount) {
+    private int soLuongConLai;
+    public PriceDetailSingle(String price, String priceSale, long priceR, long priceS, int statusDiscount, int soluong) {
         this.price = price;
         this.priceSale = priceSale;
         this.priceR = priceR;
         this.priceS = priceS;
         this.statusDiscount = statusDiscount;
+        this.soLuongConLai = soluong;
     }
-    public PriceDetailSingle(String price, long priceR, int statusDiscount) {
+    public PriceDetailSingle(String price, long priceR, int statusDiscount, int soluong) {
         this.price = price;
         this.priceR = priceR;
         this.statusDiscount = statusDiscount;
+        this.soLuongConLai = soluong;
     }
     public PriceDetailSingle(String price, String priceSale, long priceR, long priceS, int statusDiscount, String total, int idDetail) {
         this.price = price;
@@ -97,5 +100,13 @@ public class PriceDetailSingle {
 
     public void setPriceS(long priceS) {
         this.priceS = priceS;
+    }
+
+    public int getSoLuongConLai() {
+        return soLuongConLai;
+    }
+
+    public void setSoLuongConLai(int soLuongConLai) {
+        this.soLuongConLai = soLuongConLai;
     }
 }

@@ -43,9 +43,9 @@ public class ChangeInforSingle extends HttpServlet {
                 DetailProduct dPro = new DetailProductEmpty().getProductBy(idPro,color,list.get(0).getSize());
                 List<PriceDetailSingle> listTemp = new LinkedList<>();
                 if (dPro.getGiamGia() == 1)
-                    priceFormat = new PriceDetailSingle(dPro.currentFormatGiaThat(quantity),dPro.currentFormatGiaKMThat(quantity), dPro.getGia()*quantity, dPro.getGiaGiam()*quantity, dPro.getGiamGia());
+                    priceFormat = new PriceDetailSingle(dPro.currentFormatGiaThat(quantity),dPro.currentFormatGiaKMThat(quantity), dPro.getGia()*quantity, dPro.getGiaGiam()*quantity, dPro.getGiamGia(), dPro.getSoLuong());
                 else
-                    priceFormat = new PriceDetailSingle(dPro.currentFormatGiaThat(quantity),dPro.getGia()*quantity, dPro.getGiamGia());
+                    priceFormat = new PriceDetailSingle(dPro.currentFormatGiaThat(quantity),dPro.getGia()*quantity, dPro.getGiamGia(),dPro.getSoLuong());
                 listTemp.add(priceFormat);
                 Gson json = new Gson();
                 String listSize = json.toJson(listTemp);
@@ -59,9 +59,9 @@ public class ChangeInforSingle extends HttpServlet {
                 List<PriceDetailSingle> listTemp = new LinkedList<>();
                 // kiểm tra chi tiết sản phẩm có trạng thái giảm giá hay không nếu có thì set giá giảm, giá gốc : set giá gốc
                 if (dPro.getGiamGia() == 1)
-                    priceFormat = new PriceDetailSingle(dPro.currentFormatGiaThat(quantity),dPro.currentFormatGiaKMThat(quantity), dPro.getGia()*quantity, dPro.getGiaGiam()*quantity, dPro.getGiamGia());
+                    priceFormat = new PriceDetailSingle(dPro.currentFormatGiaThat(quantity),dPro.currentFormatGiaKMThat(quantity), dPro.getGia()*quantity, dPro.getGiaGiam()*quantity, dPro.getGiamGia(),dPro.getSoLuong());
                 else
-                    priceFormat = new PriceDetailSingle(dPro.currentFormatGiaThat(quantity),dPro.getGia()*quantity, dPro.getGiamGia());
+                    priceFormat = new PriceDetailSingle(dPro.currentFormatGiaThat(quantity),dPro.getGia()*quantity, dPro.getGiamGia(),dPro.getSoLuong());
                 listTemp.add(priceFormat);
                 Gson json = new Gson();
                 String listSize = json.toJson(listTemp);

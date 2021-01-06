@@ -8,7 +8,7 @@ $(document).ready(function () {
         let colorVal = $("#color-selec").val();
         let idProduct = $("#id-pro").text();
         let amount = $("#amount-product").val();
-
+        $('.size-box').find('.soluong-conlai').remove();
         let data = {
             action: "color-change",
             color: colorVal,
@@ -43,8 +43,9 @@ $(document).ready(function () {
             data: data_result,
             success: function (data_result, textStatus, jqXHR) {
                 let obj_2 = $.parseJSON(data_result);
-                console.log(obj_2);
                 $.each(obj_2, function (key, value) {
+                    if(value.soLuongConLai == 0)
+                        $('.size-box').append('<span class="soluong-conlai">Hết Hàng</span>');
                     if(value.statusDiscount == 0) {
                         $('#price').append('<span class="item_price" id="price-main">' + value.price +'đ</span>');
                         $('#buy-product').append('<input id="buy-price" type="hidden" name="amount" value='+value.priceR +'>');
@@ -74,6 +75,7 @@ $(document).ready(function () {
     let idProduct = $("#id-pro").text();
     let sizeVal = $("#size-selec").val();
     let amount = $("#amount-product").val();
+    $('.size-box').find('.soluong-conlai').remove();
     let data = {
     action: "size-change",
     color: colorVal,
@@ -88,7 +90,9 @@ $(document).ready(function () {
     success: function (data, textStatus, jqXHR) {
     let obj = $.parseJSON(data);
     $.each(obj, function (key, value) {
-    
+        // nếu số lượng == 0 thì in ra hết hàng
+        if(value.soLuongConLai == 0)
+            $('.size-box').append('<span class="soluong-conlai">Hết Hàng</span>');
     // nếu không có giảm giá thì chỉ hiển thị giá gốc
     if(value.statusDiscount == 0) {
     $('#price').append('<span class="item_price" id="price-main">' + value.price +'đ</span>');
@@ -113,7 +117,7 @@ $(document).ready(function () {
     $("#plus").click(function () {
         let amount = $("#amount-product").val();
         let result = parseInt(amount,10) + 1;
-        $("#amount-product").va(result);
+        $("#amount-product").val(result);
         $("#amount-submit").val(result);
 
     });
@@ -139,12 +143,17 @@ $(document).ready(function () {
         var amount = $(this).find('#amount-submit').val();
         var color = $("#color-selec").children("option:selected").val();
         var size = $("#size-selec").children("option:selected").val();
+
         $.ajax({
             url: "cart/add",
             method: "POST",
             data: {'id' : valPro , 'amount': amount, 'color':color, 'size':size},
-            success: function (response) {
-
+            success: function (data, textStatus, jqXHR) {
+                let obj = $.parseJSON(data);
+                if (obj == true)
+                    swal("Đã thêm vào giỏ hàng !", "", "success");
+                else
+                    swal("Thêm thất bại!", "Sản phẩm đã hết, vui lòng chọn sản phẩm khác.", "error");
             }
 
         });

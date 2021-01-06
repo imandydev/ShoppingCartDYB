@@ -15,10 +15,10 @@ public class DetailProduct {
     private String name;
     private String mau;
     private String size;
-    private int soLuong;
+    private int soLuong; // số lượng sản phẩm còn lại trong kho
     private long gia;
     private long giaGiam;
-    private int quantity;
+    private int quantity; // số lượng sản phẩm chọn thêm vào giỏ hàng
     private int giamGia;
     public DetailProduct(int id, int idPro, String mau, String size, int soLuong, long gia, long giaGiam, int giamGia) {
         this.id = id;

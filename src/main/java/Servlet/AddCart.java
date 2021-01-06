@@ -3,6 +3,7 @@ package Servlet;
 import beans.Cart;
 import beans.DetailProduct;
 import beans.Product;
+import com.google.gson.Gson;
 import empty.DetailProductEmpty;
 import empty.ProductEmpty;
 
@@ -31,10 +32,19 @@ public class AddCart extends HttpServlet {
             response.sendRedirect("/listproducts?action=returns&id=2&page=1");
             return;
         }
-        HttpSession session = request.getSession();
-        Cart c = Cart.getCart(session);
-        c.put(p,amount);
-        c.commit(session);
+        // trạng thái thêm thành công or thất bại
+        boolean status = false;
+        if (p.getSoLuong() > 0) {
+            HttpSession session = request.getSession();
+            Cart c = Cart.getCart(session);
+            c.put(p, amount);
+            c.commit(session);
+            status = true;
+        }
+        Gson json = new Gson();
+        String listSize = json.toJson(status);
+        response.setContentType("text/html");
+        response.getWriter().write(listSize);
     }
 }
 

@@ -53,7 +53,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 		<div class="wrapper_top_w3layouts">
 			<div class="header_agileits">
 				<div class="logo inner_page_log">
-					<h1><a class="navbar-brand" href="${pageContext.request.contextPath}${listMenu[0].link}?action=returns&id=${listMenu[0].id}"><span><c:out value="${infor.splitStr(infor.logo)[0]}"></c:out></span> <i><c:out value="${infor.splitStr(infor.logo)[0]}"></c:out></i></a></h1>
+					<h1><a class="navbar-brand" href="${pageContext.request.contextPath}${listMenu[0].link}?action=returns&id=${listMenu[0].id}"><span><c:out value="${infor.splitStr(infor.logo)[0]}"></c:out></span> <i><c:out value="${infor.splitStr(infor.logo)[1]}"></c:out></i></a></h1>
 				</div>
 				<!-- menu moi1 -->
 				<div class="header_menu">
@@ -69,15 +69,10 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 						</c:forEach>
 					</ul>
 				</div>
-
 				<div class="mobile-nav-button">
 					<div class="shoecart shoecart2 cart cart box_1">
-						<form action="#" method="post" class="last">
-							<input type="hidden" name="cmd" value="_cart">
-							<input type="hidden" name="display" value="1">
-							<button class="top_shoe_cart" type="submit" name="submit" value=""><i
-									class="fa fa-cart-arrow-down" aria-hidden="true"></i></button>
-						</form>
+						<a href="${pageContext.request.contextPath}/checkout?action=cart"><button class="top_shoe_cart" type="submit" name="submit" value=""><i
+								class="fa fa-cart-arrow-down" aria-hidden="true"></i></button></a>
 					</div>
 				</div>
 				<!-- cart details -->
@@ -209,7 +204,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 						</select>
 
 					</div>
-
+					<c:if test="${detail.soLuong == 0}"><span class="soluong-conlai">Hết Hàng</span></c:if>
 				</div>
 
 
@@ -221,10 +216,10 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 							<input id="amount-submit" type="hidden" name="add" value="1">
 							<input type="hidden" name="shoe_item" value="${pro.name}">
 							<c:if test="${detail.giamGia == 1}">
-							<input id="buy-price" type="hidden" name="amount" value="${detail.giaGiam}">
+							<input id="buy-price" type="hidden" name="amount"  value="${detail.giaGiam}">
 							</c:if>
 							<c:if test="${detail.giamGia == 0}">
-								<input id="buy-price" type="hidden" name="amount" value="${detail.gia}">
+								<input id="buy-price" type="hidden" name="amount"  value="${detail.gia}">
 							</c:if>
 							<input type="submit" name="submit" data-dataid="${pro.id}" data-dataid-pro="${detail.id}" value="Thêm Vào Giỏ Hàng" class="button add" id="submit-cart">
 
@@ -568,21 +563,21 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 	<script type="text/javascript" src="js/jquery-2.1.4.min.js"></script>
 	<!-- //js -->
 	<!-- cart-js -->
-	<script src="js/minicart.js"></script>
+<%--	<script src="js/minicart.js"></script>--%>
 	<script src="js/single.js"></script>
-	<script>
-		shoe.render();
+<%--	<script>--%>
+<%--		shoe.render();--%>
 
-		shoe.cart.on('shoe_checkout', function (evt) {
-			var items, len, i;
+<%--		shoe.cart.on('shoe_checkout', function (evt) {--%>
+<%--			var items, len, i;--%>
 
-			if (this.subtotal() > 0) {
-				items = this.items();
+<%--			if (this.subtotal() > 0) {--%>
+<%--				items = this.items();--%>
 
-				for (i = 0, len = items.length; i < len; i++) { }
-			}
-		});
-	</script>
+<%--				for (i = 0, len = items.length; i < len; i++) { }--%>
+<%--			}--%>
+<%--		});--%>
+<%--	</script>--%>
 	<!-- //cart-js -->
 	<!-- /nav -->
 	<script src="js/modernizr-2.6.2.min.js"></script>
@@ -663,17 +658,12 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 			});
 		});
 
-
-
-
-
-
-
 	</script>
+
 	<!-- //end-smoth-scrolling -->
 	<script type="text/javascript" src="js/bootstrap-3.1.1.min.js"></script>
-
-
+<%--	sweetalert--%>
+	<script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
 
 </body>
 

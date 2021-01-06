@@ -1100,6 +1100,7 @@ input.button.add:hover{
         float: left;
         margin-bottom: 2em;
         width: 100%;
+		margin-top: 1em;
     }
 /*-- /Responsive --*/
 @media(max-width:1280px){
