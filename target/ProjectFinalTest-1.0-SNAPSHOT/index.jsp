@@ -70,16 +70,16 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 				</div>
 				<!-- cart details -->
 				<div class="top_nav_right">
-					<button id="trigger-overlay" type="button"><i class="fa fa-user"></i></button>
-					<div class="dropdown_user">
-						<ul>
-							<li><a href="profile.html">Thông Tin Cá Nhân</a></li>
-							<li><a href="donmua.html">Đơn Mua</a></li>
-							<li><a href="sanphamdaxem.html">Sản Phẩm Đã Xem</a></li>
-							<li><a href="hdmuahang.html">Hướng Dẫn Mua Hàng</a></li>
-							<li><a href="login.html">Đăng Xuất</a></li>
-						</ul>
-					</div>
+					<a href="${pageContext.request.contextPath}/login"><button id="trigger-overlay" type="submit"><i class="fa fa-user"></i></button></a>
+<%--					<div class="dropdown_user">--%>
+<%--						<ul>--%>
+<%--							<li><a href="profile.html">Thông Tin Cá Nhân</a></li>--%>
+<%--							<li><a href="donmua.html">Đơn Mua</a></li>--%>
+<%--							<li><a href="sanphamdaxem.html">Sản Phẩm Đã Xem</a></li>--%>
+<%--							<li><a href="hdmuahang.html">Hướng Dẫn Mua Hàng</a></li>--%>
+<%--							<li><a href="login.html">Đăng Xuất</a></li>--%>
+<%--						</ul>--%>
+<%--					</div>--%>
 				</div>
 				<!-- //hết khúc sửa -->
 				<!-- search -->

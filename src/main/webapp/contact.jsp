@@ -274,19 +274,19 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 	<!-- //js -->
 	<!-- cart-js -->
 <%--	<script src="js/minicart.js"></script>--%>
-	<script>
-		shoe.render();
+<%--	<script>--%>
+<%--		shoe.render();--%>
 
-		shoe.cart.on('shoe_checkout', function (evt) {
-			var items, len, i;
+<%--		shoe.cart.on('shoe_checkout', function (evt) {--%>
+<%--			var items, len, i;--%>
 
-			if (this.subtotal() > 0) {
-				items = this.items();
+<%--			if (this.subtotal() > 0) {--%>
+<%--				items = this.items();--%>
 
-				for (i = 0, len = items.length; i < len; i++) { }
-			}
-		});
-	</script>
+<%--				for (i = 0, len = items.length; i < len; i++) { }--%>
+<%--			}--%>
+<%--		});--%>
+<%--	</script>--%>
 	<!-- //cart-js -->
 	<!-- /nav -->
 	<script src="js/modernizr-2.6.2.min.js"></script>

@@ -151,9 +151,9 @@ $(document).ready(function () {
             success: function (data, textStatus, jqXHR) {
                 let obj = $.parseJSON(data);
                 if (obj == true)
-                    swal("Đã thêm vào giỏ hàng!", "", "success");
+                    swal("Đã thêm vào giỏ hàng !", "", "success");
                 else
-                    swal("Thêm thất bại!", "Sản phẩm đã hết, vui lòng chọn sản phẩm khác", "error");
+                    swal("Thêm thất bại!", "Sản phẩm đã hết, vui lòng chọn sản phẩm khác.", "error");
             }
 
         });
