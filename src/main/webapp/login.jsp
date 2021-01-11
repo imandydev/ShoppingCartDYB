@@ -70,16 +70,9 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 				</div>
 			<!-- cart details -->
 			<div class="top_nav_right">
-				<button id="trigger-overlay" type="button"><i class="fa fa-user"></i></button>
-				<div class="dropdown_user">
-					<ul>
-						<li><a href="login.html">Đăng Nhập/ Đăng Kí</a></li>
-							<li><a href="login.html">Đơn Mua</a></li>
-							<li><a href="login.html">Sản Phẩm Đã Xem</a></li>
-							<li><a href="login.html">Hướng Dẫn Mua Hàng</a></li>
-							
-					</ul>
-				</div>
+
+					<a href="${pageContext.request.contextPath}/login"><button class="trigger-overlay" type="submit"><i class="fa fa-user"></i></button></a>
+
 			</div>
 			</div>
 		</div>
@@ -117,13 +110,14 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 		<div class="form">
 			<div class="formdn">
 				<h1>Đăng Nhập</h1>
-				<label class="l1" for="email">Tên Đăng Nhập</label>
-				<input type="text">
-				<label class="l1" for="pass">Mật Khẩu</label>
-				<input type="password">
+                <form action="${pageContext.request.contextPath}/access-login" method="post">
+				<label class="l1">Tên Đăng Nhập</label>
+				<input type="text" name="username">
+				<label class="l1" >Mật Khẩu</label>
+				<input type="password" name="pass">
 				<button class="buttonx">Đăng Nhập</button>
 				<hr>
-
+                </form>
 				<a class="qmk" href="forgetpass.html">Quên mật khẩu?</a>
 			</div>
 			<div class="formdk">

@@ -77,16 +77,22 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 				</div>
 				<!-- cart details -->
 				<div class="top_nav_right">
-					<button id="trigger-overlay" type="button"><i class="fa fa-user"></i></button>
-					<div class="dropdown_user">
-						<ul>
-							<li><a href="profile.html">Thông Tin Cá Nhân</a></li>
-							<li><a href="donmua.html">Đơn Mua</a></li>
-							<li><a href="sanphamdaxem.html">Sản Phẩm Đã Xem</a></li>
-							<li><a href="hdmuahang.html">Hướng Dẫn Mua Hàng</a></li>
-							<li><a href="login.html">Đăng Xuất</a></li>
-						</ul>
-					</div>
+					<c:if test="${sessionScope.auth == null}">
+						<a href="${pageContext.request.contextPath}/login"><button class="trigger-overlay" type="submit"><i class="fa fa-user"></i></button></a>
+					</c:if>
+					<c:if test="${sessionScope.auth != null}">
+						<button class="trigger-overlay" type="submit"><i class="fa fa-user"></i></button>
+
+						<div class="dropdown_user">
+							<ul>
+								<li><a href="${pageContext.request.contextPath}/profile">Thông Tin Cá Nhân</a></li>
+								<li><a href="donmua.html">Đơn Mua</a></li>
+								<li><a href="sanphamdaxem.html">Sản Phẩm Đã Xem</a></li>
+								<li><a href="hdmuahang.html">Hướng Dẫn Mua Hàng</a></li>
+								<li><a href="${pageContext.request.contextPath}/logout">Đăng Xuất</a></li>
+							</ul>
+						</div>
+					</c:if>
 				</div>
 			</div>
 		</div>
@@ -135,7 +141,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 			<div class="side-bar col-md-3">
 				<div class="search-hotel">
 					<h3 class="agileits-sear-head">Tìm Kiếm </h3>
-					<form action="${pageContext.request.contextPath}/search?action=search&id=${menuSingle.id}&page=1" method="post">
+						<form action="${pageContext.request.contextPath}/search?action=search&id=${menuSingle.id}&page=1" method="post">
 						<input type="search" placeholder="Tên Sản Phẩm..." name="search" required="" value="${searchRep}">
 						<input type="submit" value=" ">
 					</form>

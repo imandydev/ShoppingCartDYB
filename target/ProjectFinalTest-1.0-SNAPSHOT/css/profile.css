@@ -151,9 +151,9 @@
     margin-right: auto;
 }
 .element_left{
-    float: left;
     width: 70%;
-    margin-top: 50px;
+    padding-top: 50px;
+    margin: auto;
 }
 .element_left .element{
     width: 95%;
@@ -174,14 +174,18 @@
     min-width: 140px;/* vua them 14/11*/
 }
 .element .cl1 h3{
-    font-size: 15px;
-    font-weight: normal;
+    font-size: 17px;
+    font-weight: 500;
     padding-right: 20px;
+}
+.element .clx {
+    margin-top: 10px;
 }
 .element .cl2{
     float: right;
-    width: 70%;
+    width: 60%;
     min-width: 300px;/* vua them 14/11*/
+    font-size: 16px;
 }
 .cl2 h3{
     font-size: 15px;
@@ -189,13 +193,15 @@
 
 
 
-.cl2 input[type="text" i], input[type="number" i], input[type="email" i]{
-    width: 70%;
+.cl2 input[type="number" i], input[type="email" i]{
+    width: 100%;
     border-radius: 3px;
     height: 35px;
     border: 1px solid gray;
+    outline: none;
 }
 .cl2 label{
+    padding-left: 10px;
     padding-right: 20px;
     font-weight: normal;
 
@@ -206,12 +212,15 @@
     margin-right: 5%;
     height: 35px;
 }
+.cl2 p {
+    font-size: 16px !important;
+}
 .cl3{
-    margin-left: 30%; /* vua them 14/11*/
+    margin-left: 45%; /* vua them 14/11*/
     margin-top: 5%; /* vua them 14/11*/
 }
 .cl3 button{
-    height: 35px;
+    height: 45px;
     outline: none;
     width: 100px;
     background-color: black;
@@ -222,6 +231,7 @@
     -o-transition: 0.5s all;
     -ms-transition: 0.5s all;
     border: none;
+    font-weight: bold;
     
 }
 .cl3 button:hover{

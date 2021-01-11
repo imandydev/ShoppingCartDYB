@@ -6,7 +6,7 @@
 
 
 
-button#trigger-overlay {
+button.trigger-overlay {
     border: none;
     background: none;
     text-align: center;
