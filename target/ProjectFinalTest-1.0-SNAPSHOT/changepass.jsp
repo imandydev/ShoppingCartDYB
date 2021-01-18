@@ -129,9 +129,9 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 						</a>
 						<ul>
 							<li><a href="${pageContext.request.contextPath}/profile"><span>Thông Tin Của Tôi</span></a></li>
-							<li><a href="${pageContext.request.contextPath}/address"><span class="active">Địa Chỉ</span></a></li>
+							<li><a href="${pageContext.request.contextPath}/address"><span >Địa Chỉ</span></a></li>
 							<li><a href=""><span>Mã Giảm Giá</span></a></li>
-							<li><a href="${pageContext.request.contextPath}/changepass"><span >Đổi Mật khẩu</span></a> </li>
+							<li><a href="${pageContext.request.contextPath}/changepass"><span class="active">Đổi Mật khẩu</span></a> </li>
 						</ul>
 
 					</div>

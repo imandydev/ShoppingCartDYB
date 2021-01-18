@@ -21,6 +21,7 @@ public class Role {
 
     }
     public void notAdmin() {
+
         accept.add("user");
     }
     public List<String> getAccept() {

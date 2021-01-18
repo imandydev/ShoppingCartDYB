@@ -115,24 +115,26 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 				<input type="text" name="username">
 				<label class="l1" >Mật Khẩu</label>
 				<input type="password" name="pass">
-				<button class="buttonx">Đăng Nhập</button>
+				<button type="submit" class="buttonx">Đăng Nhập</button>
 				<hr>
                 </form>
 				<a class="qmk" href="forgetpass.html">Quên mật khẩu?</a>
 			</div>
 			<div class="formdk">
 				<h1>Đăng Ký</h1>
-				<label class="l1" for="">Tên Đăng Nhập</label>
-				<input class="nput" type="text">
-				<label class="l1" for="">Địa Chỉ Email</label>
-				<input class="nput" type="email">
-				<label class="l1" for="">Số Điện Thoại</label>
-				<input class="nput" type="number">
-				<label class="l1" for="mk">Mật khẩu</label>
-				<input class="nput" type="password">
-				<label class="l1" for="">Xác nhận mật khẩu</label>
-				<input class="nput" type="password">
-				<button class="buttonx">Đăng Ký</button>
+				<form action="#" id="create-account">
+				<label class="l1" >Tên Đăng Nhập</label>
+				<input class="nput cre-username" type="text" name="username">
+				<label class="l1" >Địa Chỉ Email</label>
+				<input class="nput cre-email" type="email" name="email">
+				<label class="l1" >Số Điện Thoại</label>
+				<input class="nput cre-sdt" type="number" name="sdt">
+				<label class="l1" >Mật khẩu</label>
+				<input class="nput cre-pass" type="password" name="pass">
+				<label class="l1" >Xác nhận mật khẩu</label>
+				<input class="nput cre-verify" type="password" name="verify-pass">
+				<button type="submit" class="buttonx ">Đăng Ký</button>
+				</form>
 			</div>
 
 		</div>
@@ -372,6 +374,8 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 
 	<!-- //nav -->
 	<!-- cart-js -->
+<%--	tạo tài khoản--%>
+	<script src="js/addUser.js"></script>
 	<script src="js/minicart.js"></script>
 <%--	<script>--%>
 <%--		shoe.render();--%>
@@ -429,6 +433,8 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 	</script>
 	<!-- //end-smoth-scrolling -->
 	<script type="text/javascript" src="js/bootstrap-3.1.1.min.js"></script>
+	<%--	sweetalert--%>
+	<script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
 
 
 </body>
