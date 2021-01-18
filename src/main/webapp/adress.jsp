@@ -123,14 +123,14 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 				<div class="content">
 					<h3>Trung tâm cá nhân</h3>
 					<div class="account c1">
-						<a href="#">
+						<a>
 							<h4>Tài Khoản Của Tôi</h4>
 						</a>
 						<ul>
 							<li><a href="${pageContext.request.contextPath}/profile"><span>Thông Tin Của Tôi</span></a></li>
 							<li><a href="${pageContext.request.contextPath}/address"><span class="active">Địa Chỉ</span></a></li>
 							<li><a href="magiamgia.html"><span>Mã Giảm Giá</span></a></li>
-							<li><a href="changepass.html"><span >Đổi Mật khẩu</span></a> </li>
+							<li><a href="${pageContext.request.contextPath}/changepass"><span >Đổi Mật khẩu</span></a> </li>
 						</ul>
 
 					</div>

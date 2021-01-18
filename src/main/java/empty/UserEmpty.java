@@ -1,9 +1,12 @@
 package empty;
 
+import DAO.PasswordEncode;
 import beans.Category;
 import beans.User;
 import db.ConnectionDB;
 
+import java.io.UnsupportedEncodingException;
+import java.security.NoSuchAlgorithmException;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
@@ -13,13 +16,14 @@ import java.util.LinkedList;
 import java.util.List;
 
 public class UserEmpty {
-    public User getUserByUserNamePass(String username, String pass) {
+    public User getUserByUserNamePass(String username, String pass) throws UnsupportedEncodingException, NoSuchAlgorithmException {
+        String passEncode = PasswordEncode.passwordSHA512(pass);
         PreparedStatement s = null;
         try {
             String sql ="select * from user where ten_dang_nhap = ? and pass = ?";
             s = ConnectionDB.connection(sql);
             s.setString(1,username);
-            s.setString(2, pass);
+            s.setString(2, passEncode);
             ResultSet rs = s.executeQuery();
             User user = null;
             if (rs.next()) {
@@ -54,6 +58,21 @@ public class UserEmpty {
             String sql ="update user set dia_chi = ? where iduser = ?";
             s = ConnectionDB.connection(sql);
             s.setString(1, address);
+            s.setInt(2, id);
+            s.executeUpdate();
+            return true;
+        } catch (ClassNotFoundException | SQLException e) {
+            e.printStackTrace();
+            return false;
+        }
+    }
+    public boolean updatePass(int id, String newPass) throws UnsupportedEncodingException, NoSuchAlgorithmException {
+        String passEncode = PasswordEncode.passwordSHA512(newPass);
+        PreparedStatement s = null;
+        try {
+            String sql ="update user set pass = ? where iduser = ?";
+            s = ConnectionDB.connection(sql);
+            s.setString(1, passEncode);
             s.setInt(2, id);
             s.executeUpdate();
             return true;

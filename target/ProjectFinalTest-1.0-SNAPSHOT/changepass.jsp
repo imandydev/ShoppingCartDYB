@@ -11,7 +11,7 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 <html lang="zxx">
 
 <head>
-	<title>Thông Tin Tài Khoản</title>
+	<title>Đổi Mật Khẩu</title>
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 	<meta name="keywords" content="Downy Shoes Responsive web template, Bootstrap Web Templates, Flat Web Templates, Android Compatible web template, 
@@ -26,7 +26,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 		}
     </script>
 	<!-- bonnus -->
-	<link rel="stylesheet" href="css/profile.css">
+	<link rel="stylesheet" href="css/changepass.css">
 	<!-- //custom-theme -->
 	<link href="css/bootstrap.css" rel="stylesheet" type="text/css" media="all" />
 	<link rel="stylesheet" href="css/shop.css" type="text/css" media="screen" property="" />
@@ -34,16 +34,15 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 	<!-- Owl-carousel-CSS -->
 	<link href="css/easy-responsive-tabs.css" rel='stylesheet' type='text/css' />
 
-	<link rel="stylesheet" type="text/css" href="css/checkout.css">
+
 	<link href="css/style.css" rel="stylesheet" type="text/css" media="all" />
 	<!-- font-awesome-icons -->
 	<link href="css/font-awesome.css" rel="stylesheet">
-
-	<!-- //font-awesome-icons -->
 	<link
-		href="//fonts.googleapis.com/css?family=Montserrat:100i,200,200i,300,300i,400,400i,500,500i,600,600i,700,700i,800"
-		rel="stylesheet">
+	href="//fonts.googleapis.com/css?family=Montserrat:100i,200,200i,300,300i,400,400i,500,500i,600,600i,700,700i,800"
+	rel="stylesheet">
 	<link href="//fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i,800" rel="stylesheet">
+
 </head>
 
 <body>
@@ -52,7 +51,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 		<div class="wrapper_top_w3layouts">
 			<div class="header_agileits">
 				<div class="logo inner_page_log">
-					<h1><a class="navbar-brand" href="${pageContext.request.contextPath}${listMenu[0].link}?action=returns&id=${listMenu[0].id}"><span><c:out value="${infor.splitStr(infor.logo)[0]}"></c:out></span> <i><c:out value="${infor.splitStr(infor.logo)[1]}"></c:out></i></a></h1>
+					<h1><a class="navbar-brand" href="index.html"><span>Dyb</span> <i>Store</i></a></h1>
 				</div>
 				<!-- menu moi1 -->
 				<div class="header_menu">
@@ -66,26 +65,27 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 							</li>
 						</c:forEach>
 					</ul>
-			</div>
+				</div>
 
+				<!-- sủa khúc này -->
 				<div class="mobile-nav-button">
 					<div class="shoecart shoecart2 cart cart box_1">
 						<a href="${pageContext.request.contextPath}/checkout?action=cart"><button class="top_shoe_cart" type="submit" name="submit" value=""><i
 								class="fa fa-cart-arrow-down" aria-hidden="true"></i></button></a>
 					</div>
 				</div>
-				<!-- cart details -->
+                <!-- cart details -->
 				<div class="top_nav_right">
-						<button class="trigger-overlay" type="submit"><i class="fa fa-user"></i></button>
-						<div class="dropdown_user">
-							<ul>
-								<li><a href="${pageContext.request.contextPath}/profile">Thông Tin Cá Nhân</a></li>
-								<li><a href="donmua.html">Đơn Mua</a></li>
-								<li><a href="sanphamdaxem.html">Sản Phẩm Đã Xem</a></li>
-								<li><a href="hdmuahang.html">Hướng Dẫn Mua Hàng</a></li>
-								<li><a href="${pageContext.request.contextPath}/logout">Đăng Xuất</a></li>
-							</ul>
-						</div>
+					<button class="trigger-overlay" type="submit"><i class="fa fa-user"></i></button>
+					<div class="dropdown_user">
+						<ul>
+							<li><a href="${pageContext.request.contextPath}/profile">Thông Tin Cá Nhân</a></li>
+							<li><a href="donmua.html">Đơn Mua</a></li>
+							<li><a href="sanphamdaxem.html">Sản Phẩm Đã Xem</a></li>
+							<li><a href="hdmuahang.html">Hướng Dẫn Mua Hàng</a></li>
+							<li><a href="${pageContext.request.contextPath}/logout">Đăng Xuất</a></li>
+						</ul>
+					</div>
 				</div>
 			</div>
 		</div>
@@ -111,7 +111,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 
 				<ul class="short">
 					<li><a href="index.html">Trang chủ</a><i>|</i></li>
-					<li>Thông Tin Tài Khoản</li>
+					<li>Đổi Mật Khẩu</li>
 				</ul>
 			</div>
 		</div>
@@ -124,14 +124,14 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 				<div class="content">
 					<h3>Trung tâm cá nhân</h3>
 					<div class="account c1">
-						<a href="#">
+						<a>
 							<h4>Tài Khoản Của Tôi</h4>
 						</a>
 						<ul>
-							<li><a href="${pageContext.request.contextPath}/profile"><span class="active">Thông Tin Của Tôi</span></a></li>
-							<li><a href="${pageContext.request.contextPath}/address"><span>Địa Chỉ</span></a></li>
-							<li><a href="magiamgia.html"><span>Mã Giảm Giá</span></a></li>
-							<li><a href="${pageContext.request.contextPath}/changepass"><span>Đổi Mật Khẩu</span></a> </li>
+							<li><a href="${pageContext.request.contextPath}/profile"><span>Thông Tin Của Tôi</span></a></li>
+							<li><a href="${pageContext.request.contextPath}/address"><span class="active">Địa Chỉ</span></a></li>
+							<li><a href=""><span>Mã Giảm Giá</span></a></li>
+							<li><a href="${pageContext.request.contextPath}/changepass"><span >Đổi Mật khẩu</span></a> </li>
 						</ul>
 
 					</div>
@@ -151,37 +151,38 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 				<div class="content_main">
 					<div class="list_product">
 						<div class="content_pro_a">
-							<h2>Thông tin của tôi</h2>
-							<h4>Quản lý thông tin để bảo mật tài khoản</h4>
+							<h2>Đổi mật khẩu</h2>
+							<h4>Để bảo mật tài khoản, vui lòng không chia sẻ mật khẩu cho người khác</h4>
 						</div>
 						<div class="content_pro_b">
-							<div class="element_left">
-								<form action="update-profile?action=set-profile" method="post" class="save-profile">
-									<div class="element">
-										<div class="cl1"><h3>Tên Đăng Nhập</h3></div>
-										<div class="cl2"><p class="get-username" >${sessionScope.auth.username}</p></div>
-									</div>
-									<div class="element">
-										<div class="cl1 clx"><h3>Email</h3></div>
-										<div class="cl2"><input class="get-email" type="email" name="email" value="${sessionScope.auth.email}"></div>
-									</div>
+							<div class="content_pro_b_box">
+								<form action="update-profile?action=set-pass" method="post">
+								<table>
+								 <tr>  
+									 <!-- vua them class cho input 14/11 -->
+									 <td class="ele1">Mật Khẩu Hiện Tại</td>
+									 <td class="text"><input type="password" name="oldpass"></td>
+									 <td><a href="forgetpass.html">Quên Mật Khẩu?</a></td>
+								 </tr>
+								 <tr>
+									 <td class="ele1">Mật Khẩu Mới</td>
+									 <td  class="text"><input type="password" name="newpass"></td>
+								 </tr>
+								 <tr>
+									<td class="ele1">Xác Nhận Mật Khẩu</td>
+									<td  class="text"><input type="password" name="verifypass"></td>
+								 </tr>
+								 <tr>
+									 <td></td>
+									 <td><button type="submit">Xác Nhận</button></td>
+								 </tr>
+								</table>
 
-									<div class="element">
-										<div class="cl1 clx"><h3>Số Điện Thoại</h3></div>
-										<div class="cl2"><input class="get-numberP" type="number" name="sdt" value="${sessionScope.auth.sdt}"></div>
-									</div>
-									<div class="element">
-										<div class="cl3 "><button type="submit" class="button">Lưu</button></div>
-									</div>
 								</form>
+
 							</div>
-							<!-- moi then 14/11 -->
-
-
+						   
 						</div>
-						
-
-						
 					</div>
 				</div>
 
@@ -316,7 +317,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 	<!-- /nav -->
 	<script src="js/modernizr-2.6.2.min.js"></script>
 	<script src="js/classie.js"></script>
-
+	
 	<!-- //nav -->
 	<!--search-bar-->
 	<script src="js/search.js"></script>
@@ -355,8 +356,6 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 	</script>
 	<!-- //end-smoth-scrolling -->
 	<script type="text/javascript" src="js/bootstrap-3.1.1.min.js"></script>
-	<!-- create year -->
-
 
 
 </body>
