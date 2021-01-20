@@ -1,0 +1,70 @@
+.proright {
+    background-color: rgba(171, 119, 157, 0.27);
+    overflow: hidden;
+}
+.table>thead>tr.active>th {
+    background-color:#8b5c7e !important;
+    color: white;
+}
+
+.table_content .table th {
+    color: black;
+}
+.proright_table button {
+    width: 180px;
+    height: 40px;
+    outline: none;
+    background: #8b5c7e;
+    border: none;
+    font-size: 18px;
+    transition: 0.5s all;
+    -webkit-transition: 0.5s all;
+    -o-transition: 0.5s all;
+    -moz-transition: 0.5s all;
+    -ms-transition: 0.5s all;
+    float: right;
+    color: white;
+    margin: 10px 20px 10px 0px;
+}
+.proright_table button:hover {
+    background: #fa9fa4;
+    color: white;
+    transition: 0.5s all;
+    -webkit-transition: 0.5s all;
+    -o-transition: 0.5s all;
+    -moz-transition: 0.5s all;
+    -ms-transition: 0.5s all;
+}
+.grid_3 {
+    margin-bottom: 3em !important;
+}
+.combo_box_top {
+    height: 35px;
+    background: #8b5c7e;
+    color: white;
+    outline: none;
+    border-radius: 20px;
+}
+.table td {
+    color: #333 !important;
+}
+.table td a i:hover {
+    transform: rotate(15deg);
+}
+.proright_table .add {
+    margin-right: 5px !important;
+}
+.table_content {
+    overflow-y: auto;
+    
+}
+
+.table_content thead th {
+    position: sticky; top: 0;
+}
+th {
+    text-align: center;
+}
+td {
+    text-align: center;
+}

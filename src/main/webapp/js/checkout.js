@@ -409,13 +409,24 @@ $(document).ready(function () {
                 } else if (obj == 0)
                     // nếu chưa đăng nhập thì hiển thị thông báo cho đăng nhập
                     swal({
-                        title: 'Bạn chưa đăng nhập, vui lòng đăng nhập để có thể thanh toán !!',
+                        title: 'Bạn chưa đăng nhập, vui lòng đăng nhập để có thể thanh toán !',
                         icon: 'error',
                         showConfirmButton: false,
                         allowOutsideClick: false,
                     }).then(okay => {
                         if (okay) {
                             window.location.href = "/ProjectFinalTest_war_exploded/login";
+                        }
+                    });
+                else if (obj == 3)
+                    swal({
+                        title: 'Bạn chưa nhập địa chỉ, vui lòng nhập địa chỉ để có thể thanh toán!',
+                        icon: 'error',
+                        showConfirmButton: false,
+                        allowOutsideClick: false,
+                    }).then(okay => {
+                        if (okay) {
+                            window.location.href = "/ProjectFinalTest_war_exploded/address";
                         }
                     });
                 else

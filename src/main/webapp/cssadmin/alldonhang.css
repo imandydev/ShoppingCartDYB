@@ -1,0 +1,256 @@
+.combo_box_top {
+    height: 35px;
+    background: #8b5c7e;
+    color: white;
+    outline: none;
+    border-radius: 20px;
+}
+
+.table-agile-info {
+    height: 100% !important;
+    
+}
+.table>thead>tr.active>th {
+    background-color:#8b5c7e !important;
+    color: white !important;
+}
+.table_content {
+    overflow-y: auto;
+    
+}
+
+.table_content thead th {
+    position: sticky; top: 0;
+}
+
+.table-agile-info .icons {
+    background-color: rgba(171, 119, 157, 0.27);
+    overflow: hidden;
+    
+}
+.content {
+    overflow: auto;
+}
+.table {
+    margin-bottom: 0px !important;
+}
+.table tr th{
+    color: #333  !important;
+}
+.table tr td{
+    color: #333  !important;
+}
+
+.boxx-tb .th0{
+    width: 6%;
+    padding-left: 20px;
+}
+.boxx-tb .th1,.th2{
+    width: 10%;
+}
+
+.boxx-tb {
+    width: 100%;
+    
+    
+}
+.boxx-tb .th3{
+    width: 18%;
+}
+.boxx-tb .th5,.th6{
+    width: 15%;
+}
+.boxx-tb .th7{
+    width: 10%;
+}
+.tr-content{
+    height: 50px;
+    border-top: 1px solid rgb(214, 214, 214);
+}
+
+.tr-content .status1 {
+    border-radius: 5px;
+    color: white;
+    background: rgb(56, 116, 184);
+    padding:  5px 10px 5px 10px;
+}
+
+.tr-content .status2 {
+    border-radius: 5px;
+    color: white;
+    background: rgb(37, 41, 248);
+    padding:  5px 10px 5px 10px;    
+}
+.tr-content .td1{
+    text-align: center;
+}
+.tr-content .status3 {
+    border-radius: 5px;
+    padding:  5px 10px 5px 10px;
+    color: white;
+    background: rgb(0, 187, 100);
+}
+
+.tr-content .td-ctent{
+    padding-left: 10px;
+}
+
+ .td-ctent i{
+    padding: 5px;  
+     color: black;
+     cursor: pointer;
+}
+
+
+.td-ctent i:hover{
+    transform: rotate(15deg);
+}
+
+th {
+    text-align: center;
+}
+td {
+    text-align: center;
+}
+.modal-body .rowadd {
+    margin-bottom:  20px;
+}
+.modal-body .rowadd input {
+    height: 35px;
+    width: 100%;
+}
+.modal-body .content {
+    width: 80%;
+    margin: auto;
+}
+.modal-body .content label{
+    font-weight: bold;
+    margin-bottom: 5px;
+}
+/* Modal */
+
+.modal-body .content {
+    width: 90%;
+    margin: auto;
+    overflow: hidden;
+   
+}
+.modal-content .center {
+    width: 90%;
+    margin: auto;
+    overflow: hidden;
+    overflow-y: auto;
+}
+.modal-body .content .left{
+    width: 40%;
+    float: left;
+}
+
+.modal-body .content .right{
+    width: 40%;
+    float: right;
+}
+.modal-body .content .content_in_is {
+    width: 100%;
+    height: 100%;
+}
+.modal-body .content .right{
+    margin-bottom: 20px;
+}
+.modal-body .content .right label{
+    font-weight: bold;
+}
+.modal-body .content .right input {
+    margin-bottom: 10px;
+    outline: none;
+    width: 100%;
+}
+.modal-body .content .left label{
+    font-weight: bold;
+}
+.modal-body .content .left input, select {
+    margin-bottom: 10px;
+    outline: none;
+    width: 100%;
+}.modal-body .content .left select {
+    height: 28px;
+}
+.center table tr td{
+    color: #333 !important;
+}
+ .center table tr td input {
+    width: 100%;
+    outline: none;
+}
+
+.modal-content .center .table thead th {
+    position: sticky; top: 0;
+}
+
+.modal-dialog {
+    width: 850px;
+    margin: 30px auto;
+}
+.icons .content {
+    overflow-y: auto;
+    
+}
+
+.icons .content thead th {
+    position: sticky; top: 0;
+}
+.xuatfile{
+    margin-right: 5px !important;
+}
+.center table tr td .dialog-check {
+    width: 10px;
+}
+.content_but {
+    float: right;
+    
+}
+
+.content_but button {
+    width: 200px;
+    height: 40px;
+    outline: none;
+    background: #8b5c7e;
+    border: none;
+    font-size: 18px;
+    transition: 0.5s all;
+    -webkit-transition: 0.5s all;
+    -o-transition: 0.5s all;
+    -moz-transition: 0.5s all;
+    -ms-transition: 0.5s all;
+    color: white;
+    margin: 10px 0px 10px 0px;
+}
+.but-dialog {
+    outline: none;
+    height: 30px;
+    background: #8b5c7e;
+    border: none;
+    font-size: 14px;
+    transition: 0.5s all;
+    -webkit-transition: 0.5s all;
+    -o-transition: 0.5s all;
+    -moz-transition: 0.5s all;
+    -ms-transition: 0.5s all;
+    color: white;
+}
+.content_but button:hover, .but-dialog:hover {
+    background: #fa9fa4;
+    color: white;
+    transition: 0.5s all;
+    -webkit-transition: 0.5s all;
+    -o-transition: 0.5s all;
+    -moz-transition: 0.5s all;
+    -ms-transition: 0.5s all;
+}
+
+.content_but .xuatfile {
+    margin-right: 20px !important;
+}
+.content .right .row2 {
+    margin-bottom: 5px;
+}

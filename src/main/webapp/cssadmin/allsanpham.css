@@ -1,0 +1,145 @@
+
+.table>thead>tr.active>th {
+    background-color:#8b5c7e !important;
+    color: white !important;
+}
+.table_content {
+    overflow-y: auto;
+    
+}
+
+.table_content thead th {
+    position: sticky; top: 0;
+}
+.table_content {
+    overflow-y: auto;
+    
+}
+
+.table_content thead th {
+    position: sticky; top: 0;
+}
+.boxx-tb {
+    margin-bottom: 0px !important;
+}
+.content {
+    background-color: rgba(171, 119, 157, 0.27);
+}
+.table tr th, td {
+    color: #333 !important;
+}
+.boxx-tb .th0{
+    width: 6%;
+
+}
+.boxx-tb .th1{
+    text-align: center;
+    width: 15%;
+}
+
+
+
+.boxx-tb .th4{
+    width: 10%;
+}
+
+.boxx-tb .th7{
+    width: 10%;
+}
+
+.tr-content{
+    height: 100px;
+    border-top: 1px solid rgb(214, 214, 214);
+}
+.content_but button {
+    width: 200px;
+    height: 40px;
+    outline: none;
+    background: #8b5c7e;
+    border: none;
+    font-size: 18px;
+    transition: 0.5s all;
+    -webkit-transition: 0.5s all;
+    -o-transition: 0.5s all;
+    -moz-transition: 0.5s all;
+    -ms-transition: 0.5s all;
+    color: white;
+    margin: 10px 20px 10px 0px;
+}
+.content_but button:hover {
+    background: #fa9fa4;
+    color: white;
+    transition: 0.5s all;
+    -webkit-transition: 0.5s all;
+    -o-transition: 0.5s all;
+    -moz-transition: 0.5s all;
+    -ms-transition: 0.5s all;
+}
+.content_but .add {
+    margin-right: 0px;
+}
+.content_but {
+   float: right;
+   height: 60px;
+}
+.content {
+  overflow: hidden;
+  
+}
+.tr-content .status1 {
+    display: block;
+    border-radius: 5px;
+    color: white;
+    background: rgb(43, 179, 73);
+    padding:  5px 10px 5px 10px;
+    
+}
+.tr-content .status1{
+    text-decoration: none ;
+}
+.tr-content .status2 {
+    display: block;
+    border-radius: 5px;
+    color: white;
+    background: rgb(238, 52, 52);
+    padding:  5px 10px 5px 10px;    
+}
+
+
+
+
+
+.tr-content .td-ctent{
+    padding-left: 10px;
+}
+
+.tr-content .imgsp img{
+    width: 70px;
+    height: 70px;
+}
+.tr-content .imgsp{
+    text-align: center;
+}
+.tr-content .td-ctent a{
+    color: black;
+}
+.tr-content .td-ctent i{
+    padding: 5px;
+}
+
+.tr-content .td-ctent i:hover{
+    transform: rotate(15deg);
+}
+.combo_box_top {
+    height: 35px;
+    background: #8b5c7e;
+    color: white;
+    outline: none;
+    border-radius: 20px;
+}
+th {
+    text-align: center;
+}
+td {
+    text-align: center;
+}

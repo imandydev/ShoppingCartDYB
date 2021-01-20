@@ -1,0 +1,36 @@
+.proright {
+    width: 100%;
+    margin-left: 0px;
+}
+.p5 {
+    width: 20%;
+}
+.row1 {
+    display: block;
+    width:60%;
+    margin:auto;
+}
+td a i:hover {
+    transform: rotate(15deg);
+}
+.table>thead>tr.active>th {
+    background-color:#8b5c7e !important;
+    color: white !important;
+}
+.table_content {
+    overflow-y: auto;
+    
+}
+
+.table_content thead th {
+    position: sticky; top: 0;
+}
+.proright_table .add{
+    margin-right: 5px !important;
+}
+th {
+    text-align: center;
+}
+td {
+    text-align: center;
+}

@@ -1,0 +1,14 @@
+.combo_box {
+    width: 100%;
+    height: 30px;
+    margin-bottom: 30px;
+    outline: none;
+}
+.table tr td .img_pro {
+    width: 70px;
+    height: 70px;
+}
+.table tr td .img_pro_ha {
+    width: 100px;
+    height: 50px;
+}

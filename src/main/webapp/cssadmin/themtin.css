@@ -1,0 +1,42 @@
+.choose_location {
+    margin-bottom: 10px;
+}
+.compose-editor {
+    margin-bottom:10px !important;
+}
+.compose-editor img {
+    width: 100px;
+    height: 100px;
+}
+.combo_box {
+    height: 30px;
+    outline:none;
+}
+.compose-mail .lb_til {
+    min-width: 110px;
+    width: 12% !important;
+}
+.compose-mail .lb_but {
+    width: 12% !important;
+    min-width: 140px;
+}
+.lb_pic {
+    width: 100%;
+}
+.compose-mail .title {
+    width: 88% !important;
+}
+.compose-mail .button {
+    width: 85% !important;
+}
+.col-sm-9 {
+    width: 100% !important;
+}
+.last-group {
+    margin-bottom: 5px !important;
+}
+.combo_box-last-group {
+    width: 100px;
+    height: 30px;
+    outline: none;
+}

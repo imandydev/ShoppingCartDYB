@@ -10,7 +10,8 @@ public class Order {
     private String ghiChu;
     private int idGiamGia;
     private long tongTien;
-    public Order(int id, int idUser, Timestamp time, String trangThai, String ghiChu, int idGiamGia, long tongTien) {
+    private String diaChi;
+    public Order(int id, int idUser, Timestamp time, String trangThai, String ghiChu, int idGiamGia, long tongTien, String diaChi) {
         this.id = id;
         this.idUser = idUser;
         this.time = time;
@@ -18,6 +19,15 @@ public class Order {
         this.ghiChu = ghiChu;
         this.idGiamGia = idGiamGia;
         this.tongTien = tongTien;
+        this.diaChi = diaChi;
+    }
+
+    public String getDiaChi() {
+        return diaChi;
+    }
+
+    public void setDiaChi(String diaChi) {
+        this.diaChi = diaChi;
     }
 
     public long getTongTien() {

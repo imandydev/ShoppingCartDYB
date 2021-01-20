@@ -1,0 +1,70 @@
+.titles{
+    color: rgb(105, 104, 104);
+}
+
+.oder{
+ width: 80%;
+ margin: auto;
+}
+.box-l{
+    float: left;
+    width: 50%;
+    height: 350px;
+}
+
+.box-r{
+    float: right;
+    width: 50%;
+    height: 350px;
+}
+
+
+.oder-content1{
+    margin-top: 20px;
+    height: 50px;
+}
+
+.oder-content1 .loc1 {
+    float: left;
+    width: 30%;
+    margin-right: 5%;
+    text-align: right;
+}
+.oder-content1 .loc2 {
+    float: right;
+    width: 65%;
+    text-align: left;
+}
+.oder-content1 input[type="text" i]{
+    outline: none;
+    font-weight: normal;
+}
+.oder-content1 label {
+    color: gray;
+    font-weight: normal;
+}
+
+.oder-content1 select{
+    width: 190px;
+    outline: none;
+}
+
+.oder button{
+    display: block;
+    margin: auto;
+    margin-top: 50px;
+    background-color: rgba(139,93,126,1);
+    border: 0;
+    outline: none;
+    color: white;
+    border-radius: 3px;
+    padding: 5px;
+    width: 180px;
+    height: 40px;
+}
+.oder button:hover{
+    background-color: #f0bcb4;
+}
+
+
+

@@ -1,0 +1,176 @@
+.include_form {
+    width: 70%;
+    height: 100%;
+    margin: auto;
+    background-color: rgba(171, 119, 157, 0.27);
+    min-width: 855px;
+}
+.combo_box_top {
+    height: 35px;
+    background: #8b5c7e;
+    color: white;
+    outline: none;
+
+}
+.content_Prosub form{
+    display: flex;
+    width: 80%;
+    height: 80%;
+    margin: auto;
+    padding-top: 30px;
+    padding-bottom: 30px;
+}
+/* right */
+.content_Prosub .right div {
+    margin-bottom: 30px;
+}
+.content_Prosub .right .row1 img{
+    width: 110px;
+    height: 110px;
+   
+} 
+.content_Prosub .right .row12 select{
+    width: 100px;
+  
+}
+.content_Prosub .right .selectX1 {
+    width: 190px;
+}
+.content_Prosub .right .selectX2 {
+    width: 100px;
+}
+.content_Prosub .right input {
+    width: 500px;
+    height: 40px;
+}
+.content_Prosub .right textarea {
+    width: 500px;
+}
+/* left */
+.content_Prosub .left {
+    margin-right: 70px;
+    min-width: 130px;
+
+}
+.content_Prosub .left div {
+    margin-bottom: 30px;
+    min-width: 120px;
+    
+}
+.content_Prosub .left .p {
+    margin-bottom: 45px;
+}
+.content_Prosub .left .p1 {
+    margin-bottom: 440px !important ;
+}
+.content_Prosub .left .p2 {
+    margin-bottom: 50px;
+}
+.content_Prosub .left .row3 {
+    margin-bottom: 40px;
+}
+.content_Prosub .left .row1 {
+    margin-bottom: 50px;
+}
+.content_Prosub .left .rowpic {
+    margin-bottom: 117px;
+}
+.content_Prosub .left .row4 {
+    margin-bottom: 35px;
+}
+.content_Prosub .left .row6 {
+    margin-bottom: 55px;
+}
+.content_Prosub .left .row12 {
+    margin-bottom: 40px;
+}
+.content_Prosub .left .rowa4 {
+    margin-bottom: 55px !important;
+}
+.content_Prosub .bottom {
+    margin-bottom: 0px !important;
+    width: 100%;
+   padding-left: 60px;
+}
+.content_Prosub .bottom button{
+    width: 100px;
+    height: 40px;
+    outline: none;
+    background: #8b5c7e;
+    border: none;
+    font-size: 18px;
+    transition: 0.5s all;
+    -webkit-transition: 0.5s all;
+    -o-transition: 0.5s all;
+    -moz-transition: 0.5s all;
+    -ms-transition: 0.5s all;
+    color: white;
+    margin-right: 10px;
+}
+.content_Prosub .bottom button:hover {
+    background: #fa9fa4;
+    color: white;
+    transition: 0.5s all;
+    -webkit-transition: 0.5s all;
+    -o-transition: 0.5s all;
+    -moz-transition: 0.5s all;
+    -ms-transition: 0.5s all;
+}
+.choose_file {
+    color: #fff;
+    font-size: 16px;
+    background: #8b5c7e;
+    padding: 4px 8px;
+    width: 310px;
+    outline: none;
+    border-radius: 100px;
+    -webkit-border-radius: 100px;
+    height: 35px;
+    transition: 0.5s all ease;
+    -webkit-transition: 0.5s all ease;
+    -moz-transition: 0.5s all ease;
+    -o-transition: 0.5s all ease;
+    -ms-transition: 0.5s all ease;
+    
+}
+.choose_file:hover {
+   
+    background: #fa9fa4 !important;
+    border-radius: 100px;
+    -webkit-border-radius: 100px;
+    outline: none;
+    height: 35px;
+    transition: 0.5s all ease;
+    -webkit-transition: 0.5s all ease;
+    -moz-transition: 0.5s all ease;
+    -o-transition: 0.5s all ease;
+    -ms-transition: 0.5s all ease;
+   
+}
+.top-nav .nav .row1 label{
+   padding-top: 7px !important;
+}
+/* thong tin */
+.content_Prosub .left .row0 {
+    margin-bottom: 40px;
+}
+.content_Prosub .left .row0_1 {
+    margin-bottom: 50px;
+} 
+.content_Prosub .left .rowtt_3 {
+    margin-bottom: 50px;
+}
+.content_Prosub .left .rowtt_4 {
+    margin-bottom: 40px;
+}
+.content_Prosub .right .rowtt_10 img{
+    width: 150px;
+}
+.content_Prosub select {
+    outline: none;
+    height: 30px;
+}
+.content_Prosub input {
+    outline: none;
+}
+

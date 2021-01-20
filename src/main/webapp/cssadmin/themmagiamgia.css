@@ -1,0 +1,106 @@
+.content_Prosub {
+    width:70%;
+    margin:auto;
+    background-color:rgba(171, 119, 157, 0.27);
+    min-width: 822.5px;
+}
+
+.content_Prosub form{
+    width: 90%;
+    margin: auto;
+}
+
+
+.content_Prosub form label{
+    width: 29%;
+    margin-bottom: 30px;
+    min-width: 150px;
+}
+
+.row1{
+    padding-top: 35px;
+}
+
+
+.row2 select{
+    width: 150px;
+    height: 40px;
+    outline: none;
+}
+
+.row2 .title-giam{
+    text-align: right;
+    width: 15%;
+    min-width: 70px;
+}
+.row2 .giam{
+    
+    height: 40px;
+    outline: none;
+}
+
+.content_Prosub form input{
+    width: 70%;
+    height: 40px;
+    outline: none;
+}
+
+
+
+.content_Prosub button {
+    width: 49%;
+    height: 40px;
+    outline: none;
+    outline: none;
+     background: #8b5c7e;
+     border: none;
+     font-size: 18px;
+     color: white;
+     transition: 0.5s all;
+     -webkit-transition: 0.5s all;
+     -o-transition: 0.5s all;
+     -moz-transition: 0.5s all;
+     -ms-transition: 0.5s all;
+ }
+ .content_Prosub button:hover {
+     background: #fa9fa4;
+     color: white;
+     transition: 0.5s all;
+     -webkit-transition: 0.5s all;
+     -o-transition: 0.5s all;
+     -moz-transition: 0.5s all;
+     -ms-transition: 0.5s all;
+ }
+ .content_Prosub .row5 { 
+     width:30%;
+     margin: auto;
+     margin-top: 30px;
+     min-width: 200px;
+     padding-bottom: 5%;
+ }
+ .chooseFile {
+     width: 40% !important;
+     float: right;
+ }
+ .nhomKH {
+     height: 30px;
+     outline: none;
+ }
+ .content_Prosub form .row4_3 .inp-check{
+    width: 15px;
+    margin-right: 20px;
+    margin-top: 0px;
+    height: 15px;
+ }
+ .content_Prosub form .row4_3 .first {
+     margin-left: 5px;
+ }
+ .content_Prosub form .row4_3 .lb-check{
+     width: 10%;
+    min-width: 0%;
+    
+  
+ }
+ .content_Prosub form .rp {
+     min-width: 739px;
+ }

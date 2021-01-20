@@ -1,0 +1,642 @@
+<!--A Design by W3layouts
+Author: W3layout
+Author URL: http://w3layouts.com
+License: Creative Commons Attribution 3.0 Unported
+License URL: http://creativecommons.org/licenses/by/3.0/
+-->
+<!DOCTYPE html>
+
+<head>
+	<title>Thống Kê</title>
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+	<meta name="keywords" content="Visitors Responsive web template, Bootstrap Web Templates, Flat Web Templates, Android Compatible web template, 
+Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, SonyEricsson, Motorola web design" />
+	<script
+		type="application/x-javascript"> addEventListener("load", function() { setTimeout(hideURLbar, 0); }, false); function hideURLbar(){ window.scrollTo(0,1); } </script>
+	<!-- bootstrap-css -->
+	
+	<link rel="stylesheet" href="css/bootstrap.min.css">
+	<!-- //bootstrap-css -->
+	<!-- Custom CSS -->
+	<link rel="stylesheet" href="css/dashboard.css"/>
+ 
+	<link href="css/style.css" rel="stylesheet" type='text/css'/>
+
+	<link href="css/style-responsive.css" rel="stylesheet" />
+
+	
+
+
+	<!-- font CSS -->
+	
+	<!-- font-awesome icons -->
+	<link rel="stylesheet" href="css/font.css" type="text/css" />
+	<link href="css/font-awesome.css" rel="stylesheet">
+	<link rel="stylesheet" href="css/morris.css" type="text/css" />
+	<!-- calendar -->
+	<link rel="stylesheet" href="css/monthly.css">
+	<!-- //calendar -->
+	<!-- //font-awesome icons -->
+	<script src="js/jquery2.0.3.min.js"></script>
+	<script src="js/raphael-min.js"></script>
+	<script src="js/morris.js"></script>
+</head>
+
+<body>
+	<section id="container">
+		<!--header start-->
+		<header class="header fixed-top clearfix">
+			<!--logo start-->
+			<div class="brand">
+
+				<a href="index.html" class="logo">
+					DYB Admin
+				</a>
+				<div class="sidebar-toggle-box">
+					<div class="fa fa-bars"></div>
+				</div>
+			</div>
+			<!--logo end-->
+			<div class="nav notify-row" id="top_menu">
+				<!--  notification start -->
+				<ul class="nav top-menu">
+                   
+
+                   
+                    <!-- notification dropdown start-->
+                    <li id="header_notification_bar" class="dropdown">
+                        <a data-toggle="dropdown" class="dropdown-toggle" href="#">
+
+                            <i class="fa fa-bell-o"></i>
+                            <span class="badge bg-warning">3</span>
+                        </a>
+                        <ul class="dropdown-menu extended notification">
+                            <li>
+                                <p>Thông Báo</p>
+                            </li>
+                            <li>
+                                <div class="alert alert-info clearfix">
+                                    <span class="alert-icon" title="Xóa Thông Báo"><i class=" fa fa-trash"></i></span>
+                                    <div class="noti-info">
+										<a href="alldonhang.html" > 15 đơn hàng đang chờ xác nhận.</a>
+										
+									</div>
+								
+                                </div>
+                            </li>
+                            <li>
+                                <div class="alert alert-danger clearfix">
+                                    <span class="alert-icon" title="Xóa Thông Báo"><i class=" fa fa-trash"></i></span>
+                                    <div class="noti-info">
+                                        <a href="index.html"> Đang có hơn 50 người đang online.</a>
+                                    </div>
+                                </div>
+                            </li>
+                            <li>
+                                <div class="alert alert-success clearfix">
+                                    <span class="alert-icon" title="Xóa Thông Báo"><i class=" fa fa-trash"></i></span>
+                                    <div class="noti-info">
+                                        <a href="index.html"> Doanh thu đạt 8.000.000.</a>
+                                    </div>
+                                </div>
+                            </li>
+
+                        </ul>
+                    </li>
+                    <!-- notification dropdown end -->
+                </ul>
+				<!--  notification end -->
+			</div>
+			<div class="top-nav clearfix">
+				<!--search & user info start-->
+				<ul class="nav pull-right top-menu">
+					
+					<!-- user login dropdown start-->
+					<li class="dropdown">
+						<a data-toggle="dropdown" class="dropdown-toggle" href="#">
+							<img alt="" src="images/admin.png">
+							<span class="username">DYB Admin</span>
+							<b class="caret"></b>
+						</a>
+						<ul class="dropdown-menu extended logout">
+							<li><a href="editaccount.html"><i class=" fa fa-suitcase"></i>Cá Nhân</a></li>
+						   
+							<li><a href="login.html"><i class="fa fa-key"></i> Đăng Xuất</a></li>
+						</ul>
+					</li>
+					<!-- user login dropdown end -->
+
+				</ul>
+				<!--search & user info end-->
+			</div>
+		</header>
+		<!--header end-->
+		<!--sidebar start-->
+		<aside>
+			<div id="sidebar" class="nav-collapse">
+				<!-- sidebar menu start-->
+				<div class="leftside-navigation">
+                    <ul class="sidebar-menu" id="nav-accordion">
+                        <li>
+                            <a class="active" href="index.html">
+                                <i class="fa fa-dashboard"></i>
+                                <span>Thống Kê</span>
+                            </a>
+                        </li>
+                        <li class="sub-menu">
+                            <a  href="javascript:;">
+                                <i class="fa fa-home"></i>
+                                <span>Trang Chủ</span>
+                            </a>
+                            <ul class="sub">
+                                <li><a  href="dstin.html">Tất Cả Tin</a></li>
+                                <li><a  href="themtin.html">Thêm Tin</a></li>
+                            </ul>
+                        </li>
+                        <li >
+                            <a  href="alldonhang.html">
+                                <i class="fa fa-building"></i>
+                                <span>Tất Cả Đơn Hàng</span>
+                            </a>
+                           
+                        </li>
+                        <li class="sub-menu">
+                            <a href="javascript:;">
+                                <i class=" fa fa-product-hunt"></i>
+                                <span>Sản Phẩm</span>
+                            </a>
+                            <ul class="sub">
+                                <li><a href="allsanpham.html">Tất Cả Sản Phẩm</a></li>
+                                <li><a href="themsp.html">Thêm Sản Phẩm</a></li>
+                            </ul>
+                        </li>
+                        
+                        <li class="sub-menu">
+                            <a   href="javascript:;">
+                                <i class=" fa fa-user"></i>
+                                <span>Tài Khoản</span>
+                            </a>
+                            <ul class="sub">
+                                <li><a   href="dstaikhoan.html">Tất Cả Tài Khoản</a></li>
+                                <li><a href="canhanuser.html">Thêm Tài Khoản</a></li>
+                            </ul>
+                        </li>
+                      
+
+                        <li>
+                            <a href="spchinh.html">
+                                <i class="fa fa-shopping-bag"></i>
+                                <span>Menu</span>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="spphu.html">
+                                <i class="fa fa-shopping-basket"></i>
+                                <span>Danh Mục</span>
+                            </a>
+                        </li>
+						<li>
+                            <a  href="mathangkhac.html">
+                                <i class="fa fa-suitcase"></i>
+                                <span>Mặt Hàng Khác</span>
+                            </a>
+						</li>
+						<li class="sub-menu">
+							<a  href="javascript:;">
+								<i class="fa fa-desktop"></i>
+								<span>Giao Diện </span>
+							</a>
+							<ul class="sub">
+								<li><a  href="hinhanh.html">Hình Ảnh</a></li>
+								<li><a  href="thongtin.html">Thông Tin</a></li>
+							</ul>
+						</li>
+						<li class="sub-menu">
+                            <a  href="javascript:;">
+                                <i class="fa fa-percent"></i>
+                                <span>Mã Giảm Giá </span>
+                            </a>
+                            <ul class="sub">
+                                <li><a  href="magiamgia.html">Tất Cả Mã Giảm Giá</a></li>
+                                <li><a  href="themmagiamgia.html">Thêm Mã Giảm Giá</a></li>
+                            </ul>
+                        </li>
+                    </ul>            </div>
+				<!-- sidebar menu end-->
+			</div>
+		</aside>
+		<!--sidebar end-->
+		<!--main content start-->
+		<section id="main-content">
+			<section class="wrapper">
+				<!-- //market-->
+				<div class="market-updates">
+					<div class="col-md-3 market-update-gd">
+						<div class="market-update-block clr-block-0">
+							<div class="col-md-4 market-update-right">
+								<i class="fa fa-eye"> </i>
+							</div>
+							<div class="col-md-8 market-update-left">
+								<h4>Lượt Xem</h4>
+								<h3 class="number">5,000</h3>
+								<p>Hiện Tại, Trong Ngày</p>
+							</div>
+							<div class="clearfix"> </div>
+						</div>
+					</div>
+					<div class="col-md-3 market-update-gd">
+						<div class="market-update-block clr-block-2">
+							<div class="col-md-4 market-update-right">
+								<i class="fa fa-user"> </i>
+							</div>
+							<div class="col-md-8 market-update-left">
+								<h4>Đang Online</h4>
+								<h3 class="number">50</h3>
+								<p>Hiện Tại</p>
+							</div>
+							<div class="clearfix"> </div>
+						</div>
+					</div>
+					<div class="col-md-3 market-update-gd">
+						<div class="market-update-block clr-block-1">
+							<div class="col-md-4 market-update-right">
+								<i class="fa fa-shopping-cart"></i>
+							</div>
+							<div class="col-md-8 market-update-left">
+								<h4>Đặt Hàng</h4>
+								<h3 class="number">1,250</h3>
+								<p>Đơn, Trong Ngày</p>
+							</div>
+							<div class="clearfix"> </div>
+						</div>
+					</div>
+					<div class="col-md-3 market-update-gd">
+						<div class="market-update-block clr-block-3">
+							<div class="col-md-4 market-update-right">
+								<i class="fa fa-usd"></i>
+							</div>
+							<div class="col-md-8 market-update-left">
+								<h4>Doanh Thu</h4>
+								<h3 class="number">8,000,000đ</h3>
+								<p>Hiện Tại, Trong Ngày</p>
+							</div>
+							<div class="clearfix"> </div>
+						</div>
+					</div>
+					<div class="col-md-3 market-update-gd">
+						<div class="market-update-block clr-block-4">
+							<div class="col-md-4 market-update-right">
+								<i class="fa fa-times-circle" aria-hidden="true"></i>
+	
+							</div>
+							<div class="col-md-8 market-update-left">
+								<h4>Hủy Hàng</h4>
+								<h3 class="number">500</h3>
+								<p>Đơn, Tổng Số</p>
+							</div>
+							<div class="clearfix"> </div>
+						</div>
+					</div>
+					<div class="clearfix"> </div>
+				</div>
+				<!-- //market-->
+
+
+				<!-- sửa từ chỗ này -->
+				<div class="boxx">
+					<div class="boxx-top">
+						<h3>10 Đơn Hàng Gần Nhất</h3>
+						<a href="alldonhang.html"><button>Xem Tất Cả Đơn Hàng</button></a>
+					</div>
+
+					<table class="table table-bordered boxx-tb">
+						<tr class="active tr-main">
+							<th class="th1">Mã Đơn Hàng</th>
+							<th class="th1_1">Mã Khách Hàng (ID)</th>
+							<th class="th2" title="Phương Thức Thanh Toán">Số Lượng Sản Phẩm</th>
+							<th class="th3" title="Ngày Đặt Hàng">Ngày Đặt</th>
+						
+							<th class="th5" title="Trạng Thái Đơn Hàng">Trạng Thái</th>
+							<th class="th6">Tổng Tiền</th>
+							<th class="th7">Xem/ Sửa</th>
+							<th class="th7">Xóa</th>
+						</tr>
+
+						<!-- don1 -->
+						<tr class="tr-content">
+							<td class="td1">12312312</td>
+							<td>1</td>
+							<td>3</td>
+							<td>12/11/2020</td>
+						
+							<td><a class="status2">Chờ Xử Lý</a></td>
+							<td>1.065.000đ</td>
+							<td class="td-ctent">
+								<i data-toggle="modal" data-target="#exampleModalCenter" class="fa fa-edit"></i>
+							</td>
+							<td class="td-ctent_2">
+								<i class=" fa fa-trash"></i>
+							</td>
+						</tr>
+						<!-- don2 -->
+						<tr class="tr-content">
+							<td  class="td1">12343543</td>
+							<td>2</td>
+							<td>1</td>
+							<td>12/11/2020 </td>
+							
+							<td><a class="status2">Chờ Xử Lý</a></td>
+							<td>500,000đ</td>
+							<td class="td-ctent">
+								<i data-toggle="modal" data-target="#exampleModalCenter" class="fa fa-edit"></i>
+							</td>
+							<td class="td-ctent_2">
+							<i class=" fa fa-trash"></i>
+							</td>
+						</tr>
+						<!-- don3 -->
+						<tr class="tr-content">
+							<td  class="td1">12335453</td>
+							<td>1</td>
+							<td>2</td>
+							<td>12/11/2020 </td>
+						
+							<td><a class="status2">Chờ Xử Lý</a></td>
+							<td>500,000đ</td>
+							<td class="td-ctent">
+								<i data-toggle="modal" data-target="#exampleModalCenter" class="fa fa-edit"></i>
+							</td>
+							<td class="td-ctent_2">
+								<i class=" fa fa-trash"></i>
+							</td>
+						</tr>
+						<!-- don4 -->
+						<tr class="tr-content">
+							<td  class="td1">13242621</td>
+							<td>3</td>
+							<td>1</td>
+							<td>12/11/2020 </td>
+					
+							<td><a class="status2">Chờ Xử Lý</a></td>
+							<td>500,000đ</td>
+							<td class="td-ctent">
+								<i data-toggle="modal" data-target="#exampleModalCenter" class="fa fa-edit"></i>
+							</td>
+							<td class="td-ctent_2">
+								<i class=" fa fa-trash"></i>
+							</td>
+						</tr>
+						<!-- don5 -->
+						<tr class="tr-content">
+							<td  class="td1">25647122</td>
+							<td>4</td>
+							<td>1</td>
+							<td>12/11/2020 </td>
+						
+							<td><a class="status2">Chờ Xử Lý</a></td>
+							<td>500,000đ</td>
+							<td class="td-ctent">
+								<i data-toggle="modal" data-target="#exampleModalCenter" class="fa fa-edit"></i>
+							</td>
+							<td class="td-ctent_2">
+								<i class=" fa fa-trash"></i>
+							</td>
+						</tr>
+
+						<!-- don6 -->
+						<tr class="tr-content">
+							<td  class="td1">12334546</td>
+							<td>5</td>
+							<td>1</td>
+							<td>12/11/2020 </td>
+						
+							<td><a class="status2">Chờ Xử Lý</a></td>
+							<td>500,000đ</td>
+							<td class="td-ctent">
+								<i data-toggle="modal" data-target="#exampleModalCenter" class="fa fa-edit"></i>
+							</td>
+							<td class="td-ctent_2">
+								<i class=" fa fa-trash"></i>
+							</td>
+						</tr>
+						<!-- don 7 -->
+						<tr class="tr-content">
+							<td  class="td1">12335453</td>
+							<td>6</td>
+							<td>2</td>
+							<td>12/11/2020 </td>
+						
+							<td><a class="status2">Chờ Xử Lý</a></td>
+							<td>500,000đ</td>
+							<td class="td-ctent">
+								<i data-toggle="modal" data-target="#exampleModalCenter" class="fa fa-edit"></i>
+							</td>
+							<td class="td-ctent_2">
+								<i class=" fa fa-trash"></i>
+							</td>
+						</tr>
+						<!-- don8-->
+						<tr class="tr-content">
+							<td  class="td1">13242671</td>
+							<td>7</td>
+							<td>3</td>
+							<td>12/11/2020 </td>
+						
+							<td><a class="status2">Chờ Xử Lý</a></td>
+							<td>500,000đ</td>
+							<td class="td-ctent">
+								<i data-toggle="modal" data-target="#exampleModalCenter" class="fa fa-edit"></i>
+							</td>
+							<td class="td-ctent_2">
+								<i class=" fa fa-trash"></i>
+							</td>
+						</tr>
+						<!-- don9-->
+						<tr class="tr-content">
+							<td  class="td1">25647128</td>
+							<td>8</td>
+							<td>1</td>
+							<td>12/11/2020 </td>
+						
+							<td><a class="status2">Chờ Xử Lý</a></td>
+							<td>500,000đ</td>
+							<td class="td-ctent">
+								<i data-toggle="modal" data-target="#exampleModalCenter" class="fa fa-edit"></i>
+							</td>
+							<td class="td-ctent_2">
+								<i class=" fa fa-trash"></i>
+							</td>
+						</tr>
+
+						<!-- don10 -->
+						<tr class="tr-content">
+							<td  class="td1">12334549</td>
+							<td>9</td>
+							<td>1</td>
+							<td>12/11/2020 </td>
+						
+							<td><a class="status2">Chờ Xử Lý</a></td>
+							<td>500,000đ</td>
+							<td class="td-ctent">
+								<i data-toggle="modal" data-target="#exampleModalCenter" class="fa fa-edit"></i>
+							</td>
+							<td class="td-ctent_2">
+								<i class=" fa fa-trash"></i>
+							</td>
+						</tr>
+
+
+						
+					</table>
+				</div>
+
+				<!-- hết chỗ sửa -->
+
+				
+				
+			</section>
+			<!-- footer -->
+		
+			<!-- / footer -->
+		</section>
+		<!--main content end-->
+	</section>
+	<!-- modal -->
+	<div class="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+		<div class="modal-dialog modal-dialog-centered" role="document">
+		  <div class="modal-content">
+				<div class="modal-header">
+				  <h5 class="modal-title" id="exampleModalLongTitle">Chỉnh Sửa Đơn Hàng</h5>
+					 <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+						<span aria-hidden="true">&times;</span>
+				  </button>
+				</div>
+				<div class="modal-body">
+				  	<div class="content">
+						 
+										<div class="left">
+											<div class="row1">
+												<label for="">Mã Đơn Hàng</label><br>
+												<input type="text" value="12312312">
+											</div>
+											<div class="row2">
+												<label for="">Mã Khách Hàng (ID)</label><br>
+												<input type="text" value="1">
+											</div>
+											<div class="row3">
+												<label for="">Số Lượng Sản Phẩm</label><br>
+												<input type="text" value="3">
+											</div>
+											<div class="row4">
+												<label for="">Ngày Đặt</label><br>
+												<input type="text" value="12/11/2020">
+											</div>
+											<div class="row2">
+												<label for="">Trạng Thái</label><br>
+												<select name="" id="">
+													<option value="">Chờ Xác Nhận</option>
+													<option value="">Chờ Lấy Hàng</option>
+													<option value="" selected>Đang Giao</option>
+													<option value="">Đã Giao</option>
+													<option value="">Đã Hủy</option>
+												</select>
+											</div>
+										</div>
+										<div class="right">
+											<div class="row3">
+												<label for="">Mã Giảm Giá</label><br>
+												<input type="text" value="">
+											</div>
+											<div class="row3">
+												<label for="">Tổng Tiền</label><br>
+												<input type="text" value="1.775.000">
+											</div>
+											<div class="row2">
+												<label for="">Địa Chỉ</label><br>
+												<textarea class="form-control" rows="3" id="comment">Ký túc xá khu B Đại Học Quốc Gia Phường Đông Hòa Thị Xã Dĩ An Bình Dương</textarea>
+												
+											</div>
+											
+											<div class="row4">
+												<label for="">Ghi Chú</label><br>
+                                                <textarea class="form-control" rows="2" id="comment">Giao hàng cẩn thận!</textarea>
+											</div>
+										</div>
+							
+					
+				 	</div>
+				</div>
+				<div class="center" style="max-height: 500px;">
+					<table class="table table-bordered" >
+						<thead>
+						<tr class="active">
+							<th class="dialog-check"></th>
+							<th>STT</th>
+							<th>Mã Sản Phẩm</th>
+							<th>Kích Thước</th>
+							<th>Màu Sắc</th>
+							<th>Số Lượng</th>
+							<th>Giá Tiền</th>
+							<th>Xóa</th>
+						</tr>
+						</thead>
+						<tbody>
+						<tr>
+							<td><input  type="checkbox"></td>
+							<td><span>1</span></td>
+							<td><input type="text" value="2"></td>
+							<td><input type="text" value="S"></td>
+							<td><input type="text" value="Trắng"></td>
+							<td><input type="text" value="3"></td>
+							<td><input type="text" value="1.065.000"></td>
+							<td class="td-ctent"><i class="fa fa-trash"></i></td>
+						</tr>
+						<tr>
+							<td><input class="dialog-check" type="checkbox"></td>
+							<td><span>2</span></td>
+							<td><input type="text" value="1"></td>
+							<td><input type="text" value="S"></td>
+							<td><input type="text" value="Đen"></td>
+							<td><input type="text" value="1"></td>
+							<td><input type="text" value="355.000"></td>
+							<td class="td-ctent"><i class="fa fa-trash"></i></td>
+						</tr>
+						<tr>
+							<td><input class="dialog-check" type="checkbox"></td>
+							<td><span>3</span></td>
+							<td><input type="text" value="3"></td>
+							<td><input type="text" value="S"></td>
+							<td><input type="text" value="Trắng"></td>
+							<td><input type="text" value="1"></td>
+							<td><input type="text" value="355.000"></td>
+							<td class="td-ctent"><i class="fa fa-trash"></i></td>
+						</tr>
+						
+						</tbody>
+						<tr></tr>
+					</table>
+				</div>
+				<div class="modal-footer">
+				  
+                    <button type="button" class="but-dialog" data-dismiss="modal">Đóng</button>
+                    <button type="button" class="but-dialog" data-dismiss="modal">Xóa Nhiều Mục</button>
+					  <button type="button"  data-dismiss="modal" class="but-dialog">Lưu</button>
+				</div>
+		  </div>
+		</div>
+  </div>
+	<!-- end modal -->
+	<script src="js/bootstrap.js"></script>
+	<script src="js/jquery.dcjqaccordion.2.7.js"></script>
+	<script src="js/scripts.js"></script>
+	<script src="js/jquery.slimscroll.js"></script>
+	<script src="js/jquery.nicescroll.js"></script>
+	<!--[if lte IE 8]><script language="javascript" type="text/javascript" src="js/flot-chart/excanvas.min.js"></script><![endif]-->
+	<script src="js/jquery.scrollTo.js"></script>
+	<!-- morris JavaScript -->
+	
+	<!-- //calendar -->
+</body>
+
+</html>

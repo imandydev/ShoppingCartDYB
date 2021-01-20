@@ -14,15 +14,16 @@ import java.util.LinkedList;
 import java.util.List;
 
 public class CartEmpty {
-    public boolean insertCart(int idUser, String ghiChu, int idGiamGia, long tongTien) {
+    public boolean insertCart(int idUser, String ghiChu, int idGiamGia, long tongTien, String diaChi) {
         PreparedStatement s = null;
         try {
-            String sql ="insert into don_hang values (null,?,NOW(),'Đang Xử Lý',?,?,?)";
+            String sql ="insert into don_hang values (null,?,NOW(),'Đang Xử Lý',?,?,?,?)";
             s = ConnectionDB.connection(sql);
             s.setInt(1,idUser);
             s.setString(2,ghiChu);
             s.setInt(3,idGiamGia);
             s.setLong(4,tongTien);
+            s.setString(5,diaChi);
             s.executeUpdate();
             s.close();
             return true;
@@ -40,7 +41,7 @@ public class CartEmpty {
             ResultSet rs = s.executeQuery();
             Order order = null;
             if (rs.next()) {
-                order = new Order(rs.getInt(1),rs.getInt(2), rs.getTimestamp(3), rs.getString(4),rs.getString(5),rs.getInt(6),rs.getLong(7));
+                order = new Order(rs.getInt(1),rs.getInt(2), rs.getTimestamp(3), rs.getString(4),rs.getString(5),rs.getInt(6),rs.getLong(7),rs.getString(8));
             }
             rs.close();
             s.close();

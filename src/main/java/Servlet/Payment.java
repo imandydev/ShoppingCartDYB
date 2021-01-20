@@ -33,10 +33,10 @@ public class Payment extends HttpServlet {
         HttpSession session = request.getSession();
         Cart cart = (Cart)session.getAttribute("cart");
         User user = (User)session.getAttribute("auth");
-       if (user != null && cart.getData().size() > 0) {
+       if (user != null && cart.getData().size() > 0 && !user.getDiaChi().equals("")) {
             // tổng tiền đã giảm
             long sum = cart.total() - priceDis;
-            new CartEmpty().insertCart(user.getId(),ghiChu,idTemp,sum);
+            new CartEmpty().insertCart(user.getId(),ghiChu,idTemp,sum,user.getDiaChi());
             Order order = new CartEmpty().getOrder();
             for (DetailProduct item: cart.getData()) {
                 if (item.getGiamGia() == 0)
@@ -49,6 +49,8 @@ public class Payment extends HttpServlet {
             checkPayment = 1;
         } else if (user != null && cart.getData().size() <= 0)
             checkPayment = 2;
+        else if (user != null && user.getDiaChi().equals(""))
+            checkPayment = 3;
         Gson json = new Gson();
         String change = json.toJson(checkPayment);
         response.setContentType("text/html");
