@@ -30,7 +30,10 @@ public class ChangeDiscountCode extends HttpServlet {
             HttpSession session = request.getSession();
             Cart cart = (Cart)session.getAttribute("cart");
             // lấy tổng tiền đơn hàng trừ cho số tiền giảm giá
-            long sum = cart.total() - priceDis;
+            long sum = 0;
+            if (cart != null)
+                sum = cart.total() - priceDis;
+        //    long sum = cart.total() - priceDis;
             // trả về giá tiền đã format
             List<String> listTemp = new LinkedList<>();
             listTemp.add(FormatedPriceDAO.formatedGia(sum));

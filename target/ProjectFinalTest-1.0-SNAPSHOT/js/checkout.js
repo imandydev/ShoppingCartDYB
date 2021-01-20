@@ -366,9 +366,9 @@ $(document).ready(function () {
             success: function (data_id, textStatus, jqXHR) {
                 let obj = $.parseJSON(data_id);
                 $.each(obj, function (index, value) {
-                    if (index == 0)
-                        $('.ul-total').append('<li class="last_2 total-price" >' + 'Tổng tiền<span>' + value + 'đ</span></li>');
-                    else
+                    if (index == 0){
+                            $('.ul-total').append('<li class="last_2 total-price" >' + 'Tổng tiền<span>' + value + 'đ</span></li>');
+                    }else
                         $('li.li-giamgia').append('<span class="giamgia">'+ value +'đ</span>')
                 });
 
@@ -385,6 +385,7 @@ $(document).ready(function () {
         var priceDis = $('.selec-discount').children("option:selected").data('datadis');
         var idDis = $('.selec-discount').children("option:selected").data('dataid');
         var ghiChu = $('#exampleFormControlTextarea1').val();
+        var curr = $('.rem1');
         let data_id = {
             price_dis:priceDis,
             iddis: idDis,
@@ -396,12 +397,32 @@ $(document).ready(function () {
             data: data_id,
             success: function (data_id, textStatus, jqXHR) {
                 let obj = $.parseJSON(data_id);
-                if (obj == true) {
-                    swal("Thêm đơn hàng thành công !", "", "success");
-                } else {
-                    swal("Tạo tài khoản thất bại !", "Tên đăng nhập đã tồn tại, vui lòng chọn tên khác.", "error");
-                }
-                }
+                if (obj == 1) {
+                    swal("Thanh toán thành công !", "Đơn hàng của bạn đang được xử lý!", "success");
+                    // remove tất cả các dòng sản phẩm trong bảng
+                    curr.fadeOut('slow', function (c) {
+                        curr.remove();
+                    });
+                    // set lại số lượng hiển thị
+                    $(".sl-product").find('span').remove();
+                    $(".sl-product").append('<span >' + 0 + ' Sản phẩm</span>');
+                } else if (obj == 0)
+                    // nếu chưa đăng nhập thì hiển thị thông báo cho đăng nhập
+                    swal({
+                        title: 'Bạn chưa đăng nhập, vui lòng đăng nhập để có thể thanh toán !!',
+                        icon: 'error',
+                        showConfirmButton: false,
+                        allowOutsideClick: false,
+                    }).then(okay => {
+                        if (okay) {
+                            window.location.href = "/ProjectFinalTest_war_exploded/login";
+                        }
+                    });
+                else
+                    swal("Thanh toán thất bại!", "Giỏ hàng trống, vui lòng thêm sản phẩm vào giỏ hàng để có thể thanh toán!", "error");
+             }
              });
+
+
         });
 });

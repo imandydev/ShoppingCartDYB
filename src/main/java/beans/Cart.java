@@ -11,7 +11,6 @@ import java.util.Map;
 
 public class Cart implements Serializable {
     Map<Integer, DetailProduct> data = new HashMap<>();
-
     public Cart() {
     }
     public void put(DetailProduct p, int amount) {

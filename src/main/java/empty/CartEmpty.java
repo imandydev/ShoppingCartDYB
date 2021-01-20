@@ -14,14 +14,14 @@ import java.util.LinkedList;
 import java.util.List;
 
 public class CartEmpty {
-    public boolean insertCart(int idUser, String ghiChu, String idGiamGia, long tongTien) {
+    public boolean insertCart(int idUser, String ghiChu, int idGiamGia, long tongTien) {
         PreparedStatement s = null;
         try {
             String sql ="insert into don_hang values (null,?,NOW(),'Đang Xử Lý',?,?,?)";
             s = ConnectionDB.connection(sql);
             s.setInt(1,idUser);
-            s.setString(2,null);
-            s.setInt(3,1);
+            s.setString(2,ghiChu);
+            s.setInt(3,idGiamGia);
             s.setLong(4,tongTien);
             s.executeUpdate();
             s.close();
@@ -32,15 +32,11 @@ public class CartEmpty {
         }
     }
     // lấy ra đơn hàng vừa thêm vào
-    public Order getOrder(int idUser, String ghiChu, long tongTien) {
+    public Order getOrder() {
         PreparedStatement s = null;
         try {
-            String sql ="select * form don_hang where iduser = ?  and trangthai = ? and ghichu = ? and tongtien = ?";
+            String sql ="SELECT * FROM don_hang ORDER BY ma_don_hang DESC LIMIT 1";
             s = ConnectionDB.connection(sql);
-            s.setInt(1,idUser);
-            s.setString(2,"Đang Xủ Lý");
-            s.setString(3,ghiChu);
-            s.setLong(4,tongTien);
             ResultSet rs = s.executeQuery();
             Order order = null;
             if (rs.next()) {

@@ -29,7 +29,7 @@ public class RemoveCart extends HttpServlet {
             c.remove(idDetail);
             List<String> list = new LinkedList<>();
             list.add(FormatedPriceDAO.formatedGia(c.total()));
-            list.add(c.getData().size() + 1 +"");
+            list.add(c.getData().size() +"");
             Gson json = new Gson();
             String listSize = json.toJson(list);
             response.setContentType("text/html");

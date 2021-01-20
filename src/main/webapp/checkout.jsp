@@ -217,13 +217,14 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 							<li>Mã giảm giá  <span>
 								<select class="selec-discount">
                                     <c:if test="${listDiscount != null}">
-										<option  data-dataid = "null" data-datadis = "0" selected>Chọn mã giảm giá</option>
+<%--										xet -1 là khong sử dụng mã giảm giá--%>
+										<option  data-dataid = "-1" data-datadis = "0" selected>Chọn mã giảm giá</option>
                                         <c:forEach items="${listDiscount}" var="i">
                                             <option data-dataid = "${i.id}" data-datadis = "${i.giamGia}">${i.maGiamGia}</option>
                                         </c:forEach>
                                     </c:if>
                                     <c:if test="${listDiscount == null}">
-                                        <option data-dataid = "null" data-datadis = "0">Không có mã giảm giá</option>
+                                        <option data-dataid = "-1" data-datadis = "0">Không có mã giảm giá</option>
                                     </c:if>
 								</select>
 							</span></li>
