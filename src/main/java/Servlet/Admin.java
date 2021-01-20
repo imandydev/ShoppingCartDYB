@@ -1,7 +1,7 @@
 package Servlet;
 
-import beansAdmin.OrderDashboard;
-import emptyAdmin.OrderDashboardEmpty;
+import beansAdmin.Dashboard.OrderDashboard;
+import emptyAdmin.DashBoard.OrderDashboardEmpty;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;

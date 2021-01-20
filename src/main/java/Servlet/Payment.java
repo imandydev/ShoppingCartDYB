@@ -39,10 +39,11 @@ public class Payment extends HttpServlet {
             new CartEmpty().insertCart(user.getId(),ghiChu,idTemp,sum,user.getDiaChi());
             Order order = new CartEmpty().getOrder();
             for (DetailProduct item: cart.getData()) {
+
                 if (item.getGiamGia() == 0)
-                    new CartDetail().insertDetailCart(order.getId(),item.getId(),item.getQuantity(),item.getGia());
+                    new CartDetail().insertDetailCart(order.getId(),item.getId(),item.getQuantity(),item.getGia()*item.getQuantity());
                 else
-                    new CartDetail().insertDetailCart(order.getId(),item.getId(),item.getQuantity(),item.getGiaGiam());
+                    new CartDetail().insertDetailCart(order.getId(),item.getId(),item.getQuantity(),item.getGiaGiam()*item.getQuantity());
             }
             cart.removeAll();
             cart.commit(session);

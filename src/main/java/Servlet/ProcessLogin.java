@@ -36,7 +36,10 @@ public class ProcessLogin extends HttpServlet {
             // commit lên session
             session.setAttribute("auth",user);
             // chuyển sang trang chủ
-            response.sendRedirect("/ProjectFinalTest_war_exploded/listnews?action=returns&id=1&page=1");
+            if (user.getLoaiTaiKhoan().equals("admin"))
+                response.sendRedirect("/ProjectFinalTest_war_exploded/admin");
+            else
+                response.sendRedirect("/ProjectFinalTest_war_exploded/listnews?action=returns&id=1&page=1");
         } else
             // vẫn ở trang login
             response.sendRedirect("/ProjectFinalTest_war_exploded/login");

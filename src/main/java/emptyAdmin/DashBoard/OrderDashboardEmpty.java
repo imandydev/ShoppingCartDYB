@@ -1,7 +1,6 @@
-package emptyAdmin;
+package emptyAdmin.DashBoard;
 
-import beans.Category;
-import beansAdmin.OrderDashboard;
+import beansAdmin.Dashboard.OrderDashboard;
 import db.ConnectionDB;
 
 import java.sql.PreparedStatement;

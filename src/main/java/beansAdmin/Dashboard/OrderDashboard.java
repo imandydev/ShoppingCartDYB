@@ -1,4 +1,4 @@
-package beansAdmin;
+package beansAdmin.Dashboard;
 
 import DAO.FormatedPriceDAO;
 

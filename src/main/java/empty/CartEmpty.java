@@ -51,4 +51,38 @@ public class CartEmpty {
             return null;
         }
     }
+    public Order getOrderById(int idOrder) {
+        PreparedStatement s = null;
+        try {
+            String sql ="SELECT * FROM don_hang where ma_don_hang = ?";
+            s = ConnectionDB.connection(sql);
+            s.setInt(1,idOrder);
+            ResultSet rs = s.executeQuery();
+            Order order = null;
+            if (rs.next()) {
+                order = new Order(rs.getInt(1),rs.getInt(2), rs.getTimestamp(3), rs.getString(4),rs.getString(5),rs.getInt(6),rs.getLong(7),rs.getString(8));
+            }
+            rs.close();
+            s.close();
+            return order;
+        } catch (ClassNotFoundException | SQLException e) {
+            e.printStackTrace();
+            return null;
+        }
+    }
+    public boolean updateStatusOrder(int idOrder, String status) {
+        PreparedStatement s = null;
+        try {
+            String sql ="update don_hang set trangthai = ? where ma_don_hang = ?";
+            s = ConnectionDB.connection(sql);
+            s.setString(1,status);
+            s.setInt(2,idOrder);
+            s.executeUpdate();
+            s.close();
+            return true;
+        } catch (ClassNotFoundException | SQLException e) {
+            e.printStackTrace();
+            return false;
+        }
+    }
 }

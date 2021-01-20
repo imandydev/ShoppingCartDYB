@@ -313,7 +313,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 						<a href="alldonhang.html"><button>Xem Tất Cả Đơn Hàng</button></a>
 					</div>
 
-					<table class="table table-bordered boxx-tb">
+					<table class="table table-bordered boxx-tb table1">
 						<tr class="active tr-main">
 							<th class="th1">Mã Đơn Hàng</th>
 							<th class="th1_1">Mã Khách Hàng (ID)</th>
@@ -324,10 +324,11 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 							<th class="th6">Tổng Tiền</th>
 							<th class="th7">Xem/ Sửa</th>
 						</tr>
+						<tbody>
 						<c:forEach items="${list10Pro}" var="i">
 						<!-- don1 -->
 						<tr class="tr-content">
-							<td class="td1">${i.id}</td>
+							<td class="td1 id-order">${i.id}</td>
 							<td>${i.idUser}</td>
 							<td>${i.amount}</td>
 							<td>${i.time}</td>
@@ -335,11 +336,11 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 							<td><a class="status2">${i.status}</a></td>
 							<td>${i.formatPrice()}đ</td>
 							<td class="td-ctent">
-								<i data-toggle="modal" data-target="#exampleModalCenter" class="fa fa-edit"></i>
+								<i data-toggle="modal" data-target="#exampleModalCenter" class="fa fa-edit i-edit"></i>
 							</td>
 						</tr>
 						</c:forEach>
-						
+						</tbody>
 					</table>
 				</div>
 
@@ -369,50 +370,50 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 						 
 										<div class="left">
 											<div class="row1">
-												<label for="">Mã Đơn Hàng</label><br>
-												<input type="text" value="12312312" readonly>
+												<label >Mã Đơn Hàng</label><br>
+												<input class="id-order-show" type="text" value="" readonly>
 											</div>
 											<div class="row2">
-												<label for="">Mã Khách Hàng (ID)</label><br>
-												<input type="text" value="1" readonly>
+												<label >Mã Khách Hàng (ID)</label><br>
+												<input class="id-user-show" type="text" value="" readonly>
 											</div>
 											<div class="row3">
-												<label for="">Số Lượng Sản Phẩm</label><br>
-												<input type="text" value="3" readonly>
+												<label >Số Lượng Sản Phẩm</label><br>
+												<input class="sum-amount-show" type="text" value="" readonly>
 											</div>
 											<div class="row4">
-												<label for="">Ngày Đặt</label><br>
-												<input type="text" value="12/11/2020" readonly>
+												<label >Ngày Đặt</label><br>
+												<input class="date-order-show" type="text" value="" readonly>
 											</div>
 											<div class="row2">
-												<label for="">Trạng Thái</label><br>
-												<select name="" id="">
-													<option value="">Chờ Xác Nhận</option>
-													<option value="">Chờ Lấy Hàng</option>
-													<option value="" selected>Đang Giao</option>
-													<option value="">Đã Giao</option>
-													<option value="">Đã Hủy</option>
+												<label >Trạng Thái</label><br>
+												<select  class="status-order-show">
+													<option value="Đang Xử Lý">Đang Xử Lý</option>
+													<option value="Chờ Lấy Hàng">Chờ Lấy Hàng</option>
+													<option value="Đang Giao">Đang Giao</option>
+													<option value="Đã Giao">Đã Giao</option>
+													<option value="Đã Hủy">Đã Hủy</option>
 												</select>
 											</div>
 										</div>
 										<div class="right">
 											<div class="row3">
-												<label for="">Mã Giảm Giá</label><br>
-												<input type="text" value="" readonly>
+												<label >Mã Giảm Giá</label><br>
+												<input class="id-discount-show" type="text" value="" readonly>
 											</div>
 											<div class="row3">
-												<label for="">Tổng Tiền</label><br>
-												<input type="text" value="1.775.000" readonly>
+												<label >Tổng Tiền</label><br>
+												<input class="total-price-show" type="text" value="1.775.000" readonly>
 											</div>
 											<div class="row2">
-												<label for="">Địa Chỉ</label><br>
-												<textarea class="form-control" rows="3" id="comment">Ký túc xá khu B Đại Học Quốc Gia Phường Đông Hòa Thị Xã Dĩ An Bình Dương</textarea>
+												<label >Địa Chỉ</label><br>
+												<textarea class="form-control address-user-show" rows="3" id="comment" readonly>Ký túc xá khu B Đại Học Quốc Gia Phường Đông Hòa Thị Xã Dĩ An Bình Dương</textarea>
 												
 											</div>
 											
 											<div class="row4">
-												<label for="">Ghi Chú</label><br>
-                                                <textarea class="form-control" rows="2" readonly>Giao hàng cẩn thận!</textarea>
+												<label >Ghi Chú</label><br>
+                                                <textarea class="form-control ghichu-show" rows="2" readonly>Giao hàng cẩn thận!</textarea>
 											</div>
 										</div>
 							
@@ -420,36 +421,35 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 				 	</div>
 				</div>
 				<div class="center" style="max-height: 500px;">
-					<table class="table table-bordered" >
+					<table class="table table-bordered table-show" >
 						<thead>
 						<tr class="active">
-							<th>STT</th>
 							<th>Mã Sản Phẩm</th>
+							<th>Tên Sản Phẩm</th>
 							<th>Kích Thước</th>
 							<th>Màu Sắc</th>
 							<th>Số Lượng</th>
 							<th>Giá Tiền</th>
 						</tr>
 						</thead>
-						<tbody>
-						<tr>
-							<td><span class="stt-show"></span></td>
-							<td><span class="id-pro-show"></span></td>
-							<td><input class="size-pro-show" type="text" value="" readonly></td>
-							<td><input class="color-pro-show" type="text" value="" readonly></td>
-							<td><input class="amount-pro-show" type="text" value="" readonly></td>
-							<td><input class="total-price-show" type="text" value="" readonly></td>
+						<tbody class="tbody-show">
+<%--						<tr>--%>
+<%--							<td><span class="id-pro-show"></span></td>--%>
+<%--							<td><span class="name-pro-show"></span></td>--%>
+<%--							<td><span class="size-pro-show" ></span></td>--%>
+<%--							<td><span class="color-pro-show"></span></td>--%>
+<%--							<td><span class="amount-pro-show"></span></td>--%>
+<%--							<td><span class="total-pricePro-show" ></span></td>--%>
 
-						</tr>
+<%--						</tr>--%>
 						
 						</tbody>
 						<tr></tr>
 					</table>
 				</div>
 				<div class="modal-footer">
-				  
                     <button type="button" class="but-dialog" data-dismiss="modal">Đóng</button>
-					  <button type="button"  data-dismiss="modal" class="but-dialog">Lưu</button>
+					  <button type="button"  data-dismiss="modal" class="but-dialog but-save-show">Lưu</button>
 				</div>
 		  </div>
 		</div>
@@ -460,10 +460,12 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 	<script src="jsadmin/scripts.js"></script>
 	<script src="jsadmin/jquery.slimscroll.js"></script>
 	<script src="jsadmin/jquery.nicescroll.js"></script>
+	<script src="jsadmin_ajax/Dashboard/dashBoardShowOrderDetail.js"></script>
 	<!--[if lte IE 8]><script language="javascript" type="text/javascript" src="jsadmin/flot-chart/excanvas.min.js"></script><![endif]-->
 	<script src="jsadmin/jquery.scrollTo.js"></script>
 	<!-- morris JavaScript -->
-	
+	<%--	sweetalert--%>
+	<script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
 	<!-- //calendar -->
 </body>
 
