@@ -6,6 +6,7 @@ $(document).ready(function () {
         var curr = $(this).closest('tr');
         // lấy ra id và màu đang chọn của sản phẩm
         var colorVal = curr.find('td:eq(4)').find('select').children("option:selected").val();
+        $('.giamgia').remove();
         // lấy ô chứa size và xóa danh sách size hiện tại
         var idProduct = curr.find('td:eq(4)').find('select').data('dataid');
         // lấy select size trong dòng đang xét để tí thêm optionvafo
@@ -38,8 +39,8 @@ $(document).ready(function () {
                 let obj = $.parseJSON(data);
                 $.each(obj, function (key, value) {
                     // thêm option vào ô size đang xét
-
                     colSize.append('<option value="' + value.size + '">' + value.size + '</option>');
+
 
                 });
 
@@ -70,6 +71,7 @@ $(document).ready(function () {
                         disPrice.data('iddetail',value.idDetail);
                         disPrice.append('<span>' + value.price + 'đ</span>');
                         $(".last_2").append('<span>'+ value.total +'đ</span>');
+
                         // nếu có giảm giá
                     }
                     else {
@@ -78,9 +80,12 @@ $(document).ready(function () {
                         disPrice.data('iddetail',value.idDetail);
                         disPrice.append('<span>' + value.priceSale + 'đ</span>');
                         $(".last_2").append('<span>'+ value.total +'đ</span>');
+
                         // nếu không có giá có chi tiết sản phẩm thì lấy giá của sản phẩm
                     }
                 });
+                $('.selec-discount').prop('selectedIndex',0);
+                $('.li-giamgia').append('<span class="giamgia">'+ 0 +'đ</span>');
             },
             error: function (jqXHR, textStatus, errorThrown) {
 
@@ -112,6 +117,8 @@ $(document).ready(function () {
         // xóa tổng giá
         $(".last_2").find('span').remove();
         // đổi size => đổi giá
+        // xóa giảm giá
+        $('.giamgia').remove();
         let data_size = {
             action: "size-change",
             color: colorVal,
@@ -134,6 +141,7 @@ $(document).ready(function () {
                         disPrice.data('iddetail',value.idDetail);
                         disPrice.append('<span>' + value.price + 'đ</span>');
                         $(".last_2").append('<span>'+ value.total +'đ</span>');
+
                         // nếu có giảm giá
                     }
                     else {
@@ -142,9 +150,12 @@ $(document).ready(function () {
                         disPrice.data('iddetail',value.idDetail);
                         disPrice.append('<span>' + value.priceSale + 'đ</span>');
                         $(".last_2").append('<span>'+ value.total +'đ</span>');
+
                         // nếu không có giá có chi tiết sản phẩm thì lấy giá của sản phẩm
                     }
                 });
+                $('.selec-discount').prop('selectedIndex',0);
+                $('.li-giamgia').append('<span class="giamgia">'+ 0 +'đ</span>');
             },
                  error: function (jqXHR, textStatus, errorThrown) {
                 $('.selec-size').append('<option>Fail</option>');
@@ -167,6 +178,7 @@ $(document).ready(function () {
         var idDetail  = curr.find('td:eq(6)').data('iddetail');
         var result = (parseInt(priceVal)/quantityBe) * quantity;
         priceTag.find('span').remove();
+        $('.giamgia').remove();
         $(".last_2").find('span').remove();
         priceTag.data('dataid',result);
         priceTag.data('dataquan', quantity);
@@ -183,9 +195,13 @@ $(document).ready(function () {
             success: function (data_size, textStatus, jqXHR) {
                 let obj = $.parseJSON(data_size);
 
-                $.each(obj, function (key, value) {
+                $.each(obj, function (index, value) {
+                    if (index == 0)
                     $(".last_2").append('<span>'+ value +'đ</span>');
+
                 });
+                $('.selec-discount').prop('selectedIndex',0);
+                $('.li-giamgia').append('<span class="giamgia">'+ 0 +'đ</span>');
             },
             error: function (jqXHR, textStatus, errorThrown) {
 
@@ -209,6 +225,7 @@ $(document).ready(function () {
         var idDetail  = curr.find('td:eq(6)').data('iddetail');
         priceTag.find('span').remove();
         $(".last_2").find('span').remove();
+        $('.giamgia').remove();
         priceTag.data('dataid',result);
         priceTag.data('dataquan', quantity);
         priceTag.append('<span>' + result + 'đ</span>');
@@ -224,9 +241,13 @@ $(document).ready(function () {
             success: function (data_size, textStatus, jqXHR) {
                 let obj = $.parseJSON(data_size);
 
-                $.each(obj, function (key, value) {
-                    $(".last_2").append('<span>'+ value +'đ</span>');
+                $.each(obj, function (index, value) {
+                    if (index == 0)
+                        $(".last_2").append('<span>'+ value +'đ</span>');
+
                 });
+                $('.selec-discount').prop('selectedIndex',0);
+                $('.li-giamgia').append('<span class="giamgia">'+ 0 +'đ</span>');
             },
             error: function (jqXHR, textStatus, errorThrown) {
 
@@ -250,9 +271,18 @@ $(document).ready(function () {
         var idDetail  = curr.find('td:eq(6)').data('iddetail');
         priceTag.find('span').remove();
         $(".last_2").find('span').remove();
+        $('.giamgia').remove();
+        // xét khi giảm số lượng xuống < 0
+        if (quantity >= 1) {
         priceTag.data('dataid',result);
         priceTag.data('dataquan', quantity);
         priceTag.append('<span>' + result + 'đ</span>');
+        } else {
+            result = (parseInt(priceVal)/quantityBe) * 1;
+            priceTag.data('dataid',result);
+            priceTag.data('dataquan', 1);
+            priceTag.append('<span>' + result + 'đ</span>');
+        }
         let data_size = {
             action: "amount",
             quantity: quantity,
@@ -265,9 +295,13 @@ $(document).ready(function () {
             success: function (data_size, textStatus, jqXHR) {
                 let obj = $.parseJSON(data_size);
 
-                $.each(obj, function (key, value) {
-                    $(".last_2").append('<span>'+ value +'đ</span>');
+                $.each(obj, function (index, value) {
+                    if (index == 0)
+                        $(".last_2").append('<span>'+ value +'đ</span>');
+
                 });
+                $('.selec-discount').prop('selectedIndex',0);
+                $('.li-giamgia').append('<span class="giamgia">'+ 0 +'đ</span>');
             },
             error: function (jqXHR, textStatus, errorThrown) {
 
@@ -278,6 +312,7 @@ $(document).ready(function () {
     // xóa sản phẩm
     $(".table1 tbody").on('click','.close1', function () {
         var curr = $(this).closest('tr');
+        $('.giamgia').remove();
         var idDetail  = curr.find('td:eq(6)').data('iddetail');
         curr.fadeOut('slow', function (c) {
             curr.remove();
@@ -296,11 +331,15 @@ $(document).ready(function () {
                 let obj = $.parseJSON(data_size);
 
                 $.each(obj, function (index, value) {
-                   if (index == 0)
+                   if (index == 0)  {
                        $(".last_2").append('<span>'+ value +'đ</span>');
-                   else
+
+                   } else
                        $(".sl-product").append('<span >'+ value +' Sản phẩm</span>');
+
                 });
+                $('.selec-discount').prop('selectedIndex',0);
+                $('.li-giamgia').append('<span class="giamgia">'+ 0 +'đ</span>');
 
 
             },
@@ -310,6 +349,59 @@ $(document).ready(function () {
             cache: false
         });
     });
+    // khi thay đổi mã giảm giá
+    $('.selec-discount').change(function () {
+        var priceDis = $('.selec-discount').children("option:selected").data('datadis');
+        $('.total-price').remove();
+        $('.giamgia').remove();
+        let data_id = {
+            action: "change-code",
+            pricedis:priceDis,
+
+        };
+        $.ajax({
+            url: "change-discount-code",
+            method: "GET",
+            data: data_id,
+            success: function (data_id, textStatus, jqXHR) {
+                let obj = $.parseJSON(data_id);
+                $.each(obj, function (index, value) {
+                    if (index == 0)
+                        $('.ul-total').append('<li class="last_2 total-price" >' + 'Tổng tiền<span>' + value + 'đ</span></li>');
+                    else
+                        $('li.li-giamgia').append('<span class="giamgia">'+ value +'đ</span>')
+                });
 
 
+            },
+            error: function (jqXHR, textStatus, errorThrown) {
+            },
+            cache: false
+        });
+    });
+    // thanh toán
+    $('#payment').on('submit', function (e) {
+        e.preventDefault();
+        var priceDis = $('.selec-discount').children("option:selected").data('datadis');
+        var idDis = $('.selec-discount').children("option:selected").data('dataid');
+        var ghiChu = $('#exampleFormControlTextarea1').val();
+        let data_id = {
+            price_dis:priceDis,
+            iddis: idDis,
+            ghichu:ghiChu,
+        };
+        $.ajax({
+            url: "payment-cart",
+            method: "GET",
+            data: data_id,
+            success: function (data_id, textStatus, jqXHR) {
+                let obj = $.parseJSON(data_id);
+                if (obj == true) {
+                    swal("Thêm đơn hàng thành công !", "", "success");
+                } else {
+                    swal("Tạo tài khoản thất bại !", "Tên đăng nhập đã tồn tại, vui lòng chọn tên khác.", "error");
+                }
+                }
+             });
+        });
 });

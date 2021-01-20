@@ -2,7 +2,10 @@ package Servlet;
 
 import DAO.FormatedPriceDAO;
 import beans.Cart;
+import beans.Discount;
+import beans.PriceDetailSingle;
 import com.google.gson.Gson;
+import empty.DiscountEmpty;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -14,26 +17,28 @@ import java.io.IOException;
 import java.util.LinkedList;
 import java.util.List;
 
-@WebServlet(urlPatterns = "/remove-product")
-public class RemoveCart extends HttpServlet {
+@WebServlet(urlPatterns = "/change-discount-code")
+public class ChangeDiscountCode extends HttpServlet {
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         doGet(request, response);
     }
 
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         String action = request.getParameter("action");
-        if (action.equalsIgnoreCase("remove")) {
-            int idDetail = Integer.parseInt(request.getParameter("iddetail"));
+        if (action.equalsIgnoreCase("change-code")) {
+            long priceDis = Long.parseLong(request.getParameter("pricedis"));
             HttpSession session = request.getSession();
-            Cart c = Cart.getCart(session);
-            c.remove(idDetail);
-            List<String> list = new LinkedList<>();
-            list.add(FormatedPriceDAO.formatedGia(c.total()));
-            list.add(c.getData().size() + 1 +"");
+            Cart cart = (Cart)session.getAttribute("cart");
+            // lấy tổng tiền đơn hàng trừ cho số tiền giảm giá
+            long sum = cart.total() - priceDis;
+            // trả về giá tiền đã format
+            List<String> listTemp = new LinkedList<>();
+            listTemp.add(FormatedPriceDAO.formatedGia(sum));
+            listTemp.add(FormatedPriceDAO.formatedGia(priceDis));
             Gson json = new Gson();
-            String listSize = json.toJson(list);
+            String discount = json.toJson(listTemp);
             response.setContentType("text/html");
-            response.getWriter().write(listSize);
+            response.getWriter().write(discount);
         }
     }
 }

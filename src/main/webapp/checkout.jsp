@@ -70,12 +70,8 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 
 				<div class="mobile-nav-button">
 					<div class="shoecart shoecart2 cart cart box_1">
-						<form action="#" method="post" class="last">
-							<input type="hidden" name="cmd" value="_cart">
-							<input type="hidden" name="display" value="1">
-							<button class="top_shoe_cart" type="submit" name="submit" value=""><i
-									class="fa fa-cart-arrow-down" aria-hidden="true"></i></button>
-						</form>
+						<a href="${pageContext.request.contextPath}/checkout?action=cart"><button class="top_shoe_cart" type="submit" name="submit" value=""><i
+								class="fa fa-cart-arrow-down" aria-hidden="true"></i></button></a>
 					</div>
 				</div>
 				<!-- cart details -->
@@ -214,25 +210,32 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 					</table>
 				</div>
 				<div class="checkout-left">
+					<form action="#" method="post" id="payment">
 					<div class="col-md-4 checkout-left-basket">
 						<h4>Tổng tiền giỏ hàng</h4>
-						<ul>
+						<ul class="ul-total">
 							<li>Mã giảm giá  <span>
 								<select class="selec-discount">
-									<option>Không có mã giảm giá</option>
-									<option>Giảm 50%</option>
-									<option>Giảm 10%</option>
+                                    <c:if test="${listDiscount != null}">
+										<option  data-dataid = "null" data-datadis = "0" selected>Chọn mã giảm giá</option>
+                                        <c:forEach items="${listDiscount}" var="i">
+                                            <option data-dataid = "${i.id}" data-datadis = "${i.giamGia}">${i.maGiamGia}</option>
+                                        </c:forEach>
+                                    </c:if>
+                                    <c:if test="${listDiscount == null}">
+                                        <option data-dataid = "null" data-datadis = "0">Không có mã giảm giá</option>
+                                    </c:if>
 								</select>
 							</span></li>
-							<li>Giảm giá<span>0đ</span></li>
+							<li class="li-giamgia">Giảm giá<span class="giamgia">0đ</span></li>
 							<li  class="last">Ghi chú</li>
 							<textarea class="form-control" id="exampleFormControlTextarea1" rows="5"></textarea>
 
-							<li class="last_2" value="${cart.total()}">Tổng tiền<span>${cart.formatPrice(cart.total())}đ</span></li>
+								<li class="last_2 total-price">Tổng tiền<span>${cart.formatPrice(cart.total())}đ</span></li>
 						</ul>
 					<button class="btn-thanhtoan" type="submit">THANH TOÁN</button>
 					</div>
-					
+					</form>
 					<div class="clearfix"> </div>
 
 
@@ -477,41 +480,14 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 				newVal = parseInt(divUpd.val(), 10) - 1;
 			if (newVal >= 1) divUpd.val(newVal);
 		});
-		$(".value").blur(function () {
-			let amount = $(".value").val();
-			if (amount < 1)
-				$(".value").val(1);
+            $(".value-quantity").blur(function () {
+			let amount = $(this).val();
+			if (amount <= 1)
+				$(this).val(1);
 		});
 	</script>
 
-	<!--quantity-->
-	<!-- <script>
-		$(document).ready(function (c) {
-			$('.close1').on('click', function (c) {
-				$('.rem1').fadeOut('slow', function (c) {
-					$('.rem1').remove();
-				});
-			});
-		});
-	</script>
-	<script>
-		$(document).ready(function (c) {
-			$('.close2').on('click', function (c) {
-				$('.rem2').fadeOut('slow', function (c) {
-					$('.rem2').remove();
-				});
-			});
-		});
-	</script>
-	<script>
-		$(document).ready(function (c) {
-			$('.close3').on('click', function (c) {
-				$('.rem3').fadeOut('slow', function (c) {
-					$('.rem3').remove();
-				});
-			});
-		});
-	</script> -->
+
 
 	<!-- start-smoth-scrolling -->
 	<script type="text/javascript" src="js/move-top.js"></script>
@@ -529,7 +505,8 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 	<!-- //end-smoth-scrolling -->
 	<script type="text/javascript" src="js/bootstrap-3.1.1.min.js"></script>
 	<script src="js/checkout.js"></script>
-
+	<%--	sweetalert--%>
+	<script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
 </body>
 
 </html>

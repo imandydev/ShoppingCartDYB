@@ -31,6 +31,7 @@ public class UpdateUpDownAmountCart extends HttpServlet {
             c.updateQuantity(idDetail, quantity);
             List<String> list = new LinkedList<>();
             list.add(FormatedPriceDAO.formatedGia(c.total()));
+
             Gson json = new Gson();
             String listSize = json.toJson(list);
             response.setContentType("text/html");

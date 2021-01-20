@@ -43,6 +43,7 @@ public class PriceDetailSingle {
         this.total = total;
         this.idDetail = idDetail;
     }
+
     public PriceDetailSingle() {
     }
 

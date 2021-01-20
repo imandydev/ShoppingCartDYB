@@ -1,3 +1,4 @@
+// thêm user vào db
 $(document).ready(function () {
     $('#create-account').on('submit', function (e) {
         e.preventDefault();
@@ -6,6 +7,7 @@ $(document).ready(function () {
         var sdt = $('.cre-sdt').val();
         var pass = $('.cre-pass').val();
         var verify = $('.cre-verify').val();
+        // nếu có 1 ô trống
         if (username != "" && mail != "" && sdt != "" && pass != "" && verify != "") {
         $.ajax({
             url: "create-account",
@@ -22,7 +24,6 @@ $(document).ready(function () {
                     $('.cre-verify').val("");
                 } else {
                     swal("Tạo tài khoản thất bại !", "Tên đăng nhập đã tồn tại, vui lòng chọn tên khác.", "error");
-
                 }
             }
         });
