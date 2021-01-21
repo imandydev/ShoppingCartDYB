@@ -88,7 +88,6 @@ $(document).ready(function () {
                     });
                 }else
                     swal("Chỉnh sửa thất bại !", "", "error");
-
             }
         });
     });

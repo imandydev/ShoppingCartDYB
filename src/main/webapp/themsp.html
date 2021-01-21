@@ -1,0 +1,391 @@
+<!--A Design by W3layouts
+Author: W3layout
+Author URL: http://w3layouts.com
+License: Creative Commons Attribution 3.0 Unported
+License URL: http://creativecommons.org/licenses/by/3.0/
+-->
+<!DOCTYPE html>
+<head>
+<title>Thêm Sản Phẩm</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="keywords" content="Visitors Responsive web template, Bootstrap Web Templates, Flat Web Templates, Android Compatible web template, 
+Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, SonyEricsson, Motorola web design" />
+<script type="application/x-javascript"> addEventListener("load", function() { setTimeout(hideURLbar, 0); }, false); function hideURLbar(){ window.scrollTo(0,1); } </script>
+<!-- bootstrap-css -->
+<link rel="stylesheet" href="css/bootstrap.min.css" >
+<!-- //bootstrap-css -->
+<!-- Custom CSS -->
+<link rel="stylesheet" href="css/themsanpham.css">
+<link href="css/style.css" rel='stylesheet' type='text/css' />
+<link href="css/style-responsive.css" rel="stylesheet"/>
+<!-- font CSS -->
+
+<!-- font-awesome icons -->
+<link href="css/font-awesome.css" rel="stylesheet"> 
+<!-- //font-awesome icons -->
+<script src="js/jquery2.0.3.min.js"></script>
+<!-- ckeditor -->
+<script src="ckeditor/ckeditor.js"></script>
+</head>
+<body>
+<section id="container">
+<!--header start-->
+<header class="header fixed-top clearfix">
+<!--logo start-->
+<div class="brand">
+
+    <a href="index.html" class="logo">
+        DYB Admin
+    </a>
+    <div class="sidebar-toggle-box">
+        <div class="fa fa-bars"></div>
+    </div>
+</div>
+<!--logo end-->
+
+<div class="nav notify-row" id="top_menu">
+    <!--  notification start -->
+    <ul class="nav top-menu">
+    
+        <!-- notification dropdown start-->
+        <li id="header_notification_bar" class="dropdown">
+            <a data-toggle="dropdown" class="dropdown-toggle" href="#">
+
+                <i class="fa fa-bell-o"></i>
+                <span class="badge bg-warning">3</span>
+            </a>
+            <ul class="dropdown-menu extended notification">
+                <li>
+                    <p>Thông Báo</p>
+                </li>
+                <li>
+                    <div class="alert alert-info clearfix">
+                        <span class="alert-icon" title="Xóa Thông Báo"><i class=" fa fa-trash"></i></span>
+                        <div class="noti-info">
+                            <a href="alldonhang.html" > 15 đơn hàng đang chờ xác nhận.</a>
+                            
+                        </div>
+                    
+                    </div>
+                </li>
+                <li>
+                    <div class="alert alert-danger clearfix">
+                        <span class="alert-icon" title="Xóa Thông Báo"><i class=" fa fa-trash"></i></span>
+                        <div class="noti-info">
+                            <a href="index.html"> Đang có hơn 50 người đang online.</a>
+                        </div>
+                    </div>
+                </li>
+                <li>
+                    <div class="alert alert-success clearfix">
+                        <span class="alert-icon" title="Xóa Thông Báo"><i class=" fa fa-trash"></i></span>
+                        <div class="noti-info">
+                            <a href="index.html"> Doanh thu đạt 8.000.000.</a>
+                        </div>
+                    </div>
+                </li>
+
+            </ul>
+        </li>
+        <!-- notification dropdown end -->
+    </ul>
+    <!--  notification end -->
+</div>
+<div class="top-nav clearfix">
+    <!--search & user info start-->
+    <ul class="nav pull-right top-menu">
+        <li class="row1">
+            <label for="">Tải File Lên:</label>
+        </li>
+        <li >
+            
+            <input type="file" class="choose_file">
+        </li>
+        <!-- user login dropdown start-->
+        <li class="dropdown">
+            <a data-toggle="dropdown" class="dropdown-toggle" href="#">
+                <img alt="" src="images/admin.png">
+                <span class="username">DYB Admin</span>
+                <b class="caret"></b>
+            </a>
+            <ul class="dropdown-menu extended logout">
+                <li><a href="editaccount.html"><i class=" fa fa-suitcase"></i>Cá Nhân</a></li>
+              
+                <li><a href="login.html"><i class="fa fa-key"></i> Đăng Xuất</a></li>
+            </ul>
+        </li>
+        <!-- user login dropdown end -->
+       
+    </ul>
+    <!--search & user info end-->
+</div>
+</header>
+<!--header end-->
+<!--sidebar start-->
+<aside>
+    <div id="sidebar" class="nav-collapse">
+        <!-- sidebar menu start-->
+        <div class="leftside-navigation">
+            <ul class="sidebar-menu" id="nav-accordion">
+                <li>
+                    <a href="index.html">
+                        <i class="fa fa-dashboard"></i>
+                        <span>Thống Kê</span>
+                    </a>
+                </li>
+                <li class="sub-menu">
+                    <a  href="javascript:;">
+                        <i class="fa fa-home"></i>
+                        <span>Trang Chủ</span>
+                    </a>
+                    <ul class="sub">
+                        <li><a  href="dstin.html">Tất Cả Tin</a></li>
+                        <li><a  href="themtin.html">Thêm Tin</a></li>
+                    </ul>
+                </li>
+                <li >
+                    <a  href="alldonhang.html">
+                        <i class="fa fa-building"></i>
+                        <span>Tất Cả Đơn Hàng</span>
+                    </a>
+                   
+                </li>
+                <li class="sub-menu">
+                    <a class="active" href="javascript:;">
+                        <i class=" fa fa-product-hunt"></i>
+                        <span>Sản Phẩm</span>
+                    </a>
+                    <ul class="sub">
+                        <li><a href="allsanpham.html">Tất Cả Sản Phẩm</a></li>
+                        <li><a class="active" href="themsp.html">Thêm Sản Phẩm</a></li>
+                    </ul>
+                </li>
+                
+                <li class="sub-menu">
+                    <a   href="javascript:;">
+                        <i class=" fa fa-user"></i>
+                        <span>Tài Khoản</span>
+                    </a>
+                    <ul class="sub">
+                        <li><a  href="dstaikhoan.html">Tất Cả Tài Khoản</a></li>
+                        <li><a href="canhanuser.html">Thêm Tài Khoản</a></li>
+                    </ul>
+                </li>
+              
+              
+                <li>
+                    <a href="spchinh.html">
+                        <i class="fa fa-shopping-bag"></i>
+                        <span>Menu</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="spphu.html">
+                        <i class="fa fa-shopping-basket"></i>
+                        <span>Danh Mục</span>
+                    </a>
+                </li>
+                <li>
+                    <a  href="mathangkhac.html">
+                        <i class="fa fa-suitcase"></i>
+                        <span>Mặt Hàng Khác</span>
+                    </a>
+                </li>
+                <li class="sub-menu">
+                    <a  href="javascript:;">
+                        <i class="fa fa-desktop"></i>
+                        <span>Giao Diện </span>
+                    </a>
+                    <ul class="sub">
+                        <li><a  href="hinhanh.html">Hình Ảnh</a></li>
+                        <li><a  href="thongtin.html">Thông Tin</a></li>
+                    </ul>
+                </li>
+                <li class="sub-menu">
+                    <a  href="javascript:;">
+                        <i class="fa fa-percent"></i>
+                        <span>Mã Giảm Giá </span>
+                    </a>
+                    <ul class="sub">
+                        <li><a  href="magiamgia.html">Tất Cả Mã Giảm Giá</a></li>
+                        <li><a  href="themmagiamgia.html">Thêm Mã Giảm Giá</a></li>
+                    </ul>
+                </li>
+            </ul>            </div>
+        <!-- sidebar menu end-->
+    </div>
+</aside>
+<!--sidebar end-->
+<!--main content start-->
+<section id="main-content">
+	<section class="wrapper" >
+		<div class="wthree-font-awesome">
+			<div class="grid_3 grid_4 w3_agileits_icons_page">
+					<div class="icons">
+						<h2 class="w3ls_head">Thêm Sản Phẩm</h2>
+						<div class="content_Promain">
+							<div class="content_Prosub">
+                                <div class="include_form">
+							<form action="">
+                                <div class="left">
+                                    <div class="row1">
+                                        <label for="">Hình ảnh:</label>
+                                    </div>
+                                   
+                                    <div class="row3">
+                                        <label for="">Menu:</label>
+                                    </div>
+                                    <div class="row4">
+                                        <label for="">Danh Mục:</label>
+                                    </div>
+                                    <div class="row4_0 p">
+                                        <label for="">Kích Thước:</label>
+                                    </div>
+                                    <div class="row4_2 p">
+                                        <label for="">Trạng Thái:</label>
+                                    </div>
+                                    <div class="row4_3 p">
+                                        <label for="">Tình Trạng:</label>
+                                    </div>
+                                    <div class="row4_1 p">
+                                        <label for="">Màu Sắc:</label>
+                                    </div>
+                                    <div class="row4_1 p">
+                                        <label for="">Số Lượng:</label>
+                                        </div>
+                                  
+                                    <div class="row6 p">
+                                        <label for="">Giá:</label>
+                                    </div>
+                                    <div class="row7 p">
+                                        <label for="">Giá khuyến mãi:</label>
+                                    </div>
+                                    <div class="row8 p">
+                                        <label for="">Tiêu Đề:</label>
+                                    </div>
+                                    <div class="row9 p">
+                                        <label for="">Đường Dẫn:</label>
+                                    </div>
+                                    <div class="row12">
+                                        <label for="">Trong CSDL:</label>
+                                    </div>
+                                    <div class="row13">
+                                        <label for="">Sản Phẩm Khác:</label>
+                                    </div>
+                                    <div class="row10 p1">
+                                        <label for="">Mô tả:</label>
+                                    </div>
+                                    <div class="row11">
+                                        <label for="">Thông tin:</label>
+                                    </div>
+                                   
+                                </div>
+                                <div class="right">
+                                    <div class="row1">
+                                        <input type="text" >
+                                    </div>
+                                  
+                                    <div class="row3">
+                                        <select class="combo_box selectX1">
+                                            <option selected="">Chọn Sản Phẩm Chính</option>
+                                            <option >Quần</option>
+                                            <option >Áo</option>
+                                            <option >Phụ Kiện</option>
+                                          </select>
+                                    </div>
+                                    <div class="row4">
+                                        <select class="combo_box selectX1">
+                                            <option selected="">Chọn Sản Phẩm Phụ</option>
+                                          </select>
+                                    </div>
+                                    <div class="row4_0">
+                                        <select class="combo_box selectX2">
+                                            <option >Chọn</option>
+                                            <option >S</option>
+                                            <option >M</option>
+                                            <option >L</option>
+                                            <option >XL</option>
+                                            <option >XXL</option>
+                                          </select>
+                                    </div>
+                                    <div class="row4_2">
+                                        <select class="combo_box selectX2">
+                                            <option >Chọn</option>
+                                            <option >Public</option>
+                                            <option >Private</option>
+                                          
+                                          </select>
+                                    </div>
+                                    <div class="row4_3">
+                                        <input type="text" >
+                                        </div>
+                                    <div class="row4_1">
+                                        <input type="text" >
+                                        </div>
+                                        <div class="row4_1">
+                                            <input type="text">
+                                        </div>
+                                   
+                                    <div class="row6">
+                                        <input type="text">
+                                    </div>
+                                    <div class="row7">
+                                         <input type="text">
+                                    </div>
+                                    <div class="row8">
+                                        <input type="text">
+                                    </div>
+                                    <div class="row9">
+                                        <input type="text">
+                                    </div>
+                                    <div class="row12">
+                                        <select name="" id="" class="selectX2">
+                                            <option value="">Chưa có</option>
+                                            <option value="">Đã có</option>
+                                        </select>
+                                    </div>
+                                    <div class="row13">
+                                        <select name="" id="" class="selectX2">
+                                            <option value="">Không</option>
+                                            <option value="">Có</option>
+                                        </select>
+                                    </div>
+                                    <div class="row10">
+                                        <textarea id=ten class="wysihtml5 form-control" rows="9" ></textarea>
+                                        <script>CKEDITOR.replace('ten');</script>
+                                    </div>
+                                    <div class="row11">
+                                        <textarea id="ten2" class="wysihtml5 form-control" rows="9"></textarea>
+                                        <script>CKEDITOR.replace('ten2');</script>
+                                    </div>
+                                     <div class="bottom">
+                                        <button>Thoát</button>
+                                         <button>Lưu</button>
+                                    
+                                </div>
+                                </div>
+                               
+                            </form>
+                        </div>
+							</div>
+						</div>
+					</div>
+			</div>
+		</div>
+		
+</section>
+
+</section>
+
+<!--main content end-->
+</section>
+<script src="js/bootstrap.js"></script>
+<script src="js/jquery.dcjqaccordion.2.7.js"></script>
+<script src="js/scripts.js"></script>
+<script src="js/jquery.slimscroll.js"></script>
+<script src="js/jquery.nicescroll.js"></script>
+<!--[if lte IE 8]><script language="javascript" type="text/javascript" src="js/flot-chart/excanvas.min.js"></script><![endif]-->
+<script src="js/jquery.scrollTo.js"></script>
+</body>
+</html>

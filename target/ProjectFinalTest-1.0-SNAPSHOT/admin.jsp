@@ -142,7 +142,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 				<div class="leftside-navigation">
                     <ul class="sidebar-menu" id="nav-accordion">
                         <li>
-                            <a class="active" href="index.html">
+                            <a class="active" href="${pageContext.request.contextPath}/admin">
                                 <i class="fa fa-dashboard"></i>
                                 <span>Thống Kê</span>
                             </a>
@@ -171,7 +171,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                             </a>
                             <ul class="sub">
                                 <li><a href="allsanpham.html">Tất Cả Sản Phẩm</a></li>
-                                <li><a href="themsp.html">Thêm Sản Phẩm</a></li>
+                                <li><a href="${pageContext.request.contextPath}/display-product-add">Thêm Sản Phẩm</a></li>
                             </ul>
                         </li>
                         

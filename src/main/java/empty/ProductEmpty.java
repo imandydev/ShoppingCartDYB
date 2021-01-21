@@ -1,6 +1,7 @@
 package empty;
 
 import DAO.EvaluateDAO;
+import DAO.PasswordEncode;
 import beans.Menu;
 import beans.Product;
 import db.ConnectionDB;
@@ -143,6 +144,67 @@ public class ProductEmpty {
                 listProByPage.add(item);
         }
         return  listProByPage;
+    }
+    public void updateImg(Product pro, List<String> listImg, String imgMain) {
+        PreparedStatement s = null;
+        //đường dẫn cố địch
+        String root = "SaveImage/Product/" + pro.getId();
+        // hình ảnh
+//        String pathImage = root + "/0.png;" + root + "/1.png;" + root + "/2.png;" + root + "/3.png";
+        String pathImage = "";
+        if (!imgMain.equals(""))
+            pathImage += root + "/" + "0.png";
+        for (int i = 0; i < listImg.size(); i++)
+            pathImage += root + "/" + (1 + i) + ".png;";
+        try {
+            String sql_2 = "update san_pham set image = ? where id_san_pham = ? ";
+
+            s = ConnectionDB.connection(sql_2);
+            s.setString(1,pathImage);
+            s.setInt(2,pro.getId());
+            s.executeUpdate();
+            s.close();
+        }catch (ClassNotFoundException | SQLException e) {
+        }
+    }
+    public Product getProNewInsert() {
+        Product pro = null;
+        PreparedStatement s = null;
+        try {
+            String sql = "Select * From san_pham ORDER BY id_san_pham DESC LIMIT 1";
+            s = ConnectionDB.connection(sql);
+            ResultSet rs = s.executeQuery();
+            if (rs.next())
+                pro = new Product(rs.getInt(1),rs.getString(2),rs.getInt(3),rs.getLong(4),rs.getLong(5),rs.getString(6),rs.getString(7),rs.getString(8),rs.getString(9),rs.getString(10),rs.getInt(11),rs.getString(12));
+            rs.close();
+            s.close();
+            return pro;
+        } catch (ClassNotFoundException | SQLException e) {
+            e.printStackTrace();
+            return null;
+        }
+    }
+    public boolean insertProduct(Product pro) {
+            PreparedStatement s = null;
+
+            try {
+                String sql = "insert into san_pham values (null,?,?,?,?,?,?,null,null,Now(),?,?)";
+                s = ConnectionDB.connection(sql);
+                s.setString(1,pro.getName());
+                s.setInt(2,pro.getIdDanhMuc());
+                s.setLong(3,pro.getGia());
+                s.setLong(4,pro.getGiaKM());
+                s.setString(5,pro.getMoTa());
+                s.setString(6,pro.getThongTin());
+                s.setInt(7,pro.getGiamgia());
+                s.setString(8,pro.getStatus());
+                s.executeUpdate();
+                s.close();
+                return true;
+            } catch (ClassNotFoundException | SQLException e) {
+                e.printStackTrace();
+                return false;
+            }
     }
 
 }

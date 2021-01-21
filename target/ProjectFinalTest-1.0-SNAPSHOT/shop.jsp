@@ -96,23 +96,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 				</div>
 			</div>
 		</div>
-		<!-- //cart details -->
-		<!-- search -->
-<%--		<div class="search_w3ls_agileinfo">--%>
-<%--			<div class="cd-main-header">--%>
-<%--				<ul class="cd-header-buttons">--%>
-<%--					<li><a class="cd-search-trigger" href="#cd-search"> <span></span></a></li>--%>
-<%--				</ul>--%>
-<%--			</div>--%>
-<%--			<div id="cd-search" class="cd-search">--%>
-<%--				<form action="#" method="post">--%>
-<%--					<input name="Search" type="search" placeholder="Tìm kiếm...">--%>
-<%--				</form>--%>
-<%--			</div>--%>
-<%--		</div>--%>
-		<!-- //search -->
-		<!-- <div class="clearfix"></div> -->
-		<!-- /banner_inner -->
+
 		<div class="services-breadcrumb_w3ls_agileinfo">
 			<div class="inner_breadcrumb_agileits_w3">
 

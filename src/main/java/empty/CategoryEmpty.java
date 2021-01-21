@@ -40,5 +40,27 @@ public class CategoryEmpty {
             return new LinkedList<>();
         }
     }
+    public List<Category> getAllCategory() {
+        PreparedStatement s = null;
+        try {
+            String sql ="select * from danh_muc";
+            s = ConnectionDB.connection(sql);
+            List<Category> listMenu = new LinkedList<>();
+            ResultSet rs = s.executeQuery();
+            while (rs.next()) {
+                if(rs.getInt(2)== 5)
+                    listMenu.add(new Category(rs.getInt(1),rs.getInt(2),rs.getString(3)+" (Giảm giá)",rs.getString(4),rs.getInt(5)));
+                else
+                    listMenu.add(new Category(rs.getInt(1),rs.getInt(2),rs.getString(3),rs.getString(4),rs.getInt(5)));
+
+            }
+            rs.close();
+            s.close();
+            return listMenu;
+        } catch (ClassNotFoundException | SQLException e) {
+            e.printStackTrace();
+            return new LinkedList<>();
+        }
+    }
 
 }
