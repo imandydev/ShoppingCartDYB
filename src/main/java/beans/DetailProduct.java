@@ -33,6 +33,17 @@ public class DetailProduct {
         this.name = getProbyId(this.id).getName();
         setPriceProduct();
     }
+    // temp chỉ để phân biệt giữa 2 constructor
+    public DetailProduct(int id, int idPro, String mau, String size, int soLuong, long gia, long giaGiam, int giamGia,int temp) {
+        this.id = id;
+        this.idPro = idPro;
+        this.mau = mau;
+        this.size = size;
+        this.soLuong = soLuong;
+        this.gia = gia;
+        this.giaGiam = giaGiam;
+        this.giamGia = giamGia;
+    }
     public Product getProbyId(int id) {
         return new ProductEmpty().getAllProdcutByIdProdcut(this.idPro);
     }

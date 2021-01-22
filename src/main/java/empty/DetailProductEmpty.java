@@ -111,4 +111,46 @@ public class DetailProductEmpty {
             return new DetailProduct();
         }
     }
+    public DetailProduct getDetailProductByIdDePro(int id) {
+        PreparedStatement s = null;
+        try {
+            String sql = "select * from chi_tiet_sp where idchitietsp = ?";
+            s = ConnectionDB.connection(sql);
+            s.setInt(1,id);
+            DetailProduct pro = null;
+            ResultSet rs = s.executeQuery();
+            if (rs.next()) {
+                pro = new DetailProduct(rs.getInt(1), rs.getInt(2), rs.getString(3), rs.getString(4), rs.getInt(5),rs.getLong(6),rs.getLong(7),rs.getInt(8),0) ;
+            }
+            rs.close();
+            s.close();
+
+            return pro;
+        } catch (ClassNotFoundException | SQLException e) {
+            e.printStackTrace();
+            return new DetailProduct();
+        }
+    }
+    public boolean updateDetailProduct(DetailProduct detail) {
+        PreparedStatement s = null;
+        // kiểm tra mã sản phẩm mới có tồn tại hay không
+            try {
+                String sql = "update chi_tiet_sp set id_san_pham = ?, mau = ?, size = ?, soluong = ?, gia = ?, giasale = ?, giamgia = ? where idchitietsp = ?";
+                s = ConnectionDB.connection(sql);
+                s.setInt(1, detail.getIdPro());
+                s.setString(2, detail.getMau());
+                s.setString(3, detail.getSize());
+                s.setInt(4, detail.getSoLuong());
+                s.setLong(5, detail.getGia());
+                s.setLong(6, detail.getGiaGiam());
+                s.setInt(7, detail.getGiamGia());
+                s.setInt(8, detail.getId());
+                s.executeUpdate();
+                return true;
+            } catch (ClassNotFoundException | SQLException e) {
+                e.printStackTrace();
+                return false;
+            }
+
+    }
 }

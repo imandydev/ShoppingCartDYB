@@ -140,7 +140,6 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 										class="img-responsive"> </div>
 							</li>
 							</c:forEach>
-
 						</ul>
 						<div class="clearfix"></div>
 					</div>
@@ -150,10 +149,10 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 				<h3>${pro.name}</h3>
 				<p class="msp">Mã Sản Phẩm: <span id="id-pro">${pro.id}</span></p>
 <%--				nếu chi tiết sản phẩm không có giảm giá thì hiển thị giá gốc--%>
-				<c:if test="${pro.giamgia == 0}">
+				<c:if test="${detail.giamGia == 0}">
 					<p id="price"><span class="item_price" >${detail.currentFormatGia()}đ</span>
 				</c:if>
-				<c:if test="${pro.giamgia != 0}">
+				<c:if test="${detail.giamGia != 0}">
 					<p id="price"><span class="item_price" >${detail.currentFormatGiaKM()}đ</span>
 					<del id="price-sale">${detail.currentFormatGia()}đ</del>
 				</c:if>

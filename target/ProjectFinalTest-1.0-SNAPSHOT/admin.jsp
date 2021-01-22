@@ -170,7 +170,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                                 <span>Sản Phẩm</span>
                             </a>
                             <ul class="sub">
-                                <li><a href="allsanpham.html">Tất Cả Sản Phẩm</a></li>
+                                <li><a href="${pageContext.request.contextPath}/list-product-manager">Tất Cả Sản Phẩm</a></li>
                                 <li><a href="${pageContext.request.contextPath}/display-product-add">Thêm Sản Phẩm</a></li>
                             </ul>
                         </li>

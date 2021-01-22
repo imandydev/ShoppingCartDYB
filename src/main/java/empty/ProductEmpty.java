@@ -75,11 +75,10 @@ public class ProductEmpty {
                 pro = new Product(rs.getInt(1), rs.getString(2), rs.getInt(3), rs.getLong(4), rs.getLong(5),rs.getString(6),rs.getString(7),rs.getString(8),rs.getString(9),rs.getString(10),rs.getInt(11),rs.getString(12));
             rs.close();
             s.close();
-
             return pro;
         } catch (ClassNotFoundException | SQLException e) {
             e.printStackTrace();
-            return new Product();
+            return null;
         }
     }
     public List<Product> getAllProdcutByName(String name) {
@@ -145,20 +144,36 @@ public class ProductEmpty {
         }
         return  listProByPage;
     }
+    public void updateImgProcessEdited(int id, String[] arr) {
+        PreparedStatement s = null;
+        String root = "SaveImage/Product/" + id;
+        String path = "";
+                for(int i = 0; i < arr.length; i++) {
+                    if (arr[i] != "")
+                        path += root + "/" + i + ".png;";
+                }
+        try {
+            String sql_2 = "update san_pham set image = ? where id_san_pham = ? ";
+            s = ConnectionDB.connection(sql_2);
+            s.setString(1,path);
+            s.setInt(2,id);
+            s.executeUpdate();
+            s.close();
+        }catch (ClassNotFoundException | SQLException e) {
+        }
+    }
     public void updateImg(Product pro, List<String> listImg, String imgMain) {
         PreparedStatement s = null;
         //đường dẫn cố địch
         String root = "SaveImage/Product/" + pro.getId();
         // hình ảnh
-//        String pathImage = root + "/0.png;" + root + "/1.png;" + root + "/2.png;" + root + "/3.png";
         String pathImage = "";
         if (!imgMain.equals(""))
-            pathImage += root + "/" + "0.png";
+            pathImage += root + "/" + "0.png;";
         for (int i = 0; i < listImg.size(); i++)
-            pathImage += root + "/" + (1 + i) + ".png;";
+                pathImage += root + "/" + (1 + i) + ".png;";
         try {
             String sql_2 = "update san_pham set image = ? where id_san_pham = ? ";
-
             s = ConnectionDB.connection(sql_2);
             s.setString(1,pathImage);
             s.setInt(2,pro.getId());
@@ -206,5 +221,26 @@ public class ProductEmpty {
                 return false;
             }
     }
-
+    // update lại sản phẩm
+    public boolean updateProduct(Product product) {
+        PreparedStatement s = null;
+        try {
+            String sql = "update san_pham set ten_san_pham = ?, id_danh_muc = ?, gia = ?, gia_km = ?, mo_ta = ?, thong_tin = ?, giamgia = ?, status = ? where id_san_pham = ?";
+            s = ConnectionDB.connection(sql);
+            s.setString(1, product.getName());
+            s.setInt(2, product.getIdDanhMuc());
+            s.setLong(3, product.getGia());
+            s.setLong(4, product.getGiaKM());
+            s.setString(5,product.getMoTa());
+            s.setString(6,product.getThongTin());
+            s.setInt(7,product.getGiamgia());
+            s.setString(8,product.getStatus());
+            s.setInt(9,product.getId());
+            s.executeUpdate();
+            return true;
+        } catch (ClassNotFoundException | SQLException e) {
+            e.printStackTrace();
+            return false;
+        }
+    }
 }

@@ -154,7 +154,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                         <span>Sản Phẩm</span>
                     </a>
                     <ul class="sub">
-                        <li><a href="allsanpham.html">Tất Cả Sản Phẩm</a></li>
+                        <li><a href="${pageContext.request.contextPath}/list-product-manager">Tất Cả Sản Phẩm</a></li>
                         <li><a class="active" href="${pageContext.request.contextPath}/display-product-add">Thêm Sản Phẩm</a></li>
                     </ul>
                 </li>
@@ -292,7 +292,12 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                                     <div class="row4">
                                         <select class="combo_box selectX1 select-cate">
                                             <c:forEach items="${listcate}" var="i">
-                                                <option data-dataidcate="${i.id}" data-dataidmenu="${i.idMenu}">${i.name}</option>
+                                                <c:if test="${i.idMenu == 5}">
+                                                    <option data-dataidcate="${i.id}" data-dataidmenu="${i.idMenu}">${i.name} (Giảm giá)</option>
+                                                </c:if>
+                                                <c:if test="${i.idMenu != 5}">
+                                                    <option data-dataidcate="${i.id}" data-dataidmenu="${i.idMenu}">${i.name}</option>
+                                                </c:if>
                                             </c:forEach>
                                           </select>
                                     </div>
@@ -304,8 +309,6 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                                           
                                           </select>
                                     </div>
-
-
                                    
                                     <div class="row6">
                                         <input type="number" class="input-price-pro">
