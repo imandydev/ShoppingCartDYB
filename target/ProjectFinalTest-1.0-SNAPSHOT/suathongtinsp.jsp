@@ -302,6 +302,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                                 </table>
                             </div>
                             <div class="content_but">
+                                <button type="submit" class="add-detail-product" data-toggle="modal" data-target="#exampleModalCenterDetailAdd">Thêm Chi Tiết Sản Phẩm</button>
                             </div>
                         </div>
                     </div>
@@ -415,7 +416,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
     <div class="modal-dialog modal-dialog-centered" role="document">
         <div class="modal-content">
             <div class="modal-header">
-                <h5 class="modal-title" id="">Chỉnh Sửa Sản Phẩm</h5>
+                <h5 class="modal-title" >Chỉnh Sửa Chi Tiết Sản Phẩm</h5>
                 <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                     <span aria-hidden="true">&times;</span>
                 </button>
@@ -428,7 +429,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                     </div>
                     <div class="">
                         <label >Mã Sản Phẩm</label><br>
-                        <input data-dataidprobf="" class="id-pro-show-detail" type="text" value="">
+                        <input data-dataidprobf="" class="id-pro-show-detail" type="number" value="">
                     </div>
                     <div class="">
                         <label >Màu Sắc</label><br>
@@ -468,8 +469,64 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
     </div>
 </div>
 <%-- end modal detail--%>
+
+<%-- modal add detail--%>
+<div class="modal fade" id="exampleModalCenterDetailAdd" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" >Thêm Chi Tiết Sản Phẩm</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <div class="content-modal">
+                    <div class="">
+                        <label >Mã Sản Phẩm</label><br>
+                        <input  class="id-pro-show-add-detail" type="number" value="${product.id}">
+                    </div>
+                    <div class="">
+                        <label >Màu Sắc</label><br>
+                        <input class="color-add-detail-pro-show" type="text" value="" >
+                    </div>
+                    <div class="">
+                        <label >Kích Thước</label><br>
+                        <input class="size-add-detail-pro-show" type="text" value="" >
+
+                    </div>
+                    <div class="">
+                        <label >Số Lượng</label><br>
+                        <input class="amount-add-detail-pro-show" type="number" value="0" >
+                    </div>
+                    <div class="">
+                        <label >Giá</label><br>
+                        <input class="price-add-detail-pro-show" type="number" value="0" >
+                    </div>
+                    <div class="">
+                        <label >Giá Khuyến Mãi</label><br>
+                        <input class="price-add-detail-dis-pro-show" type="number" value="0" >
+                    </div>
+                    <div>
+                        <label >Giảm Giá</label><br>
+                        <select class="selec-add-discount-detail-show">
+                            <option value="1">Có</option>
+                            <option value="0">Không</option>
+                        </select>
+                    </div>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="but-dialog btn-secondary" data-dismiss="modal">Đóng</button>
+                <button type="button"  data-dismiss="modal" class="btn btn-primary but-dialog but-save-add-detail-show">Lưu</button>
+            </div>
+        </div>
+    </div>
+</div>
+<%-- end modal add detail--%>
     <!-- ckeditor -->
     <script src="ckeditor/ckeditor.js"></script>
+    <script src="jsadmin_ajax/AddProduct/AddDetailProduct.js"></script>
     <script src="jsadmin_ajax/AddProduct/EditProduct.js"></script>
     <script src="jsadmin/bootstrap.js"></script>
     <script src="jsadmin/jquery.dcjqaccordion.2.7.js"></script>

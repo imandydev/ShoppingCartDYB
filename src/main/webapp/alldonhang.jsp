@@ -250,8 +250,9 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                     <!-- sửa từ phan này -->
                     <h2 class="w3ls_head">Tất Cả Đơn Hàng</h2>
                     <div class="icons">
-                        <div class="content" style="max-height: 650px;">
+                        <div class="table_content" style="max-height: 650px;">
                             <table class="table table-bordered boxx-tb table1">
+                                <thead>
                                 <tr class="active tr-main">
                                     <th class="th1">Mã Đơn Hàng</th>
                                     <th class="">Mã Khách Hàng (ID)</th>
@@ -262,6 +263,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                                     <th class="">Tổng Tiền</th>
                                     <th class="th7">Xem/ Sửa</th>
                                 </tr>
+                                </thead>
                                 <tbody>
                                 <c:forEach items="${list10Pro}" var="i">
                                     <!-- don1 -->
@@ -284,7 +286,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                           
                         </div>
                         <div class="content_but">
-                            <button type="submit">Xóa Nhiều Mục</button>
+                            <button type="submit" >Xóa Nhiều Mục</button>
                              </div>
                        
                     </div>

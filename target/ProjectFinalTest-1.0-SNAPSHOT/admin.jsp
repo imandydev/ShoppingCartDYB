@@ -310,7 +310,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 				<div class="boxx">
 					<div class="boxx-top">
 						<h3>10 Đơn Hàng Gần Nhất</h3>
-						<a href="alldonhang.html"><button>Xem Tất Cả Đơn Hàng</button></a>
+						<a href="${pageContext.request.contextPath}/display-order"><button>Xem Tất Cả Đơn Hàng</button></a>
 					</div>
 
 					<table class="table table-bordered boxx-tb table1">

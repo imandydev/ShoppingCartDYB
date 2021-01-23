@@ -133,7 +133,6 @@ public class DetailProductEmpty {
     }
     public boolean updateDetailProduct(DetailProduct detail) {
         PreparedStatement s = null;
-        // kiểm tra mã sản phẩm mới có tồn tại hay không
             try {
                 String sql = "update chi_tiet_sp set id_san_pham = ?, mau = ?, size = ?, soluong = ?, gia = ?, giasale = ?, giamgia = ? where idchitietsp = ?";
                 s = ConnectionDB.connection(sql);
@@ -151,6 +150,25 @@ public class DetailProductEmpty {
                 e.printStackTrace();
                 return false;
             }
-
+    }
+    // thêm chi tiết sản phẩm mới
+    public boolean insertDetailProduct(DetailProduct detail) {
+        PreparedStatement s = null;
+        try {
+            String sql = "Insert into chi_tiet_sp values (null,?,?,?,?,?,?,?)";
+            s = ConnectionDB.connection(sql);
+            s.setInt(1, detail.getIdPro());
+            s.setString(2, detail.getMau());
+            s.setString(3, detail.getSize());
+            s.setInt(4, detail.getSoLuong());
+            s.setLong(5, detail.getGia());
+            s.setLong(6, detail.getGiaGiam());
+            s.setInt(7, detail.getGiamGia());
+            s.executeUpdate();
+            return true;
+        } catch (ClassNotFoundException | SQLException e) {
+            e.printStackTrace();
+            return false;
+        }
     }
 }

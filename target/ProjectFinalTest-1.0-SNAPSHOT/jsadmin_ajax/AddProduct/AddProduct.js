@@ -101,10 +101,28 @@ $(document).ready(function () {
             success: function (data, textStatus, jqXHR) {
                 let obj = $.parseJSON(data);
                 if (obj == true) {
-                    swal("Thêm sản phẩm thành công !", "", "success");
+                    swal({
+                        title: 'Thêm thành công!',
+                        icon: 'success',
+                        showConfirmButton: false,
+                        allowOutsideClick: false,
+                    }).then(okay => {
+                        if (okay) {
+                            window.location.href = "/ProjectFinalTest_war_exploded/display-product-add";
+                        }
+                    });
 
                 } else {
-                    swal("Thêm sản phẩm thất bại !", "", "error");
+                    swal({
+                        title: 'Thêm thất bại!',
+                        icon: 'error',
+                        showConfirmButton: false,
+                        allowOutsideClick: false,
+                    }).then(okay => {
+                        if (okay) {
+                            window.location.href = "/ProjectFinalTest_war_exploded/display-product-add";
+                        }
+                    });
                 }
             }
         });

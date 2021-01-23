@@ -66,6 +66,7 @@
     color: white;
     margin: 10px 20px 10px 0px;
 }
+
 .content_but button:hover {
     background: #fa9fa4;
     color: white;
@@ -74,6 +75,9 @@
     -o-transition: 0.5s all;
     -moz-transition: 0.5s all;
     -ms-transition: 0.5s all;
+}
+.content_but .add-detail-product{
+    width: 250px !important;
 }
 .content_but .add {
     margin-right: 0px;
