@@ -37,4 +37,22 @@ public class OrderDashboardEmpty {
             return new LinkedList<>();
         }
     }
+    public List<OrderDashboard> getAllOrder() {
+        PreparedStatement s = null;
+        try {
+            String sql ="SELECT don_hang.ma_don_hang, don_hang.iduser, SUM(chitietdh.soluongmua),don_hang.ngaymua,don_hang.trangthai,don_hang.tongtien FROM don_hang JOIN chitietdh on don_hang.ma_don_hang = chitietdh.ma_don_hang GROUP BY don_hang.ma_don_hang";
+            s = ConnectionDB.connection(sql);
+            List<OrderDashboard> listTop10 = new LinkedList<>();
+            ResultSet rs = s.executeQuery();
+            while (rs.next()) {
+                listTop10.add(new OrderDashboard(rs.getInt(1),rs.getInt(2),rs.getInt(3),rs.getTimestamp(4),rs.getString(5),rs.getLong(6)));
+            }
+            rs.close();
+            s.close();
+            return listTop10;
+        } catch (ClassNotFoundException | SQLException e) {
+            e.printStackTrace();
+            return new LinkedList<>();
+        }
+    }
 }

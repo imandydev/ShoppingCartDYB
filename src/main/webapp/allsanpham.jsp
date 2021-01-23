@@ -164,7 +164,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                             </ul>
                         </li>
                         <li>
-                            <a href="alldonhang.html">
+                            <a href="${pageContext.request.contextPath}/display-order">
                                 <i class="fa fa-building"></i>
                                 <span>Tất Cả Đơn Hàng</span>
                             </a>

@@ -5,7 +5,7 @@
 <!DOCTYPE html>
 
 <head>
-    <title>Tất Cả Sản Phẩm</title>
+    <title>Tất Cả Đơn Hàng</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     <meta name="keywords" content="Visitors Responsive web template, Bootstrap Web Templates, Flat Web Templates, Android Compatible web template, 
@@ -16,10 +16,8 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
     <link rel="stylesheet" href="cssadmin/bootstrap.min.css">
     <!-- //bootstrap-css -->
     <!-- Custom CSS -->
-
     <link rel="stylesheet" href="cssadmin/search.css">
-    <link rel="stylesheet" href="cssadmin/allsanpham.css">
-
+    <link rel="stylesheet" href="cssadmin/alldonhang.css">
     <link href="cssadmin/style.css" rel='stylesheet' type='text/css' />
     <link href="cssadmin/style-responsive.css" rel="stylesheet" />
     <!-- font CSS -->
@@ -32,11 +30,11 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 </head>
 
 <body>
-<%--    <%--%>
-<%--        User user = (User)session.getAttribute("auth");--%>
-<%--        if(user == null || !user.accept("admin"))--%>
-<%--            response.sendRedirect("/ProjectFinalTest_war_exploded/listnews?action=returns&id=1&page=1");--%>
-<%--    %>--%>
+<%--<%--%>
+<%--    User user = (User)session.getAttribute("auth");--%>
+<%--    if(user == null || !user.accept("admin"))--%>
+<%--        response.sendRedirect("/ProjectFinalTest_war_exploded/listnews?action=returns&id=1&page=1");--%>
+<%--%>--%>
     <section id="container">
         <!--header start-->
         <header class="header fixed-top clearfix">
@@ -51,10 +49,13 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                 </div>
             </div>
             <!--logo end-->
+
             <div class="nav notify-row" id="top_menu">
                 <!--  notification start -->
                 <ul class="nav top-menu">
-               
+                    <!-- settings start -->
+                    
+                    <!-- inbox dropdown end -->
                     <!-- notification dropdown start-->
                     <li id="header_notification_bar" class="dropdown">
                         <a data-toggle="dropdown" class="dropdown-toggle" href="#">
@@ -92,7 +93,6 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                                     </div>
                                 </div>
                             </li>
-
                         </ul>
                     </li>
                     <!-- notification dropdown end -->
@@ -107,13 +107,12 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                             <div class="default_op">Chọn</div>
                             <ul>
                                 <li>Chọn</li>
-                                <li>ID</li>
-                                <li>Tên Sản Phẩm</li>
-                                <li>Sản Phẩm Chính</li>
-                                <li>Sản Phẩm Phụ</li>
+                                <li>Mã Đơn Hàng</li>
+                                <li>Thanh Toán</li>
+                                <li>Ngày Đặt</li>
+                            
                                 <li>Trạng Thái</li>
-                                <li>Đơn Giá</li>
-                                <li>Tình Trạng</li>
+                                <li>Tổng Tiền</li>
                             </ul>
                         </div>
                         <div class="search_f">
@@ -121,6 +120,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                             <i class="fa fa-search"></i>
                         </div>
                     </li>
+
                     <!-- user login dropdown start-->
                     <li class="dropdown">
                         <a data-toggle="dropdown" class="dropdown-toggle" href="#">
@@ -134,6 +134,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                             <li><a href="${pageContext.request.contextPath}/logout"><i class="fa fa-key"></i> Đăng Xuất</a></li>
                         </ul>
                     </li>
+
                     <!-- user login dropdown end -->
 
                 </ul>
@@ -164,14 +165,14 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                             </ul>
                         </li>
                         <li>
-                            <a href="${pageContext.request.contextPath}/display-order">
+                            <a class="active" href="${pageContext.request.contextPath}/display-order">
                                 <i class="fa fa-building"></i>
                                 <span>Tất Cả Đơn Hàng</span>
                             </a>
 
                         </li>
                         <li class="sub-menu">
-                            <a class="active" href="javascript:;">
+                            <a href="javascript:;">
                                 <i class=" fa fa-product-hunt"></i>
                                 <span>Sản Phẩm</span>
                             </a>
@@ -193,6 +194,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                         </li>
                        
 
+
                         <li>
                             <a href="spchinh.html">
                                 <i class="fa fa-shopping-bag"></i>
@@ -211,7 +213,6 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                                 <span>Mặt Hàng Khác</span>
                             </a>
                         </li>
-
                         <li class="sub-menu">
                             <a href="javascript:;">
                                 <i class="fa fa-desktop"></i>
@@ -232,6 +233,8 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                                 <li><a  href="themmagiamgia.html">Thêm Mã Giảm Giá</a></li>
                             </ul>
                         </li>
+
+
                     </ul>
                 </div>
                 <!-- sidebar menu end-->
@@ -239,57 +242,52 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
         </aside>
         <!--sidebar end-->
         <!--main content start-->
+
+
         <section id="main-content">
             <section class="wrapper">
-                <div class="w3-agile-google_map">
-                    <div class="box-sp">
-                        <h2 class="w3ls_head">Tất Cả Sản Phẩm</h2>
-                        <div class="content">
-                            <div class="table_content" style="max-height: 650px;">
-                                <table class="table table-bordered boxx-tb table1" >
-                                    <thead>
-                                        <tr class="active tr-main">
-                                            <th></th>
-                                            <th class="th0">Mã SP</th>
-                                            <th class="th1">Hình Ảnh</th>
-                                            <th class="th2">Tên Sản Phẩm</th>
-                                            <th class="th6">Menu - Danh Mục</th>
-                                            <th class="th4">Trạng Thái</th>
-                                            <th class="th5">Giá</th>
-                                            <th class="">Giá Khuyến Mãi</th>
-                                            <th class="th8">Xem/Sửa</th>
-                                            <th class="th9">Xóa</th>
+                <div class="table-agile-info">
+                    <!-- sửa từ phan này -->
+                    <h2 class="w3ls_head">Tất Cả Đơn Hàng</h2>
+                    <div class="icons">
+                        <div class="content" style="max-height: 650px;">
+                            <table class="table table-bordered boxx-tb table1">
+                                <tr class="active tr-main">
+                                    <th class="th1">Mã Đơn Hàng</th>
+                                    <th class="">Mã Khách Hàng (ID)</th>
+                                    <th class="" >Số Lượng Sản Phẩm</th>
+                                    <th class="th3" >Ngày Đặt</th>
 
-                                        </tr>
-                                    </thead>
+                                    <th class="th5" >Trạng Thái</th>
+                                    <th class="">Tổng Tiền</th>
+                                    <th class="th7">Xem/ Sửa</th>
+                                </tr>
+                                <tbody>
+                                <c:forEach items="${list10Pro}" var="i">
                                     <!-- don1 -->
-                                    <tbody>
-                                    <c:forEach items="${listpro}" var="i">
-                                        <tr class="tr-content">
-                                            <td><input type="checkbox"></td>
-                                            <td><span data-dataid="${i.id}">${i.id}</span></td>
-                                            <td class="imgsp"><img src="${i.splitStrImg()[0]}" alt=""></td>
-                                            <td>${i.name}</td>
-                                            <td>${i.menuName} - ${i.menuCate}</td>
-                                            <td>${i.status}</td>
-                                            <td>${i.price}đ</td>
-                                            <td>${i.priceDis}đ</td>
-                                            <td class="td-ctent">
-                                                <a href="${pageContext.request.contextPath}/edit-product?idPro=${i.id}"><i class="fa fa-edit"></i></a>
-                                            </td>
-                                            <td class="td-ctent i-del"> <i class="fa fa-trash" data-toggle="modal" data-target="#exampleModal"></i></td>
-                                        </tr>
-                                    </c:forEach>
-                                    </tbody>
-                                </table>
-                            </div>
-                            <div class="content_but">
-                                <a href="${pageContext.request.contextPath}/display-product-add"> <button class="add">Thêm Sản Phẩm</button></a>
-                                <button>Xóa Nhiều Sản Phẩm</button>
-                            </div>
-                        </div>
-                    </div>
+                                    <tr class="tr-content">
+                                        <td class="td1 id-order">${i.id}</td>
+                                        <td>${i.idUser}</td>
+                                        <td>${i.amount}</td>
+                                        <td>${i.time}</td>
 
+                                        <td><a class="status2">${i.status}</a></td>
+                                        <td>${i.formatPrice()}đ</td>
+                                        <td class="td-ctent">
+                                            <i data-toggle="modal" data-target="#exampleModalCenter" class="fa fa-edit i-edit"></i>
+                                        </td>
+                                    </tr>
+                                </c:forEach>
+                                </tbody>
+                            </table>
+                            <!-- het phan sửa -->
+                          
+                        </div>
+                        <div class="content_but">
+                            <button type="submit">Xóa Nhiều Mục</button>
+                             </div>
+                       
+                    </div>
                 </div>
             </section>
             <!-- footer -->
@@ -297,28 +295,102 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
             <!-- / footer -->
         </section>
 
-        <!-- main content end -->
+        <!--main content end-->
     </section>
-    <%--hộp thoại xác nhận xóa hay không--%>
-    <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-        <div class="modal-dialog" role="document">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <h5 class="modal-title" id="exampleModalLabel">Xóa Sản Phẩm</h5>
-                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                        <span aria-hidden="true">&times;</span>
-                    </button>
+<!-- modal -->
+<div class="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLongTitle">Chỉnh Sửa Đơn Hàng</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <div class="content">
+
+                    <div class="left">
+                        <div class="row1">
+                            <label >Mã Đơn Hàng</label><br>
+                            <input class="id-order-show" type="text" value="" readonly>
+                        </div>
+                        <div class="row2">
+                            <label >Mã Khách Hàng (ID)</label><br>
+                            <input class="id-user-show" type="text" value="" readonly>
+                        </div>
+                        <div class="row3">
+                            <label >Số Lượng Sản Phẩm</label><br>
+                            <input class="sum-amount-show" type="text" value="" readonly>
+                        </div>
+                        <div class="row4">
+                            <label >Ngày Đặt</label><br>
+                            <input class="date-order-show" type="text" value="" readonly>
+                        </div>
+                        <div class="row2">
+                            <label >Trạng Thái</label><br>
+                            <select  class="status-order-show">
+                                <option value="Đang Xử Lý">Đang Xử Lý</option>
+                                <option value="Chờ Lấy Hàng">Chờ Lấy Hàng</option>
+                                <option value="Đang Giao">Đang Giao</option>
+                                <option value="Đã Giao">Đã Giao</option>
+                                <option value="Đã Hủy">Đã Hủy</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="right">
+                        <div class="row3">
+                            <label >Mã Giảm Giá</label><br>
+                            <input class="id-discount-show" type="text" value="" readonly>
+                        </div>
+                        <div class="row3">
+                            <label >Tổng Tiền</label><br>
+                            <input class="total-price-show" type="text" value="1.775.000" readonly>
+                        </div>
+                        <div class="row2">
+                            <label >Địa Chỉ</label><br>
+                            <textarea class="form-control address-user-show" rows="3" id="comment" readonly>Ký túc xá khu B Đại Học Quốc Gia Phường Đông Hòa Thị Xã Dĩ An Bình Dương</textarea>
+
+                        </div>
+
+                        <div class="row4">
+                            <label >Ghi Chú</label><br>
+                            <textarea class="form-control ghichu-show" rows="2" readonly>Giao hàng cẩn thận!</textarea>
+                        </div>
+                    </div>
+
+
                 </div>
-                <div class="modal-body">
-                   Bạn có chắc chắn muốn xóa sản phẩm? Sản phẩm không thể khôi phục sau khi xóa!
-                </div>
-                <div class="modal-footer">
-                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Đóng</button>
-                    <button type="button" class="btn btn-primary btn-delete">Xóa</button>
-                </div>
+            </div>
+            <div class="center" style="max-height: 500px;">
+                <table class="table table-bordered table-show" >
+                    <thead>
+                    <tr class="active">
+                        <th>Mã Sản Phẩm</th>
+                        <th>Tên Sản Phẩm</th>
+                        <th>Kích Thước</th>
+                        <th>Màu Sắc</th>
+                        <th>Số Lượng</th>
+                        <th>Giá Tiền</th>
+                    </tr>
+                    </thead>
+                    <tbody class="tbody-show">
+
+
+                    </tbody>
+                    <tr></tr>
+                </table>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="but-dialog" data-dismiss="modal">Đóng</button>
+                <button type="button"  data-dismiss="modal" class="but-dialog but-save-show">Lưu</button>
             </div>
         </div>
     </div>
+</div>
+<!-- end modal -->
+<%--sử dụng lại của dashboard--%>
+    <script src="jsadmin_ajax/Order/allOrderShowOrder.js"></script>
     <script src="jsadmin/bootstrap.js"></script>
     <script src="jsadmin/jquery.dcjqaccordion.2.7.js"></script>
     <script src="jsadmin/scripts.js"></script>
@@ -327,9 +399,8 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
     <!--[if lte IE 8]><script language="javascript" type="text/javascript" src="jsadmin/flot-chart/excanvas.min.js"></script><![endif]-->
     <script src="jsadmin/jquery.scrollTo.js"></script>
     <script src="jsadmin/search.js"></script>
-    <script src="jsadmin_ajax/AddProduct/DeleteProduct.js"></script>
-    <%--	sweetalert--%>
-    <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+<script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+<!-- //calendar -->
 </body>
 
 </html>

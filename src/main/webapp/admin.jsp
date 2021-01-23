@@ -158,10 +158,10 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                             </ul>
                         </li>
                         <li >
-                            <a  href="alldonhang.html">
-                                <i class="fa fa-building"></i>
-                                <span>Tất Cả Đơn Hàng</span>
-                            </a>
+							<a href="${pageContext.request.contextPath}/display-order">
+								<i class="fa fa-building"></i>
+								<span>Tất Cả Đơn Hàng</span>
+							</a>
                            
                         </li>
                         <li class="sub-menu">
@@ -310,7 +310,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 				<div class="boxx">
 					<div class="boxx-top">
 						<h3>10 Đơn Hàng Gần Nhất</h3>
-						<a href="alldonhang.html"><button>Xem Tất Cả Đơn Hàng</button></a>
+						<a href="${pageContext.request.contextPath}/display-order"><button>Xem Tất Cả Đơn Hàng</button></a>
 					</div>
 
 					<table class="table table-bordered boxx-tb table1">
@@ -433,15 +433,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 						</tr>
 						</thead>
 						<tbody class="tbody-show">
-<%--						<tr>--%>
-<%--							<td><span class="id-pro-show"></span></td>--%>
-<%--							<td><span class="name-pro-show"></span></td>--%>
-<%--							<td><span class="size-pro-show" ></span></td>--%>
-<%--							<td><span class="color-pro-show"></span></td>--%>
-<%--							<td><span class="amount-pro-show"></span></td>--%>
-<%--							<td><span class="total-pricePro-show" ></span></td>--%>
 
-<%--						</tr>--%>
 						
 						</tbody>
 						<tr></tr>
