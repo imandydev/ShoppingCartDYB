@@ -2,7 +2,6 @@ package beans;
 
 public class User {
     private int id;
-
     private String diaChi;
     private String loaiTaiKhoan;
     private String username;
@@ -21,7 +20,6 @@ public class User {
         this.email = email;
         this.sdt = sdt;
         this.pass = pass;
-
         this.key = key;
         this.dateAdd = dateAdd;
     }
@@ -29,8 +27,6 @@ public class User {
     public boolean accept(String name) {
         return role.accept(name);
     }
-
-
 
     public String getUsername() {
         return username;

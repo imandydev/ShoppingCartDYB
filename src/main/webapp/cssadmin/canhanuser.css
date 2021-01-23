@@ -11,7 +11,31 @@
 .top-nav .nav .row1 label{
     padding-top: 7px !important;
  }
- .choose_file {
+.content_Prosub .content-input {
+    width: 60%;
+    margin: auto;
+
+}
+.content_Prosub .content-input label {
+    font-size: 18px;
+    font-weight: bold;
+    color: #333;
+}
+
+.content_Prosub .content-input input {
+    width: 100%;
+    height: 40px;
+    margin: 10px 0;
+}
+.content_Prosub .content-input select {
+    margin: 10px 0;
+    width: 50%;
+    height: 40px;
+}
+.content_Prosub .content-input #exampleFormControlTextarea1 {
+    margin: 10px 0 !important;
+}
+.choose_file {
     color: #fff;
     font-size: 16px;
     background: #8b5c7e;
@@ -44,7 +68,6 @@
 }
 .content_Prosub form label{
     width: 29%;
-    margin-bottom: 30px;
     min-width: 150px;
 }
 .content_Prosub form input,.listad{

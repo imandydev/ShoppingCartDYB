@@ -79,6 +79,9 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 					<button class="trigger-overlay" type="submit"><i class="fa fa-user"></i></button>
 					<div class="dropdown_user">
 						<ul>
+							<c:if test="${sessionScope.auth.loaiTaiKhoan == 'admin'}">
+								<li><a href="${pageContext.request.contextPath}/admin">Quản Lý Trang Web</a></li>
+							</c:if>
 							<li><a href="${pageContext.request.contextPath}/profile">Thông Tin Cá Nhân</a></li>
 							<li><a href="donmua.html">Đơn Mua</a></li>
 							<li><a href="sanphamdaxem.html">Sản Phẩm Đã Xem</a></li>

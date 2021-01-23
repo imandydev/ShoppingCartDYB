@@ -18,10 +18,8 @@ public class Role {
     }
     public void admin() {
        accept.add("admin");
-
     }
     public void notAdmin() {
-
         accept.add("user");
     }
     public List<String> getAccept() {

@@ -123,17 +123,17 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 			<div class="formdk">
 				<h1>Đăng Ký</h1>
 				<form action="#" id="create-account">
-				<label class="l1" >Tên Đăng Nhập</label>
-				<input class="nput cre-username" type="text" name="username">
-				<label class="l1" >Địa Chỉ Email</label>
-				<input class="nput cre-email" type="email" name="email">
-				<label class="l1" >Số Điện Thoại</label>
-				<input class="nput cre-sdt" type="number" name="sdt">
-				<label class="l1" >Mật khẩu</label>
-				<input class="nput cre-pass" type="password" name="pass">
-				<label class="l1" >Xác nhận mật khẩu</label>
-				<input class="nput cre-verify" type="password" name="verify-pass">
-				<button type="submit" class="buttonx ">Đăng Ký</button>
+					<label class="l1" >Tên Đăng Nhập</label>
+					<input class="nput cre-username" type="text" name="username">
+					<label class="l1" >Địa Chỉ Email</label>
+					<input class="nput cre-email" type="email" name="email">
+					<label class="l1" >Số Điện Thoại</label>
+					<input class="nput cre-sdt" type="number" name="sdt">
+					<label class="l1" >Mật khẩu</label>
+					<input class="nput cre-pass" type="password" name="pass">
+					<label class="l1" >Xác nhận mật khẩu</label>
+					<input class="nput cre-verify" type="password" name="verify-pass">
+					<button type="submit" class="buttonx ">Đăng Ký</button>
 				</form>
 			</div>
 

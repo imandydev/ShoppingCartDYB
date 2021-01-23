@@ -129,8 +129,8 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                             <b class="caret"></b>
                         </a>
                         <ul class="dropdown-menu extended logout">
+                            <li><a href="${pageContext.request.contextPath}/listnews?action=returns&id=1&page=1"><i class="fa fa-arrow-circle-right"></i>Cửa Hàng</a></li>
                             <li><a href="editaccount.html"><i class=" fa fa-suitcase"></i>Cá Nhân</a></li>
-
                             <li><a href="${pageContext.request.contextPath}/logout"><i class="fa fa-key"></i> Đăng Xuất</a></li>
                         </ul>
                     </li>
@@ -187,8 +187,8 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                                 <span>Tài Khoản</span>
                             </a>
                             <ul class="sub">
-                                <li><a href="dstaikhoan.html">Tất Cả Tài Khoản</a></li>
-                                <li><a href="canhanuser.html">Thêm Tài Khoản</a></li>
+                                <li><a   href="${pageContext.request.contextPath}/load-all-account">Tất Cả Tài Khoản</a></li>
+                                <li><a class="active" href="${pageContext.request.contextPath}/display-account-add">Thêm Tài Khoản</a></li>
                             </ul>
                         </li>
                        

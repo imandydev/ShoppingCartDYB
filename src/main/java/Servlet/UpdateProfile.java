@@ -29,7 +29,8 @@ public class UpdateProfile extends HttpServlet {
             if (action.equalsIgnoreCase("set-profile")) {
                 String email = request.getParameter("email");
                 String sdt = request.getParameter("sdt");
-                if (updateUser.updateProfile(email, sdt, id)) {
+                String emailbf = request.getParameter("emailbf");
+                if (updateUser.updateProfile(email, sdt, id,emailbf)) {
                     session.removeAttribute("auth");
                     user.setEmail(email);
                     user.setSdt(Long.parseLong(sdt));

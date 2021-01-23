@@ -10,6 +10,27 @@
 .table_content .table th {
     color: black;
 }
+.table_content .table tbody tr td i {
+    cursor: pointer;
+}
+.table_content .table tbody tr td i:hover {
+    transform: rotate(15deg);
+}
+.modal-body .content-modal label {
+    font-size: 16px;
+    color: #333;
+    font-weight: bold;
+    margin: 20px 0px 20px 0px;
+}
+.modal-body .content-modal select {
+    width: 50%;
+    height: 35px;
+}
+.modal-body .content-modal input{
+    width: 100%;
+    height: 35px;
+
+}
 .proright_table button {
     width: 180px;
     height: 40px;

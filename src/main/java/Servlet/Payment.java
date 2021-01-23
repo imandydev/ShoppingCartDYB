@@ -33,9 +33,9 @@ public class Payment extends HttpServlet {
         HttpSession session = request.getSession();
         Cart cart = (Cart)session.getAttribute("cart");
         User user = (User)session.getAttribute("auth");
-       if (user != null && cart != null && !user.getDiaChi().equals("")) {
+       if (user != null && cart != null) {
             // tổng tiền đã giảm
-           if (cart.getData().size() > 0) {
+           if (cart.getData().size() > 0 && !user.getDiaChi().equals("")) {
                long sum = cart.total() - priceDis;
                new CartEmpty().insertCart(user.getId(), ghiChu, idTemp, sum, user.getDiaChi());
                Order order = new CartEmpty().getOrder();

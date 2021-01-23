@@ -79,6 +79,9 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 						<button class="trigger-overlay" type="submit"><i class="fa fa-user"></i></button>
 						<div class="dropdown_user">
 							<ul>
+								<c:if test="${sessionScope.auth.loaiTaiKhoan == 'admin'}">
+									<li><a href="${pageContext.request.contextPath}/admin">Quản Lý Trang Web</a></li>
+								</c:if>
 								<li><a href="${pageContext.request.contextPath}/profile">Thông Tin Cá Nhân</a></li>
 								<li><a href="donmua.html">Đơn Mua</a></li>
 								<li><a href="sanphamdaxem.html">Sản Phẩm Đã Xem</a></li>
@@ -162,6 +165,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 										<div class="cl2"><p class="get-username" >${sessionScope.auth.username}</p></div>
 									</div>
 									<div class="element">
+                                        <input name="emailbf" style="display: none" value="${sessionScope.auth.email}">
 										<div class="cl1 clx"><h3>Email</h3></div>
 										<div class="cl2"><input class="get-email" type="email" name="email" value="${sessionScope.auth.email}"></div>
 									</div>
