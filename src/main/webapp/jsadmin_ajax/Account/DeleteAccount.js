@@ -17,7 +17,7 @@ $(document).ready(function () {
                             title: 'Xóa thành công!',
                             icon: 'success',
                             showConfirmButton: false,
-                            timer: 1200,
+                            timer: 1000,
                         }).then(function() {
                             location.reload();
                         });
@@ -26,7 +26,7 @@ $(document).ready(function () {
                             title: 'Xóa thất bại!',
                             icon: 'error',
                             showConfirmButton: false,
-                            timer: 1200,
+                            timer: 1000,
                         }).then(function() {
                             location.reload();
                         });

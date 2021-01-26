@@ -34,8 +34,8 @@ public class Payment extends HttpServlet {
         Cart cart = (Cart)session.getAttribute("cart");
         User user = (User)session.getAttribute("auth");
        if (user != null && cart != null) {
-            // tổng tiền đã giảm
-           if (cart.getData().size() > 0 && !user.getDiaChi().equals("")) {
+            // nếu đã có sản phẩm trong giỏ hàng và có địa chỉ
+           if (cart.getData().size() > 0 && !user.getDiaChi().equalsIgnoreCase("Chưa cập nhật địa chỉ")) {
                long sum = cart.total() - priceDis;
                new CartEmpty().insertCart(user.getId(), ghiChu, idTemp, sum, user.getDiaChi());
                Order order = new CartEmpty().getOrder();
@@ -48,16 +48,22 @@ public class Payment extends HttpServlet {
                cart.removeAll();
                cart.commit(session);
                checkPayment = 1;
-           }
+               // nếu chưa có hàng trong giỏ
+           } else if (cart.getData().size() <= 0)
+               checkPayment = 2;
+           // nếu chưa có địa chỉ
+           else if (user.getDiaChi().equals("Chưa cập nhật địa chỉ"))
+               checkPayment = 3;
+           // nếu đẵ đăng nhập mà chưa có giỏ hàng hoặc nếu có giỏ hàng và giỏ hàng chưa có hàng
         } else if (user != null && cart == null || (cart != null && cart.getData().size() <= 0))
             checkPayment = 2;
-        else if (user != null && user.getDiaChi().equals(""))
-            checkPayment = 3;
         Gson json = new Gson();
         String change = json.toJson(checkPayment);
         response.setContentType("text/html");
         response.getWriter().write(change);
-
     }
+
+
+
 }
 

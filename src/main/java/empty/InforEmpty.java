@@ -27,4 +27,28 @@ public class InforEmpty {
             return new Infor();
         }
     }
+    public boolean updateInfor(Infor infor) {
+        PreparedStatement s = null;
+        try {
+            String sql = "update thong_tin set logo = ?, ten_cong_ty = ?,dia_chi = ?, hotline = ? , email = ?, copyright = ?, fb = ?, ins = ? , twi = ? , pri = ? , ban_do = ? where id_thong_tin = ?";
+            s = ConnectionDB.connection(sql);
+            s.setString(1,infor.getLogo());
+            s.setString(2,infor.getTenCongTy());
+            s.setString(3,infor.getDiaChi());
+            s.setLong(4,Long.parseLong(infor.getHotLine()));
+            s.setString(5,infor.getEmail());
+            s.setString(6,infor.getCopyRight());
+            s.setString(7,infor.getFb());
+            s.setString(8,infor.getIns());
+            s.setString(9,infor.getTwi());
+            s.setString(10,infor.getPri());
+            s.setString(11,infor.getBanDo());
+            s.setInt(12,infor.getId());
+            s.executeUpdate();
+            return true;
+        } catch (ClassNotFoundException | SQLException e) {
+            e.printStackTrace();
+            return false;
+        }
+    }
 }

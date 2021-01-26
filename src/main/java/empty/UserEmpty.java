@@ -27,6 +27,7 @@ public class UserEmpty {
             ResultSet rs = s.executeQuery();
             User user = null;
             if (rs.next()) {
+
                 user = new User(rs.getInt(1), rs.getString(2), rs.getString(3), rs.getString(4), rs.getString(5), rs.getLong(6), rs.getString(7), rs.getString(8), rs.getString(9));
             }
             rs.close();
@@ -130,7 +131,7 @@ public class UserEmpty {
             return false;
         } catch (ClassNotFoundException | SQLException e) {
             e.printStackTrace();
-            return false;
+            return true;
         }
     }
 
@@ -139,7 +140,7 @@ public class UserEmpty {
             String passEncode = PasswordEncode.passwordSHA512(pass);
             PreparedStatement s = null;
             try {
-                String sql = "insert into user values (null,null,'user',?,?,?,?,null,Now())";
+                String sql = "insert into user values (null,'Chưa cập nhật địa chỉ','user',?,?,?,?,null,Now())";
                 s = ConnectionDB.connection(sql);
                 s.setString(1, username);
                 s.setString(2, mail);
@@ -187,7 +188,8 @@ public class UserEmpty {
             ResultSet rs = s.executeQuery();
             while (rs.next())
                 listUser.add(new User(rs.getInt(1), rs.getString(2), rs.getString(3), rs.getString(4), rs.getString(5), rs.getLong(6), rs.getString(7), rs.getString(8), rs.getString(9)));
-            s.executeUpdate();
+            rs.close();
+            s.close();
             return listUser;
         } catch (ClassNotFoundException | SQLException e) {
             e.printStackTrace();

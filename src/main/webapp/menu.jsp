@@ -26,6 +26,11 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 <script src="jsadmin/jquery2.0.3.min.js"></script>
 </head>
 <body>
+<%--<%--%>
+<%--    User user = (User)session.getAttribute("auth");--%>
+<%--    if(user == null || !user.accept("admin"))--%>
+<%--        response.sendRedirect("/ProjectFinalTest_war_exploded/listnews?action=returns&id=1&page=1");--%>
+<%--%>--%>
 <section id="container">
 <!--header start-->
 <header class="header fixed-top clearfix">
@@ -226,37 +231,21 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 <!--main content start-->
 <section id="main-content">
 	<section class="wrapper" >
-		<div class="wthree-font-awesome">
+<%--		<div class="wthree-font-awesome">--%>
 			<div class="grid_3 grid_4 w3_agileits_icons_page">
 					<div class="icons">
 						<h2 class="w3ls_head">Menu</h2>
 						<div class="content_Promain">
-							<div class="content_Prosub">
-								<div class="proleft">
-										<div class="proleft_addmain">
-											<h3>Thêm Menu</h3>
-											<form action="">
-												<div class="proleft_name">
-												<label for="" >Tên Sản Phẩm*</label><br>
-                                                <input type="text" placeholder="Tên sản phẩm">
-                                              
-                                                </div>
-                                                
-												<button type="submit">Thêm Sản Phẩm</button>
-											</form>
-										</div>
-								</div>
+							<div class="content_Prosub ">
 								<div class="proright">
 										<div class="proright_table">
-											<h3>Danh Sách Menu</h3>
 											<div class="table_content_1">
 												
 											</div>
 											<div class="table_content" style="max-height: 500px;">
-												<table class="table table-bordered" >
+												<table class="table table-bordered table1" >
                                                     <thead>
                                                     <tr class="active">
-                                                        <th class="thac"></th>
                                                         <th class="p p1">
                                                             STT
                                                         </th>
@@ -264,123 +253,48 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                                                         <th class="p p2">
                                                             Tên Sản Phẩm
                                                         </th>
-                                                       
+                                                       <th>Thứ Tự Hiển Thị</th>
                                                         <th class="p p4"> 
                                                             Ngày Thêm
                                                         </th>
                                                         <th class="p p5">
                                                             Sửa
                                                         </th>
-                                                        <th class="p">
-                                                            Xóa
-                                                        </th>
+
                                                     </tr>
                                                     </thead>
                                                     <tbody>
+                                                    <c:forEach items="${listmenu}" var="m" varStatus="loop">
 													<tr>
+
 														<td>
-															<input type="checkbox">
-														</td>
-														<td>
-															1
+															${loop.index}
                                                         </td>
-                                                        <td>1</td>
+                                                        <td>${m.id}</td>
 														<td>
-															Áo
+															${m.name}
 														</td>
-													
+                                                        <td>
+                                                                ${m.orderMenu}
+                                                        </td>
 														<td>
-															3/11/2020
+															${m.date}
 														</td>
 														<td>
-                                                            <a href="" data-toggle="modal" data-target="#exampleModalCenter"><i class="fa fa-edit"></i></a>
-														</td>
-														<td>
-															<a href=""><i class=" fa fa-trash"></i></a>
+                                                            <a href="" data-toggle="modal" data-target="#exampleModalCenter"><i class="fa fa-edit i-edit-menu"></i></a>
 														</td>
 													</tr>
-													<tr>
-														<td>
-															<input type="checkbox">
-														</td>
-														<td>
-															2
-                                                        </td>
-                                                        <td>2</td>
-														<td>
-															Quần
-														</td>
-													
-														<td>
-															3/11/2020
-														</td>
-														<td>
-                                                            <a href="" data-toggle="modal" data-target="#exampleModalCenter"><i class="fa fa-edit"></i></a>
-														</td>
-														<td>
-															<a href=""><i class=" fa fa-trash"></i></a>
-														</td>
-													</tr>
-													<tr>
-														<td>
-															<input type="checkbox">
-														</td>
-														<td>
-															3
-                                                        </td>
-                                                        <td>3</td>
-														<td>
-															Phụ Kiện
-														</td>
-														
-														<td>
-															3/11/2020
-														</td>
-														<td>
-                                                            <a href="" data-toggle="modal" data-target="#exampleModalCenter"><i class="fa fa-edit"></i></a>
-															
-														</td>
-														<td>
-															<a href=""><i class=" fa fa-trash"></i></a>
-														</td>
-                                                    </tr>
-                                                </tr>
-                                                <tr>
-                                                    <td>
-                                                        <input type="checkbox">
-                                                    </td>
-                                                    <td>
-                                                        4
-                                                    </td>
-                                                    <td>4</td>
-                                                    <td>
-                                                        Giảm Giá
-                                                    </td>
-                                                   
-                                                    <td>
-                                                        21/11/2020
-                                                    </td>
-                                                    <td>
-                                                        <a href="" data-toggle="modal" data-target="#exampleModalCenter"><i class="fa fa-edit"></i></a>
-                                                        
-                                                    </td>
-                                                    <td>
-                                                        <a href=""><i class=" fa fa-trash"></i></a>
-                                                    </td>
-                                                </tr>
+                                                    </c:forEach>
                                                 </tbody>
 												</table>
                                             </div>
-                                           
-                                            <button type="submit">Xóa Nhiều Mục</button>
-                                            <button class="xuatfile">Xuất File</button>
 										</div>
 								</div>
 							</div>
 						</div>
 					</div>
 			</div>
-		</div>
+<%--		</div>--%>
 		
 </section>
 
@@ -400,29 +314,33 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
             </div>
             <div class="modal-body">
               <div class="content">
-                <div class="rowadd row1">
-                    <label for="" >STT:</label>
-                    <input id="ten" type="text" value="1">
-                </div>
                   <div class="rowadd row1">
-                      <label for="" >Mã Sản Phẩm:</label>
-                      <input id="ten" type="text" value="1">
+                      <label  >Mã Sản Phẩm:</label>
+                      <input class="id-menu-show" type="number" value="" readonly>
                   </div>
                   <div class="rowadd row2">
-                      <label for="">Tên Sản Phẩm:</label>
-                      <input id="sdt" type="text" value="Áo">
+                      <label >Tên Sản Phẩm:</label>
+                      <input class="name-menu-show" type="text" value="">
                   </div>
-                
+                  <div class="rowadd row1">
+                      <label  >Thứ Tự Hiển Thị:</label>
+                      <input data-dataorder = "" class="orther-menu-show" type="number" value="">
+                  </div>
+                  <div class="rowadd row1">
+                      <label  >Ngày Thêm:</label>
+                      <input class="date-menu-show" type="text" value="" readonly>
+                  </div>
               </div>
             </div>
             <div class="modal-footer">
-              <button type="button" class="btn btn-secondary" data-dismiss="modal">Đóng</button>
-                  <button type="button" data-dismiss="modal" class="btn btn-primary">Lưu</button>
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">Đóng</button>
+                  <button type="button" data-dismiss="modal" class="btn btn-primary btn-save-menu">Lưu</button>
             </div>
       </div>
     </div>
 </div>
 <!-- End modal -->
+<script src="jsadmin_ajax/Menu/EditMenu.js"></script>
 <script src="jsadmin/bootstrap.js"></script>
 <script src="jsadmin/jquery.dcjqaccordion.2.7.js"></script>
 <script src="jsadmin/scripts.js"></script>
@@ -431,5 +349,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 <!--[if lte IE 8]><script language="javascript" type="text/javascript" src="js/flot-chart/excanvas.min.js"></script><![endif]-->
 <script src="jsadmin/jquery.scrollTo.js"></script>
 <script src="jsadmin/search.js"></script>
+<%--	sweetalert--%>
+<script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
 </body>
 </html>

@@ -52,4 +52,22 @@ public class DiscountEmpty {
         }
 
     }
+    public List<Discount> getAllDiscount() {
+        List<Discount> listDiscount = new LinkedList<>();
+        PreparedStatement s = null;
+        try {
+            String sql ="SELECT * from ma_giam_gia where idgiamgia != -1";
+            s = ConnectionDB.connection(sql);
+            ResultSet rs = s.executeQuery();
+            while (rs.next())
+                listDiscount.add(new Discount(rs.getInt(1),rs.getString(2), rs.getString(3), rs.getTimestamp(4),rs.getTimestamp(5),rs.getLong(6)));
+            rs.close();
+            s.close();
+            return listDiscount;
+        } catch (ClassNotFoundException | SQLException e) {
+            e.printStackTrace();
+            return listDiscount;
+        }
+
+    }
 }

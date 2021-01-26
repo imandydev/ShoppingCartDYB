@@ -12,3 +12,6 @@
     width: 100px;
     height: 50px;
 }
+.table_content table tbody tr td {
+    color: white !important;
+}
