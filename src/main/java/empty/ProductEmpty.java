@@ -186,7 +186,8 @@ public class ProductEmpty {
         Product pro = null;
         PreparedStatement s = null;
         try {
-            String sql = "Select * From san_pham ORDER BY id_san_pham DESC LIMIT 1";
+            // lấy ra mã giảm giá vừa mới add
+            String sql = "select idgiamgia,magiamgia,hinhthucgiam, DATE_FORMAT(thoigianbatdau, '%Y-%m-%dT%H:%i') as thoigianbatdau, DATE_FORMAT(thoigianketthuc, '%Y-%m-%dT%H:%i') as thoigianketthuc,giagiam from ma_giam_gia order by idgiamgia desc limit 1";
             s = ConnectionDB.connection(sql);
             ResultSet rs = s.executeQuery();
             if (rs.next())

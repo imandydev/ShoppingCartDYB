@@ -285,9 +285,6 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                             <!-- het phan sửa -->
                           
                         </div>
-                        <div class="content_but">
-                            <button type="submit" >Xóa Nhiều Mục</button>
-                             </div>
                        
                     </div>
                 </div>

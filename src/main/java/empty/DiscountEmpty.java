@@ -52,6 +52,28 @@ public class DiscountEmpty {
         }
 
     }
+    public Discount getDiscountCodeByIdDiscountAdmin(int idDiscount) {
+        Discount dis = null;
+        PreparedStatement s = null;
+        try {
+            // tạo format đúng dạng datetime-local
+            String sql ="select idgiamgia,magiamgia,hinhthucgiam, DATE_FORMAT(thoigianbatdau, '%Y-%m-%dT%H:%i') as thoigianbatdau, DATE_FORMAT(thoigianketthuc, '%Y-%m-%dT%H:%i') as thoigianketthuc,giagiam from ma_giam_gia where idgiamgia = ?";
+            s = ConnectionDB.connection(sql);
+            s.setInt(1,idDiscount);
+            ResultSet rs = s.executeQuery();
+            if (rs.next()) {
+
+                dis = new Discount(rs.getInt(1), rs.getString(2), rs.getString(3), rs.getString(4),rs.getString(5), rs.getLong(6));
+            }
+                rs.close();
+            s.close();
+            return dis;
+        } catch (ClassNotFoundException | SQLException e) {
+            e.printStackTrace();
+            return dis;
+        }
+
+    }
     public List<Discount> getAllDiscount() {
         List<Discount> listDiscount = new LinkedList<>();
         PreparedStatement s = null;
@@ -67,6 +89,59 @@ public class DiscountEmpty {
         } catch (ClassNotFoundException | SQLException e) {
             e.printStackTrace();
             return listDiscount;
+        }
+
+    }
+    public boolean updateDiscount(Discount dis) {
+        PreparedStatement s = null;
+        try {
+            String sql = "update ma_giam_gia set magiamgia = ?, thoigianbatdau = ?, thoigianketthuc = ?, giagiam = ?  where idgiamgia = ?";
+            s = ConnectionDB.connection(sql);
+            s.setString(1,dis.getMaGiamGia());
+            s.setString(2,dis.getDateS());
+            s.setString(3,dis.getDateE());
+            s.setLong(4,dis.getGiamGia());
+            s.setInt(5,dis.getId());
+            s.executeUpdate();
+            return true;
+        } catch (ClassNotFoundException | SQLException e) {
+            e.printStackTrace();
+            return false;
+        }
+    }
+    public boolean insertDiscount(Discount dis) {
+        PreparedStatement s = null;
+        try {
+            String sql = "insert into ma_giam_gia values (null,?,null,?,?,?)";
+            s = ConnectionDB.connection(sql);
+            s.setString(1,dis.getMaGiamGia());
+            s.setString(2,dis.getDateS());
+            s.setString(3,dis.getDateE());
+            s.setLong(4,dis.getGiamGia());
+            s.executeUpdate();
+            return true;
+        } catch (ClassNotFoundException | SQLException e) {
+            e.printStackTrace();
+            return false;
+        }
+    }
+    public Discount getDiscountNewInsert() {
+        Discount dis = null;
+        PreparedStatement s = null;
+        try {
+            // tạo format đúng dạng datetime-local
+            String sql ="select idgiamgia,magiamgia,hinhthucgiam, DATE_FORMAT(thoigianbatdau, '%Y-%m-%dT%H:%i') as thoigianbatdau, DATE_FORMAT(thoigianketthuc, '%Y-%m-%dT%H:%i') as thoigianketthuc,giagiam from ma_giam_gia order by idgiamgia desC limit  1";
+            s = ConnectionDB.connection(sql);
+            ResultSet rs = s.executeQuery();
+            if (rs.next()) {
+                dis = new Discount(rs.getInt(1), rs.getString(2), rs.getString(3), rs.getString(4),rs.getString(5), rs.getLong(6));
+            }
+            rs.close();
+            s.close();
+            return dis;
+        } catch (ClassNotFoundException | SQLException e) {
+            e.printStackTrace();
+            return dis;
         }
 
     }

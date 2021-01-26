@@ -12,6 +12,8 @@ public class Discount {
     private Timestamp dateStart;
     private Timestamp dateEnd;
     private long giamGia;
+    private String dateS;
+    private String dateE;
     public Discount(int id, String maGiamGia, String hinhThucGiam, Timestamp dateStart, Timestamp dateEnd, long giamGia) {
         this.id = id;
         this.maGiamGia = maGiamGia;
@@ -20,6 +22,32 @@ public class Discount {
         this.dateEnd = dateEnd;
         this.giamGia = giamGia;
     }
+
+    public Discount(int id, String maGiamGia, String hinhThucGiam, String dateS, String dateE, long giamGia) {
+        this.id = id;
+        this.maGiamGia = maGiamGia;
+        this.hinhThucGiam = hinhThucGiam;
+        this.giamGia = giamGia;
+        this.dateS = dateS;
+        this.dateE = dateE;
+    }
+
+    public String getDateS() {
+        return dateS;
+    }
+
+    public void setDateS(String dateS) {
+        this.dateS = dateS;
+    }
+
+    public String getDateE() {
+        return dateE;
+    }
+
+    public void setDateE(String dateE) {
+        this.dateE = dateE;
+    }
+
     public String currentFormatGia() {
         return FormatedPriceDAO.formatedGia(getGiamGia());
     }

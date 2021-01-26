@@ -282,7 +282,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                                                             <td>${d.currentFormatGia()}đ</td>
                                                             <td>${d.dateStart}</td>
                                                             <td>${d.dateEnd}</td>
-                                                            <td><a  href=""><i data-toggle="modal" data-target="#exampleModalCenterEditDiscount" class="fa fa-edit i-edit-discount"></i></a>
+                                                            <td><a  ><i data-toggle="modal" data-target="#exampleModalCenterEditDiscount" class="fa fa-edit i-edit-discount"></i></a>
                                                             </td>
                                                         </tr>
                                                     </c:forEach>
@@ -317,37 +317,22 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
             <div class="modal-body">
                 <div class="content-modal">
                     <div class="">
-                        <label >Mã Sản Phẩm</label><br>
-                        <input  class="id-pro-show-add-detail" type="number" value="${product.id}">
+                        <label >Nội Dung</label><br>
+                        <input  class="content-discount-show" data-dataid="" type="text" value="">
                     </div>
                     <div class="">
-                        <label >Màu Sắc</label><br>
-                        <input class="color-add-detail-pro-show" type="text" value="" >
+                        <label >Tiền Giảm</label><br>
+                        <input class="discount-price-show" type="number" value="" >
                     </div>
                     <div class="">
-                        <label >Kích Thước</label><br>
-                        <input class="size-add-detail-pro-show" type="text" value="" >
+                        <label >Thời Gian Bắt Đầu</label><br>
+                        <input class="start-date-show" type="datetime-local" value="">
+                    </div>
+                    <div class="">
+                        <label >Thời Gian Kết Thúc</label><br>
+                        <input class="end-date-show" type="datetime-local">
+                    </div>
 
-                    </div>
-                    <div class="">
-                        <label >Số Lượng</label><br>
-                        <input class="amount-add-detail-pro-show" type="number" value="0" >
-                    </div>
-                    <div class="">
-                        <label >Giá</label><br>
-                        <input class="price-add-detail-pro-show" type="number" value="0" >
-                    </div>
-                    <div class="">
-                        <label >Giá Khuyến Mãi</label><br>
-                        <input class="price-add-detail-dis-pro-show" type="number" value="0" >
-                    </div>
-                    <div>
-                        <label >Giảm Giá</label><br>
-                        <select class="selec-add-discount-detail-show">
-                            <option value="1">Có</option>
-                            <option value="0">Không</option>
-                        </select>
-                    </div>
                 </div>
             </div>
             <div class="modal-footer">
@@ -364,7 +349,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
     <div class="modal-dialog modal-dialog-centered" role="document">
         <div class="modal-content">
             <div class="modal-header">
-                <h5 class="modal-title" >Thêm Chi Tiết Sản Phẩm</h5>
+                <h5 class="modal-title" >Thêm Giảm Giá</h5>
                 <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                     <span aria-hidden="true">&times;</span>
                 </button>
@@ -372,47 +357,39 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
             <div class="modal-body">
                 <div class="content-modal">
                     <div class="">
-                        <label >Mã Sản Phẩm</label><br>
-                        <input  class="id-pro-show-add-detail" type="number" value="${product.id}">
+                        <label >Nội Dung</label><br>
+                        <input  class="content-discount-add" type="text" value="">
                     </div>
                     <div class="">
-                        <label >Màu Sắc</label><br>
-                        <input class="color-add-detail-pro-show" type="text" value="" >
+                        <label >Tiền Giảm</label><br>
+                        <input class="price-discount-add" type="number" value="" >
                     </div>
                     <div class="">
-                        <label >Kích Thước</label><br>
-                        <input class="size-add-detail-pro-show" type="text" value="" >
+                        <label >Thời Gian Bắt Đầu</label><br>
+                        <input class="start-date-add" type="datetime-local" value="" >
 
                     </div>
                     <div class="">
-                        <label >Số Lượng</label><br>
-                        <input class="amount-add-detail-pro-show" type="number" value="0" >
-                    </div>
-                    <div class="">
-                        <label >Giá</label><br>
-                        <input class="price-add-detail-pro-show" type="number" value="0" >
-                    </div>
-                    <div class="">
-                        <label >Giá Khuyến Mãi</label><br>
-                        <input class="price-add-detail-dis-pro-show" type="number" value="0" >
-                    </div>
-                    <div>
-                        <label >Giảm Giá</label><br>
-                        <select class="selec-add-discount-detail-show">
-                            <option value="1">Có</option>
-                            <option value="0">Không</option>
-                        </select>
+                        <label >Thời Gian Kết Thúc</label><br>
+                        <input class="end-date-add" type="datetime-local" value="" >
                     </div>
                 </div>
             </div>
             <div class="modal-footer">
                 <button type="button" class="but-dialog btn-secondary" data-dismiss="modal">Đóng</button>
-                <button type="button"  data-dismiss="modal" class="btn btn-primary but-dialog but-add-discount-show">Lưu</button>
+                <button type="button"  data-dismiss="modal" class="btn btn-primary but-dialog but-add-discount-add">Lưu</button>
             </div>
         </div>
     </div>
 </div>
+<%--set time--%>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.10.3/moment.min.js"></script>
+
+
 <%-- end modal editdiscount--%>
+    <script src="jsadmin_ajax/Discount/AddDiscount.js"></script>
+    <script src="jsadmin_ajax/Discount/EditDiscount.js"></script>
     <script src="jsadmin/bootstrap.js"></script>
     <script src="jsadmin/jquery.dcjqaccordion.2.7.js"></script>
     <script src="jsadmin/scripts.js"></script>
@@ -421,8 +398,8 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
     <!--[if lte IE 8]><script language="javascript" type="text/javascript" src="js/flot-chart/excanvas.min.js"></script><![endif]-->
     <script src="jsadmin/jquery.scrollTo.js"></script>
     <script src="jsadmin/search.js"></script>
-<%--	sweetalert--%>
-<script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+    <%--	sweetalert--%>
+    <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
 </body>
 
 </html>
