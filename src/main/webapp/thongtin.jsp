@@ -4,7 +4,7 @@
 <%@ taglib uri="http://java.sun.com/jsp/jstl/functions" prefix="fn" %>
 <!DOCTYPE html>
 <head>
-<title>Sản Phẩm Chính</title>
+<title>Thông Tin</title>
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 <meta name="keywords" content="Visitors Responsive web template, Bootstrap Web Templates, Flat Web Templates, Android Compatible web template, 
@@ -14,8 +14,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 <link rel="stylesheet" href="cssadmin/bootstrap.min.css" >
 <!-- //bootstrap-css -->
 <!-- Custom CSS -->
-<link rel="stylesheet" href="cssadmin/search.css">
-<link rel="stylesheet" href="cssadmin/mainproduct.css">
+<link rel="stylesheet" href="cssadmin/themsanpham.css">
 <link href="cssadmin/style.css" rel='stylesheet' type='text/css' />
 <link href="cssadmin/style-responsive.css" rel="stylesheet"/>
 <!-- font CSS -->
@@ -27,9 +26,9 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 </head>
 <body>
 <%--<%--%>
-<%--    User user = (User)session.getAttribute("auth");--%>
-<%--    if(user == null || !user.accept("admin"))--%>
-<%--        response.sendRedirect("/ProjectFinalTest_war_exploded/listnews?action=returns&id=1&page=1");--%>
+<%--	User user = (User)session.getAttribute("auth");--%>
+<%--	if(user == null || !user.accept("admin"))--%>
+<%--		response.sendRedirect("/ProjectFinalTest_war_exploded/listnews?action=returns&id=1&page=1");--%>
 <%--%>--%>
 <section id="container">
 <!--header start-->
@@ -49,6 +48,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 <div class="nav notify-row" id="top_menu">
     <!--  notification start -->
     <ul class="nav top-menu">
+      
         <!-- notification dropdown start-->
         <li id="header_notification_bar" class="dropdown">
             <a data-toggle="dropdown" class="dropdown-toggle" href="#">
@@ -96,22 +96,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 <div class="top-nav clearfix">
     <!--search & user info start-->
     <ul class="nav pull-right top-menu">
-        <li class="lis_search">
-			<div class="dropdown_1">
-				<div class="default_op">Chọn</div>
-				<ul>
-					<li>Chọn</li>
-					<li>Mã Sản Phẩm</li>
-					<li>Tên Sản Phẩm</li>
-					<li>Ngày Sửa</li>
-					<li>Ngày Thêm</li>
-				</ul>
-			</div>
-			<div class="search_f">
-				<input type="text" name="" id="" class="input_1">
-				<i class="fa fa-search"></i>
-			</div>
-		</li>
+       
         <!-- user login dropdown start-->
         <li class="dropdown">
             <a data-toggle="dropdown" class="dropdown-toggle" href="#">
@@ -162,13 +147,13 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                    
                 </li>
                 <li class="sub-menu">
-                    <a href="javascript:;">
+                    <a  href="javascript:;">
                         <i class=" fa fa-product-hunt"></i>
                         <span>Sản Phẩm</span>
                     </a>
                     <ul class="sub">
                         <li><a href="allsanpham.html">Tất Cả Sản Phẩm</a></li>
-                        <li><a href="themsp.html">Thêm Sản Phẩm</a></li>
+                        <li><a  href="themsp.html">Thêm Sản Phẩm</a></li>
                     </ul>
                 </li>
                 
@@ -186,7 +171,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                
               
                 <li>
-                    <a class="active" href="spchinh.html">
+                    <a href="spchinh.html">
                         <i class="fa fa-shopping-bag"></i>
                         <span>Menu</span>
                     </a>
@@ -204,13 +189,13 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                     </a>
                 </li>
                 <li class="sub-menu">
-                    <a  href="javascript:;">
+                    <a class="active" href="javascript:;">
                         <i class="fa fa-desktop"></i>
                         <span>Giao Diện </span>
                     </a>
                     <ul class="sub">
                         <li><a  href="hinhanh.html">Hình Ảnh</a></li>
-                        <li><a  href="thongtin.html">Thông Tin</a></li>
+                        <li><a class="active" href="thongtin.html">Thông Tin</a></li>
                     </ul>
                 </li>
                 <li class="sub-menu">
@@ -223,6 +208,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                         <li><a  href="themmagiamgia.html">Thêm Mã Giảm Giá</a></li>
                     </ul>
                 </li>
+
             </ul>            </div>
         <!-- sidebar menu end-->
     </div>
@@ -231,70 +217,101 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 <!--main content start-->
 <section id="main-content">
 	<section class="wrapper" >
-<%--		<div class="wthree-font-awesome">--%>
+		<div class="wthree-font-awesome">
 			<div class="grid_3 grid_4 w3_agileits_icons_page">
 					<div class="icons">
-						<h2 class="w3ls_head">Menu</h2>
+						<h2 class="w3ls_head">Quản Lý Thông Tin</h2>
 						<div class="content_Promain">
-							<div class="content_Prosub ">
-								<div class="proright">
-										<div class="proright_table">
-											<div class="table_content_1">
-												
-											</div>
-											<div class="table_content" style="max-height: 500px;">
-												<table class="table table-bordered table1" >
-                                                    <thead>
-                                                    <tr class="active">
-                                                        <th class="p p1">
-                                                            STT
-                                                        </th>
-                                                        <th>Mã Sản Phẩm</th>
-                                                        <th class="p p2">
-                                                            Tên Sản Phẩm
-                                                        </th>
-                                                       <th>Thứ Tự Hiển Thị</th>
-                                                        <th class="p p4"> 
-                                                            Ngày Thêm
-                                                        </th>
-                                                        <th class="p p5">
-                                                            Sửa
-                                                        </th>
+							<div class="content_Prosub">
+                                <div class="include_form">
+							<form action="#" id="from-infor">
+                                <div class="left">
 
-                                                    </tr>
-                                                    </thead>
-                                                    <tbody>
-                                                    <c:forEach items="${listmenu}" var="m" varStatus="loop">
-													<tr>
+                                    <div class="row0_1">
+                                        <label >Logo:</label>
+                                    </div>
+                                    <div class="rowtt_3">
+                                        <label >Tên Công Ty:</label>
+                                    </div>
+                                    <div class="rowtt_4 rowa4">
+                                        <label >Địa Chỉ:</label>
+                                    </div>
+                                    <div class="row4_1 p">
+                                        <label >Hotline:</label>
+                                    </div>
+                                    <div class="row4_1 p">
+                                        <label >Email:</label>
+                                        </div>
+                                  
+                                    <div class="row6 p">
+                                        <label style="margin-bottom: 10px">Copyright:</label>
+                                    </div>
+                                    <div class="row7 p">
+                                        <label >Facebook:</label>
+                                    </div>
+                                    <div class="row8 p">
+                                        <label >Instagram:</label>
+                                    </div>
+                                    <div class="row9 p">
+                                        <label >Twitter:</label>
+                                    </div>
+                                    <div class="row9_1 p">
+                                        <label >Pinterest:</label>
+                                    </div>
+                                    <div class="row10 ">
+                                        <label >Bản Đồ:</label>
+                                    </div>
 
-														<td>
-															${loop.index}
-                                                        </td>
-                                                        <td>${m.id}</td>
-														<td>
-															${m.name}
-														</td>
-                                                        <td>
-                                                                ${m.orderMenu}
-                                                        </td>
-														<td>
-															${m.date}
-														</td>
-														<td>
-                                                            <a href="" data-toggle="modal" data-target="#exampleModalCenter"><i class="fa fa-edit i-edit-menu"></i></a>
-														</td>
-													</tr>
-                                                    </c:forEach>
-                                                </tbody>
-												</table>
-                                            </div>
-										</div>
-								</div>
+                                   
+                                </div>
+                                <div class="right">
+                                    <div class="row0_1">
+                                        <input class="logo-1-show" type="text" value="${infor.splitStr()[0]}" style="width: 40%; margin-right: 18%">
+                                        <input class="logo-2-show" type="text" value="${infor.splitStr()[1]}"  style="width: 40%">
+                                    </div>
+                                    <div class="row3">
+                                        <input class="ten-cong-ty-show" type="text" value="${infor.tenCongTy}">
+                                    </div>
+                                    <div class="row4">
+                                        <input class="dia-chi-show" type="text" value="${infor.diaChi}">
+                                    </div>
+                                    <div class="row4_1">
+                                        <input class="sdt-show" type="number" value="${infor.hotLine}" >
+                                        </div>
+                                    <div class="row4_2">
+                                        <input class="email-show" type="email" value="${infor.email}">
+                                    </div>
+                                   
+                                    <div class="row6">
+                                        <input class="coppyr-show" type="text" value="${infor.copyRight}">
+                                    </div>
+                                    <div class="row7">
+                                         <input class="fb-show" type="text" value="${infor.fb}">
+                                    </div>
+                                    <div class="row8">
+                                        <input class="ins-show" type="text" value="${infor.ins}">
+                                    </div>
+                                    <div class="row9">
+                                        <input class="twi-show" type="text" value="${infor.twi}">
+                                    </div>
+                                    <div class="row9_1">
+                                        <input class="pin-show" type="text" value="${infor.pri}">
+                                    </div>
+                                    <div class="row9_1">
+                                        <textarea class="form-control" id="exampleFormControlTextarea1" rows="5">${infor.banDo}</textarea>
+                                    </div>
+                                     <div class="bottom">
+                                         <button type="submit" class="save-infor">Lưu</button>
+                                </div>
+                                </div>
+                               
+                            </form>
+                        </div>
 							</div>
 						</div>
 					</div>
 			</div>
-<%--		</div>--%>
+		</div>
 		
 </section>
 
@@ -302,45 +319,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 
 <!--main content end-->
 </section>
-<!-- modal -->
-<div class="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
-    <div class="modal-dialog modal-dialog-centered" role="document">
-      <div class="modal-content">
-            <div class="modal-header">
-              <h5 class="modal-title" id="exampleModalLongTitle">Chỉnh Sửa Sản Phẩm Chính</h5>
-                 <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                    <span aria-hidden="true">&times;</span>
-              </button>
-            </div>
-            <div class="modal-body">
-              <div class="content">
-                  <div class="rowadd row1">
-                      <label  >Mã Sản Phẩm:</label>
-                      <input class="id-menu-show" type="number" value="" readonly>
-                  </div>
-                  <div class="rowadd row2">
-                      <label >Tên Sản Phẩm:</label>
-                      <input class="name-menu-show" type="text" value="">
-                  </div>
-                  <div class="rowadd row1">
-                      <label  >Thứ Tự Hiển Thị:</label>
-                      <input data-dataorder = "" class="orther-menu-show" type="number" value="">
-                  </div>
-                  <div class="rowadd row1">
-                      <label  >Ngày Thêm:</label>
-                      <input class="date-menu-show" type="text" value="" readonly>
-                  </div>
-              </div>
-            </div>
-            <div class="modal-footer">
-                <button type="button" class="btn btn-secondary" data-dismiss="modal">Đóng</button>
-                  <button type="button" data-dismiss="modal" class="btn btn-primary btn-save-menu">Lưu</button>
-            </div>
-      </div>
-    </div>
-</div>
-<!-- End modal -->
-<script src="jsadmin_ajax/Menu/EditMenu.js"></script>
+<script src="jsadmin_ajax/Infor/UpdateInfor.js"></script>
 <script src="jsadmin/bootstrap.js"></script>
 <script src="jsadmin/jquery.dcjqaccordion.2.7.js"></script>
 <script src="jsadmin/scripts.js"></script>
@@ -348,7 +327,6 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 <script src="jsadmin/jquery.nicescroll.js"></script>
 <!--[if lte IE 8]><script language="javascript" type="text/javascript" src="js/flot-chart/excanvas.min.js"></script><![endif]-->
 <script src="jsadmin/jquery.scrollTo.js"></script>
-<script src="jsadmin/search.js"></script>
 <%--	sweetalert--%>
 <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
 </body>

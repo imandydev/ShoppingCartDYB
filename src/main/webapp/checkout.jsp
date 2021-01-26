@@ -2,12 +2,6 @@
 <%@ page import="java.util.Collection" %>
 <%@ page import="beans.Product" %>
 <%@ page import="beans.DetailProduct" %>
-<!--
-author: W3layouts
-author URL: http://w3layouts.com
-License: Creative Commons Attribution 3.0 Unported
-License URL: http://creativecommons.org/licenses/by/3.0/
--->
 <%@ page contentType="text/html; charset=UTF-8" language="java" %>
 <%@ taglib prefix = "c" uri = "http://java.sun.com/jsp/jstl/core" %>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/functions" prefix="fn" %>

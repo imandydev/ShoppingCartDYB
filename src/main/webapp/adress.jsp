@@ -133,7 +133,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 							<li><a href="${pageContext.request.contextPath}/profile"><span>Thông Tin Của Tôi</span></a></li>
 							<li><a href="${pageContext.request.contextPath}/address"><span class="active">Địa Chỉ</span></a></li>
 							<li><a href="magiamgia.html"><span>Mã Giảm Giá</span></a></li>
-							<li><a href="${pageContext.request.contextPath}/changepass"><span >Đổi Mật khẩu</span></a> </li>
+							<li><a href="${pageContext.request.contextPath}/changepass"><span >Đổi Mật Khẩu</span></a> </li>
 						</ul>
 
 					</div>
@@ -335,7 +335,6 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 				$(this).css("color", "rgb(251, 56, 59)");
 				$('.content_pro').hide();
 				$('.content_pro').eq(index).show();
-
 			})
 		})
 	</script>
@@ -369,7 +368,12 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 					<div class="modal-body">
 						<div class="content">
 							<form action="update-profile?action=set-address" method="post">
-								<textarea name="address" class="form-control" id="exampleFormControlTextarea1" rows="5">${sessionScope.auth.diaChi}</textarea>
+								<c:if test="${sessionScope.auth.diaChi.equals('Chưa cập nhật địa chỉ') }">
+								<textarea name="address" class="form-control" id="exampleFormControlTextarea1" rows="5" placeholder="${sessionScope.auth.diaChi}"></textarea>
+								</c:if>
+								<c:if test="${!sessionScope.auth.diaChi.equals('Chưa cập nhật địa chỉ') }">
+									<textarea name="address" class="form-control" id="exampleFormControlTextarea1" rows="5" >${sessionScope.auth.diaChi}</textarea>
+								</c:if>
 								<button type="submit"  class="editadd">Lưu</button>
 							</form>
 						</div>

@@ -1,5 +1,7 @@
 package beans;
 
+import DAO.FormatedPriceDAO;
+
 import java.sql.Date;
 import java.sql.Timestamp;
 
@@ -18,7 +20,9 @@ public class Discount {
         this.dateEnd = dateEnd;
         this.giamGia = giamGia;
     }
-
+    public String currentFormatGia() {
+        return FormatedPriceDAO.formatedGia(getGiamGia());
+    }
     public long getGiamGia() {
         return giamGia;
     }
