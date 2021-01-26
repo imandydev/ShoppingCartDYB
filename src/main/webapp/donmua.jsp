@@ -160,276 +160,346 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 
                                         <ul class="tab_navigation">
                                             <li class="first nav-item"><span>Tất cả</span></li>
-                                            <li  class="p1 nav-item"><span>Chờ xác nhận</span><span class="sl"> (1)</span></li>
-                                            <li class="nav-item"><span>Chờ lấy hàng</span><span class="sl"> (1)</span></li>
-                                            <li class="p2 nav-item"><span>Đang giao</span><span class="sl"> (1)</span></li>
-                                            <li  class="p nav-item"><span>Đã giao</span><span class="sl"> (1)</span></li>
-                                            <li class="dagiao p nav-item"><span>Đã hủy</span><span class="sl"> (1)</span></li>
+                                            <li  class="p1 nav-item"><span>Chờ xác nhận</span><span class="sl"> (${sta1.size()})</span></li>
+                                            <li class="nav-item"><span>Chờ lấy hàng</span><span class="sl"> (${sta2.size()})</span></li>
+                                            <li class="p2 nav-item"><span>Đang giao</span><span class="sl"> (${sta3.size()})</span></li>
+                                            <li  class="p nav-item"><span>Đã giao</span><span class="sl"> (${sta4.size()})</span></li>
+                                            <li class="dagiao p nav-item"><span>Đã hủy</span><span class="sl"> (${sta5.size()})</span></li>
                                         </ul>
 
                                     </div>
                                     <div class="list_product">
                                         <div class="content_pro">
-
+                                            <c:if test="${sta1.size() > 0}">
                                             <div class="pro">
-
                                                 <div class="row1">
                                                     <Span>Trạng Thái |</Span>
                                                     <span class="trangthai">Chờ Xác Nhận</span>
                                                 </div>
                                                 <c:forEach items="${sta1}" var="t1" >
-                                                    <a href="${pageContext.request.contextPath}/single?action=detail&id=${t1.idSP}">
                                                     <div class="row2">
-                                                        <div class="row2_1"><img class="hanghoa" src="${t1.image}" alt=""></div>
-                                                        <div class="row2_2">
-                                                            <span>${t1.name}</span><br>
-                                                            <span>Số lượng: </span><span>${t1.soLuong}</span><br>
-                                                            <span>Màu sắc: </span><span>${t1.mauSac}</span><br>
-                                                            <span>Size: </span><span>${t1.size}</span>
-                                                        </div>
-                                                        <div class="row2_3">${t1.tongTien}</div>
+                                                        <a href="${pageContext.request.contextPath}/single?action=detail&id=${t1.idSP}">
+                                                            <div class="row2_1">
+                                                                <div class="row2_1_1"><img class="hanghoa" src="${t1.image}" alt=""></div>
+                                                                 <div class="row2_1_2">
+                                                                     <span>${t1.name}</span><br>
+                                                                     <span>Số lượng: </span><span>${t1.soLuong}</span><br>
+                                                                     <span>Màu sắc: </span><span>${t1.mauSac}</span><br>
+                                                                     <span>Size: </span><span>${t1.size}</span>
+                                                                 </div>
+                                                                <div class="row2_1_3">${t1.priceSale}đ</div>
+                                                            </div>
+                                                        </a>
+                                                            <div class="row2_2">
+                                                                <button class="huydh" type="submit">Hủy Đơn Hàng</button>
+                                                                <span class="tien">Tổng Tiền: </span>
+                                                                <span class="tongtien">${t1.tongTien}đ</span>
+                                                            </div>
                                                     </div>
-                                                </a>
                                                 </c:forEach>
-                                                <div class="row3">
-                                                    <button class="huydh" type="submit">Hủy Đơn Hàng</button>
-                                                    <span class="tien">Tổng Tiền: </span>
-                                                    <span class="tongtien">549.000đ</span>
-                                                </div>
                                             </div>
+                                            </c:if>
+                                            <c:if test="${sta2.size() > 0}">
                                             <div class="pro">
                                                 <div class="row1">
                                                     <Span>Trạng Thái |</Span>
-                                                    <span class="trangthai">Chờ Lấy Hàng</span>
+                                                    <span class="trangthai"> Chờ Lấy Hàng</span>
                                                 </div>
-                                                <c:forEach items="${sta2}" var="t1" >
-                                                    <a href="${pageContext.request.contextPath}/single?action=detail&id=${t1.idSP}">
-                                                        <div class="row2">
-                                                            <div class="row2_1"><img class="hanghoa" src="${t2.image}" alt=""></div>
-                                                            <div class="row2_2">
-                                                                <span>${t2.name}</span><br>
-                                                                <span>Số lượng: </span><span>${t2.soLuong}</span><br>
-                                                                <span>Màu sắc: </span><span>${t2.mauSac}</span><br>
-                                                                <span>Size: </span><span>${t2.size}</span>
+                                                <c:forEach items="${sta2}" var="t2" >
+                                                    <div class="row2">
+                                                        <a href="${pageContext.request.contextPath}/single?action=detail&id=${t2.idSP}">
+                                                            <div class="row2_1">
+                                                                <div class="row2_1_1"><img class="hanghoa" src="${t2.image}" alt=""></div>
+                                                                <div class="row2_1_2">
+                                                                    <span>${t2.name}</span><br>
+                                                                    <span>Số lượng: </span><span>${t2.soLuong}</span><br>
+                                                                    <span>Màu sắc: </span><span>${t2.mauSac}</span><br>
+                                                                    <span>Size: </span><span>${t2.size}</span>
+                                                                </div>
+                                                                <div class="row2_1_3">${t2.priceSale}đ</div>
                                                             </div>
-                                                            <div class="row2_3">${t2.tongTien}</div>
+                                                        </a>
+                                                        <div class="row2_2">
+                                                            <button class="huydh" type="submit">Hủy Đơn Hàng</button>
+                                                            <span class="tien">Tổng Tiền: </span>
+                                                            <span class="tongtien">${t2.tongTien}đ</span>
                                                         </div>
-                                                    </a>
+                                                    </div>
                                                 </c:forEach>
-                                                <div class="row3">
-                                                    <button class="huydh" type="submit">Hủy Đơn Hàng</button>
-                                                    <span class="tien">Tổng Tiền: </span>
-                                                    <span class="tongtien">150.000đ</span>
-                                                </div>
                                             </div>
+                                            </c:if>
+                                            <c:if test="${sta3.size() > 0}">
                                             <div class="pro">
                                                 <div class="row1">
                                                     <Span>Trạng Thái |</Span>
                                                     <span class="trangthai">Đang Giao</span>
                                                 </div>
-                                                <c:forEach items="${sta3}" var="t1" >
-                                                    <a href="${pageContext.request.contextPath}/single?action=detail&id=${t1.idSP}">
-                                                        <div class="row2">
-                                                            <div class="row2_1"><img class="hanghoa" src="${t3.image}" alt=""></div>
-                                                            <div class="row2_2">
-                                                                <span>${t3.name}</span><br>
-                                                                <span>Số lượng: </span><span>${t3.soLuong}</span><br>
-                                                                <span>Màu sắc: </span><span>${t3.mauSac}</span><br>
-                                                                <span>Size: </span><span>${t3.size}</span>
+                                                <c:forEach items="${sta3}" var="t3" >
+                                                    <div class="row2">
+                                                        <a href="${pageContext.request.contextPath}/single?action=detail&id=${t3.idSP}">
+                                                            <div class="row2_1">
+                                                                <div class="row2_1_1"><img class="hanghoa" src="${t3.image}" alt=""></div>
+                                                                <div class="row2_1_2">
+                                                                    <span>${t3.name}</span><br>
+                                                                    <span>Số lượng: </span><span>${t3.soLuong}</span><br>
+                                                                    <span>Màu sắc: </span><span>${t3.mauSac}</span><br>
+                                                                    <span>Size: </span><span>${t3.size}</span>
+                                                                </div>
+                                                                <div class="row2_1_3">${t3.priceSale}đ</div>
                                                             </div>
-                                                            <div class="row2_3">${t3.tongTien}</div>
+                                                        </a>
+                                                        <div class="row2_2">
+                                                            <button class="huydh" type="submit">Đã Nhận Hàng</button>
+                                                            <span class="tien">Tổng Tiền: </span>
+                                                            <span class="tongtien">${t3.tongTien}đ</span>
                                                         </div>
-                                                    </a>
+                                                    </div>
                                                 </c:forEach>
-                                                <div class="row3">
-                                                    <span class="tien">Tổng Tiền: </span>
-                                                    <span class="tongtien">150.000đ</span>
-                                                </div>
                                             </div>
+                                            </c:if>
+                                            <c:if test="${sta4.size() > 0}">
                                             <div class="pro">
                                                 <div class="row1">
                                                     <Span>Trạng Thái |</Span>
                                                     <span class="trangthai">Đã Giao</span>
                                                 </div>
-                                                <c:forEach items="${sta4}" var="t1" >
-                                                    <a href="${pageContext.request.contextPath}/single?action=detail&id=${t1.idSP}">
-                                                        <div class="row2">
-                                                            <div class="row2_1"><img class="hanghoa" src="${t4.image}" alt=""></div>
-                                                            <div class="row2_2">
-                                                                <span>${t4.name}</span><br>
-                                                                <span>Số lượng: </span><span>${t4.soLuong}</span><br>
-                                                                <span>Màu sắc: </span><span>${t4.mauSac}</span><br>
-                                                                <span>Size: </span><span>${t4.size}</span>
+                                                <c:forEach items="${sta4}" var="t4" >
+                                                    <div class="row2">
+                                                        <a href="${pageContext.request.contextPath}/single?action=detail&id=${t4.idSP}">
+                                                            <div class="row2_1">
+                                                                <div class="row2_1_1"><img class="hanghoa" src="${t4.image}" alt=""></div>
+                                                                <div class="row2_1_2">
+                                                                    <span>${t4.name}</span><br>
+                                                                    <span>Số lượng: </span><span>${t4.soLuong}</span><br>
+                                                                    <span>Màu sắc: </span><span>${t4.mauSac}</span><br>
+                                                                    <span>Size: </span><span>${t4.size}</span>
+                                                                </div>
+                                                                <div class="row2_1_3">${t4.priceSale}đ</div>
                                                             </div>
-                                                            <div class="row2_3">${t4.tongTien}</div>
+                                                        </a>
+                                                        <div class="row2_2">
+                                                            <button class="huydh" type="submit">Đánh Giá</button>
+                                                            <span class="tien">Tổng Tiền: </span>
+                                                            <span class="tongtien">${t4.tongTien}đ</span>
                                                         </div>
-                                                    </a>
+                                                    </div>
                                                 </c:forEach>
-                                                <div class="row3">
-                                                    <span class="tien">Tổng Tiền: </span>
-                                                    <span class="tongtien">150.000đ</span>
-                                                </div>
                                             </div>
+                                            </c:if>
+                                            <c:if test="${sta5.size() > 0}">
                                             <div class="pro">
                                                 <div class="row1">
                                                     <Span>Trạng Thái |</Span>
                                                     <span class="trangthai">Đã Hủy</span>
                                                 </div>
-                                                <c:forEach items="${sta5}" var="t1" >
-                                                    <a href="${pageContext.request.contextPath}/single?action=detail&id=${t1.idSP}">
-                                                        <div class="row2">
-                                                            <div class="row2_1"><img class="hanghoa" src="${t5.image}" alt=""></div>
-                                                            <div class="row2_2">
-                                                                <span>${t1.name}</span><br>
-                                                                <span>Số lượng: </span><span>${t5.soLuong}</span><br>
-                                                                <span>Màu sắc: </span><span>${t5.mauSac}</span><br>
-                                                                <span>Size: </span><span>${t5.size}</span>
+                                                <c:forEach items="${sta5}" var="t5" >
+                                                    <div class="row2">
+                                                        <a href="${pageContext.request.contextPath}/single?action=detail&id=${t5.idSP}">
+                                                            <div class="row2_1">
+                                                                <div class="row2_1_1"><img class="hanghoa" src="${t5.image}" alt=""></div>
+                                                                <div class="row2_1_2">
+                                                                    <span>${t5.name}</span><br>
+                                                                    <span>Số lượng: </span><span>${t5.soLuong}</span><br>
+                                                                    <span>Màu sắc: </span><span>${t5.mauSac}</span><br>
+                                                                    <span>Size: </span><span>${t5.size}</span>
+                                                                </div>
+                                                                <div class="row2_1_3">${t5.priceSale}đ</div>
                                                             </div>
-                                                            <div class="row2_3">${t1.tongTien}</div>
+                                                        </a>
+                                                        <div class="row2_2">
+                                                            <span class="tien">Tổng Tiền: </span>
+                                                            <span class="tongtien">${t5.tongTien}đ</span>
                                                         </div>
-                                                    </a>
+                                                    </div>
                                                 </c:forEach>
-                                                <div class="row3">
-                                                    <span class="tien">Tổng Tiền: </span>
-                                                    <span class="tongtien">150.000đ</span>
-                                                </div>
                                             </div>
+                                            </c:if>
 
                                         </div>
                                         <div class="content_pro">
                                             <div class="pro">
+
+                                                <c:if test="${sta1.size() == 0}">
+                                                    <div class="not-find">
+                                                        <h4 class="not-find-pro">Không tìm thấy đơn hàng nào</h4>
+                                                    </div>
+                                                </c:if>
+
+                                                <c:if test="${sta1.size() > 0}">
                                                 <div class="row1">
                                                     <Span>Trạng Thái |</Span>
                                                     <span class="trangthai">Chờ Xác Nhận</span>
                                                 </div>
+                                                </c:if>
                                                 <c:forEach items="${sta1}" var="t1" >
-                                                    <a href="${pageContext.request.contextPath}/single?action=detail&id=${t1.idSP}">
-                                                        <div class="row2">
-                                                            <div class="row2_1"><img class="hanghoa" src="${t1.image}" alt=""></div>
-                                                            <div class="row2_2">
-                                                                <span>${t1.name}</span><br>
-                                                                <span>Số lượng: </span><span>${t1.soLuong}</span><br>
-                                                                <span>Màu sắc: </span><span>${t1.mauSac}</span><br>
-                                                                <span>Size: </span><span>${t1.size}</span>
+                                                    <div class="row2">
+                                                        <a href="${pageContext.request.contextPath}/single?action=detail&id=${t1.idSP}">
+                                                            <div class="row2_1">
+                                                                <div class="row2_1_1"><img class="hanghoa" src="${t1.image}" alt=""></div>
+                                                                <div class="row2_1_2">
+                                                                    <span>${t1.name}</span><br>
+                                                                    <span>Số lượng: </span><span>${t1.soLuong}</span><br>
+                                                                    <span>Màu sắc: </span><span>${t1.mauSac}</span><br>
+                                                                    <span>Size: </span><span>${t1.size}</span>
+                                                                </div>
+                                                                <div class="row2_1_3">${t1.priceSale}đ</div>
                                                             </div>
-                                                            <div class="row2_3">${t1.tongTien}</div>
+                                                        </a>
+                                                        <div class="row2_2">
+                                                            <button class="huydh" type="submit">Hủy Đơn Hàng</button>
+                                                            <span class="tien">Tổng Tiền: </span>
+                                                            <span class="tongtien">${t1.tongTien}đ</span>
                                                         </div>
-                                                    </a>
+                                                    </div>
                                                 </c:forEach>
 
-                                                <div class="row3">
-                                                    <button class="huydh" type="submit">Hủy Đơn Hàng</button>
-                                                    <span class="tien">Tổng Tiền: </span>
-                                                    <span class="tongtien">549.000đ</span>
-                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="content_pro">
+                                            <div class="pro">
+                                                <c:if test="${sta2.size() == 0}">
+                                                    <div class="not-find">
+                                                        <h4 class="not-find-pro">Không tìm thấy đơn hàng nào</h4>
+                                                    </div>
+                                                </c:if>
 
+                                                <c:if test="${sta2.size() > 0}">
+                                                    <div class="row1">
+                                                        <Span>Trạng Thái |</Span>
+                                                        <span class="trangthai">Chờ lấy hàng</span>
+                                                    </div>
+                                                </c:if>
+                                                <c:forEach items="${sta2}" var="t2" >
+                                                    <div class="row2">
+                                                        <a href="${pageContext.request.contextPath}/single?action=detail&id=${t2.idSP}">
+                                                            <div class="row2_1">
+                                                                <div class="row2_1_1"><img class="hanghoa" src="${t2.image}" alt=""></div>
+                                                                <div class="row2_1_2">
+                                                                    <span>${t2.name}</span><br>
+                                                                    <span>Số lượng: </span><span>${t2.soLuong}</span><br>
+                                                                    <span>Màu sắc: </span><span>${t2.mauSac}</span><br>
+                                                                    <span>Size: </span><span>${t2.size}</span>
+                                                                </div>
+                                                                <div class="row2_1_3">${t2.priceSale}đ</div>
+                                                            </div>
+                                                        </a>
+                                                        <div class="row2_2">
+                                                            <button class="huydh" type="submit">Hủy Đơn Hàng</button>
+                                                            <span class="tien">Tổng Tiền: </span>
+                                                            <span class="tongtien">${t2.tongTien}đ</span>
+                                                        </div>
+                                                    </div>
+                                                </c:forEach>
                                             </div>
                                         </div>
                                         <div class="content_pro">
                                             <div class="pro">
-                                                <div class="row1">
-                                                    <Span>Trạng Thái |</Span>
-                                                    <span class="trangthai">Chờ Lấy Hàng</span>
-                                                </div>
-                                                <c:forEach items="${sta2}" var="t1" >
-                                                    <a href="${pageContext.request.contextPath}/single?action=detail&id=${t1.idSP}">
-                                                        <div class="row2">
-                                                            <div class="row2_1"><img class="hanghoa" src="${t2.image}" alt=""></div>
-                                                            <div class="row2_2">
-                                                                <span>${t2.name}</span><br>
-                                                                <span>Số lượng: </span><span>${t2.soLuong}</span><br>
-                                                                <span>Màu sắc: </span><span>${t2.mauSac}</span><br>
-                                                                <span>Size: </span><span>${t2.size}</span>
+                                                <c:if test="${sta3.size() == 0}">
+                                                    <div class="not-find">
+                                                        <h4 class="not-find-pro">Không tìm thấy đơn hàng nào</h4>
+                                                    </div>
+                                                </c:if>
+
+                                                <c:if test="${sta3.size() > 0}">
+                                                    <div class="row1">
+                                                        <Span>Trạng Thái |</Span>
+                                                        <span class="trangthai">Đang Giao</span>
+                                                    </div>
+                                                </c:if>
+                                                <c:forEach items="${sta3}" var="t3" >
+                                                    <div class="row2">
+                                                        <a href="${pageContext.request.contextPath}/single?action=detail&id=${t3.idSP}">
+                                                            <div class="row2_1">
+                                                                <div class="row2_1_1"><img class="hanghoa" src="${t3.image}" alt=""></div>
+                                                                <div class="row2_1_2">
+                                                                    <span>${t3.name}</span><br>
+                                                                    <span>Số lượng: </span><span>${t3.soLuong}</span><br>
+                                                                    <span>Màu sắc: </span><span>${t3.mauSac}</span><br>
+                                                                    <span>Size: </span><span>${t3.size}</span>
+                                                                </div>
+                                                                <div class="row2_1_3">${t3.priceSale}đ</div>
                                                             </div>
-                                                            <div class="row2_3">${t2.tongTien}</div>
+                                                        </a>
+                                                        <div class="row2_2">
+                                                            <button class="huydh" type="submit">Đã Nhận Hàng</button>
+                                                            <span class="tien">Tổng Tiền: </span>
+                                                            <span class="tongtien">${t3.tongTien}đ</span>
                                                         </div>
-                                                    </a>
+                                                    </div>
                                                 </c:forEach>
-                                                <div class="row3">
-                                                    <button class="huydh" type="submit">Hủy Đơn Hàng</button>
-                                                    <span class="tien">Tổng Tiền: </span>
-                                                    <span class="tongtien">150.000đ</span>
-                                                </div>
                                             </div>
                                         </div>
                                         <div class="content_pro">
                                             <div class="pro">
-                                                <div class="row1">
-                                                    <Span>Trạng Thái |</Span>
-                                                    <span class="trangthai">Đang Giao</span>
-                                                </div>
-                                                <c:forEach items="${sta3}" var="t1" >
-                                                    <a href="${pageContext.request.contextPath}/single?action=detail&id=${t1.idSP}">
-                                                        <div class="row2">
-                                                            <div class="row2_1"><img class="hanghoa" src="${t3.image}" alt=""></div>
-                                                            <div class="row2_2">
-                                                                <span>${t3.name}</span><br>
-                                                                <span>Số lượng: </span><span>${t3.soLuong}</span><br>
-                                                                <span>Màu sắc: </span><span>${t3.mauSac}</span><br>
-                                                                <span>Size: </span><span>${t3.size}</span>
+                                                <c:if test="${sta4.size() == 0}">
+                                                    <div class="not-find">
+                                                        <h4 class="not-find-pro">Không tìm thấy đơn hàng nào</h4>
+                                                    </div>
+                                                </c:if>
+
+                                                <c:if test="${sta4.size() > 0}">
+                                                    <div class="row1">
+                                                        <Span>Trạng Thái |</Span>
+                                                        <span class="trangthai">Đã Giao</span>
+                                                    </div>
+                                                </c:if>
+                                                <c:forEach items="${sta4}" var="t4" >
+                                                    <div class="row2">
+                                                        <a href="${pageContext.request.contextPath}/single?action=detail&id=${t4.idSP}">
+                                                            <div class="row2_1">
+                                                                <div class="row2_1_1"><img class="hanghoa" src="${t4.image}" alt=""></div>
+                                                                <div class="row2_1_2">
+                                                                    <span>${t4.name}</span><br>
+                                                                    <span>Số lượng: </span><span>${t4.soLuong}</span><br>
+                                                                    <span>Màu sắc: </span><span>${t4.mauSac}</span><br>
+                                                                    <span>Size: </span><span>${t4.size}</span>
+                                                                </div>
+                                                                <div class="row2_1_3">${t4.priceSale}đ</div>
                                                             </div>
-                                                            <div class="row2_3">${t3.tongTien}</div>
+                                                        </a>
+                                                        <div class="row2_2">
+                                                            <button class="huydh" type="submit">Đánh Giá</button>
+                                                            <span class="tien">Tổng Tiền: </span>
+                                                            <span class="tongtien">${t4.tongTien}đ</span>
                                                         </div>
-                                                    </a>
+                                                    </div>
                                                 </c:forEach>
-                                                <div class="row3">
-                                                    <button class="huydh" type="submit">Đã Nhận Hàng</button>
-                                                    <span class="tien">Tổng Tiền: </span>
-                                                    <span class="tongtien">150.000đ</span>
-                                                </div>
                                             </div>
                                         </div>
                                         <div class="content_pro">
                                             <div class="pro">
-                                                <div class="row1">
-                                                    <Span>Trạng Thái |</Span>
-                                                    <span class="trangthai">Đã Giao</span>
-                                                </div>
-                                                <c:forEach items="${sta4}" var="t1" >
-                                                    <a href="${pageContext.request.contextPath}/single?action=detail&id=${t1.idSP}">
-                                                        <div class="row2">
-                                                            <div class="row2_1"><img class="hanghoa" src="${t4.image}" alt=""></div>
-                                                            <div class="row2_2">
-                                                                <span>${t4.name}</span><br>
-                                                                <span>Số lượng: </span><span>${t4.soLuong}</span><br>
-                                                                <span>Màu sắc: </span><span>${t4.mauSac}</span><br>
-                                                                <span>Size: </span><span>${t4.size}</span>
+                                                <c:if test="${sta5.size() == 0}">
+                                                    <div class="not-find">
+                                                        <h4 class="not-find-pro">Không tìm thấy đơn hàng nào</h4>
+                                                    </div>
+                                                </c:if>
+
+                                                <c:if test="${sta5.size() > 0}">
+                                                    <div class="row1">
+                                                        <Span>Trạng Thái |</Span>
+                                                        <span class="trangthai">Dã hủy</span>
+                                                    </div>
+                                                </c:if>
+                                                <c:forEach items="${sta5}" var="t5" >
+                                                    <div class="row2">
+                                                        <a href="${pageContext.request.contextPath}/single?action=detail&id=${t5.idSP}">
+                                                            <div class="row2_1">
+                                                                <div class="row2_1_1"><img class="hanghoa" src="${t5.image}" alt=""></div>
+                                                                <div class="row2_1_2">
+                                                                    <span>${t5.name}</span><br>
+                                                                    <span>Số lượng: </span><span>${t5.soLuong}</span><br>
+                                                                    <span>Màu sắc: </span><span>${t5.mauSac}</span><br>
+                                                                    <span>Size: </span><span>${t5.size}</span>
+                                                                </div>
+                                                                <div class="row2_1_3">${t5.priceSale}đ</div>
                                                             </div>
-                                                            <div class="row2_3">${t4.tongTien}</div>
+                                                        </a>
+                                                        <div class="row2_2">
+                                                            <span class="tien">Tổng Tiền: </span>
+                                                            <span class="tongtien">${t5.tongTien}đ</span>
                                                         </div>
-                                                    </a>
+                                                    </div>
                                                 </c:forEach>
-                                                <div class="row3">
-                                                    <button class="huydh" type="submit" data-toggle="modal" data-target="#exampleModalCenter">Đánh Giá</button>
-                                                    <span class="tien">Tổng Tiền: </span>
-                                                    <span class="tongtien">150.000đ</span>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div class="content_pro">
-                                            <div class="pro">
-                                                <div class="row1">
-                                                    <Span>Trạng Thái |</Span>
-                                                    <span class="trangthai">Đã Hủy</span>
-                                                </div>
-                                                <c:forEach items="${sta5}" var="t1" >
-                                                    <a href="${pageContext.request.contextPath}/single?action=detail&id=${t1.idSP}">
-                                                        <div class="row2">
-                                                            <div class="row2_1"><img class="hanghoa" src="${t5.image}" alt=""></div>
-                                                            <div class="row2_2">
-                                                                <span>${t5.name}</span><br>
-                                                                <span>Số lượng: </span><span>${t5.soLuong}</span><br>
-                                                                <span>Màu sắc: </span><span>${t5.mauSac}</span><br>
-                                                                <span>Size: </span><span>${t5.size}</span>
-                                                            </div>
-                                                            <div class="row2_3">${t5.tongTien}</div>
-                                                        </div>
-                                                    </a>
-                                                </c:forEach>
-                                                <div class="row3">
-                                                    <span class="tien">Tổng Tiền: </span>
-                                                    <span class="tongtien">150.000đ</span>
-                                                </div>
                                             </div>
                                         </div>
                                     </div>
