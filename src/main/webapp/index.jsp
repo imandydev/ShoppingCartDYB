@@ -101,13 +101,13 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 						</ul>
 					</div>
 					<div id="cd-search" class="cd-search">
-						<form action="#" method="post">
-							<input name="Search" type="search" placeholder="Tìm kiếm...">
+						<form action="${pageContext.request.contextPath}/load-all-data-search" method="post">
+							<input name="search"  type="search" placeholder="Tìm kiếm..." value="">
+							<input type="submit" >
 						</form>
 					</div>
 				</div>
 				<!-- //search -->
-
 				<div class="clearfix"></div>
 			</div>
 			<!-- /slider -->

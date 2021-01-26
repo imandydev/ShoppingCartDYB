@@ -97,7 +97,7 @@ public class ProductEmpty {
             }
             rs.close();
             s.close();
-
+            eva.setEvaListPro(listPro);
             return listPro;
         } catch (ClassNotFoundException | SQLException e) {
             e.printStackTrace();
@@ -111,10 +111,14 @@ public class ProductEmpty {
         if (priceStart == 0 && priceEnd ==0)
             return listProSearchByName;
         for (Product item: listProSearchByName) {
-           if (item.getGia() >= priceStart && item.getGia() <= priceEnd)
-                listPro.add(item);
+            if (item.getGiamgia() == 0) {
+                if (item.getGia() >= priceStart && item.getGia() <= priceEnd)
+                    listPro.add(item);
+            } else if (item.getGiamgia() != 0){
+                if (item.getGiaKM() >= priceStart && item.getGiaKM() <= priceEnd)
+                    listPro.add(item);
+            }
         }
-
         return listPro;
     }
     public List<Product> getAllProdcutFillCate(String searchRep, double priceStart, double priceEnd, int idCate) {
@@ -186,8 +190,7 @@ public class ProductEmpty {
         Product pro = null;
         PreparedStatement s = null;
         try {
-            // lấy ra mã giảm giá vừa mới add
-            String sql = "select idgiamgia,magiamgia,hinhthucgiam, DATE_FORMAT(thoigianbatdau, '%Y-%m-%dT%H:%i') as thoigianbatdau, DATE_FORMAT(thoigianketthuc, '%Y-%m-%dT%H:%i') as thoigianketthuc,giagiam from ma_giam_gia order by idgiamgia desc limit 1";
+            String sql = "Select * From san_pham ORDER BY id_san_pham DESC LIMIT 1";
             s = ConnectionDB.connection(sql);
             ResultSet rs = s.executeQuery();
             if (rs.next())

@@ -158,19 +158,19 @@ public class DonMua {
             new EmptyDonHang();
         }
         for (DonMua donMua : l) {
-            if (donMua.status.equalsIgnoreCase("choxuly")) {
+            if (donMua.status.equalsIgnoreCase("Đang Xử Lý")) {
                 listStatus1.add(donMua);
             }
-            if (donMua.status.equalsIgnoreCase("cholayhang")) {
+            if (donMua.status.equalsIgnoreCase("Chờ Lấy Hàng")) {
                 listStatus2.add(donMua);
             }
-            if (donMua.status.equalsIgnoreCase("danggiao")) {
+            if (donMua.status.equalsIgnoreCase("Đang Giao")) {
                 listStatus3.add(donMua);
             }
-            if (donMua.status.equalsIgnoreCase("dagiao")) {
+            if (donMua.status.equalsIgnoreCase("Đã Giao")) {
                 listStatus4.add(donMua);
             }
-            if (donMua.status.equalsIgnoreCase("dahuy")) {
+            if (donMua.status.equalsIgnoreCase("Đã Hủy")) {
                 listStatus5.add(donMua);
             }
         }

@@ -14,8 +14,7 @@ public class EmptyDonHang {
         List<DonMua> listDM = new ArrayList<>();
         PreparedStatement s = null;
         try {
-            String sql = "SELECT iduser,trangthai,image,soluongmua,ten_san_pham,mau,size,giasale,soluongmua*giasale,san_pham.id_san_pham FROM don_hang INNER JOIN (chitietdh INNER JOIN( chi_tiet_sp INNER JOIN san_pham on chi_tiet_sp.id_san_pham=san_pham.id_san_pham) on chitietdh.idchitietsp=chi_tiet_sp.idchitietsp) on don_hang.ma_don_hang=chitietdh.ma_don_hang\n" +
-                    "WHERE don_hang.iduser = ?";
+            String sql = "SELECT iduser,trangthai,image,soluongmua,ten_san_pham,mau,size,giasale,soluongmua*giasale,san_pham.id_san_pham FROM don_hang INNER JOIN (chitietdh INNER JOIN( chi_tiet_sp INNER JOIN san_pham on chi_tiet_sp.id_san_pham=san_pham.id_san_pham) on chitietdh.idchitietsp=chi_tiet_sp.idchitietsp) on don_hang.ma_don_hang=chitietdh.ma_don_hang WHERE don_hang.iduser = ?";
             s = ConnectionDB.connection(sql);
             s.setInt(1,idUser);
             ResultSet rs = s.executeQuery();
@@ -30,11 +29,4 @@ public class EmptyDonHang {
         }
     }
 
-//    public static void main(String[] args) {
-//        EmptyDonHang y = new EmptyDonHang();
-//        DonMua d = new DonMua();
-//        d.getListDMbyStatus(y.getListDonMuaByidUser(3));
-//        System.out.println( d.listStatus1.get(0).getImage());
-//
-//    }
 }
