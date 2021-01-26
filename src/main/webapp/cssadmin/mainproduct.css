@@ -9,7 +9,6 @@
     min-width: 230px;
     width: 25%;
     background-color: rgba(171, 119, 157, 0.27);
-    
 }
 .proleft_addmain {
     padding: 10px;
@@ -59,7 +58,7 @@
 
 /* right */
 .proright {
-    width: 70%;
+    width: 90%;
     margin-left: 5%;
     min-width: 300px;
     background-color: rgba(171, 119, 157, 0.27);
@@ -133,6 +132,10 @@ th {
 }
 td {
     text-align: center;
+
+}
+.table1 tbody tr td {
+    color: white !important ;
 }
 /* modal */
 .modal-body .content .rowadd label {

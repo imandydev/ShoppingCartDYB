@@ -1,20 +1,48 @@
 package beans;
 
+import java.util.LinkedList;
+import java.util.List;
+
 public class ProductOther {
     private int idProOther;
     private int idPro;
     private int idMenu;
     private String proName;
     private String img;
-
+    private String menuName;
     public ProductOther(int idProOther, int idPro, int idMenu, String proName, String img) {
         this.idProOther = idProOther;
         this.idPro = idPro;
         this.idMenu = idMenu;
         this.proName = proName;
-        this.img = img;
+        this.img = getImgFromProduct(img);
+    }
+    public ProductOther(int idProOther, int idPro, int idMenu) {
+        this.idProOther = idProOther;
+        this.idPro = idPro;
+        this.idMenu = idMenu;
+    }
+    public ProductOther(int idProOther, int idPro, int idMenu, String proName, String img, String menuName) {
+        this.idProOther = idProOther;
+        this.idPro = idPro;
+        this.idMenu = idMenu;
+        this.proName = proName;
+        this.img = getImgFromProduct(img);
+        this.menuName = menuName;
     }
 
+    public String getMenuName() {
+        return menuName;
+    }
+
+    public void setMenuName(String menuName) {
+        this.menuName = menuName;
+    }
+
+    public String getImgFromProduct(String imgInput) {
+        String[] arr = imgInput.split(";");
+        return arr[0];
+    }
     public ProductOther() {
     }
 

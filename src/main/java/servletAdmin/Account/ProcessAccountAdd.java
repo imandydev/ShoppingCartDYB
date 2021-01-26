@@ -22,6 +22,8 @@ public class ProcessAccountAdd extends HttpServlet {
         String username = request.getParameter("username");
         String email = request.getParameter("email");
         String address = request.getParameter("address");
+        if (address.equalsIgnoreCase(""))
+            address = "Chưa cập nhật địa chỉ";
         Long sdt = Long.parseLong(request.getParameter("sdt"));
         String pass = request.getParameter("pass");
         String loaiTaiKhoan = request.getParameter("loaitk");

@@ -41,6 +41,8 @@ public class UpdateProfile extends HttpServlet {
                 // nếu là update địa chỉ
             } else if (action.equalsIgnoreCase("set-address")) {
                 String address = request.getParameter("address");
+                if (address.equalsIgnoreCase(""))
+                    address = "Chưa cập nhật địa chỉ";
                 if (updateUser.updateAddress(id, address)) {
                     session.removeAttribute("auth");
                     user.setDiaChi(address);

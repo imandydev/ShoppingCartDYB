@@ -30,6 +30,20 @@ public class ProductAdmin {
             return new LinkedList<>();
         }
     }
+    public boolean deleteProductByIdCategory(int idCate) {
+        PreparedStatement s = null;
+        try {
+            String sql ="DELETE FROM san_pham WHERE id_danh_muc = ?";
+            s = ConnectionDB.connection(sql);
+            s.setInt(1,idCate);
+            s.executeUpdate();
+            s.close();
+            return true;
+        } catch (ClassNotFoundException | SQLException e) {
+            e.printStackTrace();
+            return false;
+        }
+    }
     public boolean deleteProductByIdProduct(int idPro) {
         PreparedStatement s = null;
         try {

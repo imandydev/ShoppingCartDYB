@@ -41,6 +41,14 @@ public class Infor {
         }
         return listStr;
     }
+    public List<String> splitStr() {
+        List<String> listStr = new LinkedList<>();
+        String[] arrStr = logo.split(";");
+        for (String item: arrStr) {
+            listStr.add(item);
+        }
+        return listStr;
+    }
     public Infor() {
     }
 

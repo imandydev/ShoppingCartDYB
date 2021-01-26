@@ -406,6 +406,8 @@ $(document).ready(function () {
                     // set lại số lượng hiển thị
                     $(".sl-product").find('span').remove();
                     $(".sl-product").append('<span >' + 0 + ' Sản phẩm</span>');
+                    $('.total-price').find('span').html("0đ");
+
                 } else if (obj == 0)
                     // nếu chưa đăng nhập thì hiển thị thông báo cho đăng nhập
                     swal({

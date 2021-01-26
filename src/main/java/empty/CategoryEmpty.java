@@ -62,5 +62,52 @@ public class CategoryEmpty {
             return new LinkedList<>();
         }
     }
-
+    public Category getSingleCategoryById(int idCate) {
+        PreparedStatement s = null;
+        try {
+            String sql ="select * from danh_muc where id_danh_muc = ?";
+            s = ConnectionDB.connection(sql);
+            s.setInt(1,idCate);
+            Category cate = null;
+            ResultSet rs = s.executeQuery();
+           if (rs.next())
+               cate = new Category(rs.getInt(1),rs.getInt(2),rs.getString(3),rs.getString(4),rs.getInt(5));
+            rs.close();
+            s.close();
+            return cate;
+        } catch (ClassNotFoundException | SQLException e) {
+            e.printStackTrace();
+            return null;
+        }
+    }
+    public boolean updateCate(Category cate) {
+        PreparedStatement s = null;
+            try {
+                String sql = "update danh_muc set idmenu = ?, ten_danh_muc = ?, orther_dm = ? where id_danh_muc = ?";
+                s = ConnectionDB.connection(sql);
+                s.setInt(1, cate.getIdMenu());
+                s.setString(2, cate.getName());
+                s.setInt(3, cate.getOrder());
+                s.setInt(4,cate.getId());
+                s.executeUpdate();
+                return true;
+            } catch (ClassNotFoundException | SQLException e) {
+                e.printStackTrace();
+                return false;
+            }
+    }
+    public boolean deleteCategory(int idCate) {
+        PreparedStatement s = null;
+        try {
+            String sql ="DELETE FROM danh_muc WHERE id_danh_muc = ?";
+            s = ConnectionDB.connection(sql);
+            s.setInt(1,idCate);
+            s.executeUpdate();
+            s.close();
+            return true;
+        } catch (ClassNotFoundException | SQLException e) {
+            e.printStackTrace();
+            return false;
+        }
+    }
 }
