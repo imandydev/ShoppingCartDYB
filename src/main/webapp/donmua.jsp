@@ -80,16 +80,25 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
             </div>
             <!-- cart details -->
             <div class="top_nav_right">
-                <button class="trigger-overlay" type="submit"><i class="fa fa-user"></i></button>
-                <div class="dropdown_user">
-                    <ul>
-                        <li><a href="${pageContext.request.contextPath}/profile">Thông Tin Cá Nhân</a></li>
-                        <li><a href="${pageContext.request.contextPath}/donmua">Đơn Mua</a></li>
-                        <li><a href="${pageContext.request.contextPath}/sanphamdaxem">Sản Phẩm Đã Xem</a></li>
-                        <li><a href="hdmuahang.html">Hướng Dẫn Mua Hàng</a></li>
-                        <li><a href="${pageContext.request.contextPath}/logout">Đăng Xuất</a></li>
-                    </ul>
-                </div>
+                <c:if test="${sessionScope.auth == null}">
+                    <a href="${pageContext.request.contextPath}/login"><button class="trigger-overlay" type="submit"><i class="fa fa-user"></i></button></a>
+                </c:if>
+                <c:if test="${sessionScope.auth != null}">
+                    <button class="trigger-overlay" type="submit"><i class="fa fa-user"></i></button>
+
+                    <div class="dropdown_user">
+                        <ul>
+                            <c:if test="${sessionScope.auth.loaiTaiKhoan == 'admin'}">
+                                <li><a href="${pageContext.request.contextPath}/admin">Quản Lý Trang Web</a></li>
+                            </c:if>
+                            <li><a href="${pageContext.request.contextPath}/profile">Thông Tin Cá Nhân</a></li>
+                            <li><a href="${pageContext.request.contextPath}/donmua">Đơn Mua</a></li>
+                            <li><a href="${pageContext.request.contextPath}/sanphamdaxem">Sản Phẩm Đã Xem</a></li>
+                            <li><a href="${pageContext.request.contextPath}/hdmuahang">Hướng Dẫn Mua Hàng</a></li>
+                            <li><a href="${pageContext.request.contextPath}/logout">Đăng Xuất</a></li>
+                        </ul>
+                    </div>
+                </c:if>
             </div>
         </div>
     </div>
@@ -102,8 +111,9 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
             </ul>
         </div>
         <div id="cd-search" class="cd-search">
-            <form action="#" method="post">
-                <input name="Search" type="search" placeholder="Tìm kiếm...">
+            <form action="${pageContext.request.contextPath}/load-all-data-search?page=1" method="post">
+                <input name="search"  type="search" placeholder="Tìm kiếm..." >
+                <input type="submit" >
             </form>
         </div>
     </div>
@@ -134,18 +144,17 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                         <div class="content">
                             <h3>Trung tâm cá nhân</h3>
                             <div class="account c1">
-                                <a href="profile.html"><h4>Tài Khoản Của Tôi</h4></a>
+                                <a href="#"><h4>Tài Khoản Của Tôi</h4></a>
 
                                 <ul>
-                                    <li><a href="profile.html"><span>Thông Tin Của Tôi</span></a></li>
-                                    <li><a href="adress.html"><span>Địa Chỉ</span></a></li>
-                                    <li><a href="magiamgia.html"><span>Mã Giảm Giá</span></a></li>
-                                    <li><a href="changepass.html"><span>Đổi Mật Khẩu</span></a> </li>
+                                    <li><a href="${pageContext.request.contextPath}/profile"><span >Thông Tin Của Tôi</span></a></li>
+                                    <li><a href="${pageContext.request.contextPath}/address"><span>Địa Chỉ</span></a></li>
+                                    <li><a href="${pageContext.request.contextPath}/magiamgia"><span>Mã Giảm Giá</span></a></li>
+                                    <li><a href="${pageContext.request.contextPath}/changepass"><span>Đổi Mật Khẩu</span></a> </li>
                                 </ul>
-
                             </div>
                             <div class="donmua c1">
-                                <a href=""><h4>Đơn Mua</h4></a>
+                                <a href="" class="active"><h4>Đơn Mua</h4></a>
                             </div>
                             <div class="dangxuat c1">
                                 <a href="login.html"><h4>Đăng Xuất</h4></a>
@@ -249,7 +258,6 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                                                             </div>
                                                         </a>
                                                         <div class="row2_2">
-                                                            <button class="huydh" type="submit">Đã Nhận Hàng</button>
                                                             <span class="tien">Tổng Tiền: </span>
                                                             <span class="tongtien">${t3.tongTien}đ</span>
                                                         </div>
@@ -278,7 +286,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                                                             </div>
                                                         </a>
                                                         <div class="row2_2">
-                                                            <button class="huydh" type="submit">Đánh Giá</button>
+<%--                                                            <button class="huydh" type="submit">Đánh Giá</button>--%>
                                                             <span class="tien">Tổng Tiền: </span>
                                                             <span class="tongtien">${t4.tongTien}đ</span>
                                                         </div>
@@ -421,7 +429,6 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                                                             </div>
                                                         </a>
                                                         <div class="row2_2">
-                                                            <button class="huydh" type="submit">Đã Nhận Hàng</button>
                                                             <span class="tien">Tổng Tiền: </span>
                                                             <span class="tongtien">${t3.tongTien}đ</span>
                                                         </div>
@@ -458,7 +465,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                                                             </div>
                                                         </a>
                                                         <div class="row2_2">
-                                                            <button class="huydh" type="submit">Đánh Giá</button>
+<%--                                                            <button class="huydh" type="submit">Đánh Giá</button>--%>
                                                             <span class="tien">Tổng Tiền: </span>
                                                             <span class="tongtien">${t4.tongTien}đ</span>
                                                         </div>

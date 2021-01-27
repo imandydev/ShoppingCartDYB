@@ -150,8 +150,14 @@ $(document).ready(function () {
             data: {'id' : valPro , 'amount': amount, 'color':color, 'size':size},
             success: function (data, textStatus, jqXHR) {
                 let obj = $.parseJSON(data);
-                if (obj == true)
-                    swal("Đã thêm vào giỏ hàng !", "", "success");
+                if (obj == true){
+                    swal({
+                        title: 'Đã thêm vào giỏ hàng !',
+                        icon: 'success',
+                        showConfirmButton: false,
+                        timer: 1000,
+                    })
+                }
                 else
                     swal("Thêm thất bại!", "Sản phẩm đã hết, vui lòng chọn sản phẩm khác.", "error");
             }

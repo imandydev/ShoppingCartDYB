@@ -27,7 +27,7 @@ $(document).ready(function () {
                             title: 'Tạo tài khoản thành công !',
                             icon: 'success',
                             showConfirmButton: false,
-                            timer: 1200,
+                            timer: 1000,
                         });
                         $('.username-acc').val("");
                         $('.email-acc').val("");
@@ -39,7 +39,7 @@ $(document).ready(function () {
                             title: 'Tạo tài khoản thất bại !',
                             icon: 'error',
                             showConfirmButton: false,
-                            timer: 1200,
+                            timer: 1000,
                         });
                     }
                 }

@@ -35,8 +35,7 @@ public class ListgiamGia extends HttpServlet {
             request.setAttribute("infor", infor);
             request.setAttribute("listMenu", valuesMenu);
             request.setAttribute("listgiamgia",discounts);
-            request.getRequestDispatcher("magiamgia.jsp").forward(request, response);
-
+            request.getRequestDispatcher("magiamgiauser.jsp").forward(request, response);
         }else
             // ngược lại thì chuyền về trang login
             response.sendRedirect("/ProjectFinalTest_war_exploded/login");

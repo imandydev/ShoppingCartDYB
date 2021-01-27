@@ -34,7 +34,6 @@ public class Single extends HttpServlet {
     }
     protected void doGetSingleProduct(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         int id = Integer.parseInt(request.getParameter("id"));
-
         List<HotProduct> listHotPro = new HotProductEmpty().getAllAmountHotProduct();
         List<Product> Hot4Pro = new HotProductEmpty().get4HotProduct(listHotPro);
         //list color

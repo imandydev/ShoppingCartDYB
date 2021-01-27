@@ -44,7 +44,6 @@ public class ProcessLogin extends HttpServlet {
             // vẫn ở trang login
             response.sendRedirect("/ProjectFinalTest_war_exploded/login");
 
-
     }
 }
 

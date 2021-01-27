@@ -51,10 +51,9 @@ $(document).ready(function () {
                         icon: 'success',
                         showConfirmButton: false,
                         allowOutsideClick: false,
-                    }).then(okay => {
-                        if (okay) {
-                            window.location.href = "/ProjectFinalTest_war_exploded/load-all-account";
-                        }
+                        timer: 1000,
+                    }).then(function() {
+                        location.reload();
                     });
                 } else {
                     swal({
@@ -62,10 +61,9 @@ $(document).ready(function () {
                         icon: 'error',
                         showConfirmButton: false,
                         allowOutsideClick: false,
-                    }).then(okay => {
-                        if (okay) {
-                            window.location.href = "/ProjectFinalTest_war_exploded/load-all-account";
-                        }
+                        timer: 1000,
+                    }).then(function() {
+                        location.reload();
                     });
                 }
             }

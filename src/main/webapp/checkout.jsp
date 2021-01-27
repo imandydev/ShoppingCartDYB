@@ -82,9 +82,9 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 									<li><a href="${pageContext.request.contextPath}/admin">Quản Lý Trang Web</a></li>
 								</c:if>
 								<li><a href="${pageContext.request.contextPath}/profile">Thông Tin Cá Nhân</a></li>
-								<li><a href="donmua.html">Đơn Mua</a></li>
-								<li><a href="sanphamdaxem.html">Sản Phẩm Đã Xem</a></li>
-								<li><a href="hdmuahang.html">Hướng Dẫn Mua Hàng</a></li>
+								<li><a href="${pageContext.request.contextPath}/donmua">Đơn Mua</a></li>
+								<li><a href="${pageContext.request.contextPath}/sanphamdaxem">Sản Phẩm Đã Xem</a></li>
+								<li><a href="${pageContext.request.contextPath}/hdmuahang">Hướng Dẫn Mua Hàng</a></li>
 								<li><a href="${pageContext.request.contextPath}/logout">Đăng Xuất</a></li>
 							</ul>
 						</div>
@@ -101,8 +101,9 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 				</ul>
 			</div>
 			<div id="cd-search" class="cd-search">
-				<form action="#" method="post">
-					<input name="Search" type="search" placeholder="Tìm kiếm...">
+				<form action="${pageContext.request.contextPath}/load-all-data-search?page=1" method="post">
+					<input name="search"  type="search" placeholder="Tìm kiếm..." >
+					<input type="submit" >
 				</form>
 			</div>
 		</div>

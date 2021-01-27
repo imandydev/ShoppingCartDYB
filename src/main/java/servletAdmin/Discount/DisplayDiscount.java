@@ -20,6 +20,6 @@ public class DisplayDiscount extends HttpServlet {
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         List<Discount> listDis = new DiscountEmpty().getAllDiscount();
         request.setAttribute("listDis",listDis);
-        request.getRequestDispatcher("magiamgia.jsp").forward(request,response);
+        request.getRequestDispatcher("magiamgiaadmin.jsp").forward(request,response);
     }
 }

@@ -83,9 +83,9 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 								<li><a href="${pageContext.request.contextPath}/admin">Quản Lý Trang Web</a></li>
 							</c:if>
 							<li><a href="${pageContext.request.contextPath}/profile">Thông Tin Cá Nhân</a></li>
-							<li><a href="donmua.html">Đơn Mua</a></li>
-							<li><a href="sanphamdaxem.html">Sản Phẩm Đã Xem</a></li>
-							<li><a href="hdmuahang.html">Hướng Dẫn Mua Hàng</a></li>
+							<li><a href="${pageContext.request.contextPath}/donmua">Đơn Mua</a></li>
+							<li><a href="${pageContext.request.contextPath}/sanphamdaxem">Sản Phẩm Đã Xem</a></li>
+							<li><a href="${pageContext.request.contextPath}/hdmuahang">Hướng Dẫn Mua Hàng</a></li>
 							<li><a href="${pageContext.request.contextPath}/logout">Đăng Xuất</a></li>
 						</ul>
 					</div>
@@ -101,8 +101,9 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 				</ul>
 			</div>
 			<div id="cd-search" class="cd-search">
-				<form action="#" method="post">
-					<input name="Search" type="search" placeholder="Tìm kiếm...">
+				<form action="${pageContext.request.contextPath}/load-all-data-search?page=1" method="post">
+					<input name="search"  type="search" placeholder="Tìm kiếm..." >
+					<input type="submit" >
 				</form>
 			</div>
 		</div>
@@ -127,19 +128,17 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 				<div class="content">
 					<h3>Trung tâm cá nhân</h3>
 					<div class="account c1">
-						<a>
-							<h4>Tài Khoản Của Tôi</h4>
-						</a>
+						<a href="#"><h4>Tài Khoản Của Tôi</h4></a>
 						<ul>
-							<li><a href="${pageContext.request.contextPath}/profile"><span>Thông Tin Của Tôi</span></a></li>
-							<li><a href="${pageContext.request.contextPath}/address"><span >Địa Chỉ</span></a></li>
-							<li><a href=""><span>Mã Giảm Giá</span></a></li>
-							<li><a href="${pageContext.request.contextPath}/changepass"><span class="active">Đổi Mật khẩu</span></a> </li>
+							<li><a href="${pageContext.request.contextPath}/profile"><span >Thông Tin Của Tôi</span></a></li>
+							<li><a href="${pageContext.request.contextPath}/address"><span>Địa Chỉ</span></a></li>
+							<li><a href="${pageContext.request.contextPath}/magiamgia"><span>Mã Giảm Giá</span></a></li>
+							<li><a href="${pageContext.request.contextPath}/changepass"><span class="active">Đổi Mật Khẩu</span></a> </li>
 						</ul>
 
 					</div>
 					<div class="donmua c1">
-						<a href="donmua.html">
+						<a href="${pageContext.request.contextPath}/donmua">
 							<h4>Đơn Mua</h4>
 						</a>
 					</div>
@@ -165,7 +164,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 									 <!-- vua them class cho input 14/11 -->
 									 <td class="ele1">Mật Khẩu Hiện Tại</td>
 									 <td class="text"><input type="password" name="oldpass"></td>
-									 <td><a href="forgetpass.html">Quên Mật Khẩu?</a></td>
+									 <td><a  href="${pageContext.request.contextPath}/DisplayForgetPass">Quên Mật Khẩu?</a></td>
 								 </tr>
 								 <tr>
 									 <td class="ele1">Mật Khẩu Mới</td>

@@ -71,26 +71,25 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 				</div>
 				<!-- cart details -->
 				<div class="top_nav_right">
+					<c:if test="${sessionScope.auth == null}">
+						<a href="${pageContext.request.contextPath}/login"><button class="trigger-overlay" type="submit"><i class="fa fa-user"></i></button></a>
+					</c:if>
+					<c:if test="${sessionScope.auth != null}">
+						<button class="trigger-overlay" type="submit"><i class="fa fa-user"></i></button>
 
-                    <c:if test="${sessionScope.auth == null}">
-                        <a href="${pageContext.request.contextPath}/login"><button class="trigger-overlay" type="submit"><i class="fa fa-user"></i></button></a>
-                    </c:if>
-                    <c:if test="${sessionScope.auth != null}">
-                       <button class="trigger-overlay" type="submit"><i class="fa fa-user"></i></button>
-
-                        <div class="dropdown_user">
-                            <ul>
+						<div class="dropdown_user">
+							<ul>
 								<c:if test="${sessionScope.auth.loaiTaiKhoan == 'admin'}">
 									<li><a href="${pageContext.request.contextPath}/admin">Quản Lý Trang Web</a></li>
 								</c:if>
-                                <li><a href="${pageContext.request.contextPath}/profile">Thông Tin Cá Nhân</a></li>
-                                <li><a href="donmua.html">Đơn Mua</a></li>
-                                <li><a href="sanphamdaxem.html">Sản Phẩm Đã Xem</a></li>
-                                <li><a href="hdmuahang.html">Hướng Dẫn Mua Hàng</a></li>
-                                <li><a href="${pageContext.request.contextPath}/logout">Đăng Xuất</a></li>
-                            </ul>
-                        </div>
-                    </c:if>
+								<li><a href="${pageContext.request.contextPath}/profile">Thông Tin Cá Nhân</a></li>
+								<li><a href="${pageContext.request.contextPath}/donmua">Đơn Mua</a></li>
+								<li><a href="${pageContext.request.contextPath}/sanphamdaxem">Sản Phẩm Đã Xem</a></li>
+								<li><a href="${pageContext.request.contextPath}/hdmuahang">Hướng Dẫn Mua Hàng</a></li>
+								<li><a href="<c:url value="/logout"/>">Đăng Xuất</a></li>
+							</ul>
+						</div>
+					</c:if>
 				</div>
 				<!-- //hết khúc sửa -->
 				<!-- search -->
@@ -101,8 +100,8 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 						</ul>
 					</div>
 					<div id="cd-search" class="cd-search">
-						<form action="${pageContext.request.contextPath}/load-all-data-search" method="post">
-							<input name="search"  type="search" placeholder="Tìm kiếm..." value="">
+						<form action="${pageContext.request.contextPath}/load-all-data-search?page=1" method="post">
+							<input name="search"  type="search" placeholder="Tìm kiếm..." >
 							<input type="submit" >
 						</form>
 					</div>
@@ -180,9 +179,9 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 				<div class="style-grid-2-text_info">
 					<h3><c:out value="${list[0].topic}"/></h3>
 					<p><c:out value="${list[0].content}"/></p>
-					<div class="shop-button">
-						<a href="${list[0].link}"><c:out value="${list[0].buttonText}"/></a>
-					</div>
+<%--					<div class="shop-button">--%>
+<%--						<a href="${list[0].link}"><c:out value="${list[0].buttonText}"/></a>--%>
+<%--					</div>--%>
 				</div>
 			</div>
 			<div class="style-image-2">
@@ -203,9 +202,9 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 					<div class="style-grid-2-text_info">
 						<h3><c:out value="${list[1].topic}"/></h3>
 						<p><c:out value="${list[1].content}"/></p>
-						<div class="shop-button">
-							<a href="<c:out value="${list[1].link}"/>"><c:out value="${list[1].buttonText}"/></a>
-						</div>
+<%--						<div class="shop-button">--%>
+<%--							<a href="<c:out value="${list[1].link}"/>"><c:out value="${list[1].buttonText}"/></a>--%>
+<%--						</div>--%>
 					</div>
 				</div>
 				<div class="style-image-2">
@@ -227,9 +226,9 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 					<div class="style-grid-2-text_info">
 						<h3><c:out value="${list[2].topic}"/></h3>
 						<p><c:out value="${list[2].content}"/></p>
-						<div class="shop-button two">
-							<a href="accessories.html"><c:out value="${list[2].buttonText}"/></a>
-						</div>
+<%--						<div class="shop-button two">--%>
+<%--							<a href="accessories.html"><c:out value="${list[2].buttonText}"/></a>--%>
+<%--						</div>--%>
 					</div>
 				</div>
 			</div>
@@ -238,6 +237,74 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 	</div>
 	<!-- //grids_bottom2-->
 	<!-- /Properties -->
+<%--	<div class="mid_slider_w3lsagile">--%>
+<%--		<div class="col-md-3 mid_slider_text">--%>
+<%--			<h5>Mặt Hàng Khác</h5>--%>
+<%--		</div>--%>
+<%--		<div class="col-md-9 mid_slider_info">--%>
+<%--			<div id="myCarousel" class="carousel slide" data-ride="carousel">--%>
+<%--				<!-- Indicators -->--%>
+<%--				<ol class="carousel-indicators">--%>
+<%--					<li data-target="#myCarousel" data-slide-to="0" class="active"></li>--%>
+<%--					<li data-target="#myCarousel" data-slide-to="1" class=""></li>--%>
+<%--					<li data-target="#myCarousel" data-slide-to="2" class=""></li>--%>
+<%--					<li data-target="#myCarousel" data-slide-to="3" class=""></li>--%>
+<%--				</ol>--%>
+<%--				<div class="carousel-inner" role="listbox">--%>
+<%--					<div class="item active">--%>
+
+<%--						<div class="row">--%>
+<%--							<c:forEach  var="m" begin="0" end="3">--%>
+<%--							<div class="col-md-3 col-sm-3 col-xs-3 slidering">--%>
+<%--								<div class="thumbnail"><a href="${pageContext.request.contextPath}/single?action=detail&id=${other[m].idPro}"><img src="${other[m].img}" alt="Image" style="max-width:100%;"></a></div>--%>
+<%--							</div>--%>
+<%--							</c:forEach>--%>
+
+<%--						</div>--%>
+<%--					</div>--%>
+<%--					<div class="item">--%>
+<%--						<div class="row">--%>
+<%--							<c:forEach  var="m" begin="4" end="7">--%>
+<%--								<div class="col-md-3 col-sm-3 col-xs-3 slidering">--%>
+<%--									<div class="thumbnail"><a href="${pageContext.request.contextPath}/single?action=detail&id=${other[m].idPro}"><img src="${other[m].img}" alt="Image" style="max-width:100%;"></a></div>--%>
+<%--								</div>--%>
+<%--							</c:forEach>--%>
+<%--						</div>--%>
+<%--					</div>--%>
+<%--					<div class="item">--%>
+<%--						<div class="row">--%>
+<%--							<c:forEach  var="m" begin="8" end="11">--%>
+<%--								<div class="col-md-3 col-sm-3 col-xs-3 slidering">--%>
+<%--									<div class="thumbnail"><a href="${pageContext.request.contextPath}/single?action=detail&id=${other[m].idPro}"><img src="${other[m].img}" alt="Image" style="max-width:100%;"></a></div>--%>
+<%--								</div>--%>
+<%--							</c:forEach>--%>
+<%--						</div>--%>
+<%--					</div>--%>
+<%--					<div class="item">--%>
+<%--						<div class="row">--%>
+<%--							<c:forEach  var="m" begin="12" end="15">--%>
+<%--								<div class="col-md-3 col-sm-3 col-xs-3 slidering">--%>
+<%--									<div class="thumbnail"><a href="${pageContext.request.contextPath}/single?action=detail&id=${other[m].idPro}"><img src="${other[m].img}" alt="Image" style="max-width:100%;"></a></div>--%>
+<%--								</div>--%>
+<%--							</c:forEach>--%>
+<%--						</div>--%>
+<%--					</div>--%>
+<%--				</div>--%>
+<%--				<a class="left carousel-control" href="#myCarousel" role="button" data-slide="prev">--%>
+<%--			<span class="fa fa-chevron-left" aria-hidden="true"></span>--%>
+<%--			<span class="sr-only">Previous</span>--%>
+<%--		</a>--%>
+<%--				<a class="right carousel-control" href="#myCarousel" role="button" data-slide="next">--%>
+<%--			<span class="fa fa-chevron-right" aria-hidden="true"></span>--%>
+<%--			<span class="sr-only">Next</span>--%>
+<%--		</a>--%>
+<%--				<!-- The Modal -->--%>
+
+<%--			</div>--%>
+<%--		</div>--%>
+
+<%--		<div class="clearfix"> </div>--%>
+<%--	</div>--%>
 	<div class="mid_slider_w3lsagile">
 		<div class="col-md-3 mid_slider_text">
 			<h5>Mặt Hàng Khác</h5>
@@ -246,59 +313,85 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 			<div id="myCarousel" class="carousel slide" data-ride="carousel">
 				<!-- Indicators -->
 				<ol class="carousel-indicators">
-					<li data-target="#myCarousel" data-slide-to="0" class="active"></li>
-					<li data-target="#myCarousel" data-slide-to="1" class=""></li>
+					<li data-target="#myCarousel" data-slide-to="0" class=""></li>
+					<li data-target="#myCarousel" data-slide-to="1" class="active"></li>
 					<li data-target="#myCarousel" data-slide-to="2" class=""></li>
 					<li data-target="#myCarousel" data-slide-to="3" class=""></li>
 				</ol>
 				<div class="carousel-inner" role="listbox">
-					<div class="item active">
-
+					<div class="item">
 						<div class="row">
-							<c:forEach  var="m" begin="0" end="3">
 							<div class="col-md-3 col-sm-3 col-xs-3 slidering">
-								<div class="thumbnail"><a href="${pageContext.request.contextPath}/single?action=detail&id=${other[m].idPro}"><img src="${other[m].img}" alt="Image" style="max-width:100%;"></a></div>
+								<div class="thumbnail"><a href="single.html"><img src="images/g1.jpg" alt="Image" style="max-width:100%;"></a></div>
 							</div>
-							</c:forEach>
-
+							<div class="col-md-3 col-sm-3 col-xs-3 slidering">
+								<div class="thumbnail"><a href="single.html"><img src="images/g2.jpg" alt="Image" style="max-width:100%;"></a></div>
+							</div>
+							<div class="col-md-3 col-sm-3 col-xs-3 slidering">
+								<div class="thumbnail"><a href="single.html"><img src="images/g3.jpg" alt="Image" style="max-width:100%;"></a></div>
+							</div>
+							<div class="col-md-3 col-sm-3 col-xs-3 slidering">
+								<div class="thumbnail"><a href="single.html"><img src="images/g4.jpg" alt="Image" style="max-width:100%;"></a></div>
+							</div>
+						</div>
+					</div>
+					<div class="item active">
+						<div class="row">
+							<div class="col-md-3 col-sm-3 col-xs-3 slidering">
+								<div class="thumbnail"><a href="single.html"><img src="images/g5.jpg" alt="Image" style="max-width:100%;"></a></div>
+							</div>
+							<div class="col-md-3 col-sm-3 col-xs-3 slidering">
+								<div class="thumbnail"><a href="single.html"><img src="images/g6.jpg" alt="Image" style="max-width:100%;"></a></div>
+							</div>
+							<div class="col-md-3 col-sm-3 col-xs-3 slidering">
+								<div class="thumbnail"><a href="single.html"><img src="images/g2.jpg" alt="Image" style="max-width:100%;"></a></div>
+							</div>
+							<div class="col-md-3 col-sm-3 col-xs-3 slidering">
+								<div class="thumbnail"><a href="single.html"><img src="images/g1.jpg" alt="Image" style="max-width:100%;"></a></div>
+							</div>
 						</div>
 					</div>
 					<div class="item">
 						<div class="row">
-							<c:forEach  var="m" begin="4" end="7">
-								<div class="col-md-3 col-sm-3 col-xs-3 slidering">
-									<div class="thumbnail"><a href="${pageContext.request.contextPath}/single?action=detail&id=${other[m].idPro}"><img src="${other[m].img}" alt="Image" style="max-width:100%;"></a></div>
-								</div>
-							</c:forEach>
+							<div class="col-md-3 col-sm-3 col-xs-3 slidering">
+								<div class="thumbnail"><a href="single.html"><img src="images/g1.jpg" alt="Image" style="max-width:100%;"></a></div>
+							</div>
+							<div class="col-md-3 col-sm-3 col-xs-3 slidering">
+								<div class="thumbnail"><a href="single.html"><img src="images/g2.jpg" alt="Image" style="max-width:100%;"></a></div>
+							</div>
+							<div class="col-md-3 col-sm-3 col-xs-3 slidering">
+								<div class="thumbnail"><a href="single.html"><img src="images/g3.jpg" alt="Image" style="max-width:100%;"></a></div>
+							</div>
+							<div class="col-md-3 col-sm-3 col-xs-3 slidering">
+								<div class="thumbnail"><a href="single.html"><img src="images/g4.jpg" alt="Image" style="max-width:100%;"></a></div>
+							</div>
 						</div>
 					</div>
 					<div class="item">
 						<div class="row">
-							<c:forEach  var="m" begin="8" end="11">
-								<div class="col-md-3 col-sm-3 col-xs-3 slidering">
-									<div class="thumbnail"><a href="${pageContext.request.contextPath}/single?action=detail&id=${other[m].idPro}"><img src="${other[m].img}" alt="Image" style="max-width:100%;"></a></div>
-								</div>
-							</c:forEach>
-						</div>
-					</div>
-					<div class="item">
-						<div class="row">
-							<c:forEach  var="m" begin="12" end="15">
-								<div class="col-md-3 col-sm-3 col-xs-3 slidering">
-									<div class="thumbnail"><a href="${pageContext.request.contextPath}/single?action=detail&id=${other[m].idPro}"><img src="${other[m].img}" alt="Image" style="max-width:100%;"></a></div>
-								</div>
-							</c:forEach>
+							<div class="col-md-3 col-sm-3 col-xs-3 slidering">
+								<div class="thumbnail"><a href="single.html"><img src="images/g5.jpg" alt="Image" style="max-width:100%;"></a></div>
+							</div>
+							<div class="col-md-3 col-sm-3 col-xs-3 slidering">
+								<div class="thumbnail"><a href="single.html"><img src="images/g6.jpg" alt="Image" style="max-width:100%;"></a></div>
+							</div>
+							<div class="col-md-3 col-sm-3 col-xs-3 slidering">
+								<div class="thumbnail"><a href="single.html"><img src="images/g2.jpg" alt="Image" style="max-width:100%;"></a></div>
+							</div>
+							<div class="col-md-3 col-sm-3 col-xs-3 slidering">
+								<div class="thumbnail"><a href="single.html"><img src="images/g1.jpg" alt="Image" style="max-width:100%;"></a></div>
+							</div>
 						</div>
 					</div>
 				</div>
 				<a class="left carousel-control" href="#myCarousel" role="button" data-slide="prev">
-			<span class="fa fa-chevron-left" aria-hidden="true"></span>
-			<span class="sr-only">Previous</span>
-		</a>
+					<span class="fa fa-chevron-left" aria-hidden="true"></span>
+					<span class="sr-only">Previous</span>
+				</a>
 				<a class="right carousel-control" href="#myCarousel" role="button" data-slide="next">
-			<span class="fa fa-chevron-right" aria-hidden="true"></span>
-			<span class="sr-only">Next</span>
-		</a>
+					<span class="fa fa-chevron-right" aria-hidden="true"></span>
+					<span class="sr-only">Next</span>
+				</a>
 				<!-- The Modal -->
 
 			</div>
@@ -306,7 +399,6 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 
 		<div class="clearfix"> </div>
 	</div>
-	
 	<div class="footer_agileinfo_w3">
 		<div class="footer_inner_info_w3ls_agileits">
             <div class="footer_content_in">

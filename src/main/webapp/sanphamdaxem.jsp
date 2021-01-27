@@ -85,16 +85,25 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
             </div>
             <!-- cart details -->
             <div class="top_nav_right">
-                <button class="trigger-overlay" type="submit"><i class="fa fa-user"></i></button>
-                <div class="dropdown_user">
-                    <ul>
-                        <li><a href="${pageContext.request.contextPath}/profile">Thông Tin Cá Nhân</a></li>
-                        <li><a href="donmua.html">Đơn Mua</a></li>
-                        <li><a href="sanphamdaxem.html">Sản Phẩm Đã Xem</a></li>
-                        <li><a href="hdmuahang.html">Hướng Dẫn Mua Hàng</a></li>
-                        <li><a href="${pageContext.request.contextPath}/logout">Đăng Xuất</a></li>
-                    </ul>
-                </div>
+                <c:if test="${sessionScope.auth == null}">
+                    <a href="${pageContext.request.contextPath}/login"><button class="trigger-overlay" type="submit"><i class="fa fa-user"></i></button></a>
+                </c:if>
+                <c:if test="${sessionScope.auth != null}">
+                    <button class="trigger-overlay" type="submit"><i class="fa fa-user"></i></button>
+
+                    <div class="dropdown_user">
+                        <ul>
+                            <c:if test="${sessionScope.auth.loaiTaiKhoan == 'admin'}">
+                                <li><a href="${pageContext.request.contextPath}/admin">Quản Lý Trang Web</a></li>
+                            </c:if>
+                            <li><a href="${pageContext.request.contextPath}/profile">Thông Tin Cá Nhân</a></li>
+                            <li><a href="${pageContext.request.contextPath}/donmua">Đơn Mua</a></li>
+                            <li><a href="${pageContext.request.contextPath}/sanphamdaxem">Sản Phẩm Đã Xem</a></li>
+                            <li><a href="${pageContext.request.contextPath}/hdmuahang">Hướng Dẫn Mua Hàng</a></li>
+                            <li><a href="${pageContext.request.contextPath}/logout">Đăng Xuất</a></li>
+                        </ul>
+                    </div>
+                </c:if>
             </div>
         </div>
     </div>
@@ -107,8 +116,9 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
             </ul>
         </div>
         <div id="cd-search" class="cd-search">
-            <form action="#" method="post">
-                <input name="Search" type="search" placeholder="Tìm kiếm...">
+            <form action="${pageContext.request.contextPath}/load-all-data-search?page=1" method="post">
+                <input name="search"  type="search" placeholder="Tìm kiếm..." >
+                <input type="submit" >
             </form>
         </div>
     </div>
@@ -1273,28 +1283,28 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
     <div class="footer_inner_info_w3ls_agileits">
         <div class="footer_content_in">
             <div class="col-md-3 footer-left">
-                <h2><a href="index.html"><span>DYB</span> Store </a></h2>
+                <h2><a href="${pageContext.request.contextPath}${listMenu[0].link}?action=returns&id=${listMenu[0].id}"><span><c:out value="${infor.splitStr(infor.logo)[0]}"></c:out></span> <c:out value="${infor.splitStr(infor.logo)[1]}"></c:out> </a></h2>
                 <ul class="social-nav model-3d-0 footer-social social two">
                     <li>
-                        <a href="#" class="facebook">
+                        <a href="<c:out value="${infor.fb}"></c:out>" class="facebook">
                             <div class="front"><i class="fa fa-facebook" aria-hidden="true"></i></div>
                             <div class="back"><i class="fa fa-facebook" aria-hidden="true"></i></div>
                         </a>
                     </li>
                     <li>
-                        <a href="#" class="twitter">
+                        <a href="<c:out value="${infor.twi}"></c:out>" class="twitter">
                             <div class="front"><i class="fa fa-twitter" aria-hidden="true"></i></div>
                             <div class="back"><i class="fa fa-twitter" aria-hidden="true"></i></div>
                         </a>
                     </li>
                     <li>
-                        <a href="#" class="instagram">
+                        <a href="<c:out value="${infor.ins}"></c:out>" class="instagram">
                             <div class="front"><i class="fa fa-instagram" aria-hidden="true"></i></div>
                             <div class="back"><i class="fa fa-instagram" aria-hidden="true"></i></div>
                         </a>
                     </li>
                     <li>
-                        <a href="#" class="pinterest">
+                        <a href="<c:out value="${infor.pri}"></c:out>" class="pinterest">
                             <div class="front"><i class="fa fa-linkedin" aria-hidden="true"></i></div>
                             <div class="back"><i class="fa fa-linkedin" aria-hidden="true"></i></div>
                         </a>
@@ -1306,12 +1316,9 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                     <div class="col-md-4 sign-gd">
                         <h4>Thông tin của chúng tôi</h4>
                         <ul>
-                            <li><a href="index.html">Trang Chủ</a></li>
-                            <li><a href="trousersShop.html">Quần</a></li>
-                            <li><a href="shop.html">Áo</a></li>
-                            <li><a href="accessories.html">Phụ Kiện</a></li>
-                            <li><a href="giamgia.html">Giảm Giá</a></li>
-                            <li><a href="contact.html">Liên Hệ</a></li>
+                            <c:forEach items="${listMenu}" var="m">
+                                <li><a href="${pageContext.request.contextPath}${m.link}?action=returns&id=${m.id}">${m.name}</a></li>
+                            </c:forEach>
                         </ul>
                     </div>
 
@@ -1324,7 +1331,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                                 </div>
                                 <div class="address-right">
                                     <h6>Số Điện Thoại</h6>
-                                    <p>+1 234 567 8901</p>
+                                    <p>Email :<a href="mailto"<c:out value="${infor.email}"></c:out>> <c:out value="${infor.email}"></c:out></a></p>
                                 </div>
                                 <div class="clearfix"> </div>
                             </div>
@@ -1334,7 +1341,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                                 </div>
                                 <div class="address-right">
                                     <h6>Địa Chỉ Email</h6>
-                                    <p>Email :<a href="mailto:example@email.com"> mail@example.com</a></p>
+                                    <p> <c:out value="${infor.diaChi}"></c:out></p>
                                 </div>
                                 <div class="clearfix"> </div>
                             </div>
@@ -1344,7 +1351,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                                 </div>
                                 <div class="address-right">
                                     <h6>Địa Chỉ</h6>
-                                    <p> Đại học Nông Lâm, phường Linh Trung, quận Thủ Đức, TP. HCM, Việt Nam.
+                                    <p> <c:out value="${infor.diaChi}"></c:out></p>
 
                                     </p>
                                 </div>
@@ -1354,13 +1361,13 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                     </div>
                     <div class="col-md-3 sign-gd flickr-post">
                         <h4>Chứng nhận</h4>
-                        <img src="images/dathongbao.png" alt="" style="width: 230px;" >
+                        <img src="<c:out value="${infor.imgLogo}"></c:out>" alt="" style="width: 230px;" >
                     </div>
                     <div class="clearfix"></div>
                 </div>
             </div>
             <div class="clearfix"></div>
-            <p class="copy-right-w3ls-agileits">&copy 2020 DYB Store. All rights reserved | Design by <a href="index.html">DYBTeam</a></p>
+            <p class="copy-right-w3ls-agileits"><c:out value="${infor.splitStr(infor.copyRight)[0]}"></c:out> <a><c:out value="${infor.splitStr(infor.copyRight)[1]}"></c:out></a></p>
         </div>
     </div>
 </div>

@@ -83,10 +83,13 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 
 						<div class="dropdown_user">
 							<ul>
+								<c:if test="${sessionScope.auth.loaiTaiKhoan == 'admin'}">
+									<li><a href="${pageContext.request.contextPath}/admin">Quản Lý Trang Web</a></li>
+								</c:if>
 								<li><a href="${pageContext.request.contextPath}/profile">Thông Tin Cá Nhân</a></li>
-								<li><a href="donmua.html">Đơn Mua</a></li>
-								<li><a href="sanphamdaxem.html">Sản Phẩm Đã Xem</a></li>
-								<li><a href="hdmuahang.html">Hướng Dẫn Mua Hàng</a></li>
+								<li><a href="${pageContext.request.contextPath}/donmua">Đơn Mua</a></li>
+								<li><a href="${pageContext.request.contextPath}/sanphamdaxem">Sản Phẩm Đã Xem</a></li>
+								<li><a href="${pageContext.request.contextPath}/hdmuahang">Hướng Dẫn Mua Hàng</a></li>
 								<li><a href="${pageContext.request.contextPath}/logout">Đăng Xuất</a></li>
 							</ul>
 						</div>

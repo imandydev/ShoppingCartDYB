@@ -398,7 +398,12 @@ $(document).ready(function () {
             success: function (data_id, textStatus, jqXHR) {
                 let obj = $.parseJSON(data_id);
                 if (obj == 1) {
-                    swal("Thanh toán thành công !", "Đơn hàng của bạn đang được xử lý!", "success");
+                        swal({
+                            title: 'Thanh toán thành công !',
+                            icon: 'success',
+                            timer: 1000,
+                        });
+
                     // remove tất cả các dòng sản phẩm trong bảng
                     curr.fadeOut('slow', function (c) {
                         curr.remove();

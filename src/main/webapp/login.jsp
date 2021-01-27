@@ -85,8 +85,9 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 				</ul>
 			</div>
 			<div id="cd-search" class="cd-search">
-				<form action="#" method="post">
-					<input name="Search" type="search" placeholder="Tìm kiếm...">
+				<form action="${pageContext.request.contextPath}/load-all-data-search?page=1" method="post">
+					<input name="search"  type="search" placeholder="Tìm kiếm..." >
+					<input type="submit" >
 				</form>
 			</div>
 		</div>
@@ -118,7 +119,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 				<button type="submit" class="buttonx">Đăng Nhập</button>
 				<hr>
                 </form>
-				<a class="qmk" href="forgetpass.html">Quên mật khẩu?</a>
+				<a class="qmk" href="${pageContext.request.contextPath}/DisplayForgetPass">Quên mật khẩu?</a>
 			</div>
 			<div class="formdk">
 				<h1>Đăng Ký</h1>

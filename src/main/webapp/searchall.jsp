@@ -44,7 +44,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 
 <body>
 	<!-- banner -->
-<div class="banner_top innerpage" id="home" style="background: url(${images.img}) no-repeat 0px -221px">
+	<div class="banner_top innerpage" id="home" style="background: url(${images.img}) no-repeat 0px -221px">
 		<div class="wrapper_top_w3layouts">
 			<div class="header_agileits">
 				<div class="logo inner_page_log">
@@ -53,25 +53,22 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 				<!-- menu moi1 -->
 				<div class="header_menu">
 					<ul class="nav justify-content-center">
-
 						<c:forEach items="${listMenu}" var="m" varStatus="loop">
 
 							<li class="nav-item">
 
-									<a class="nav-link" href="${pageContext.request.contextPath}${m.link}?action=returns&id=${m.id}&page=1">${m.name}</a>
+
+								<a class="nav-link" href="${pageContext.request.contextPath}${m.link}?action=returns&id=${m.id}&page=1">${m.name}</a>
 
 							</li>
 						</c:forEach>
 					</ul>
-			</div>
-
-
-
-
+				</div>
+				<!-- sủa khúc này -->
 				<div class="mobile-nav-button">
 					<div class="shoecart shoecart2 cart cart box_1">
-							<a href="${pageContext.request.contextPath}/checkout?action=cart"><button class="top_shoe_cart" type="submit" name="submit" value=""><i
-									class="fa fa-cart-arrow-down" aria-hidden="true"></i></button></a>
+						<a href="${pageContext.request.contextPath}/checkout?action=cart"><button class="top_shoe_cart" type="submit" name="submit" value=""><i
+								class="fa fa-cart-arrow-down" aria-hidden="true"></i></button></a>
 					</div>
 				</div>
 				<!-- cart details -->
@@ -88,9 +85,9 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 									<li><a href="${pageContext.request.contextPath}/admin">Quản Lý Trang Web</a></li>
 								</c:if>
 								<li><a href="${pageContext.request.contextPath}/profile">Thông Tin Cá Nhân</a></li>
-								<li><a href="donmua.html">Đơn Mua</a></li>
-								<li><a href="sanphamdaxem.html">Sản Phẩm Đã Xem</a></li>
-								<li><a href="hdmuahang.html">Hướng Dẫn Mua Hàng</a></li>
+								<li><a href="${pageContext.request.contextPath}/donmua">Đơn Mua</a></li>
+								<li><a href="${pageContext.request.contextPath}/sanphamdaxem">Sản Phẩm Đã Xem</a></li>
+								<li><a href="${pageContext.request.contextPath}/hdmuahang">Hướng Dẫn Mua Hàng</a></li>
 								<li><a href="${pageContext.request.contextPath}/logout">Đăng Xuất</a></li>
 							</ul>
 						</div>
@@ -98,13 +95,30 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 				</div>
 			</div>
 		</div>
-
+		<!-- //cart details -->
+		<!-- search -->
+		<div class="search_w3ls_agileinfo">
+			<div class="cd-main-header">
+				<ul class="cd-header-buttons">
+					<li><a class="cd-search-trigger" href="#cd-search"> <span></span></a></li>
+				</ul>
+			</div>
+			<div id="cd-search" class="cd-search">
+				<form action="${pageContext.request.contextPath}/load-all-data-search?page=1" method="post">
+					<input name="search"  type="search" placeholder="Tìm kiếm..." >
+					<input type="submit" >
+				</form>
+			</div>
+		</div>
+		<!-- //search -->
+		<div class="clearfix"></div>
+		<!-- /banner_inner -->
 		<div class="services-breadcrumb_w3ls_agileinfo">
 			<div class="inner_breadcrumb_agileits_w3">
 
 				<ul class="short">
-					<li >Trang Chủ<i>|</i></li>
-					<li >Tìm kiếm</li>
+					<li>Trang Chủ<i>|</i></li>
+					<li>${menuSingle.name}</li>
 				</ul>
 			</div>
 		</div>
@@ -118,7 +132,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 			<!-- tittle heading -->
 
 			<!-- product right -->
-			<div style="margin: auto" class="left-ads-display col-md-9">
+			<div style="margin-left: 14%;margin-right: 14%" class="left-ads-display col-md-9">
 				<div class="wrapper_top_shop">
 
 					<div class="clearfix"></div>

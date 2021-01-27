@@ -14,6 +14,8 @@ import java.io.IOException;
 import java.text.DecimalFormat;
 import java.util.List;
 
+import static Servlet.ListProduct.sizeProIn1Page;
+
 @WebServlet(urlPatterns = "/search")
 public class Search extends HttpServlet {
     private List<Menu> valuesMenu = new MenuEmpty().getAllMenu();
@@ -126,18 +128,21 @@ public class Search extends HttpServlet {
     protected void doGetPageSup(HttpServletRequest request, HttpServletResponse response, List<Product> list) throws ServletException, IOException {
         int pageNumber = Integer.parseInt(request.getParameter("page"));
         int pageStart = 0;
-        int pageEnd =  pageNumber * ListProduct.sizeProIn1Page;
+        int pageEnd =  pageNumber * sizeProIn1Page;
         if (list.size() < pageEnd) {
-            pageStart = (pageNumber - 1) * ListProduct.sizeProIn1Page;
+            pageStart = (pageNumber - 1) * sizeProIn1Page;
             pageEnd = list.size();
+        }else{
+            pageStart = (pageNumber - 1) * sizeProIn1Page;
+            pageEnd = (pageNumber ) * sizeProIn1Page;;
         }
         // lấy sản phẩm theo phân trang
         List<Product> listPro = new ProductEmpty().getAllProductByPage(list, pageStart, pageEnd);
-        if (list.size()%ListProduct.sizeProIn1Page == 0)
+        if (list.size()% sizeProIn1Page == 0)
             // số lượng phân trang
-            request.setAttribute("pageNumber",list.size()/ListProduct.sizeProIn1Page);
+            request.setAttribute("pageNumber",list.size()/ sizeProIn1Page);
         else
-            request.setAttribute("pageNumber",(list.size()/ListProduct.sizeProIn1Page) + 1);
+            request.setAttribute("pageNumber",(list.size()/ sizeProIn1Page) + 1);
         request.setAttribute("listPro", listPro);
         request.setAttribute("pageStart", pageNumber);
         doGetSupport(request,response);

@@ -7,6 +7,7 @@ import beans.User;
 import com.google.gson.Gson;
 import empty.CartDetail;
 import empty.CartEmpty;
+import empty.DetailProductEmpty;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -40,10 +41,18 @@ public class Payment extends HttpServlet {
                new CartEmpty().insertCart(user.getId(), ghiChu, idTemp, sum, user.getDiaChi());
                Order order = new CartEmpty().getOrder();
                for (DetailProduct item : cart.getData()) {
-                   if (item.getGiamGia() == 0)
+                   if (item.getGiamGia() == 0) {
                        new CartDetail().insertDetailCart(order.getId(), item.getId(), item.getQuantity(), item.getGia() * item.getQuantity());
-                   else
+                       DetailProduct detail = new DetailProductEmpty().getDetailProductByIdDePro(item.getId());
+                       detail.setSoLuong(detail.getSoLuong() - item.getQuantity());
+                       new DetailProductEmpty().updateDetailProduct(detail);
+                   }
+                   else {
                        new CartDetail().insertDetailCart(order.getId(), item.getId(), item.getQuantity(), item.getGiaGiam() * item.getQuantity());
+                       DetailProduct detail = new DetailProductEmpty().getDetailProductByIdDePro(item.getId());
+                       detail.setSoLuong(detail.getSoLuong() - item.getQuantity());
+                       new DetailProductEmpty().updateDetailProduct(detail);
+                   }
                }
                cart.removeAll();
                cart.commit(session);

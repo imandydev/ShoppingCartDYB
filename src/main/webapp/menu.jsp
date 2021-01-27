@@ -26,18 +26,18 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 <script src="jsadmin/jquery2.0.3.min.js"></script>
 </head>
 <body>
-<%--<%--%>
-<%--    User user = (User)session.getAttribute("auth");--%>
-<%--    if(user == null || !user.accept("admin"))--%>
-<%--        response.sendRedirect("/ProjectFinalTest_war_exploded/listnews?action=returns&id=1&page=1");--%>
-<%--%>--%>
+<%
+    User user = (User)session.getAttribute("auth");
+    if(user == null || !user.accept("admin"))
+        response.sendRedirect("/ProjectFinalTest_war_exploded/listnews?action=returns&id=1&page=1");
+%>
 <section id="container">
 <!--header start-->
 <header class="header fixed-top clearfix">
 <!--logo start-->
 <div class="brand">
 
-    <a href="index.html" class="logo">
+    <a href="${pageContext.request.contextPath}/admin" class="logo">
         DYB Admin
     </a>
     <div class="sidebar-toggle-box">
@@ -96,22 +96,6 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 <div class="top-nav clearfix">
     <!--search & user info start-->
     <ul class="nav pull-right top-menu">
-        <li class="lis_search">
-			<div class="dropdown_1">
-				<div class="default_op">Chọn</div>
-				<ul>
-					<li>Chọn</li>
-					<li>Mã Sản Phẩm</li>
-					<li>Tên Sản Phẩm</li>
-					<li>Ngày Sửa</li>
-					<li>Ngày Thêm</li>
-				</ul>
-			</div>
-			<div class="search_f">
-				<input type="text" name="" id="" class="input_1">
-				<i class="fa fa-search"></i>
-			</div>
-		</li>
         <!-- user login dropdown start-->
         <li class="dropdown">
             <a data-toggle="dropdown" class="dropdown-toggle" href="#">
@@ -120,9 +104,9 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                 <b class="caret"></b>
             </a>
             <ul class="dropdown-menu extended logout">
-                <li><a href="editaccount.html"><i class=" fa fa-suitcase"></i>Cá Nhân</a></li>
-              
-                <li><a href="login.html"><i class="fa fa-key"></i> Đăng Xuất</a></li>
+                <li><a href="${pageContext.request.contextPath}/listnews?action=returns&id=1&page=1"><i class="fa fa-arrow-circle-right"></i>Cửa Hàng</a></li>
+                <li><a href="${pageContext.request.contextPath}/profile"><i class=" fa fa-suitcase"></i>Cá Nhân</a></li>
+                <li><a href="${pageContext.request.contextPath}/logout"><i class="fa fa-key"></i> Đăng Xuất</a></li>
             </ul>
         </li>
         <!-- user login dropdown end -->
@@ -139,7 +123,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
         <div class="leftside-navigation">
             <ul class="sidebar-menu" id="nav-accordion">
                 <li>
-                    <a href="index.html">
+                    <a  href="${pageContext.request.contextPath}/admin">
                         <i class="fa fa-dashboard"></i>
                         <span>Thống Kê</span>
                     </a>
@@ -151,15 +135,14 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                     </a>
                     <ul class="sub">
                         <li><a  href="dstin.html">Tất Cả Tin</a></li>
-                        <li><a  href="themtin.html">Thêm Tin</a></li>
                     </ul>
                 </li>
                 <li >
-                    <a  href="alldonhang.html">
+                    <a href="${pageContext.request.contextPath}/display-order">
                         <i class="fa fa-building"></i>
                         <span>Tất Cả Đơn Hàng</span>
                     </a>
-                   
+
                 </li>
                 <li class="sub-menu">
                     <a href="javascript:;">
@@ -167,38 +150,37 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                         <span>Sản Phẩm</span>
                     </a>
                     <ul class="sub">
-                        <li><a href="allsanpham.html">Tất Cả Sản Phẩm</a></li>
-                        <li><a href="themsp.html">Thêm Sản Phẩm</a></li>
+                        <li><a href="${pageContext.request.contextPath}/list-product-manager">Tất Cả Sản Phẩm</a></li>
+                        <li><a href="${pageContext.request.contextPath}/display-product-add">Thêm Sản Phẩm</a></li>
                     </ul>
                 </li>
-                
+
                 <li class="sub-menu">
                     <a   href="javascript:;">
                         <i class=" fa fa-user"></i>
                         <span>Tài Khoản</span>
                     </a>
                     <ul class="sub">
-                        <li><a  href="dstaikhoan.html">Tất Cả Tài Khoản</a></li>
-                        <li><a href="canhanuser.html">Thêm Tài Khoản</a></li>
+                        <li><a   href="${pageContext.request.contextPath}/load-all-account">Tất Cả Tài Khoản</a></li>
+                        <li><a class="active" href="${pageContext.request.contextPath}/display-account-add">Thêm Tài Khoản</a></li>
                     </ul>
                 </li>
-               
-               
-              
+
+
                 <li>
-                    <a class="active" href="spchinh.html">
+                    <a class="active" href="${pageContext.request.contextPath}/load-data-menu">
                         <i class="fa fa-shopping-bag"></i>
                         <span>Menu</span>
                     </a>
                 </li>
                 <li>
-                    <a href="spphu.html">
+                    <a href="${pageContext.request.contextPath}/load-data-category">
                         <i class="fa fa-shopping-basket"></i>
                         <span>Danh Mục</span>
                     </a>
                 </li>
                 <li>
-                    <a  href="mathangkhac.html">
+                    <a  href="${pageContext.request.contextPath}/display-product-other">
                         <i class="fa fa-suitcase"></i>
                         <span>Mặt Hàng Khác</span>
                     </a>
@@ -210,7 +192,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                     </a>
                     <ul class="sub">
                         <li><a  href="hinhanh.html">Hình Ảnh</a></li>
-                        <li><a  href="thongtin.html">Thông Tin</a></li>
+                        <li><a  href="${pageContext.request.contextPath}/load-data-infor">Thông Tin</a></li>
                     </ul>
                 </li>
                 <li class="sub-menu">
@@ -219,11 +201,10 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                         <span>Mã Giảm Giá </span>
                     </a>
                     <ul class="sub">
-                        <li><a  href="magiamgia.html">Tất Cả Mã Giảm Giá</a></li>
-                        <li><a  href="themmagiamgia.html">Thêm Mã Giảm Giá</a></li>
+                        <li><a  href="${pageContext.request.contextPath}/display-load-discount">Tất Cả Mã Giảm Giá</a></li>
                     </ul>
                 </li>
-            </ul>            </div>
+            </ul>             </div>
         <!-- sidebar menu end-->
     </div>
 </aside>

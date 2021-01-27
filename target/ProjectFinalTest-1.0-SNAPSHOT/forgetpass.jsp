@@ -1,9 +1,7 @@
-<!--
-author: W3layouts
-author URL: http://w3layouts.com
-License: Creative Commons Attribution 3.0 Unported
-License URL: http://creativecommons.org/licenses/by/3.0/
--->
+<%@ page import="beans.User" %>
+<%@ page contentType="text/html; charset=UTF-8" language="java" %>
+<%@ taglib prefix = "c" uri = "http://java.sun.com/jsp/jstl/core" %>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/functions" prefix="fn" %>
 <!DOCTYPE html>
 <html lang="zxx">
 
@@ -41,34 +39,23 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 
 <body>
 	<!-- banner -->
-<div class="banner_top innerpage" id="home">
+	<div class="banner_top innerpage" id="home" style="background: url(${images.img}) no-repeat 0px -221px">
 		<div class="wrapper_top_w3layouts">
 			<div class="header_agileits">
 				<div class="logo inner_page_log">
-					<h1><a class="navbar-brand" href="index.html"><span>DYB</span> <i>Store</i></a></h1>
+					<h1><a class="navbar-brand" href="${pageContext.request.contextPath}${listMenu[0].link}?action=returns&id=${listMenu[0].id}"><span><c:out value="${infor.splitStr(infor.logo)[0]}"></c:out></span> <i><c:out value="${infor.splitStr(infor.logo)[1]}"></c:out></i></a></h1>
 				</div>
 				<!-- menu moi1 -->
 				<div class="header_menu">
 					<ul class="nav justify-content-center">
-						<li class="nav-item">
-						  <a class="nav-link" href="index.html">Trang Chủ</a>
-						</li>
-						<li class="nav-item">
-						  <a class="nav-link" href="shop.html">Áo</a>
-						</li>
-						<li class="nav-item">
-						  <a class="nav-link  " href="trousersShop.html">Quần</a>
-						</li>
-						<li class="nav-item">
-						  <a class="nav-link " href="accessories.html" >Phụ Kiện</a>
-						</li>
-						<li class="nav-item">
-							<a class="nav-link " href="giamgia.html" >Giảm Giá</a>
-						  </li>
-						  <li class="nav-item">
-							<a class="nav-link " href="contact.html" >Liên Hệ</a>
-						  </li>
-					  </ul>
+						<c:forEach items="${listMenu}" var="m" >
+
+							<li class="nav-item">
+
+								<a class="nav-link" href="${pageContext.request.contextPath}${m.link}?action=returns&id=${m.id}&page=1">${m.name}</a>
+							</li>
+						</c:forEach>
+					</ul>
 			</div>
 
 
@@ -79,26 +66,32 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 
 				<div class="mobile-nav-button">
 					<div class="shoecart shoecart2 cart cart box_1">
-						<form action="#" method="post" class="last">
-							<input type="hidden" name="cmd" value="_cart">
-							<input type="hidden" name="display" value="1">
-							<button class="top_shoe_cart" type="submit" name="submit" value=""><i
-									class="fa fa-cart-arrow-down" aria-hidden="true"></i></button>
-						</form>
+						<a href="${pageContext.request.contextPath}/checkout?action=cart"><button class="top_shoe_cart" type="submit" name="submit" value=""><i
+								class="fa fa-cart-arrow-down" aria-hidden="true"></i></button></a>
 					</div>
 				</div>
 				<!-- cart details -->
 				<div class="top_nav_right">
-					<button id="trigger-overlay" type="button"><i class="fa fa-user"></i></button>
-					<div class="dropdown_user">
-						<ul>
-							<li><a href="profile.html">Thông Tin Cá Nhân</a></li>
-							<li><a href="donmua.html">Đơn Mua</a></li>
-							<li><a href="sanphamdaxem.html">Sản Phẩm Đã Xem</a></li>
-							<li><a href="hdmuahang.html">Hướng Dẫn Mua Hàng</a></li>
-							<li><a href="login.html">Đăng Xuất</a></li>
-						</ul>
-					</div>
+
+					<c:if test="${sessionScope.auth == null}">
+						<a href="${pageContext.request.contextPath}/login"><button class="trigger-overlay" type="submit"><i class="fa fa-user"></i></button></a>
+					</c:if>
+					<c:if test="${sessionScope.auth != null}">
+						<button class="trigger-overlay" type="submit"><i class="fa fa-user"></i></button>
+
+						<div class="dropdown_user">
+							<ul>
+								<c:if test="${sessionScope.auth.loaiTaiKhoan == 'admin'}">
+									<li><a href="${pageContext.request.contextPath}/admin">Quản Lý Trang Web</a></li>
+								</c:if>
+								<li><a href="${pageContext.request.contextPath}/profile">Thông Tin Cá Nhân</a></li>
+								<li><a href="${pageContext.request.contextPath}/donmua">Đơn Mua</a></li>
+								<li><a href="${pageContext.request.contextPath}/sanphamdaxem">Sản Phẩm Đã Xem</a></li>
+								<li><a href="${pageContext.request.contextPath}/hdmuahang">Hướng Dẫn Mua Hàng</a></li>
+								<li><a href="${pageContext.request.contextPath}/logout">Đăng Xuất</a></li>
+							</ul>
+						</div>
+					</c:if>
 				</div>
 			</div>
 		</div>
@@ -111,8 +104,9 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 				</ul>
 			</div>
 			<div id="cd-search" class="cd-search">
-				<form action="#" method="post">
-					<input name="Search" type="search" placeholder="Tìm kiếm...">
+				<form action="${pageContext.request.contextPath}/load-all-data-search?page=1" method="post">
+					<input name="search"  type="search" placeholder="Tìm kiếm..." >
+					<input type="submit" >
 				</form>
 			</div>
 		</div>
@@ -141,13 +135,14 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 				<div class="responsive_tabs">
 					<div id="horizontalTab">
                         <p class="forget">Nếu bạn quên mật khẩu, vui lòng nhập địa chỉ email đã đăng ký của bạn. Chúng tôi sẽ gửi cho bạn một liên kết để đặt lại mật khẩu.</p>
-                        <div class="in">
-                            <input type="text">
+                        <form id="get-email" action="#">
+						<div class="in">
+                            <input class="input-email" name="email" type="email">
                         </div>
                         <div class="btn-forgetpass">
-                            <button class="btn-huy btn-pass">HỦY</button>
-                            <button class="btn-tieptuc btn-pass">TIẾP TỤC</button>
+                            <button type="submit" class="btn-tieptuc btn-pass">TIẾP TỤC</button>
                         </div>
+						</form>
 					</div>
 				</div>
 				<!--//tabs-->
@@ -347,10 +342,10 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 			});
 		});
 	</script>
-	<!-- //end-smoth-scrolling -->
 	<script type="text/javascript" src="js/bootstrap-3.1.1.min.js"></script>
-
-
+	<script src="jsadmin_ajax/QuenMatKhau/QuenPass.js"></script>
+	<%--	sweetalert--%>
+	<script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
 </body>
 
 </html>

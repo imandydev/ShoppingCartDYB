@@ -81,10 +81,9 @@ $(document).ready(function () {
                         icon: 'success',
                         showConfirmButton: false,
                         allowOutsideClick: false,
-                    }).then(okay => {
-                        if (okay) {
-                            window.location.href = "/ProjectFinalTest_war_exploded/display-order";
-                        }
+                        timer: 1000,
+                    }).then(function() {
+                        location.reload();
                     });
                 }else
                     swal("Chỉnh sửa thất bại !", "", "error");

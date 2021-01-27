@@ -65,6 +65,7 @@ public class UserEmpty {
         boolean checkUpdate = false;
         // nếu email trước và sau trùng nhau thì k kiểm tra trùng email trong csdl
         if (!emailbf.equals(user.getEmail()))
+
             checkUpdate = checkEmptyUsername("",user.getEmail());
         // nếu không tìm thấy email trùng thì insert
         if (!checkUpdate) {
@@ -224,6 +225,82 @@ public class UserEmpty {
             s.setInt(1,idUser);
             s.executeUpdate();
             s.close();
+            return true;
+        } catch (ClassNotFoundException | SQLException e) {
+            e.printStackTrace();
+            return false;
+        }
+    }
+    public boolean checkEmailEmpty(String email) {
+        PreparedStatement s = null;
+        try {
+            String sql = "select * from user where email = ? ";
+            s = ConnectionDB.connection(sql);
+            s.setString(1,email);
+            ResultSet rs = s.executeQuery();
+            if (rs.next())
+                return true;
+            rs.close();
+            s.close();
+            return false;
+        } catch (ClassNotFoundException | SQLException e) {
+            e.printStackTrace();
+            return false;
+        }
+    }
+    public boolean checkKeyEmpty(String key) {
+        PreparedStatement s = null;
+        try {
+            String sql = "select * from user where key_check = ? ";
+            s = ConnectionDB.connection(sql);
+            s.setString(1,key);
+            ResultSet rs = s.executeQuery();
+            if (rs.next())
+                return true;
+            rs.close();
+            s.close();
+            return false;
+        } catch (ClassNotFoundException | SQLException e) {
+            e.printStackTrace();
+            return false;
+        }
+    }
+    public boolean updateKeyAfterCheck(String key) {
+        PreparedStatement s = null;
+        try {
+            String sql = "update user set key_check = null where key_check = ?";
+            s = ConnectionDB.connection(sql);
+            s.setString(1, key);
+            s.executeUpdate();
+            return true;
+        } catch (ClassNotFoundException | SQLException e) {
+            e.printStackTrace();
+            return false;
+        }
+    }
+    public boolean updateKey(String key, String email) {
+        PreparedStatement s = null;
+            try {
+                String sql = "update user set key_check = ? where email = ?";
+                s = ConnectionDB.connection(sql);
+                s.setString(1, key);
+                s.setString(2, email);
+                s.executeUpdate();
+                return true;
+            } catch (ClassNotFoundException | SQLException e) {
+                e.printStackTrace();
+                return false;
+            }
+    }
+    public boolean updatePassForget(String mail, String newPass) throws UnsupportedEncodingException, NoSuchAlgorithmException {
+        String passEncode = PasswordEncode.passwordSHA512(newPass);
+        PreparedStatement s = null;
+        try {
+            String sql = "update user set pass = ? where email = ?";
+            s = ConnectionDB.connection(sql);
+            s.setString(1, passEncode);
+            s.setString(2, mail);
+            s.executeUpdate();
             return true;
         } catch (ClassNotFoundException | SQLException e) {
             e.printStackTrace();

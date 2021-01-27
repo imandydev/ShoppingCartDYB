@@ -45,6 +45,9 @@ public class ListProduct extends HttpServlet {
         if (list.size() < pageEnd) {
             pageStart = (pageNumber - 1) * sizeProIn1Page;
             pageEnd = list.size();
+        } else{
+            pageStart = (pageNumber - 1) * sizeProIn1Page;
+            pageEnd = (pageNumber ) * sizeProIn1Page;;
         }
         // lấy sản phẩm theo phân trang
         List<Product> listPro = new ProductEmpty().getAllProductByPage(list, pageStart, pageEnd);
